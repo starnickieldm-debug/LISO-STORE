@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { threeGestures, brandConfig } from '../../config/siteContent';
 import { SectionHeader } from '../ui/SectionHeader';
 import { useInView } from '../../hooks/useInView';
@@ -8,6 +8,33 @@ import { Droplet, Power, Sparkles } from 'lucide-react';
 export const ThreeGesturesSection: React.FC = () => {
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.1, rootMargin: '0px 0px -50px 0px', triggerOnce: true });
   const prefersReduced = useReducedMotion();
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollToStep = (stepIndex: number) => {
+    setActiveStep(stepIndex);
+    if (carouselRef.current) {
+      const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
+      if (items[stepIndex]) {
+        (items[stepIndex] as HTMLElement).scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
+  };
+
+  const handleCarouselScroll = () => {
+    if (!carouselRef.current) return;
+    const scrollLeft = carouselRef.current.scrollLeft;
+    const itemWidth = carouselRef.current.clientWidth * 0.85;
+    if (itemWidth > 0) {
+      const currentIdx = Math.round(scrollLeft / itemWidth);
+      const clamped = Math.max(0, Math.min(currentIdx, 2));
+      setActiveStep(clamped);
+    }
+  };
 
   const icons = [
     <Droplet className="w-4 h-4 text-bone/70 group-hover:text-accent transition-colors" />,
@@ -73,8 +100,10 @@ export const ThreeGesturesSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 3 Step Visual Process Grid with Editorial Flow Connectors */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 relative items-stretch">
+        {/* =========================================================================
+            DESKTOP PROCESS GRID (>= 768px) — 100% Unchanged 3-Col Layout
+            ========================================================================= */}
+        <div ref={ref} className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 relative items-stretch">
           {threeGestures.map((item, idx) => (
             <React.Fragment key={item.step}>
               <div
@@ -137,30 +166,121 @@ export const ThreeGesturesSection: React.FC = () => {
                   </div>
                 )}
               </div>
-
-              {/* Subtle Vertical Connector (Mobile only, between stacked cards) */}
-              {idx < 2 && (
-                <div className="md:hidden flex justify-center py-1 text-accent/60" aria-hidden="true">
-                  <div className="flex flex-col items-center">
-                    <div className="w-[1px] h-4 bg-gradient-to-b from-accent/60 to-white/20" />
-                    <div className="w-0 h-0 border-solid border-l-[3.5px] border-r-[3.5px] border-t-[5px] border-l-transparent border-r-transparent border-t-accent/80" />
-                  </div>
-                </div>
-              )}
             </React.Fragment>
           ))}
         </div>
 
+        {/* =========================================================================
+            MOBILE PROCESS CAROUSEL (< 768px) — 100% Native Mobile-First Snap Stage
+            ========================================================================= */}
+        <div className="block md:hidden">
+          
+          {/* Step Pill Navigation Tabs */}
+          <div className="flex items-center justify-between gap-1.5 p-1 bg-white/[0.04] border border-white/10 rounded-xl mb-4">
+            {threeGestures.map((item, idx) => {
+              const isActive = activeStep === idx;
+              return (
+                <button
+                  key={item.step}
+                  type="button"
+                  onClick={() => scrollToStep(idx)}
+                  className={`flex-1 py-2 px-1 text-center rounded-lg font-mono text-[11px] font-bold tracking-wider uppercase transition-all ${
+                    isActive 
+                      ? 'bg-accent text-white shadow-sm' 
+                      : 'text-bone/60 hover:text-bone active:bg-white/5'
+                  }`}
+                >
+                  {item.step} · {idx === 0 ? 'LLENA' : idx === 1 ? 'ENCIENDE' : 'PLANCHA'}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Horizontal Snap-Track */}
+          <div 
+            ref={carouselRef}
+            onScroll={handleCarouselScroll}
+            className="mobile-snap-track gap-3.5 px-4 -mx-4 pb-3 pt-0.5"
+          >
+            {threeGestures.map((item, idx) => (
+              <div
+                key={item.step}
+                className="mobile-snap-item w-[85vw] max-w-[340px] bg-night-950/90 border border-white/15 p-5 rounded-2xl shadow-xl flex flex-col justify-between"
+              >
+                <div>
+                  {/* Step Header */}
+                  <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
+                    <span className="font-mono text-xs font-bold tracking-widest text-accent">
+                      PASO {item.step} DE 03
+                    </span>
+                    <div className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                      {icons[idx]}
+                    </div>
+                  </div>
+
+                  {/* Photo */}
+                  <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-black border border-white/10 mb-3.5 shadow-md">
+                    <picture>
+                      <source srcSet={stepImages[idx].webp} type="image/webp" />
+                      <img 
+                        src={stepImages[idx].jpg} 
+                        alt={stepImages[idx].alt}
+                        className="w-full h-full object-cover object-center"
+                        loading="lazy"
+                      />
+                    </picture>
+                  </div>
+
+                  {/* Copy */}
+                  <div className="space-y-1">
+                    <h3 className="font-display text-xl font-bold text-bone">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm font-medium text-bone/90 leading-snug">
+                      {item.description}
+                    </p>
+                    <p className="text-xs text-bone/60 leading-relaxed pt-0.5">
+                      {item.detail}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Mini Footer Pill */}
+                <div className="mt-4 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-bone/50">
+                  <span>DESLIZA PARA CONTINUAR</span>
+                  <span className="text-accent font-bold">0{idx + 1} / 03</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex items-center justify-center gap-1.5 pt-2 pb-1">
+            {[0, 1, 2].map((dotIdx) => (
+              <button
+                key={dotIdx}
+                type="button"
+                onClick={() => scrollToStep(dotIdx)}
+                aria-label={`Ir al paso ${dotIdx + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeStep === dotIdx ? 'w-6 bg-accent' : 'w-1.5 bg-white/20'
+                }`}
+              />
+            ))}
+          </div>
+
+        </div>
+
         {/* Bottom Process Conclusion (El Resultado del Proceso) */}
-        <div className="mt-12 sm:mt-16 text-center max-w-xl mx-auto">
-          <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] mb-3">
+        <div className="mt-8 sm:mt-16 text-center max-w-xl mx-auto">
+          <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] mb-2.5">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.2em] text-accent font-semibold">
               EL RESULTADO
             </span>
           </div>
 
-          <p className="font-display text-xl sm:text-2xl font-bold text-bone tracking-tight">
+          <p className="font-display text-lg sm:text-2xl font-bold text-bone tracking-tight">
             Entre 2 y 3 minutos por prenda.
           </p>
 
@@ -168,7 +288,7 @@ export const ThreeGesturesSection: React.FC = () => {
             Sin tabla de planchar · Sin accesorios extra
           </p>
 
-          <p className="text-[10px] font-sans text-bone/40 italic pt-2">
+          <p className="text-[10px] font-sans text-bone/40 italic pt-1.5">
             *{brandConfig.labClaimNote}
           </p>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { honestyLabelData, brandConfig } from '../../config/siteContent';
 import { SectionHeader } from '../ui/SectionHeader';
 import { useInView } from '../../hooks/useInView';
@@ -9,6 +9,7 @@ import { Reveal } from '../ui/Reveal';
 export const HonestyLabelSection: React.FC = () => {
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.2 });
   const prefersReduced = useReducedMotion();
+  const [mobileTab, setMobileTab] = useState<'does' | 'doesNot'>('does');
 
   return (
     <section 
@@ -48,8 +49,10 @@ export const HonestyLabelSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Two-Column Matrix: HACE vs NO HACE */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pb-8 border-b-2 border-graphite">
+            {/* =========================================================================
+                DESKTOP TWO-COLUMN MATRIX (>= 768px) — 100% Unchanged
+                ========================================================================= */}
+            <div className="hidden md:grid grid-cols-2 gap-8 lg:gap-12 pb-8 border-b-2 border-graphite">
               
               {/* COL 1: QUÉ HACE */}
               <div className="space-y-4">
@@ -116,6 +119,66 @@ export const HonestyLabelSection: React.FC = () => {
                   ))}
                 </ul>
               </div>
+
+            </div>
+
+            {/* =========================================================================
+                MOBILE SEGMENTED CONTROL (< 768px) — 100% Native Mobile App Experience
+                ========================================================================= */}
+            <div className="block md:hidden pb-6 border-b-2 border-graphite">
+              
+              {/* Segmented Tab Switcher */}
+              <div className="flex items-center gap-1.5 p-1 bg-graphite/5 border border-graphite/20 rounded-xl mb-4">
+                <button
+                  type="button"
+                  onClick={() => setMobileTab('does')}
+                  className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all ${
+                    mobileTab === 'does'
+                      ? 'bg-graphite text-white shadow-sm'
+                      : 'text-graphite/60 hover:text-graphite active:bg-graphite/10'
+                  }`}
+                >
+                  Lo que hace mejor ({honestyLabelData.does.length})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMobileTab('doesNot')}
+                  className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all ${
+                    mobileTab === 'doesNot'
+                      ? 'bg-graphite text-white shadow-sm'
+                      : 'text-graphite/60 hover:text-graphite active:bg-graphite/10'
+                  }`}
+                >
+                  Para lo que no es ({honestyLabelData.doesNot.length})
+                </button>
+              </div>
+
+              {/* Active Tab List */}
+              {mobileTab === 'does' ? (
+                <ul className="space-y-3 pt-1 animate-fadeIn">
+                  {honestyLabelData.does.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-graphite leading-relaxed">
+                      <Check className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5 stroke-[2.5]" />
+                      <div className="space-y-0.5">
+                        <p className="font-bold text-graphite leading-snug">{item.title}</p>
+                        <p className="text-graphite/75 text-[11px] sm:text-xs leading-relaxed">{item.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="space-y-3 pt-1 animate-fadeIn">
+                  {honestyLabelData.doesNot.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-graphite leading-relaxed">
+                      <X className="w-4 h-4 text-accent flex-shrink-0 mt-0.5 stroke-[2.5]" />
+                      <div className="space-y-0.5">
+                        <p className="font-bold text-graphite leading-snug">{item.title}</p>
+                        <p className="text-graphite/75 text-[11px] sm:text-xs leading-relaxed">{item.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
             </div>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { comparisonRows, brandConfig } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { SectionHeader } from '../ui/SectionHeader';
@@ -9,6 +9,7 @@ import { Reveal } from '../ui/Reveal';
 export const ComparisonSection: React.FC = () => {
   const { currentMarket } = useMarket();
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.2 });
+  const [compareTarget, setCompareTarget] = useState<'traditional' | 'steamer'>('traditional');
 
   return (
     <section 
@@ -33,8 +34,10 @@ export const ComparisonSection: React.FC = () => {
           theme="dark"
         />
 
-        {/* Responsive Table Wrapper with Horizontal Scroll & Sticky First Column */}
-        <Reveal direction="up" duration={700}>
+        {/* =========================================================================
+            DESKTOP TABLE (>= 768px) — 100% Unchanged Full 4-Column Table
+            ========================================================================= */}
+        <Reveal direction="up" duration={700} className="hidden md:block">
           <div ref={ref} className="relative border border-night-700 bg-night-950/80 shadow-studio-hard-dark overflow-hidden">
             
             <div className="overflow-x-auto horizontal-scroll-touch overscroll-x-contain">
@@ -105,12 +108,93 @@ export const ComparisonSection: React.FC = () => {
 
             {/* Table Footer Note */}
             <div className="p-3 bg-night-900/90 border-t border-night-700 text-[11px] font-sans font-medium text-bone/50 flex items-center justify-between">
-              <span>*Desliza horizontalmente en móvil para ver todas las columnas</span>
+              <span>*Comparativa basada en especificaciones estándar de mercado</span>
               <span className="font-mono text-[10px]">{brandConfig.labClaimNote}</span>
             </div>
 
           </div>
         </Reveal>
+
+        {/* =========================================================================
+            MOBILE FACE-TO-FACE COMPARISON (< 768px) — 100% Native Mobile Experience
+            ========================================================================= */}
+        <div className="block md:hidden">
+          
+          {/* Competitor Selector Pills */}
+          <div className="space-y-2 mb-4">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-bone/50 font-semibold block text-center">
+              COMPARA DIRECTAMENTE CONTRA:
+            </span>
+            <div className="flex items-center gap-1.5 p-1 bg-white/[0.04] border border-white/10 rounded-xl">
+              <button
+                type="button"
+                onClick={() => setCompareTarget('traditional')}
+                className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all ${
+                  compareTarget === 'traditional'
+                    ? 'bg-accent text-white shadow-sm'
+                    : 'text-bone/60 hover:text-bone active:bg-white/5'
+                }`}
+              >
+                Plancha + Tabla
+              </button>
+              <button
+                type="button"
+                onClick={() => setCompareTarget('steamer')}
+                className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all ${
+                  compareTarget === 'steamer'
+                    ? 'bg-accent text-white shadow-sm'
+                    : 'text-bone/60 hover:text-bone active:bg-white/5'
+                }`}
+              >
+                Vaporizador Barato
+              </button>
+            </div>
+          </div>
+
+          {/* Direct 1-on-1 Feature Cards */}
+          <div className="space-y-3">
+            {comparisonRows.map((row, idx) => (
+              <div 
+                key={row.feature}
+                className="p-3.5 bg-night-950/90 rounded-xl border border-white/10 shadow-md space-y-2.5"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-accent font-bold">
+                    0{idx + 1} · {row.feature}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-xs font-sans">
+                  {/* LISO Column */}
+                  <div className="bg-accent/15 border border-accent/30 p-2.5 rounded-lg space-y-1">
+                    <div className="flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      <span className="font-bold text-bone text-[11px] tracking-wide">LISO</span>
+                    </div>
+                    <p className="text-bone font-medium text-[12px] leading-snug">
+                      {row.liso}
+                    </p>
+                  </div>
+
+                  {/* Competitor Column */}
+                  <div className="bg-white/[0.03] border border-white/[0.08] p-2.5 rounded-lg space-y-1">
+                    <span className="text-bone/50 text-[10px] font-semibold uppercase tracking-wider block truncate">
+                      {compareTarget === 'traditional' ? 'Plancha tradicional' : 'Vaporizador'}
+                    </span>
+                    <p className="text-bone/65 text-[12px] leading-snug">
+                      {compareTarget === 'traditional' ? row.traditionalIron : row.cheapSteamer}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[10px] font-sans text-bone/40 italic text-center pt-3">
+            {brandConfig.labClaimNote}
+          </p>
+
+        </div>
 
         {/* Honest concluding statement & CTA */}
         <Reveal direction="up" delay={150} duration={650}>

@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { lifestyleScenes } from '../../config/siteContent';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Reveal } from '../ui/Reveal';
 
+const sceneImages = [
+  { webp: "/images/escena-01-camisa.webp", jpg: "/images/escena-01-camisa.jpg", alt: "Camisa de oficina colgada siendo alisada a vapor con LISO" },
+  { webp: "/images/escena-02-vestido.webp", jpg: "/images/escena-02-vestido.jpg", alt: "Vestido verde de satén vaporizado en percha con LISO" },
+  { webp: "/images/escena-03-cortina.webp", jpg: "/images/escena-03-cortina.jpg", alt: "Cortina blanca vaporizada directamente en vertical con LISO" },
+  { webp: "/images/escena-04-maleta.webp", jpg: "/images/escena-04-maleta.jpg", alt: "Plancha de viaje LISO empacada en maleta y bolso de mano" },
+  { webp: "/images/escena-05-dock.webp", jpg: "/images/escena-05-dock.jpg", alt: "LISO descansando en su base dock sobre superficie de mármol en el baño" },
+];
+
 export const LifestyleScenesSection: React.FC = () => {
+  const [activeScene, setActiveScene] = useState<number>(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const handleCarouselScroll = () => {
+    if (!carouselRef.current) return;
+    const { scrollLeft, clientWidth } = carouselRef.current;
+    if (clientWidth === 0) return;
+    const index = Math.round(scrollLeft / (clientWidth * 0.85));
+    const clamped = Math.max(0, Math.min(lifestyleScenes.length - 1, index));
+    setActiveScene(clamped);
+  };
+
+  const scrollToScene = (index: number) => {
+    if (!carouselRef.current) return;
+    const targetChild = carouselRef.current.children[index] as HTMLElement | undefined;
+    if (targetChild) {
+      targetChild.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+    setActiveScene(index);
+  };
+
   return (
     <section 
       className="py-20 sm:py-28 bg-night-950 text-bone border-b border-night-700 relative overflow-hidden bg-macro-fabric"
@@ -28,8 +57,10 @@ export const LifestyleScenesSection: React.FC = () => {
           theme="dark"
         />
 
-        {/* Editorial Grid: Asymmetrical layout with warm rim-light */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
+        {/* =========================================================================
+            DESKTOP EDITORIAL GRID (>= 768px) — 100% Unchanged Asymmetrical Layout
+            ========================================================================= */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
           
           {/* Scene 01: Camisa de oficina (Large feature 7 cols) */}
           <Reveal direction="up" delay={0} duration={700} className="lg:col-span-7 space-y-3 sm:space-y-4 group hover-lift">
@@ -145,6 +176,109 @@ export const LifestyleScenesSection: React.FC = () => {
               </p>
             </div>
           </Reveal>
+
+        </div>
+
+        {/* =========================================================================
+            MOBILE STORY REEL (< 768px) — 100% Native Mobile-First Snap Carousel
+            ========================================================================= */}
+        <div className="block md:hidden">
+          
+          {/* Situation Pills Switcher */}
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2 mb-3 px-1 -mx-1">
+            {lifestyleScenes.map((scene, idx) => {
+              const isActive = activeScene === idx;
+              return (
+                <button
+                  key={scene.id}
+                  type="button"
+                  onClick={() => scrollToScene(idx)}
+                  className={`flex-shrink-0 px-3 py-1.5 rounded-full font-mono text-[10px] font-bold tracking-wider uppercase transition-all ${
+                    isActive 
+                      ? 'bg-accent text-white shadow-sm ring-1 ring-accent' 
+                      : 'bg-white/[0.05] border border-white/10 text-bone/60 hover:text-bone active:bg-white/10'
+                  }`}
+                >
+                  {scene.number} · {scene.title.split(' ')[0]}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Horizontal Snap-Track */}
+          <div 
+            ref={carouselRef}
+            onScroll={handleCarouselScroll}
+            className="mobile-snap-track gap-3.5 px-4 -mx-4 pb-3 pt-0.5"
+          >
+            {lifestyleScenes.map((scene, idx) => (
+              <div
+                key={scene.id}
+                className="mobile-snap-item w-[85vw] max-w-[340px] bg-night-900/95 border border-white/15 p-4 rounded-2xl shadow-xl flex flex-col justify-between"
+              >
+                <div>
+                  {/* Slide Top Metadata */}
+                  <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-white/10">
+                    <span className="font-mono text-[11px] font-bold tracking-wider text-accent uppercase">
+                      ESCENA {scene.number} · {scene.title}
+                    </span>
+                    <span className="font-mono text-[11px] text-bone/50 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
+                      {idx + 1} / {lifestyleScenes.length}
+                    </span>
+                  </div>
+
+                  {/* High Quality Photograph */}
+                  <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-night-950 border border-white/10 mb-3 shadow-md">
+                    <picture>
+                      <source srcSet={sceneImages[idx].webp} type="image/webp" />
+                      <img 
+                        src={sceneImages[idx].jpg} 
+                        alt={sceneImages[idx].alt}
+                        className="w-full h-full object-cover object-center"
+                        loading="lazy"
+                      />
+                    </picture>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Caption & Context */}
+                  <div className="space-y-1">
+                    <h3 className="font-display text-base font-bold text-bone leading-snug">
+                      {scene.caption}
+                    </h3>
+                    <p className="text-xs text-bone/70 leading-relaxed font-normal">
+                      {scene.context}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Micro Swipe Cue on first slide */}
+                {idx === 0 && (
+                  <div className="mt-3 pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-bone/50">
+                    <span>DESLIZA PARA VER MÁS ESCENAS</span>
+                    <span>→</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex items-center justify-center gap-1.5 mt-3">
+            {lifestyleScenes.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => scrollToScene(idx)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeScene === idx 
+                    ? 'w-6 bg-accent' 
+                    : 'w-1.5 bg-white/20 hover:bg-white/40'
+                }`}
+                aria-label={`Ir a escena ${idx + 1}`}
+              />
+            ))}
+          </div>
 
         </div>
 

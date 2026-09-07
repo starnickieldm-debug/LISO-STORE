@@ -493,3 +493,22 @@
     transform: none !important;
   }
 }
+
+/* ==========================================================================
+   MOBILE-FIRST SNAP TRACK & APP UTILITIES
+   ========================================================================== */
+.mobile-snap-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.mobile-snap-track::-webkit-scrollbar {
+  display: none;
+}
+.mobile-snap-item {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
