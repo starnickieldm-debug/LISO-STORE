@@ -24,10 +24,6 @@ export const BenefitEvidenceSection: React.FC = () => {
         
         {/* Section Header: Connected entry to the 3-moment narrative */}
         <div className="max-w-3xl mb-8 sm:mb-14 lg:mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] sm:text-[11px] font-mono font-medium uppercase tracking-[0.18em] text-accent">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <span>NARRATIVA EN 3 MOMENTOS</span>
-          </div>
           <h2 className="font-display text-2xl sm:text-4xl lg:text-[2.65rem] font-bold text-bone tracking-tight leading-[1.15]">
             Menos vueltas para tener tu ropa lista.
           </h2>
@@ -50,11 +46,11 @@ export const BenefitEvidenceSection: React.FC = () => {
               className="lg:col-span-5 xl:col-span-5 order-1 lg:order-1 space-y-4"
             >
               <div className="flex flex-wrap items-center gap-2.5">
-                <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase">
+                <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase">
                   01 · CONECTAR
                 </span>
                 <span className="text-white/20">|</span>
-                <span className="text-[11px] font-mono tracking-wider text-bone/50 uppercase">
+                <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase">
                   1200 W · 3 s* · 150 °C
                 </span>
               </div>
@@ -80,7 +76,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* Columna Visual Dominante: Comparador Interactivo */}
             <Reveal 
               direction="right" 
-              delay={100}
+              delay={100} 
               duration={700}
               className="lg:col-span-7 xl:col-span-7 order-2 lg:order-2"
             >
@@ -116,11 +112,6 @@ export const BenefitEvidenceSection: React.FC = () => {
                   className="w-full h-full object-cover object-center group-hover:scale-104 transition-transform duration-500 ease-mech-s"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-bone/70 bg-black/60 backdrop-blur-md px-3 py-1.5 border border-white/10 rounded-md">
-                  <span>CONTROL TÉRMICO DIGITAL</span>
-                  <span className="text-accent font-bold">150 °C MAX</span>
-                </div>
               </div>
             </Reveal>
 
@@ -131,11 +122,11 @@ export const BenefitEvidenceSection: React.FC = () => {
               className="lg:col-span-7 xl:col-span-7 order-1 lg:order-2 space-y-4"
             >
               <div className="flex flex-wrap items-center gap-2.5">
-                <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase">
+                <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase">
                   02 · CONTROLAR
                 </span>
                 <span className="text-white/20">|</span>
-                <span className="text-[11px] font-mono tracking-wider text-bone/50 uppercase">
+                <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase">
                   2 NIVELES DE VAPOR · MODO SECO
                 </span>
               </div>
@@ -177,11 +168,11 @@ export const BenefitEvidenceSection: React.FC = () => {
               className="lg:col-span-5 xl:col-span-5 order-1 lg:order-1 space-y-4"
             >
               <div className="flex flex-wrap items-center gap-2.5">
-                <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase">
+                <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase">
                   03 · GUARDAR
                 </span>
                 <span className="text-white/20">|</span>
-                <span className="text-[11px] font-mono tracking-wider text-bone/50 uppercase">
+                <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase">
                   100 ML ≈ 5 MIN ≈ 2–3 PRENDAS
                 </span>
               </div>
@@ -241,7 +232,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 key={moment.idx}
                 type="button"
                 onClick={() => setActiveMoment(moment.idx)}
-                className={`flex-1 py-2 px-1 text-center rounded-lg font-mono text-[10.5px] xs:text-[11px] font-bold tracking-wider uppercase transition-all active:scale-95 ${
+                className={`flex-1 py-2 px-1 text-center rounded-lg font-sans text-[10.5px] xs:text-[11px] font-bold tracking-wider uppercase transition-all active:scale-95 ${
                   activeMoment === moment.idx
                     ? 'bg-accent text-white shadow-sm'
                     : 'text-bone/60 hover:text-bone active:bg-white/5'
@@ -258,7 +249,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* Moment 01: Conectar */}
             {activeMoment === 0 && (
               <div className="space-y-3.5 animate-fadeIn">
-                <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px] font-mono">
+                <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px] font-sans font-medium">
                   <span className="text-accent font-bold uppercase tracking-wider">01 · CONECTAR</span>
                   <span className="text-bone/50 uppercase">1200 W · 3 s* · 150 °C</span>
                 </div>
@@ -295,7 +286,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* Moment 02: Controlar */}
             {activeMoment === 1 && (
               <div className="space-y-3.5 animate-fadeIn">
-                <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px] font-mono">
+                <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px] font-sans font-medium">
                   <span className="text-accent font-bold uppercase tracking-wider">02 · CONTROLAR</span>
                   <span className="text-bone/50 uppercase">2 NIVELES · MODO SECO</span>
                 </div>
@@ -317,11 +308,6 @@ export const BenefitEvidenceSection: React.FC = () => {
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-[11px] font-mono text-bone/80 bg-black/75 backdrop-blur-md px-3 py-1.5 border border-white/10 rounded-md">
-                    <span>CONTROL TÉRMICO DIGITAL</span>
-                    <span className="text-accent font-bold">150 °C MAX</span>
-                  </div>
                 </div>
 
                 {/* 2 Mode Subcards */}
@@ -341,7 +327,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* Moment 03: Guardar */}
             {activeMoment === 2 && (
               <div className="space-y-3.5 animate-fadeIn">
-                <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px] font-mono">
+                <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px] font-sans font-medium">
                   <span className="text-accent font-bold uppercase tracking-wider">03 · GUARDAR</span>
                   <span className="text-bone/50 uppercase">100 ML ≈ 2–3 PRENDAS</span>
                 </div>
@@ -383,7 +369,7 @@ export const BenefitEvidenceSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveMoment(prev => (prev === 0 ? 2 : (prev - 1) as 0 | 1 | 2))}
-                className="inline-flex items-center gap-1 text-xs font-mono font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
+                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
                 aria-label="Momento anterior"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
@@ -407,7 +393,7 @@ export const BenefitEvidenceSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveMoment(prev => (prev === 2 ? 0 : (prev + 1) as 0 | 1 | 2))}
-                className="inline-flex items-center gap-1 text-xs font-mono font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
+                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
                 aria-label="Momento siguiente"
               >
                 <span>Siguiente</span>
