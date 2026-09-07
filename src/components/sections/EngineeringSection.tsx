@@ -208,6 +208,293 @@ export const EngineeringSection: React.FC = () => {
   const leaderTargetX = Math.min(activePiece.hotspot.x + (activePiece.hotspot.x > 50 ? 18 : 24), 96);
   const leaderTargetY = activePiece.hotspot.y;
 
+  // Shared Micro-Proof Renderer for Desktop Rail & Mobile Touch Stage
+  const renderMicroProof = () => {
+    switch (activeIndex) {
+      case 0:
+        return (
+          <div className="space-y-3.5">
+            <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden rounded-lg">
+              <img 
+                src="/images/liso-placa-0.webp" 
+                alt="Placa giratoria LISO ángulo 0 grados vertical" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
+                  prefersReduced ? 'duration-0' : 'duration-200'
+                } ${plateAngle === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+              />
+              <img 
+                src="/images/liso-placa-45.webp" 
+                alt="Placa giratoria LISO ángulo 45 grados intermedio" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
+                  prefersReduced ? 'duration-0' : 'duration-200'
+                } ${plateAngle === 45 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+              />
+              <img 
+                src="/images/liso-placa-90.webp" 
+                alt="Placa giratoria LISO ángulo 90 grados horizontal" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
+                  prefersReduced ? 'duration-0' : 'duration-200'
+                } ${plateAngle === 90 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+              />
+
+              <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-black/80 border border-white/20 text-[10px] font-sans text-accent font-bold">
+                {plateAngle}° ACTIVO
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-2">
+              {([0, 45, 90] as const).map((deg) => (
+                <button
+                  key={deg}
+                  type="button"
+                  onClick={() => {
+                    setPlateAngle(deg);
+                    if (!hasInteracted) setHasInteracted(true);
+                  }}
+                  className={`py-2.5 px-1 min-h-[46px] text-center font-sans text-xs uppercase tracking-tight font-bold transition-all border active:scale-95 ${
+                    plateAngle === deg
+                      ? 'bg-accent text-white border-accent shadow-subtle'
+                      : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white active:bg-white/10'
+                  }`}
+                  aria-label={`Ver placa a ${deg} grados`}
+                >
+                  <span>{deg}°</span>
+                  <span className="block text-[9px] font-sans font-normal opacity-70 truncate">
+                    {deg === 0 ? 'Vertical' : deg === 45 ? 'Cuellos' : 'Plano'}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      case 1:
+        return (
+          <div className="space-y-4 flex flex-col justify-center h-full">
+            <div className="p-5 bg-night-950 border border-white/15 space-y-4 rounded-lg">
+              <div className="flex items-center justify-between text-xs font-sans">
+                <span className="text-bone/60 uppercase tracking-wider font-semibold">TIEMPO AL ARRANQUE</span>
+                <span className="text-accent font-bold">150 °C OBJETIVO</span>
+              </div>
+
+              <div className="py-4 text-center space-y-2 border-y border-white/10 bg-white/[0.02]">
+                <div className="font-sans text-4xl sm:text-5xl font-bold tracking-tight text-bone">
+                  {isSteamReady ? (
+                    <span className="text-accent">VAPOR LISTO</span>
+                  ) : (
+                    <span>{chamberCount} s*</span>
+                  )}
+                </div>
+                <span className="text-[11px] font-sans uppercase tracking-widest text-bone/60 block font-medium">
+                  {isSteamReady ? 'Vaporización continua a 150 °C' : 'Calentamiento instantáneo de cámara...'}
+                </span>
+              </div>
+
+              <div className="space-y-1.5">
+                <div className="h-2 w-full bg-white/10 rounded-none overflow-hidden">
+                  <div 
+                    className={`h-full bg-bone ${
+                      prefersReduced ? 'duration-0' : 'transition-all duration-300 ease-mech-s'
+                    }`}
+                    style={{ width: isSteamReady ? '100%' : `${((3 - chamberCount) / 3) * 100}%` }}
+                  />
+                </div>
+                <div className="flex items-center justify-between text-[10px] font-sans text-bone/50 font-medium">
+                  <span>0 s (Enchufe)</span>
+                  <span>3 s* (Vapor listo)</span>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-[11px] font-sans text-bone/50 italic text-center">
+              *Según pruebas de laboratorio del fabricante.
+            </p>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="space-y-3.5">
+            <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden rounded-lg">
+              <img 
+                src="/images/liso-pantalla.webp" 
+                alt="Pantalla digital LED de la plancha LISO con lectura térmica en tiempo real" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="w-full h-full object-cover"
+              />
+              
+              <div className="absolute bottom-2.5 inset-x-2.5 p-2 bg-black/85 backdrop-blur-xs border border-white/20 flex items-center justify-between font-sans text-xs">
+                <span className="text-bone/70 uppercase font-medium">LECTURA TÉRMICA:</span>
+                <span className="text-bone font-bold tracking-wider">{tempCounter} °C</span>
+              </div>
+            </div>
+
+            <div className="p-3 bg-white/5 border border-white/10 flex items-center justify-between text-xs font-sans rounded-lg">
+              <span className="text-bone/70 font-medium">MODOS ACTIVOS:</span>
+              <span className="text-accent font-bold">2 NIVELES + PLANCHADO EN SECO</span>
+            </div>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="space-y-3.5">
+            <div className="relative aspect-[16/9] bg-black/50 border border-white/15 overflow-hidden rounded-lg">
+              <img 
+                src="/images/liso-cable.webp" 
+                alt="Detalle del cable de alimentación directa de alta potencia" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="p-4 bg-night-950 border border-white/15 space-y-3 font-sans text-xs rounded-lg">
+              <div className="space-y-1">
+                <div className="flex items-center justify-between text-bone font-bold text-[11px]">
+                  <span>1200 W CONSTANTE</span>
+                  <span>100% SOSTENIDO</span>
+                </div>
+                <div className="h-2.5 w-full bg-white/10 rounded-none overflow-hidden">
+                  <div className="h-full bg-bone w-full" />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <div className="flex items-center justify-between text-bone/50 text-[11px] font-medium">
+                  <span>MODELOS A BATERÍA</span>
+                  <span>DECAE TRAS 3 MIN</span>
+                </div>
+                <div className="h-2.5 w-full bg-white/10 rounded-none overflow-hidden">
+                  <div className="h-full bg-white/20 w-[35%]" />
+                </div>
+              </div>
+
+              <p className="text-[11px] text-bone/60 pt-1 leading-snug font-sans border-t border-white/10">
+                Alimentación directa por red: presión de vapor continua sin pérdida de temperatura ni degradación de celdas.
+              </p>
+            </div>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="space-y-3.5">
+            <div className="relative aspect-[16/9] bg-black/50 border border-white/15 overflow-hidden rounded-lg">
+              <img 
+                src="/images/liso-mango.webp" 
+                alt="Textura estriada del mango térmico de agarre ergonómico" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 text-center font-sans">
+              <div className="p-3 bg-night-950 border border-white/15 rounded-lg">
+                <span className="text-[10px] text-bone/50 uppercase block font-medium">CÁMARA INTERNA</span>
+                <span className="text-xl font-bold text-bone mt-0.5 block">150 °C</span>
+                <span className="text-[9px] text-bone/40 block mt-0.5 font-medium">Por dentro</span>
+              </div>
+
+              <div className="p-3 bg-night-950 border border-accent/40 shadow-[0_0_12px_rgba(180,36,124,0.15)] rounded-lg">
+                <span className="text-[10px] text-accent uppercase font-bold block">SUPERFICIE MANGO</span>
+                <span className="text-xl font-bold text-accent mt-0.5 block">≤42 °C</span>
+                <span className="text-[9px] text-bone/60 block mt-0.5 font-medium">Se toma con la mano</span>
+              </div>
+            </div>
+
+            <p className="text-[11px] font-sans text-bone/70 text-center">
+              Cámara de aire bicapa en ABS ignífugo: aislamiento que previene cualquier quemadura accidental.
+            </p>
+          </div>
+        );
+      case 5:
+        return (
+          <div className="space-y-3.5">
+            <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden rounded-lg">
+              <img 
+                src="/images/liso-plug-us.webp" 
+                alt="Clavija eléctrica estándar US tipo A/B" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
+                  prefersReduced ? 'duration-0' : 'duration-200'
+                } ${selectedPlug === 'US' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+              />
+              <img 
+                src="/images/liso-plug-eu.webp" 
+                alt="Clavija eléctrica estándar EU tipo C/F continental" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
+                  prefersReduced ? 'duration-0' : 'duration-200'
+                } ${selectedPlug === 'EU' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+              />
+              <img 
+                src="/images/liso-plug-uk.webp" 
+                alt="Clavija eléctrica estándar UK tipo G de 3 pines" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
+                  prefersReduced ? 'duration-0' : 'duration-200'
+                } ${selectedPlug === 'UK' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+              />
+              <img 
+                src="/images/liso-plug-au.webp" 
+                alt="Clavija eléctrica estándar AU tipo I de 3 clavijas" 
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
+                  prefersReduced ? 'duration-0' : 'duration-200'
+                } ${selectedPlug === 'AU' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+              />
+
+              <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-black/80 border border-white/20 text-[10px] font-sans text-bone font-bold">
+                {selectedPlug} · 110–240 V
+              </div>
+            </div>
+
+            <div className="grid grid-cols-4 gap-1.5">
+              {(['US', 'EU', 'UK', 'AU'] as const).map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  onClick={() => {
+                    setSelectedPlug(code);
+                    if (!hasInteracted) setHasInteracted(true);
+                  }}
+                  className={`py-2.5 min-h-[44px] text-center font-sans text-xs font-bold transition-all border active:scale-95 ${
+                    selectedPlug === code
+                      ? 'bg-accent text-white border-accent shadow-subtle'
+                      : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white active:bg-white/10'
+                  }`}
+                  aria-label={`Ver clavija ${code}`}
+                >
+                  <span>{code}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <section 
       id="ingenieria" 
@@ -234,9 +521,16 @@ export const EngineeringSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Mobile quick-switch pill bar (Visible only < 1024px) */}
-        <div className="flex lg:hidden items-center justify-between gap-1 pb-4 mb-2 overflow-x-auto border-b border-white/10 overscroll-contain">
-          <div className="flex items-center gap-1.5">
+        {/* =========================================================================
+            MOBILE COMPONENT INSPECTOR (< 1024px) — 100% Mobile-First Touch Experience
+            ========================================================================= */}
+        <div 
+          className="block lg:hidden pb-8"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* 1. Horizontal Component Pills Bar with smooth scrolling */}
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2.5 mb-3 px-0.5 -mx-0.5">
             {pieces.map((p, idx) => {
               const isActive = idx === activeIndex;
               return (
@@ -244,42 +538,94 @@ export const EngineeringSection: React.FC = () => {
                   key={p.id}
                   type="button"
                   onClick={() => selectPiece(idx)}
-                  className={`px-3 py-2 min-w-[40px] min-h-[38px] flex items-center justify-center text-xs font-sans font-bold tracking-wider transition-all active:scale-95 ${
+                  className={`flex-shrink-0 px-3 py-1.5 rounded-xl font-mono text-[10.5px] font-bold tracking-wider uppercase transition-all active:scale-95 ${
                     isActive 
-                      ? 'bg-accent text-white shadow-sm' 
-                      : 'bg-white/5 text-bone/60 hover:text-bone hover:bg-white/10 active:bg-white/15'
+                      ? 'bg-accent text-white shadow-sm ring-1 ring-accent' 
+                      : 'bg-white/[0.04] border border-white/10 text-bone/60 hover:text-bone active:bg-white/10'
                   }`}
-                  aria-label={`Seleccionar pieza ${p.num}`}
                 >
-                  {p.num}
+                  {p.num} · {p.name.split(' ')[0]}
                 </button>
               );
             })}
           </div>
-          <div className="flex items-center gap-1 shrink-0 pl-2">
-            <button
-              type="button"
-              onClick={() => selectPiece((activeIndex - 1 + pieces.length) % pieces.length)}
-              className="p-2 min-w-[38px] min-h-[38px] flex items-center justify-center bg-white/5 hover:bg-white/10 active:bg-white/15 text-bone/80 hover:text-white active:scale-95 transition-all"
-              aria-label="Pieza anterior"
-            >
-              <ArrowLeft className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => selectPiece((activeIndex + 1) % pieces.length)}
-              className="p-2 min-w-[38px] min-h-[38px] flex items-center justify-center bg-white/5 hover:bg-white/10 active:bg-white/15 text-bone/80 hover:text-white active:scale-95 transition-all"
-              aria-label="Pieza siguiente"
-            >
-              <ArrowRight className="w-4 h-4" />
-            </button>
+
+          {/* 2. Unified Mobile Inspection Card */}
+          <div className="bg-night-900/95 border border-white/15 rounded-2xl p-4 sm:p-5 shadow-xl space-y-4">
+            
+            {/* Header: Category + Counter + Component Name + Phrase */}
+            <div className="pb-3 border-b border-white/10 space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-sans uppercase tracking-widest text-accent font-bold">
+                  {activePiece.category}
+                </span>
+                <span className="font-mono text-xs font-bold text-bone/50 tracking-wider">
+                  PIEZA {activePiece.num} / 06
+                </span>
+              </div>
+              <h3 className="font-display text-lg sm:text-xl font-bold text-bone tracking-wide uppercase">
+                {activePiece.name}
+              </h3>
+              <p className="text-xs sm:text-sm font-sans text-bone/80 leading-relaxed pt-1">
+                {activePiece.phrase}
+              </p>
+            </div>
+
+            {/* Micro-Proof Interactive Stage */}
+            <div className="min-h-[250px] flex flex-col justify-center">
+              {renderMicroProof()}
+            </div>
+
+            {/* Stepper Footer Controls with Prev / Next and Dots */}
+            <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+              <button
+                type="button"
+                onClick={() => selectPiece((activeIndex - 1 + pieces.length) % pieces.length)}
+                className="inline-flex items-center gap-1 text-xs font-mono font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
+                aria-label="Pieza anterior"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>Anterior</span>
+              </button>
+
+              <div className="flex items-center gap-1.5">
+                {pieces.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => selectPiece(i)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      i === activeIndex ? 'w-5 bg-accent' : 'w-1.5 bg-white/20'
+                    }`}
+                    aria-label={`Ir a pieza ${i + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => selectPiece((activeIndex + 1) % pieces.length)}
+                className="inline-flex items-center gap-1 text-xs font-mono font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
+                aria-label="Pieza siguiente"
+              >
+                <span>Siguiente</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+          </div>
+
+          {/* Swipe indicator */}
+          <div className="text-center pt-2.5 text-[10px] font-mono text-bone/40">
+            ← Desliza para explorar los 6 componentes técnicos →
           </div>
         </div>
 
-        {/* Main Stage Grid: Left Index (3 cols), Center Visual Apparatus (5 cols), Right Rail (4 cols) */}
-        {/* Entry Motion: Visual fade + scale 0.98 -> 1 (650ms) */}
+        {/* =========================================================================
+            DESKTOP MAIN STAGE GRID (>= 1024px) — 100% Unchanged 3-Column Layout
+            ========================================================================= */}
         <div 
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start pb-16"
+          className="hidden lg:grid grid-cols-12 gap-8 lg:gap-10 items-start pb-16"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           style={{
@@ -461,12 +807,6 @@ export const EngineeringSection: React.FC = () => {
                 HOTSPOT {activePiece.num}
               </div>
             </div>
-
-            {/* Mobile swipe hint */}
-            <div className="flex lg:hidden items-center justify-between w-full max-w-[500px] pt-2 text-[10px] font-sans text-bone/40 font-medium">
-              <span>← Desliza para explorar componentes →</span>
-              <span className="text-accent">{activePiece.num} / 06</span>
-            </div>
           </div>
 
           {/* 3. RIGHT RAIL: Formato ÚNICO y fijo que el usuario aprende una vez */}
@@ -496,299 +836,7 @@ export const EngineeringSection: React.FC = () => {
 
             {/* Bottom: Dedicated Micro-proof Slot (Fixed dimensions with 200ms mechanical transitions) */}
             <div className="pt-4 flex-grow flex flex-col justify-center min-h-[260px] sm:min-h-[280px]">
-              
-              {/* MICRO-PROOF 01: Crossfade liso-placa-0 -> 45 -> 90 con controles */}
-              {activeIndex === 0 && (
-                <div className="space-y-3.5">
-                  <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden">
-                    <img 
-                      src="/images/liso-placa-0.webp" 
-                      alt="Placa giratoria LISO ángulo 0 grados vertical" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                        prefersReduced ? 'duration-0' : 'duration-200'
-                      } ${plateAngle === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    />
-                    <img 
-                      src="/images/liso-placa-45.webp" 
-                      alt="Placa giratoria LISO ángulo 45 grados intermedio" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                        prefersReduced ? 'duration-0' : 'duration-200'
-                      } ${plateAngle === 45 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    />
-                    <img 
-                      src="/images/liso-placa-90.webp" 
-                      alt="Placa giratoria LISO ángulo 90 grados horizontal" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                        prefersReduced ? 'duration-0' : 'duration-200'
-                      } ${plateAngle === 90 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    />
-
-                    <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-black/80 border border-white/20 text-[10px] font-sans text-accent font-bold">
-                      {plateAngle}° ACTIVO
-                    </div>
-                  </div>
-
-                  {/* 0° / 45° / 90° manual rotation controls */}
-                  <div className="grid grid-cols-3 gap-2">
-                    {([0, 45, 90] as const).map((deg) => (
-                      <button
-                        key={deg}
-                        type="button"
-                        onClick={() => {
-                          setPlateAngle(deg);
-                          if (!hasInteracted) setHasInteracted(true);
-                        }}
-                        className={`py-2.5 px-1 min-h-[46px] text-center font-sans text-xs uppercase tracking-tight font-bold transition-all border active:scale-95 ${
-                          plateAngle === deg
-                            ? 'bg-accent text-white border-accent shadow-subtle'
-                            : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white active:bg-white/10'
-                        }`}
-                        aria-label={`Ver placa a ${deg} grados`}
-                      >
-                        <span>{deg}°</span>
-                        <span className="block text-[9px] font-sans font-normal opacity-70 truncate">
-                          {deg === 0 ? 'Vertical' : deg === 45 ? 'Cuellos' : 'Plano'}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* MICRO-PROOF 02: Cámara interna (Spotlight sobre cabezal + countdown 3 s* -> vapor) */}
-              {activeIndex === 1 && (
-                <div className="space-y-4 flex flex-col justify-center h-full">
-                  <div className="p-5 bg-night-950 border border-white/15 space-y-4">
-                    <div className="flex items-center justify-between text-xs font-sans">
-                      <span className="text-bone/60 uppercase tracking-wider font-semibold">TIEMPO AL ARRANQUE</span>
-                      <span className="text-accent font-bold">150 °C OBJETIVO</span>
-                    </div>
-
-                    {/* Countdown visual 3 s* -> vapor */}
-                    <div className="py-4 text-center space-y-2 border-y border-white/10 bg-white/[0.02]">
-                      <div className="font-sans text-4xl sm:text-5xl font-bold tracking-tight text-bone">
-                        {isSteamReady ? (
-                          <span className="text-accent">VAPOR LISTO</span>
-                        ) : (
-                          <span>{chamberCount} s*</span>
-                        )}
-                      </div>
-                      <span className="text-[11px] font-sans uppercase tracking-widest text-bone/60 block font-medium">
-                        {isSteamReady ? 'Vaporización continua a 150 °C' : 'Calentamiento instantáneo de cámara...'}
-                      </span>
-                    </div>
-
-                    {/* Progress Bar (Pure bone, zero greens or oranges) */}
-                    <div className="space-y-1.5">
-                      <div className="h-2 w-full bg-white/10 rounded-none overflow-hidden">
-                        <div 
-                          className={`h-full bg-bone ${
-                            prefersReduced ? 'duration-0' : 'transition-all duration-300 ease-mech-s'
-                          }`}
-                          style={{ width: isSteamReady ? '100%' : `${((3 - chamberCount) / 3) * 100}%` }}
-                        />
-                      </div>
-                      <div className="flex items-center justify-between text-[10px] font-sans text-bone/50 font-medium">
-                        <span>0 s (Enchufe)</span>
-                        <span>3 s* (Vapor listo)</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-[11px] font-sans text-bone/50 italic text-center">
-                    *Según pruebas de laboratorio del fabricante.
-                  </p>
-                </div>
-              )}
-
-              {/* MICRO-PROOF 03: liso-pantalla.webp + counter 90 -> 150 */}
-              {activeIndex === 2 && (
-                <div className="space-y-3.5">
-                  <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden">
-                    <img 
-                      src="/images/liso-pantalla.webp" 
-                      alt="Pantalla digital LED de la plancha LISO con lectura térmica en tiempo real" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className="w-full h-full object-cover"
-                    />
-                    
-                    {/* Live digital readout overlay in Instrument Sans */}
-                    <div className="absolute bottom-2.5 inset-x-2.5 p-2 bg-black/85 backdrop-blur-xs border border-white/20 flex items-center justify-between font-sans text-xs">
-                      <span className="text-bone/70 uppercase font-medium">LECTURA TÉRMICA:</span>
-                      <span className="text-bone font-bold tracking-wider">{tempCounter} °C</span>
-                    </div>
-                  </div>
-
-                  <div className="p-3 bg-white/5 border border-white/10 flex items-center justify-between text-xs font-sans">
-                    <span className="text-bone/70 font-medium">MODOS ACTIVOS:</span>
-                    <span className="text-accent font-bold">2 NIVELES + PLANCHADO EN SECO</span>
-                  </div>
-                </div>
-              )}
-
-              {/* MICRO-PROOF 04: liso-cable.webp + 2 barras (1200 W constante vs batería) */}
-              {activeIndex === 3 && (
-                <div className="space-y-3.5">
-                  <div className="relative aspect-[16/9] bg-black/50 border border-white/15 overflow-hidden">
-                    <img 
-                      src="/images/liso-cable.webp" 
-                      alt="Detalle del cable de alimentación directa de alta potencia" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  {/* 2 Comparative Bars (Bone vs decaying battery, zero green/orange) */}
-                  <div className="p-4 bg-night-950 border border-white/15 space-y-3 font-sans text-xs">
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between text-bone font-bold text-[11px]">
-                        <span>1200 W CONSTANTE</span>
-                        <span>100% SOSTENIDO</span>
-                      </div>
-                      <div className="h-2.5 w-full bg-white/10 rounded-none overflow-hidden">
-                        <div className="h-full bg-bone w-full" />
-                      </div>
-                    </div>
-
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between text-bone/50 text-[11px] font-medium">
-                        <span>MODELOS A BATERÍA</span>
-                        <span>DECAE TRAS 3 MIN</span>
-                      </div>
-                      <div className="h-2.5 w-full bg-white/10 rounded-none overflow-hidden">
-                        <div className="h-full bg-white/20 w-[35%]" />
-                      </div>
-                    </div>
-
-                    <p className="text-[11px] text-bone/60 pt-1 leading-snug font-sans border-t border-white/10">
-                      Alimentación directa por red: presión de vapor continua sin pérdida de temperatura ni degradación de celdas.
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {/* MICRO-PROOF 05: liso-mango.webp + "150 °C dentro / por fuera se toma con la mano" */}
-              {activeIndex === 4 && (
-                <div className="space-y-3.5">
-                  <div className="relative aspect-[16/9] bg-black/50 border border-white/15 overflow-hidden">
-                    <img 
-                      src="/images/liso-mango.webp" 
-                      alt="Textura estriada del mango térmico de agarre ergonómico" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  {/* Thermal Differential Comparison in Instrument Sans */}
-                  <div className="grid grid-cols-2 gap-2 text-center font-sans">
-                    <div className="p-3 bg-night-950 border border-white/15">
-                      <span className="text-[10px] text-bone/50 uppercase block font-medium">CÁMARA INTERNA</span>
-                      <span className="text-xl font-bold text-bone mt-0.5 block">150 °C</span>
-                      <span className="text-[9px] text-bone/40 block mt-0.5 font-medium">Por dentro</span>
-                    </div>
-
-                    <div className="p-3 bg-night-950 border border-accent/40 shadow-[0_0_12px_rgba(180,36,124,0.15)]">
-                      <span className="text-[10px] text-accent uppercase font-bold block">SUPERFICIE MANGO</span>
-                      <span className="text-xl font-bold text-accent mt-0.5 block">≤42 °C</span>
-                      <span className="text-[9px] text-bone/60 block mt-0.5 font-medium">Se toma con la mano</span>
-                    </div>
-                  </div>
-
-                  <p className="text-[11px] font-sans text-bone/70 text-center">
-                    Cámara de aire bicapa en ABS ignífugo: aislamiento que previene cualquier quemadura accidental.
-                  </p>
-                </div>
-              )}
-
-              {/* MICRO-PROOF 06: Crossfade 4 enchufes (US, EU, UK, AU) + 110-240 V */}
-              {activeIndex === 5 && (
-                <div className="space-y-3.5">
-                  <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden">
-                    <img 
-                      src="/images/liso-plug-us.webp" 
-                      alt="Clavija eléctrica estándar US tipo A/B" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                        prefersReduced ? 'duration-0' : 'duration-200'
-                      } ${selectedPlug === 'US' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    />
-                    <img 
-                      src="/images/liso-plug-eu.webp" 
-                      alt="Clavija eléctrica estándar EU tipo C/F continental" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                        prefersReduced ? 'duration-0' : 'duration-200'
-                      } ${selectedPlug === 'EU' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    />
-                    <img 
-                      src="/images/liso-plug-uk.webp" 
-                      alt="Clavija eléctrica estándar UK tipo G de 3 pines" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                        prefersReduced ? 'duration-0' : 'duration-200'
-                      } ${selectedPlug === 'UK' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    />
-                    <img 
-                      src="/images/liso-plug-au.webp" 
-                      alt="Clavija eléctrica estándar AU tipo I de 3 clavijas" 
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                        prefersReduced ? 'duration-0' : 'duration-200'
-                      } ${selectedPlug === 'AU' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    />
-
-                    <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-black/80 border border-white/20 text-[10px] font-sans text-bone font-bold">
-                      {selectedPlug} · 110–240 V
-                    </div>
-                  </div>
-
-                  {/* 4 Plug Selectors US -> EU -> UK -> AU */}
-                  <div className="grid grid-cols-4 gap-1.5">
-                    {(['US', 'EU', 'UK', 'AU'] as const).map((code) => (
-                      <button
-                        key={code}
-                        type="button"
-                        onClick={() => {
-                          setSelectedPlug(code);
-                          if (!hasInteracted) setHasInteracted(true);
-                        }}
-                        className={`py-2.5 min-h-[44px] text-center font-sans text-xs font-bold transition-all border active:scale-95 ${
-                          selectedPlug === code
-                            ? 'bg-accent text-white border-accent shadow-subtle'
-                            : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white active:bg-white/10'
-                        }`}
-                        aria-label={`Ver clavija ${code}`}
-                      >
-                        <span>{code}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
+              {renderMicroProof()}
             </div>
 
             {/* Bottom Stepper Indicator of the Rail */}

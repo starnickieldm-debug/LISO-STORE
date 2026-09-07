@@ -40,8 +40,218 @@ export const OfferSection: React.FC = () => {
 
         {/* Conversion Main Box */}
         <Reveal direction="up" delay={120} duration={750}>
-          <div className="bg-night-900/90 border border-night-700 p-4 sm:p-10 lg:p-12 shadow-studio-hard-dark">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+          {/* =========================================================================
+              MOBILE PDP CHECKOUT EXPERIENCE (< 1024px) — 100% Native Mobile-First Flow
+              ========================================================================= */}
+          <div className="block lg:hidden space-y-5">
+            
+            {/* 1. Mobile Product Visual with Floating Badges */}
+            <div className="relative aspect-[4/3] w-full max-w-md mx-auto overflow-hidden rounded-2xl border border-white/15 bg-night-950 shadow-2xl">
+              <picture className="w-full h-full">
+                <source srcSet="/images/liso-oferta.webp" type="image/webp" />
+                <img 
+                  src="/images/liso-oferta.jpg" 
+                  alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital" 
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
+              </picture>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              
+              <div className="absolute top-2.5 left-2.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-mono text-accent font-bold">
+                KIT COMPLETO
+              </div>
+              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-mono text-bone/80">
+                110–240 V DUAL
+              </div>
+            </div>
+
+            {/* 2. Title, Pricing & Plug Match */}
+            <div className="space-y-3 bg-night-950/80 border border-white/10 p-4 rounded-xl">
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block">
+                  EDICIÓN ORIGINAL LISO
+                </span>
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-bone mt-0.5">
+                  Plancha de vapor portátil LISO
+                </h3>
+              </div>
+
+              {/* Price & Savings */}
+              <div className="py-2.5 border-y border-white/10 space-y-1">
+                {currentMarket.formattedCompareAtPrice && (
+                  <div className="flex items-center gap-2 text-xs font-sans text-bone/50">
+                    <span>Antes: </span>
+                    <span className="line-through decoration-bone/40">{currentMarket.formattedCompareAtPrice}</span>
+                    <span className="px-1.5 py-0.5 bg-accent/20 border border-accent/40 text-accent font-bold text-[10px] rounded">
+                      AHORRA
+                    </span>
+                  </div>
+                )}
+                <div className="flex items-baseline justify-between gap-2">
+                  <span className="text-3xl sm:text-4xl font-display font-bold text-bone tracking-tight">
+                    {currentMarket.formattedPrice}
+                  </span>
+                  <span className="text-xs font-sans uppercase tracking-wider text-accent font-semibold">
+                    {currentMarket.shippingLabel}
+                  </span>
+                </div>
+              </div>
+
+              {/* Automatic Country Plug Card */}
+              <div className="p-2.5 bg-white/[0.04] border border-white/10 rounded-lg flex items-center justify-between gap-3 text-xs">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 border border-accent/60 bg-accent/15 text-accent font-mono font-bold text-xs flex items-center justify-center rounded">
+                    {currentMarket.plugType}
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5 font-semibold text-bone">
+                      <span>{currentMarket.flag}</span>
+                      <span>{currentMarket.countryName}</span>
+                    </div>
+                    <span className="text-[11px] text-accent font-medium">
+                      ✓ Clavija {currentMarket.plugName} incluida
+                    </span>
+                  </div>
+                </div>
+                <span className="text-[10px] font-mono text-bone/40 uppercase">AUTO</span>
+              </div>
+
+              {/* 3. Primary Buy CTA in the Thumb Zone */}
+              <div className="pt-1">
+                <CTAButton
+                  size="large"
+                  fullWidth
+                  disabled={isCheckingOut}
+                  onClick={() => initiateCheckout(currentMarket.plugType, currentMarket.countryCode)}
+                  className="shadow-lg shadow-accent/25 py-3.5 text-base font-semibold"
+                >
+                  {isCheckingOut ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Preparando pedido...</span>
+                    </span>
+                  ) : (
+                    `Quiero LISO — ${currentMarket.formattedPrice}`
+                  )}
+                </CTAButton>
+
+                {checkoutError && (
+                  <div className="mt-2.5 p-3 bg-red-950/80 border border-red-500/40 text-red-200 text-xs font-sans flex items-start justify-between gap-2 animate-fadeIn rounded-lg">
+                    <span>{checkoutError}</span>
+                    <button
+                      type="button"
+                      onClick={clearError}
+                      className="text-red-400 hover:text-white font-bold ml-2 text-sm leading-none cursor-pointer"
+                      aria-label="Cerrar mensaje"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                )}
+
+                {/* Trust Bullets */}
+                <div className="flex items-center justify-between pt-2.5 text-[11px] font-sans text-bone/70 border-t border-white/5 mt-2.5">
+                  <span className="inline-flex items-center gap-1 text-bone/90">
+                    <span className="text-accent font-bold">✓</span> Envío GRATIS
+                  </span>
+                  <span>·</span>
+                  <span className="inline-flex items-center gap-1">
+                    <span className="text-accent font-bold">✓</span> Pago seguro
+                  </span>
+                  <span>·</span>
+                  <span className="inline-flex items-center gap-1">
+                    <span className="text-accent font-bold">✓</span> Soporte directo
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. What's in the Box (Compact View) */}
+            <div className="p-4 bg-night-950/60 border border-white/10 rounded-xl space-y-2.5">
+              <span className="text-xs font-mono uppercase tracking-wider text-bone/70 font-semibold block">
+                ¿QUÉ RECIBES EN LA CAJA?
+              </span>
+              <ul className="space-y-1.5 text-xs text-bone">
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                  <span>Plancha vaporizadora LISO (1200 W)</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                  <span>Base dock térmica de apoyo</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                  <span>Vaso medidor de 100 ml</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                  <span>Bolsa de transporte y protección</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                  <span>Manual de uso y guía rápida</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* 5. Direct Support & Guarantee Highlight */}
+            <div className="p-4 bg-night-950/60 border border-white/10 rounded-xl flex items-center gap-4">
+              <div className="flex-shrink-0">
+                <RotatingGuaranteeStamp size={80} />
+              </div>
+              <div className="space-y-1 text-left">
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-accent stroke-[2.5]" />
+                  <h4 className="font-display font-bold text-xs uppercase tracking-wider text-bone">
+                    SOPORTE DIRECTO LISO
+                  </h4>
+                </div>
+                <p className="text-[11px] text-bone/80 leading-relaxed">
+                  Te atendemos directamente sin intermediarios para resolver cualquier duda sobre uso, envío o garantía.
+                </p>
+              </div>
+            </div>
+
+            {/* 6. Quick Policy Accordion on Mobile */}
+            <div className="pt-2 border-t border-white/10">
+              <button
+                type="button"
+                onClick={() => setPolicyAccordionOpen(!policyAccordionOpen)}
+                className="w-full py-2 flex items-center justify-between text-xs font-sans font-semibold text-bone/80 hover:text-white transition-colors"
+                aria-expanded={policyAccordionOpen}
+              >
+                <span>Envíos, devoluciones y garantía</span>
+                <ChevronDown 
+                  className={`w-4 h-4 text-bone/60 transition-transform duration-200 ${
+                    policyAccordionOpen ? 'rotate-180 text-accent' : ''
+                  }`} 
+                  aria-hidden="true" 
+                />
+              </button>
+
+              {policyAccordionOpen && (
+                <div className="pt-2 pb-1 space-y-2.5 text-xs text-bone/70 font-sans leading-relaxed border-t border-white/10 mt-1 animate-fadeIn">
+                  <div>
+                    <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Envíos</h5>
+                    <p className="text-[11px] mt-0.5">Procesamiento en 1–3 días hábiles con número de seguimiento continuo hasta tu puerta.</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Garantía y Devolución</h5>
+                    <p className="text-[11px] mt-0.5">Si recibes un producto con anomalía, te ofrecemos reemplazo o soporte directo sin complicaciones.</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+          </div>
+
+          {/* =========================================================================
+              DESKTOP CONVERSION CONTAINER (>= 1024px) — 100% Unchanged Layout
+              ========================================================================= */}
+          <div className="hidden lg:block bg-night-900/90 border border-night-700 p-8 sm:p-10 lg:p-12 shadow-studio-hard-dark">
+            <div className="grid grid-cols-12 gap-8 lg:gap-14 items-center">
             
             {/* Left: Product Visual */}
             <div className="lg:col-span-5 space-y-3 sm:space-y-4">
