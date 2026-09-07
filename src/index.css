@@ -1,0 +1,448 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0B0C0F;
+  }
+
+  html, body, #root {
+    background-color: #0B0C0F !important;
+    color: #F6F4EF !important;
+    font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+
+  body {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: normal;
+  }
+
+  /* Numbers and specs formatted tabularly with technical voice */
+  .tabular-specs {
+    font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}
+
+/* Fallback utilities ensuring instant dark theme styling without Tailwind caching delays */
+.bg-night-950 { background-color: #0B0C0F !important; }
+.bg-night-900 { background-color: #121318 !important; }
+.bg-night-800 { background-color: #181A20 !important; }
+.bg-night-700 { background-color: #232630 !important; }
+.border-night-700 { border-color: #232630 !important; }
+.text-bone { color: #F6F4EF !important; }
+
+
+/* 1. Subtle Paper Texture (3.3% global grain in darks, safe non-intrusive) */
+.paper-grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.033;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 768px) {
+  .paper-grain-overlay {
+    opacity: 0.025;
+  }
+}
+
+/* 2. Custom editorial lines */
+.editorial-line {
+  height: 1px;
+  background: rgba(23, 24, 28, 0.10);
+}
+
+.editorial-line-dark {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 3. Subtle blueprint grid for technical section */
+.technical-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* 4. Motion Tokens Keyframes & Classes */
+
+/* Steam Breathing Scale Loop (12s) */
+@keyframes steamBreath {
+  0%, 100% {
+    transform: scale(1.0);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+.animate-steam-breath {
+  animation: steamBreath 12s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  will-change: transform;
+}
+
+/* Dawn Breathing Glow (12s) */
+@keyframes dawnBreath {
+  0%, 100% {
+    opacity: 0.08;
+    transform: scale(1.0);
+  }
+  50% {
+    opacity: 0.16;
+    transform: scale(1.03);
+  }
+}
+
+.animate-dawn-breath {
+  animation: dawnBreath 12s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  will-change: opacity, transform;
+}
+
+/* ==========================================================================
+   V3 TYPOGRAPHY SYSTEM: 3 VOICES (Playfair Display + Space Grotesk + JetBrains Mono)
+   ========================================================================== */
+
+/* 1. High-Impact Editorial Display Clamps & Weights (Playfair Display Variable: weight 400-900) */
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-h1-clamp {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.95rem, 2.4vw, 3.05rem);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  font-weight: 600;
+  padding-bottom: 0.12em;
+}
+
+.font-h2-clamp {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.85rem, 3vw, 3.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  font-weight: 600;
+  padding-bottom: 0.12em;
+}
+
+/* Playfair Display Structural Giants ("LISO", "SIN TABLA") */
+.font-giant-structural {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  padding-bottom: 0.12em;
+  padding-right: 0.2em;
+}
+
+/* 2. Static Luminance Gradients (Rule of light: 135deg top-left to bottom-right, bone 100% -> 70%) */
+.text-luminance-h1 {
+  color: #F6F4EF;
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .text-luminance-h1 {
+    background: linear-gradient(135deg, #F6F4EF 0%, rgba(246, 244, 239, 0.72) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.text-luminance-h2 {
+  color: #F6F4EF;
+}
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .text-luminance-h2 {
+    background: linear-gradient(135deg, #F6F4EF 0%, rgba(246, 244, 239, 0.78) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* 3. Par Sólido / Outline */
+.text-outline-bone-hero {
+  color: rgba(246, 244, 239, 0.12);
+  -webkit-text-stroke: 2px rgba(246, 244, 239, 0.55);
+}
+
+.text-outline-bone-ghost {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(246, 244, 239, 0.25);
+}
+
+/* 4. Ghost Vertical Transparency Masks */
+.ghost-fade-vertical {
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 85%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 85%);
+}
+
+.ghost-fog-mask {
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.22) 40%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.22) 40%, rgba(0,0,0,0) 100%);
+}
+
+/* 5. Editorial Serifa Itálica Accent (Voice 1 Italic - Playfair Display Italic true italic) */
+.cursive-accent {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  display: inline-block;
+  padding-bottom: 0.12em;
+}
+
+/* 6. Technical Mono (Voice 3 - Instrument Sans) */
+.mono-technical {
+  font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* 7. Descender-Safe Line Mask Reveal (Prevents g, j, p, q, y, ¿, í from clipping) */
+.line-mask-reveal {
+  overflow: hidden;
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+}
+
+/* ==========================================================================
+   AMBIENT BACKGROUND DEPTH SYSTEM (No More Flat Darks)
+   ========================================================================== */
+
+/* (a) Warm Radial Top-Left Glow (6-10%) */
+.bg-radial-warm-tl {
+  background-image: radial-gradient(ellipse at 0% 0%, rgba(255, 195, 130, 0.08) 0%, transparent 60%);
+}
+
+/* (b) Macro Fabric Texture (Dark woven silk drape waves at 4-6%) */
+.bg-macro-fabric {
+  background-image: 
+    radial-gradient(ellipse 120% 80% at 20% -10%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 70% at 80% 110%, rgba(255, 220, 180, 0.035) 0%, transparent 50%),
+    linear-gradient(125deg, rgba(255, 255, 255, 0.02) 0%, transparent 20%, rgba(255, 255, 255, 0.025) 40%, transparent 60%, rgba(255, 255, 255, 0.018) 80%, transparent 100%),
+    repeating-linear-gradient(65deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 2px, transparent 2px, transparent 18px);
+}
+
+/* (d) Cinematic Vignette */
+.bg-vignette-cinematic {
+  background-image: radial-gradient(ellipse at center, transparent 40%, rgba(11, 12, 15, 0.7) 100%);
+}
+
+/* (e) Light Halo Behind Structural Giants */
+.bg-halo-structural {
+  background-image: radial-gradient(ellipse at center, rgba(255, 220, 180, 0.12) 0%, rgba(180, 36, 124, 0.05) 45%, transparent 70%);
+}
+
+/* Hero Single Glass Card */
+.hero-glass-card {
+  background: rgba(18, 19, 24, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Fabric Dunes Background (S3 B1 Before/After) */
+.fabric-dunes-bg {
+  background: 
+    radial-gradient(ellipse at 30% 15%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 80%, rgba(180, 36, 124, 0.08) 0%, transparent 55%),
+    linear-gradient(145deg, #121318 0%, #0B0C0F 55%, #181A22 100%);
+}
+
+/* Slow Rotating Seal (24s) */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 24s linear infinite;
+  will-change: transform;
+}
+
+/* Hairline Draw Animation */
+@keyframes drawHairline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-draw-hairline {
+  transform-origin: left;
+  animation: drawHairline 650ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* 5. Editorial Link & Button Microinteractions */
+.editorial-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 150ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.editorial-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.editorial-link:hover::after {
+  transform: scaleX(1);
+}
+
+.editorial-link .arrow-icon {
+  transition: transform 150ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.editorial-link:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* 6. Line-mask Reveal Classes */
+.line-mask-container {
+  overflow: hidden;
+  display: block;
+}
+
+.line-mask-inner {
+  display: block;
+  transform: translateY(105%);
+  opacity: 0;
+  transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1), opacity 600ms cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, opacity;
+}
+
+.line-mask-inner.is-revealed {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* 7. Thermal Ticket Printing Reveal (S5 Honesty Label) */
+.ticket-row {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 250ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 250ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: opacity, transform;
+}
+
+.ticket-row.is-printed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 8. Oval Marquee Track (S7 Lifestyle Scenes) */
+@keyframes marqueeDrift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeDrift 38s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover,
+.marquee-track:active {
+  animation-play-state: paused;
+}
+
+/* 9. Comparison Scrollbar */
+.horizontal-scroll-touch {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(23, 24, 28, 0.2) transparent;
+}
+
+.horizontal-scroll-touch::-webkit-scrollbar {
+  height: 6px;
+}
+
+.horizontal-scroll-touch::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.horizontal-scroll-touch::-webkit-scrollbar-thumb {
+  background-color: rgba(23, 24, 28, 0.2);
+  border-radius: 9999px;
+}
+
+/* 10. ACCESSIBILITY & PREFERS-REDUCED-MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-steam-breath,
+  .animate-dawn-breath,
+  .animate-spin-slow,
+  .animate-draw-hairline,
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .line-mask-inner {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .ticket-row {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .editorial-link::after {
+    transform: scaleX(1) !important;
+  }
+
+  .editorial-link .arrow-icon {
+    transform: none !important;
+  }
+}

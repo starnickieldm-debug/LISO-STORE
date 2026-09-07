@@ -1,0 +1,95 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        bone: {
+          DEFAULT: '#F5F1EA',
+          50: '#FAF8F5',
+          100: '#F5F1EA',
+          200: '#ECE5D8',
+          300: '#DDD5C5',
+          400: '#C7BC9E'
+        },
+        night: {
+          950: '#0B0C0F',
+          900: '#121318',
+          800: '#181A20',
+          700: '#232630',
+          600: '#313543',
+        },
+        dawn: {
+          amber: 'rgba(255, 195, 130, 0.12)',
+          glow: 'rgba(255, 195, 130, 0.08)',
+        },
+        graphite: {
+          DEFAULT: '#17181C',
+          50: '#F5F5F6',
+          100: '#E4E5E7',
+          200: '#CACCD1',
+          300: '#9B9EA7',
+          400: '#646773',
+          500: '#41444D',
+          600: '#2A2C33',
+          700: '#202228',
+          800: '#17181C',
+          900: '#14151A',
+          950: '#0E0F12',
+        },
+        vapor: {
+          DEFAULT: '#E8E3DA',
+          light: '#F0ECE4',
+          dark: '#DDD7CB',
+          border: '#D8D1C3'
+        },
+        accent: {
+          DEFAULT: '#B4247C',
+          hover: '#9E1C6C',
+          dark: '#841559',
+          light: '#FDF2F8',
+          subtle: 'rgba(180, 36, 124, 0.08)',
+          ring: 'rgba(180, 36, 124, 0.25)'
+        }
+      },
+      fontFamily: {
+        display: ["'Playfair Display'", 'Georgia', 'serif'],
+        sans: ["'Instrument Sans'", '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ["'JetBrains Mono'", 'monospace'],
+        serif: ["'Playfair Display'", 'Georgia', 'serif'],
+      },
+      letterSpacing: {
+        'tightest': '-0.035em',
+        'tight': '-0.025em',
+        'mono': '0.14em',
+        'technical': '0.08em',
+        'badge': '0.12em',
+      },
+      boxShadow: {
+        'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.04)',
+        'card': '0 4px 20px -2px rgba(23, 24, 28, 0.05)',
+        'dark-card': '0 8px 30px -4px rgba(0, 0, 0, 0.4)',
+        'studio-hard': '6px 6px 0px rgba(23, 24, 28, 0.08)',
+        'studio-hard-dark': '6px 6px 0px rgba(255, 255, 255, 0.08)',
+        'rim-warm': 'inset 0 1px 1.5px 0 rgba(255, 220, 180, 0.22), 0 8px 24px -4px rgba(0, 0, 0, 0.6)',
+      },
+      transitionTimingFunction: {
+        'vapor-m': 'cubic-bezier(0.25, 1, 0.5, 1)',
+        'vapor-l': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'mech-xs': 'cubic-bezier(0.2, 0, 0, 1)',
+        'mech-s': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'mech-overshoot': 'cubic-bezier(0.34, 1.3, 0.64, 1)',
+      },
+      transitionDuration: {
+        '150': '150ms',
+        '250': '250ms',
+        '600': '600ms',
+        '1000': '1000ms',
+      }
+    },
+  },
+  plugins: [],
+}
