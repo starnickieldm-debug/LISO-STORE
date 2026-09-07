@@ -18,8 +18,6 @@ export const BoxContentsSection: React.FC = () => {
         
         {/* Section Header */}
         <SectionHeader
-          number="08"
-          overline="QUÉ VIENE EN LA CAJA"
           title="Dentro de la caja."
           subtitle="Todo lo que necesitas para dejar tu ropa lista desde el primer minuto. Sin accesorios inútiles."
         />
