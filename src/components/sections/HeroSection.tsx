@@ -307,7 +307,7 @@ export const HeroSection: React.FC = () => {
                 <span>Pago 100% seguro</span>
               </span>
               <span className="text-white/20">·</span>
-              <span>Garantía oficial</span>
+              <span>Compra segura</span>
               <span className="text-white/20">·</span>
               <a href="#como-funciona" className="text-accent underline underline-offset-2">
                 Cómo funciona
