@@ -27,8 +27,6 @@ export const ComparisonSection: React.FC = () => {
         
         {/* Section Header */}
         <SectionHeader
-          number="06"
-          overline="COMPARATIVA REAL"
           title="¿Y cómo se compara con una plancha normal?"
           subtitle="Depende de lo que quieras hacer. Para una pila de ropa, hay herramientas mejores. Para arreglarte rápido antes de salir, LISO juega en otra liga."
           theme="dark"
@@ -109,7 +107,7 @@ export const ComparisonSection: React.FC = () => {
             {/* Table Footer Note */}
             <div className="p-3 bg-night-900/90 border-t border-night-700 text-[11px] font-sans font-medium text-bone/50 flex items-center justify-between">
               <span>*Comparativa basada en especificaciones estándar de mercado</span>
-              <span className="font-mono text-[10px]">{brandConfig.labClaimNote}</span>
+              <span className="font-sans text-[10px] font-medium">{brandConfig.labClaimNote}</span>
             </div>
 
           </div>
@@ -122,7 +120,7 @@ export const ComparisonSection: React.FC = () => {
           
           {/* Competitor Selector Pills */}
           <div className="space-y-2 mb-4">
-            <span className="font-mono text-[10px] uppercase tracking-widest text-bone/50 font-semibold block text-center">
+            <span className="font-sans text-[10px] uppercase tracking-widest text-bone/50 font-bold block text-center">
               COMPARA DIRECTAMENTE CONTRA:
             </span>
             <div className="flex items-center gap-1.5 p-1 bg-white/[0.04] border border-white/10 rounded-xl">
@@ -159,7 +157,7 @@ export const ComparisonSection: React.FC = () => {
                 className="p-3.5 bg-night-950/90 rounded-xl border border-white/10 shadow-md space-y-2.5"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-accent font-bold">
+                  <span className="font-sans text-[11px] uppercase tracking-wider text-accent font-bold">
                     0{idx + 1} · {row.feature}
                   </span>
                 </div>
