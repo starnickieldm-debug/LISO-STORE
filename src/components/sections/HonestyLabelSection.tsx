@@ -21,8 +21,6 @@ export const HonestyLabelSection: React.FC = () => {
         
         {/* Section Header */}
         <SectionHeader
-          number="05"
-          overline="TRANSPARENCIA RADICAL"
           title="Te contamos la verdad sobre LISO."
           subtitle="Lo que hace increíblemente bien, y lo que simplemente no está hecha para hacer."
           align="center"
