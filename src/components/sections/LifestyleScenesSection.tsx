@@ -50,8 +50,6 @@ export const LifestyleScenesSection: React.FC = () => {
         
         {/* Section Header */}
         <SectionHeader
-          number="07"
-          overline="EN TU VIDA DIARIA"
           title="Hay días en los que sacar la tabla no tiene sentido."
           subtitle="Una camisa antes de una reunión, una prenda delicada o la ropa que salió arrugada de la maleta. LISO está hecha para esos pequeños rescates del día a día."
           theme="dark"
@@ -193,7 +191,7 @@ export const LifestyleScenesSection: React.FC = () => {
                   key={scene.id}
                   type="button"
                   onClick={() => scrollToScene(idx)}
-                  className={`flex-shrink-0 px-3 py-1.5 rounded-full font-mono text-[10px] font-bold tracking-wider uppercase transition-all ${
+                  className={`flex-shrink-0 px-3 py-1.5 rounded-full font-sans text-[10px] font-bold tracking-wider uppercase transition-all ${
                     isActive 
                       ? 'bg-accent text-white shadow-sm ring-1 ring-accent' 
                       : 'bg-white/[0.05] border border-white/10 text-bone/60 hover:text-bone active:bg-white/10'
@@ -219,10 +217,10 @@ export const LifestyleScenesSection: React.FC = () => {
                 <div>
                   {/* Slide Top Metadata */}
                   <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-white/10">
-                    <span className="font-mono text-[11px] font-bold tracking-wider text-accent uppercase">
+                    <span className="font-sans text-[11px] font-bold tracking-wider text-accent uppercase">
                       ESCENA {scene.number} · {scene.title}
                     </span>
-                    <span className="font-mono text-[11px] text-bone/50 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
+                    <span className="font-sans text-[11px] font-semibold text-bone/50 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
                       {idx + 1} / {lifestyleScenes.length}
                     </span>
                   </div>
@@ -254,7 +252,7 @@ export const LifestyleScenesSection: React.FC = () => {
 
                 {/* Micro Swipe Cue on first slide */}
                 {idx === 0 && (
-                  <div className="mt-3 pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-bone/50">
+                  <div className="mt-3 pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] font-sans font-medium text-bone/50">
                     <span>DESLIZA PARA VER MÁS ESCENAS</span>
                     <span>→</span>
                   </div>
