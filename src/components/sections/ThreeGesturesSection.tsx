@@ -89,9 +89,6 @@ export const ThreeGesturesSection: React.FC = () => {
         
         {/* Centered Editorial Section Header with authoritative scale and tight spacing */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-14 space-y-2.5">
-          <span className="font-mono text-xs font-semibold tracking-[0.2em] text-accent uppercase block">
-            [02] ASÍ FUNCIONA
-          </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-bone tracking-tight leading-[1.15]">
             Solo 3 pasos para usarla
           </h2>
@@ -118,7 +115,7 @@ export const ThreeGesturesSection: React.FC = () => {
                 <div>
                   {/* Step Identifier Header */}
                   <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-                    <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent">
+                    <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase">
                       PASO {item.step}
                     </span>
                     <div className="w-8 h-8 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center">
@@ -184,7 +181,7 @@ export const ThreeGesturesSection: React.FC = () => {
                   key={item.step}
                   type="button"
                   onClick={() => scrollToStep(idx)}
-                  className={`flex-1 py-2 px-1 text-center rounded-lg font-mono text-[11px] font-bold tracking-wider uppercase transition-all ${
+                  className={`flex-1 py-2 px-1 text-center rounded-lg font-sans text-[11px] font-bold tracking-wider uppercase transition-all ${
                     isActive 
                       ? 'bg-accent text-white shadow-sm' 
                       : 'text-bone/60 hover:text-bone active:bg-white/5'
@@ -210,7 +207,7 @@ export const ThreeGesturesSection: React.FC = () => {
                 <div>
                   {/* Step Header */}
                   <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
-                    <span className="font-mono text-xs font-bold tracking-widest text-accent">
+                    <span className="font-sans text-xs font-bold tracking-widest text-accent uppercase">
                       PASO {item.step} DE 03
                     </span>
                     <div className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
@@ -246,7 +243,7 @@ export const ThreeGesturesSection: React.FC = () => {
                 </div>
 
                 {/* Mini Footer Pill */}
-                <div className="mt-4 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-bone/50">
+                <div className="mt-4 pt-2.5 border-t border-white/10 flex items-center justify-between text-[10px] font-sans uppercase tracking-wider font-semibold text-bone/50">
                   <span>DESLIZA PARA CONTINUAR</span>
                   <span className="text-accent font-bold">0{idx + 1} / 03</span>
                 </div>
