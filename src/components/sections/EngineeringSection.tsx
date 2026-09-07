@@ -538,7 +538,7 @@ export const EngineeringSection: React.FC = () => {
                   key={p.id}
                   type="button"
                   onClick={() => selectPiece(idx)}
-                  className={`flex-shrink-0 px-3 py-1.5 rounded-xl font-mono text-[10.5px] font-bold tracking-wider uppercase transition-all active:scale-95 ${
+                  className={`flex-shrink-0 px-3 py-1.5 rounded-xl font-sans text-[10.5px] font-bold tracking-wider uppercase transition-all active:scale-95 ${
                     isActive 
                       ? 'bg-accent text-white shadow-sm ring-1 ring-accent' 
                       : 'bg-white/[0.04] border border-white/10 text-bone/60 hover:text-bone active:bg-white/10'
@@ -559,7 +559,7 @@ export const EngineeringSection: React.FC = () => {
                 <span className="text-[10px] font-sans uppercase tracking-widest text-accent font-bold">
                   {activePiece.category}
                 </span>
-                <span className="font-mono text-xs font-bold text-bone/50 tracking-wider">
+                <span className="font-sans text-xs font-bold text-bone/50 tracking-wider">
                   PIEZA {activePiece.num} / 06
                 </span>
               </div>
@@ -581,7 +581,7 @@ export const EngineeringSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => selectPiece((activeIndex - 1 + pieces.length) % pieces.length)}
-                className="inline-flex items-center gap-1 text-xs font-mono font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
+                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
                 aria-label="Pieza anterior"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
@@ -605,7 +605,7 @@ export const EngineeringSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => selectPiece((activeIndex + 1) % pieces.length)}
-                className="inline-flex items-center gap-1 text-xs font-mono font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
+                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
                 aria-label="Pieza siguiente"
               >
                 <span>Siguiente</span>
@@ -616,7 +616,7 @@ export const EngineeringSection: React.FC = () => {
           </div>
 
           {/* Swipe indicator */}
-          <div className="text-center pt-2.5 text-[10px] font-mono text-bone/40">
+          <div className="text-center pt-2.5 text-[10px] font-sans text-bone/40 font-medium">
             ← Desliza para explorar los 6 componentes técnicos →
           </div>
         </div>
