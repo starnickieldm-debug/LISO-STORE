@@ -232,25 +232,29 @@ export const HeroSection: React.FC = () => {
             ========================================================================= */}
         <div className="block lg:hidden py-1 max-w-lg mx-auto">
           
-          {/* 1. Mobile Eyebrow Badge */}
-          <div className="flex justify-center mb-2.5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono font-medium uppercase tracking-[0.18em] text-accent">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              <span>LISO CARE · EDICIÓN ORIGINAL</span>
-            </div>
-          </div>
-
-          {/* 2. Mobile H1: Balanced title */}
-          <h1 className="text-center font-display text-[1.85rem] xs:text-[2.15rem] font-bold text-bone tracking-tight leading-[1.14] drop-shadow-md">
+          {/* 1. Mobile H1: Balanced title */}
+          <h1 className="text-center font-display text-[1.95rem] xs:text-[2.25rem] font-bold text-bone tracking-tight leading-[1.14] drop-shadow-md mb-1">
             <span>Olvídate de la plancha pesada.</span>
-            <span className="block text-bone/95 mt-1 font-normal text-[1.5rem] xs:text-[1.7rem]">
+            <span className="block text-bone/95 mt-1 font-normal text-[1.55rem] xs:text-[1.75rem]">
               Tu ropa <span className="italic font-display font-medium text-white">impecable</span> en segundos.
             </span>
           </h1>
 
-          {/* 3. Mobile Focal Hero Product Stage (Centerpiece) */}
-          <div className="relative my-4 w-full max-w-[380px] mx-auto">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/15 bg-night-950 shadow-2xl">
+          {/* 2. Mobile Focal Hero Product Stage (Seamlessly integrated into background, matching desktop logic) */}
+          <div className="relative my-2 xs:my-3 w-full max-w-[420px] mx-auto">
+            {/* Ambient warm/magenta glow behind the product */}
+            <div 
+              className="pointer-events-none absolute inset-0 -m-4 bg-[radial-gradient(ellipse_at_center,rgba(180,36,124,0.16)_0%,rgba(255,195,130,0.10)_35%,transparent_70%)] blur-2xl z-0" 
+              aria-hidden="true" 
+            />
+
+            <div 
+              className="relative aspect-[16/11] xs:aspect-[4/3] w-full overflow-hidden z-10"
+              style={{
+                maskImage: 'radial-gradient(ellipse 94% 88% at 50% 50%, black 60%, transparent 100%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 94% 88% at 50% 50%, black 60%, transparent 100%)'
+              }}
+            >
               <picture className="w-full h-full">
                 <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
                 <img 
@@ -260,28 +264,20 @@ export const HeroSection: React.FC = () => {
                   loading="eager"
                 />
               </picture>
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0B0C0F] via-transparent to-transparent" />
               
-              {/* Floating Spec Micro-Badges */}
-              <div className="absolute top-2.5 left-2.5 px-2.5 py-1 bg-black/70 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-mono text-bone/90 flex items-center gap-1.5 shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                <span>1200 W</span>
-              </div>
-              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-black/70 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-mono text-bone/90 flex items-center gap-1.5 shadow-sm">
-                <span>150 °C MAX</span>
-              </div>
-              <div className="absolute bottom-2.5 left-2.5 px-2.5 py-1 bg-black/70 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-mono text-bone/90 flex items-center gap-1.5 shadow-sm">
-                <span>PLACA 90°</span>
-              </div>
+              {/* Soft dissolved edges to naturally melt into #0B0C0F without harsh borders */}
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0B0C0F] via-transparent to-transparent" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0B0C0F]/50 via-transparent to-[#0B0C0F]/50" />
             </div>
           </div>
 
-          {/* 4. Short Subtitle */}
+          {/* 3. Short Subtitle */}
           <p className="text-center text-[13.5px] text-bone/75 leading-relaxed font-normal max-w-sm mx-auto mb-3.5">
             ¿Te salió un plan de última hora? La conectas y en <strong className="font-semibold text-bone">{productSpecs.heatUpTime}</strong> ya está lista. Alisas directamente en la percha sin montar la tabla.
           </p>
 
-          {/* 5. Thumb-Zone Conversion Glass Card */}
+          {/* 4. Thumb-Zone Conversion Glass Card */}
           <div className="hero-glass-card p-4 rounded-xl space-y-3 shadow-2xl border border-white/10">
             <div className="flex items-baseline justify-between gap-2 pb-0.5">
               <div className="flex items-baseline gap-2">
@@ -292,8 +288,8 @@ export const HeroSection: React.FC = () => {
                   {currentMarket.shippingLabel}
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-bone/50 uppercase tracking-wider">
-                Envío GRATIS
+              <span className="text-[10.5px] font-sans text-bone/50 uppercase tracking-wider font-medium">
+                Pago Seguro
               </span>
             </div>
 
