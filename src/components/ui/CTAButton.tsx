@@ -7,6 +7,7 @@ interface CTAButtonProps {
   variant?: 'primary' | 'secondary' | 'dark' | 'ghost';
   size?: 'default' | 'large' | 'compact';
   fullWidth?: boolean;
+  disabled?: boolean;
   className?: string;
 }
 
@@ -17,6 +18,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({
   variant = 'primary',
   size = 'default',
   fullWidth = false,
+  disabled = false,
   className = ''
 }) => {
   const baseStyles = "inline-flex items-center justify-center font-medium tracking-tight transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent/40 disabled:opacity-50 select-none rounded-none";
@@ -47,7 +49,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({
   }
 
   return (
-    <button type="button" onClick={onClick} className={combinedClasses}>
+    <button type="button" onClick={onClick} disabled={disabled} className={combinedClasses}>
       <span className="relative z-10 inline-flex items-center justify-center gap-2">{children}</span>
     </button>
   );

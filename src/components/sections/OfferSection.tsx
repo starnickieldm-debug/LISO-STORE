@@ -3,11 +3,14 @@ import { brandConfig, productSpecs } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { CTAButton } from '../ui/CTAButton';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
-import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown } from 'lucide-react';
+import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2 } from 'lucide-react';
+import { Reveal } from '../ui/Reveal';
+import { useShopifyCheckout } from '../../hooks/useShopifyCheckout';
 
 export const OfferSection: React.FC = () => {
   const { currentMarket } = useMarket();
   const [policyAccordionOpen, setPolicyAccordionOpen] = useState<boolean>(false);
+  const { isCheckingOut, error: checkoutError, initiateCheckout, clearError } = useShopifyCheckout();
 
   return (
     <section 
@@ -24,17 +27,20 @@ export const OfferSection: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Editorial Section Intro */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-bone tracking-tight">
-            Tu LISO, lista para usar.
-          </h2>
-          <p className="text-base text-bone/70 mt-3">
-            Todo lo que necesitas viene en la caja. Solo elige tu enchufe y empieza.
-          </p>
-        </div>
+        <Reveal direction="up" duration={600}>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-bone tracking-tight">
+              Tu LISO, lista para usar.
+            </h2>
+            <p className="text-base text-bone/70 mt-3">
+              Todo lo que necesitas viene en la caja. Solo elige tu enchufe y empieza.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Conversion Main Box */}
-        <div className="bg-night-900/90 border border-night-700 p-6 sm:p-10 lg:p-12 shadow-studio-hard-dark">
+        <Reveal direction="up" delay={120} duration={750}>
+          <div className="bg-night-900/90 border border-night-700 p-6 sm:p-10 lg:p-12 shadow-studio-hard-dark">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left: Product Visual */}
@@ -182,10 +188,32 @@ export const OfferSection: React.FC = () => {
                 <CTAButton
                   size="large"
                   fullWidth
-                  onClick={() => alert(`Pedido iniciado: Plancha LISO con enchufe ${currentMarket.plugType} para ${currentMarket.countryName}. [PROCESO DE PAGO SEGURO]`)}
+                  disabled={isCheckingOut}
+                  onClick={() => initiateCheckout(currentMarket.plugType, currentMarket.countryCode)}
                 >
-                  Quiero LISO — {currentMarket.formattedPrice}
+                  {isCheckingOut ? (
+                    <span className="flex items-center gap-2">
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Preparando pedido...</span>
+                    </span>
+                  ) : (
+                    `Quiero LISO — ${currentMarket.formattedPrice}`
+                  )}
                 </CTAButton>
+
+                {checkoutError && (
+                  <div className="mt-3 p-3 bg-red-950/80 border border-red-500/40 text-red-200 text-xs font-sans flex items-start justify-between gap-2 animate-fadeIn">
+                    <span>{checkoutError}</span>
+                    <button
+                      type="button"
+                      onClick={clearError}
+                      className="text-red-400 hover:text-white font-bold ml-2 text-sm leading-none cursor-pointer"
+                      aria-label="Cerrar mensaje"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                )}
 
                 {/* Compact Trust Row */}
                 <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1.5 pt-3 text-xs font-sans text-bone/80">
@@ -293,6 +321,7 @@ export const OfferSection: React.FC = () => {
 
           </div>
         </div>
+        </Reveal>
 
       </div>
     </section>

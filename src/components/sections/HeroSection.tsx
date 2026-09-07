@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { brandConfig, productSpecs } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { CTAButton } from '../ui/CTAButton';
 import { DataStrip } from '../ui/DataStrip';
 import { ArrowDown, CheckCircle2 } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
   const { currentMarket } = useMarket();
+  const prefersReduced = useReducedMotion();
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => setLoaded(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
   return (
     <section 
       className="relative pt-4 pb-0 sm:pt-6 overflow-hidden bg-night-950 text-bone border-b border-white/10"
@@ -40,13 +48,19 @@ export const HeroSection: React.FC = () => {
             <img 
               src="/images/hero-steamer-editorial.jpg" 
               alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
-              className="w-full h-full object-cover object-center scale-100 transform origin-center"
+              className="w-full h-full object-cover object-center transform origin-center transition-all duration-1000 ease-mech-s"
+              style={!prefersReduced ? {
+                opacity: loaded ? 1 : 0,
+                transform: loaded ? 'scale(1)' : 'scale(1.03)',
+                willChange: loaded ? 'auto' : 'opacity, transform'
+              } : undefined}
               loading="eager"
             />
           </picture>
           {/* Soft dissolved edges: top, left, and strong bottom fade so the iron never cuts abruptly and stays above bottom elements */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B0C0F]/40 via-transparent via-65% to-[#0B0C0F] pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0C0F] via-transparent to-transparent opacity-60 pointer-events-none" />
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0B0C0F] via-transparent to-transparent" />
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0B0C0F] via-transparent to-transparent" />
         </div>
 
         {/* Ambient Layer: Structural warm/magenta light halo */}
@@ -58,6 +72,11 @@ export const HeroSection: React.FC = () => {
         {/* Layer 3: Original giant structural word 'LISO' superimposed over the new image */}
         <div 
           className="select-none pointer-events-none absolute right-2 sm:right-5 lg:right-8 top-1 sm:top-2 lg:top-4 font-giant-structural font-semibold uppercase text-[16vw] sm:text-[14vw] lg:text-[11vw] tracking-tighter leading-none whitespace-nowrap z-20 ghost-fade-vertical pr-4 sm:pr-6 lg:pr-8 overflow-visible" 
+          style={!prefersReduced ? {
+            opacity: loaded ? 1 : 0,
+            transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(20px, 0, 0)',
+            transition: 'opacity 1200ms cubic-bezier(0.16, 1, 0.3, 1) 300ms, transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 300ms'
+          } : undefined}
           aria-hidden="true" 
         >
           <span className="text-bone/45">LI</span>
@@ -79,7 +98,15 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-4 sm:space-y-5 lg:space-y-6 pt-1 sm:pt-2">
             
             {/* H1 Headline with increased font size, italic 'impecable', and subtle luxury depth */}
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.1rem] font-bold text-bone tracking-tight leading-[1.08] max-w-2xl lg:max-w-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+            <h1 
+              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.1rem] font-bold text-bone tracking-tight leading-[1.08] max-w-2xl lg:max-w-none drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]"
+              style={!prefersReduced ? {
+                opacity: loaded ? 1 : 0,
+                transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 24px, 0)',
+                transition: 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1)',
+                willChange: loaded ? 'auto' : 'opacity, transform'
+              } : undefined}
+            >
               <span className="block">Olvídate de la plancha pesada.</span>
               <span className="block text-bone/95 mt-1 sm:mt-1.5">
                 Tu ropa <span className="italic font-normal text-white">impecable</span> en segundos.
@@ -87,17 +114,41 @@ export const HeroSection: React.FC = () => {
             </h1>
 
             {/* Subheadline with subtle depth and clear typography */}
-            <p className="text-base sm:text-lg text-bone/85 leading-relaxed max-w-2xl font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+            <p 
+              className="text-base sm:text-lg text-bone/85 leading-relaxed max-w-2xl font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+              style={!prefersReduced ? {
+                opacity: loaded ? 1 : 0,
+                transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
+                transition: 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1) 120ms, transform 800ms cubic-bezier(0.16, 1, 0.3, 1) 120ms',
+                willChange: loaded ? 'auto' : 'opacity, transform'
+              } : undefined}
+            >
               ¿Te salió un plan de última hora y tienes la ropa toda arrugada? La conectas y en <strong className="font-semibold text-white">{productSpecs.heatUpTime}</strong> ya está caliente. Puedes alisar la ropa directamente en la percha gracias a su <strong className="font-semibold text-white">placa giratoria</strong>, y además ves la temperatura real en la pantalla.
             </p>
 
             {/* Micro value proposition */}
-            <p className="text-xs sm:text-sm font-sans text-accent font-semibold tracking-wide uppercase">
+            <p 
+              className="text-xs sm:text-sm font-sans text-accent font-semibold tracking-wide uppercase"
+              style={!prefersReduced ? {
+                opacity: loaded ? 1 : 0,
+                transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 12px, 0)',
+                transition: 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1) 200ms, transform 800ms cubic-bezier(0.16, 1, 0.3, 1) 200ms',
+                willChange: loaded ? 'auto' : 'opacity, transform'
+              } : undefined}
+            >
               — {brandConfig.tagline}
             </p>
 
             {/* Price & Primary CTA Block */}
-            <div className="hero-glass-card p-5 sm:p-6 shadow-[0_12px_40px_rgba(0,0,0,0.6)] space-y-3.5 max-w-2xl rounded-xl border border-white/15">
+            <div 
+              className="hero-glass-card p-5 sm:p-6 shadow-[0_12px_40px_rgba(0,0,0,0.6)] space-y-3.5 max-w-2xl rounded-xl border border-white/15"
+              style={!prefersReduced ? {
+                opacity: loaded ? 1 : 0,
+                transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 24px, 0)',
+                transition: 'opacity 900ms cubic-bezier(0.16, 1, 0.3, 1) 280ms, transform 900ms cubic-bezier(0.16, 1, 0.3, 1) 280ms',
+                willChange: loaded ? 'auto' : 'opacity, transform'
+              } : undefined}
+            >
               <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                 <span className="text-3xl sm:text-4xl font-display font-bold text-bone drop-shadow-sm">
                   {currentMarket.formattedPrice}

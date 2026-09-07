@@ -2,6 +2,7 @@ import React from 'react';
 import { benefitBlocks } from '../../config/siteContent';
 import { SectionHeader } from '../ui/SectionHeader';
 import { BeforeAfterSlider } from '../ui/BeforeAfterSlider';
+import { Reveal } from '../ui/Reveal';
 
 export const BenefitEvidenceSection: React.FC = () => {
   return (
@@ -37,7 +38,11 @@ export const BenefitEvidenceSection: React.FC = () => {
                 className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center ${isEven ? 'lg:flex-row-reverse' : ''}`}
               >
                 {/* Text Content */}
-                <div className={`lg:col-span-6 space-y-4 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                <Reveal 
+                  direction={isEven ? 'right' : 'left'} 
+                  duration={750}
+                  className={`lg:col-span-6 space-y-4 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                >
                   <div>
                     <span className="text-xs font-sans text-accent font-semibold uppercase tracking-wider">
                       {block.meta}
@@ -57,12 +62,15 @@ export const BenefitEvidenceSection: React.FC = () => {
                       {block.footnote}
                     </p>
                   )}
-
-
-                </div>
+                </Reveal>
 
                 {/* Media Visual / Interactive Evidence (Clean without superimposed text) */}
-                <div className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                <Reveal 
+                  direction={isEven ? 'left' : 'right'} 
+                  delay={100}
+                  duration={750}
+                  className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
+                >
                   {index === 0 ? (
                     <BeforeAfterSlider 
                       beforeImage="/images/before-wrinkled-shirt.jpg"
@@ -85,7 +93,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                       />
                     </div>
                   )}
-                </div>
+                </Reveal>
               </div>
             );
           })}

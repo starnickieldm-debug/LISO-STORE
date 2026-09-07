@@ -4,14 +4,21 @@ interface UseInViewOptions {
   threshold?: number | number[];
   rootMargin?: string;
   triggerOnce?: boolean;
+  initialInView?: boolean;
 }
 
 export function useInView<T extends HTMLElement = HTMLDivElement>(
   options: UseInViewOptions = {}
 ): [RefObject<T>, boolean] {
-  const { threshold = 0.01, rootMargin = '300px', triggerOnce = true } = options;
+  const {
+    threshold = 0.1,
+    rootMargin = '0px 0px -60px 0px',
+    triggerOnce = true,
+    initialInView = false
+  } = options;
+
   const ref = useRef<T>(null);
-  const [inView, setInView] = useState(true);
+  const [inView, setInView] = useState<boolean>(initialInView);
 
   useEffect(() => {
     const el = ref.current;

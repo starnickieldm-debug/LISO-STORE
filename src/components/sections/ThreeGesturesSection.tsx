@@ -6,7 +6,7 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { Droplet, Power, Sparkles } from 'lucide-react';
 
 export const ThreeGesturesSection: React.FC = () => {
-  const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.05, rootMargin: '50px' });
+  const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.1, rootMargin: '0px 0px -50px 0px', triggerOnce: true });
   const prefersReduced = useReducedMotion();
 
   const icons = [
@@ -75,11 +75,12 @@ export const ThreeGesturesSection: React.FC = () => {
           {threeGestures.map((item, idx) => (
             <div
               key={item.step}
-              className="relative bg-night-800/85 backdrop-blur-md border border-white/10 p-6 sm:p-7 flex flex-col justify-between group hover:border-accent/40 transition-all duration-250 ease-mech-s shadow-dark-card rounded-none"
+              className="relative bg-night-800/85 backdrop-blur-md border border-white/10 p-6 sm:p-7 flex flex-col justify-between group hover:border-accent/40 transition-all duration-250 ease-mech-s shadow-dark-card rounded-none hover-lift"
               style={prefersReduced ? undefined : {
                 opacity: inView ? 1 : 0,
-                transform: inView ? 'translateY(0)' : 'translateY(10px)',
-                transitionDelay: `${idx * 80}ms`
+                transform: inView ? 'translate3d(0, 0, 0)' : 'translate3d(0, 32px, 0)',
+                transition: `opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) ${idx * 140}ms, transform 750ms cubic-bezier(0.16, 1, 0.3, 1) ${idx * 140}ms`,
+                willChange: inView ? 'auto' : 'opacity, transform'
               }}
             >
               <div>

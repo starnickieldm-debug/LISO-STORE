@@ -3,6 +3,7 @@ import { brandConfig } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { CTAButton } from '../ui/CTAButton';
 import { Check } from 'lucide-react';
+import { Reveal } from '../ui/Reveal';
 
 export const FinalCTASection: React.FC = () => {
   const { currentMarket } = useMarket();
@@ -37,7 +38,7 @@ export const FinalCTASection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Visual Placement */}
-          <div className="lg:col-span-6">
+          <Reveal direction="left" duration={750} className="lg:col-span-6">
             <div className="shadow-studio-hard-dark border border-white/10 rounded-[24px] overflow-hidden group">
               <picture className="w-full h-full">
                 <source srcSet="/images/final-cta-steamer.webp" type="image/webp" />
@@ -49,10 +50,10 @@ export const FinalCTASection: React.FC = () => {
                 />
               </picture>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right Column: Emotionally grounded copy & high-conversion CTA */}
-          <div className="lg:col-span-6 space-y-6">
+          <Reveal direction="right" duration={750} delay={100} className="lg:col-span-6 space-y-6">
             {/* H2 Headline with clamp and descender-safe mask */}
             <h2 className="font-h2-clamp font-semibold leading-[1.12] text-luminance-h2">
               <span className="block line-mask-reveal">
@@ -94,7 +95,7 @@ export const FinalCTASection: React.FC = () => {
               </CTAButton>
             </div>
 
-          </div>
+          </Reveal>
 
         </div>
 

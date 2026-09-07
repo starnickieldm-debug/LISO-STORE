@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Play } from 'lucide-react';
+import { Reveal } from '../ui/Reveal';
 
 export const SocialProofSection: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -32,17 +33,20 @@ export const SocialProofSection: React.FC = () => {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Clean, concise header */}
-        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-bone leading-[1.2] pb-1">
-            No te lo contamos. Te lo mostramos.
-          </h2>
-          <p className="text-sm sm:text-base text-bone/70 font-sans">
-            Mira LISO en acción directamente sobre la prenda.
-          </p>
-        </div>
+        <Reveal direction="up" duration={600}>
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-bone leading-[1.2] pb-1">
+              No te lo contamos. Te lo mostramos.
+            </h2>
+            <p className="text-sm sm:text-base text-bone/70 font-sans">
+              Mira LISO en acción directamente sobre la prenda.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Video Player - Full prominence, clean frame, zero dead space */}
-        <div className="relative aspect-video w-full max-w-4xl mx-auto bg-black rounded-xl sm:rounded-2xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.6)] overflow-hidden group">
+        <Reveal direction="up" delay={120} duration={700}>
+          <div className="relative aspect-video w-full max-w-4xl mx-auto bg-black rounded-xl sm:rounded-2xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.6)] overflow-hidden group">
           <video
             ref={videoRef}
             src="/videos/liso-prueba-real.mp4"
@@ -76,6 +80,7 @@ export const SocialProofSection: React.FC = () => {
             </div>
           )}
         </div>
+        </Reveal>
 
       </div>
     </section>

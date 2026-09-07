@@ -1,6 +1,7 @@
 import React from 'react';
 import { lifestyleScenes } from '../../config/siteContent';
 import { SectionHeader } from '../ui/SectionHeader';
+import { Reveal } from '../ui/Reveal';
 
 export const LifestyleScenesSection: React.FC = () => {
   return (
@@ -31,7 +32,7 @@ export const LifestyleScenesSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
           
           {/* Scene 01: Camisa de oficina (Large feature 7 cols) */}
-          <div className="lg:col-span-7 space-y-4 group">
+          <Reveal direction="up" delay={0} duration={700} className="lg:col-span-7 space-y-4 group hover-lift">
             <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden rounded-[24px] sm:rounded-[32px] border border-white/10 group-hover:border-white/25 transition-all duration-300 shadow-rim-warm bg-night-900">
               <picture className="w-full h-full">
                 <source srcSet="/images/escena-01-camisa.webp" type="image/webp" />
@@ -51,10 +52,10 @@ export const LifestyleScenesSection: React.FC = () => {
                 {lifestyleScenes[0].context}
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* Scene 02: Vestido delicado (5 cols) */}
-          <div className="lg:col-span-5 space-y-4 group">
+          <Reveal direction="up" delay={120} duration={700} className="lg:col-span-5 space-y-4 group hover-lift">
             <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full overflow-hidden rounded-[24px] sm:rounded-[32px] border border-white/10 group-hover:border-white/25 transition-all duration-300 shadow-rim-warm bg-night-900">
               <picture className="w-full h-full">
                 <source srcSet="/images/escena-02-vestido.webp" type="image/webp" />
@@ -74,10 +75,10 @@ export const LifestyleScenesSection: React.FC = () => {
                 {lifestyleScenes[1].context}
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* Scene 03: Cortina (4 cols) */}
-          <div className="lg:col-span-4 space-y-4 group">
+          <Reveal direction="up" delay={0} duration={700} className="lg:col-span-4 space-y-4 group hover-lift">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/10 group-hover:border-white/25 transition-all duration-300 shadow-rim-warm bg-night-900">
               <picture className="w-full h-full">
                 <source srcSet="/images/escena-03-cortina.webp" type="image/webp" />
@@ -97,10 +98,10 @@ export const LifestyleScenesSection: React.FC = () => {
                 {lifestyleScenes[2].context}
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* Scene 04: Hotel + maleta (4 cols) */}
-          <div className="lg:col-span-4 space-y-4 group">
+          <Reveal direction="up" delay={100} duration={700} className="lg:col-span-4 space-y-4 group hover-lift">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/10 group-hover:border-white/25 transition-all duration-300 shadow-rim-warm bg-night-900">
               <picture className="w-full h-full">
                 <source srcSet="/images/escena-04-maleta.webp" type="image/webp" />
@@ -120,10 +121,10 @@ export const LifestyleScenesSection: React.FC = () => {
                 {lifestyleScenes[3].context}
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* Scene 05: Producto sobre dock (4 cols) */}
-          <div className="lg:col-span-4 space-y-4 group">
+          <Reveal direction="up" delay={200} duration={700} className="lg:col-span-4 space-y-4 group hover-lift">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/10 group-hover:border-white/25 transition-all duration-300 shadow-rim-warm bg-night-900">
               <picture className="w-full h-full">
                 <source srcSet="/images/escena-05-dock.webp" type="image/webp" />
@@ -143,7 +144,7 @@ export const LifestyleScenesSection: React.FC = () => {
                 {lifestyleScenes[4].context}
               </p>
             </div>
-          </div>
+          </Reveal>
 
         </div>
 

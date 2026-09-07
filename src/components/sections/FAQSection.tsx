@@ -2,6 +2,7 @@ import React from 'react';
 import { faqItems } from '../../config/siteContent';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Accordion } from '../ui/Accordion';
+import { Reveal } from '../ui/Reveal';
 
 export const FAQSection: React.FC = () => {
   return (
@@ -28,9 +29,9 @@ export const FAQSection: React.FC = () => {
         />
 
         {/* Accordion Component with all 12 official questions */}
-        <div className="mt-8">
+        <Reveal direction="up" duration={650} className="mt-8">
           <Accordion items={faqItems} isDarkTheme={true} />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

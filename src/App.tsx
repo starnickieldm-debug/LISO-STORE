@@ -4,6 +4,7 @@ import { TrustBar } from './components/layout/TrustBar';
 import { Navbar } from './components/layout/Navbar';
 import { StickyBuyBar } from './components/layout/StickyBuyBar';
 import { Footer } from './components/layout/Footer';
+import { ScrollProgress } from './components/ui/ScrollProgress';
 
 import { HeroSection } from './components/sections/HeroSection';
 import { ThreeGesturesSection } from './components/sections/ThreeGesturesSection';
@@ -25,6 +26,9 @@ export function App() {
         className="min-h-screen flex flex-col bg-night-950 text-bone antialiased font-sans relative selection:bg-accent selection:text-white"
         style={{ backgroundColor: '#0B0C0F', color: '#F6F4EF' }}
       >
+      {/* Barra sutil de progreso de lectura editorial */}
+      <ScrollProgress />
+
       {/* Capa de textura editorial: grano de papel sutil al 2% */}
       <div className="paper-grain-overlay" aria-hidden="true" />
 

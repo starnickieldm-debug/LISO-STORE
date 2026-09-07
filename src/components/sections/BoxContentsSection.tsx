@@ -3,6 +3,7 @@ import { boxItems, brandConfig } from '../../config/siteContent';
 import { SectionHeader } from '../ui/SectionHeader';
 import { useInView } from '../../hooks/useInView';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { Reveal } from '../ui/Reveal';
 
 export const BoxContentsSection: React.FC = () => {
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.2 });
@@ -27,7 +28,7 @@ export const BoxContentsSection: React.FC = () => {
         <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           
           {/* Flat-lay visual representation (6 cols, balanced max-width) */}
-          <div className="lg:col-span-6 max-w-[460px] sm:max-w-[490px] w-full mx-auto lg:mx-0">
+          <Reveal direction="up" duration={700} className="lg:col-span-6 max-w-[460px] sm:max-w-[490px] w-full mx-auto lg:mx-0">
             <div className="relative aspect-square w-full overflow-hidden bg-night-950 shadow-studio-hard border border-graphite/20 group">
               <picture className="w-full h-full">
                 <source srcSet="/images/box-contents.webp" type="image/webp" />
@@ -39,7 +40,7 @@ export const BoxContentsSection: React.FC = () => {
                 />
               </picture>
             </div>
-          </div>
+          </Reveal>
 
           {/* Item Breakdown List with Annotations (6 cols) */}
           <div className="lg:col-span-6 space-y-4">
@@ -54,8 +55,9 @@ export const BoxContentsSection: React.FC = () => {
                   className="py-3.5 flex items-start justify-between gap-4 group transition-all duration-200 ease-mech-s"
                   style={prefersReduced ? undefined : {
                     opacity: inView ? 1 : 0,
-                    transform: inView ? 'translateY(0)' : 'translateY(8px)',
-                    transitionDelay: `${idx * 50}ms`
+                    transform: inView ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
+                    transition: `opacity 650ms cubic-bezier(0.16, 1, 0.3, 1) ${idx * 80}ms, transform 650ms cubic-bezier(0.16, 1, 0.3, 1) ${idx * 80}ms`,
+                    willChange: inView ? 'auto' : 'opacity, transform'
                   }}
                 >
                   <div className="space-y-0.5">
