@@ -64,7 +64,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
       {/* Interactive Drag Container */}
       <div
         ref={containerRef}
-        className="relative aspect-square bg-night-950 border border-night-700 overflow-hidden select-none cursor-ew-resize group shadow-studio-hard-dark"
+        className="relative aspect-square bg-night-950 border border-night-700 overflow-hidden select-none cursor-ew-resize group shadow-studio-hard-dark touch-none"
         style={{ backgroundColor: '#0B0C0F' }}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
@@ -112,12 +112,12 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
         </div>
 
-        {/* Divider Drag Line & Central Handle */}
+        {/* Divider Drag Line & Central Handle with expanded touch target */}
         <div
           className="absolute inset-y-0 w-[2px] bg-accent z-20 pointer-events-none flex items-center justify-center -translate-x-1/2 shadow-lg"
           style={{ left: `${sliderPos}%` }}
         >
-          <div className="w-9 h-9 rounded-full bg-night-950 text-white border-2 border-accent flex items-center justify-center shadow-[0_0_16px_rgba(180,36,124,0.45)] group-hover:scale-110 transition-transform">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-night-950 text-white border-2 border-accent flex items-center justify-center shadow-[0_0_16px_rgba(180,36,124,0.45)] group-hover:scale-110 transition-transform relative after:absolute after:-inset-3 after:content-['']">
             <MoveHorizontal className="w-4 h-4 text-accent stroke-[2.5]" />
           </div>
         </div>

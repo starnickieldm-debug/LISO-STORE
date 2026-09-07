@@ -40,12 +40,12 @@ export const OfferSection: React.FC = () => {
 
         {/* Conversion Main Box */}
         <Reveal direction="up" delay={120} duration={750}>
-          <div className="bg-night-900/90 border border-night-700 p-6 sm:p-10 lg:p-12 shadow-studio-hard-dark">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="bg-night-900/90 border border-night-700 p-4 sm:p-10 lg:p-12 shadow-studio-hard-dark">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             
             {/* Left: Product Visual */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="relative aspect-[3/4] w-full overflow-hidden border border-white/15 bg-night-950 shadow-rim-warm group">
+            <div className="lg:col-span-5 space-y-3 sm:space-y-4">
+              <div className="relative aspect-square sm:aspect-[3/4] w-full max-w-[420px] mx-auto lg:mx-0 overflow-hidden border border-white/15 bg-night-950 shadow-rim-warm group">
                 <picture className="w-full h-full">
                   <source srcSet="/images/liso-oferta.webp" type="image/webp" />
                   <img 
@@ -56,7 +56,7 @@ export const OfferSection: React.FC = () => {
                   />
                 </picture>
               </div>
-              <div className="p-3 bg-white/5 border border-white/10 text-[11px] font-sans text-bone/60 text-center tracking-wider uppercase font-medium">
+              <div className="p-2.5 sm:p-3 bg-white/5 border border-white/10 text-[10px] sm:text-[11px] font-sans text-bone/60 text-center tracking-wider uppercase font-medium">
                 <span>VOLTAJE COMPATIBLE: 110–240 V DUAL</span>
               </div>
             </div>

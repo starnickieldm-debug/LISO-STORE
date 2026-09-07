@@ -29,12 +29,12 @@ export const HonestyLabelSection: React.FC = () => {
 
         {/* Nutritional-Style Technical Label Card with Thermal Print Effect */}
         <Reveal direction="up" duration={700}>
-          <div ref={ref} className="bg-bone-50 border-2 border-graphite p-6 sm:p-10 shadow-card relative">
+          <div ref={ref} className="bg-bone-50 border-2 border-graphite p-4 sm:p-8 lg:p-10 shadow-card relative">
             
             {/* Label Header */}
             <div className="border-b-4 border-graphite pb-4 mb-6">
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-tight text-graphite">
+                <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-tight text-graphite">
                   LO QUE PUEDES ESPERAR DE LISO
                 </h3>
                 <div className="text-left sm:text-right">

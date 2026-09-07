@@ -9,7 +9,7 @@ export const FinalCTASection: React.FC = () => {
   const { currentMarket } = useMarket();
   return (
     <section 
-      className="py-20 sm:py-32 bg-night-950 text-bone border-b border-night-700 relative overflow-hidden bg-macro-fabric"
+      className="py-14 sm:py-32 bg-night-950 text-bone border-b border-night-700 relative overflow-hidden bg-macro-fabric"
       style={{ backgroundColor: '#0B0C0F' }}
     >
       {/* Layer 1 (z-0): Border cinematic vignette */}
@@ -26,7 +26,7 @@ export const FinalCTASection: React.FC = () => {
 
       {/* Giant structural word 'SIN TABLA' en Playfair Display (Par sólido/outline 10-12% / 25-30% con fade, presente en móvil y desktop) */}
       <div 
-        className="select-none pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-2 font-giant-structural font-semibold uppercase text-[15vw] sm:text-[14vw] md:text-[13vw] tracking-tighter leading-none whitespace-nowrap text-center ghost-fade-vertical z-0 overflow-visible" 
+        className="select-none pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-2 font-giant-structural font-semibold uppercase text-[15vw] sm:text-[14vw] md:text-[13vw] tracking-tighter leading-none whitespace-nowrap text-center ghost-fade-vertical z-0 overflow-hidden max-w-full" 
         aria-hidden="true" 
       >
         <span className="text-bone/12">SIN </span>
@@ -35,11 +35,11 @@ export const FinalCTASection: React.FC = () => {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           
           {/* Left Column: Visual Placement */}
           <Reveal direction="left" duration={750} className="lg:col-span-6">
-            <div className="shadow-studio-hard-dark border border-white/10 rounded-[24px] overflow-hidden group">
+            <div className="shadow-studio-hard-dark border border-white/10 rounded-2xl sm:rounded-[24px] overflow-hidden group">
               <picture className="w-full h-full">
                 <source srcSet="/images/final-cta-steamer.webp" type="image/webp" />
                 <img 

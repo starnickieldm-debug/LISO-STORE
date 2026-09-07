@@ -11,7 +11,7 @@ export const BoxContentsSection: React.FC = () => {
 
   return (
     <section 
-      className="py-20 sm:py-28 bg-bone border-b border-graphite/10"
+      className="py-14 sm:py-28 bg-bone border-b border-graphite/10"
       style={{ backgroundColor: '#F6F4EF', color: '#17181C' }}
     >
       <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12">
@@ -25,7 +25,7 @@ export const BoxContentsSection: React.FC = () => {
         />
 
         {/* Flat-lay Main Visual + Item breakdown */}
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-14 items-center">
           
           {/* Flat-lay visual representation (6 cols, balanced max-width) */}
           <Reveal direction="up" duration={700} className="lg:col-span-6 max-w-[460px] sm:max-w-[490px] w-full mx-auto lg:mx-0">

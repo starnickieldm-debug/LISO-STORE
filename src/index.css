@@ -213,6 +213,11 @@
   -webkit-text-stroke: 2px rgba(246, 244, 239, 0.55);
 }
 
+.text-outline-bone-subtle {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(246, 244, 239, 0.18);
+}
+
 .text-outline-bone-ghost {
   color: transparent;
   -webkit-text-stroke: 1px rgba(246, 244, 239, 0.25);
@@ -283,10 +288,10 @@
 
 /* Hero Single Glass Card */
 .hero-glass-card {
-  background: rgba(18, 19, 24, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(13, 14, 18, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Fabric Dunes Background (S3 B1 Before/After) */

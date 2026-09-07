@@ -88,27 +88,28 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-night-900/95 backdrop-blur-md border-b border-white/15 px-4 pt-3 pb-6 animate-fadeIn">
-          <nav className="flex flex-col space-y-4">
+        <div className="md:hidden bg-night-900/98 backdrop-blur-xl border-b border-white/15 px-4 pt-3 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] shadow-2xl animate-fadeIn">
+          <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-bone/80 hover:text-accent py-1 border-b border-white/10"
+                className="text-base font-medium text-bone/85 active:text-accent active:bg-white/5 py-2.5 px-2 rounded border-b border-white/10 transition-colors flex items-center justify-between"
               >
-                {link.label}
+                <span>{link.label}</span>
+                <span className="text-white/20 text-xs font-mono">→</span>
               </a>
             ))}
 
-            <div className="pt-2">
+            <div className="pt-3">
               <CountrySelector variant="drawer" />
             </div>
 
             <a
               href="#oferta"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 flex items-center justify-center min-h-[48px] text-sm font-semibold tracking-wide uppercase bg-accent text-white"
+              className="mt-4 flex items-center justify-center min-h-[50px] text-sm font-semibold tracking-wide uppercase bg-accent active:scale-[0.98] text-white transition-transform shadow-lg shadow-accent/20"
             >
               Lo quiero — {currentMarket.formattedPrice}
             </a>

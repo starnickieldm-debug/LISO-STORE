@@ -37,22 +37,22 @@ export const ComparisonSection: React.FC = () => {
         <Reveal direction="up" duration={700}>
           <div ref={ref} className="relative border border-night-700 bg-night-950/80 shadow-studio-hard-dark overflow-hidden">
             
-            <div className="overflow-x-auto horizontal-scroll-touch">
-              <table className="w-full text-left border-collapse min-w-[640px]">
+            <div className="overflow-x-auto horizontal-scroll-touch overscroll-x-contain">
+              <table className="w-full text-left border-collapse min-w-[580px] sm:min-w-[640px]">
                 
                 {/* Table Header */}
                 <thead>
                   <tr className="border-b border-night-700 bg-night-900/90">
-                    <th className="sticky left-0 bg-night-900 z-20 py-4 px-4 sm:px-6 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-1/4 border-r border-night-700 shadow-[2px_0_10px_rgba(0,0,0,0.5)]">
-                      CRITERIO PRÁCTICO
+                    <th className="sticky left-0 bg-night-900 z-20 py-3 sm:py-4 px-3 sm:px-6 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-[125px] min-w-[125px] sm:w-1/4 sm:min-w-none border-r border-night-700 shadow-[3px_0_12px_rgba(0,0,0,0.7)]">
+                      CRITERIO
                     </th>
-                    <th className="py-4 px-4 sm:px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-1/4 border-r border-night-700">
+                    <th className="py-3 sm:py-4 px-3.5 sm:px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-1/4 border-r border-night-700">
                       PLANCHA + TABLA
                     </th>
-                    <th className="py-4 px-4 sm:px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-1/4 border-r border-night-700">
+                    <th className="py-3 sm:py-4 px-3.5 sm:px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-1/4 border-r border-night-700">
                       VAPORIZADOR DE MANO
                     </th>
-                    <th className="relative py-4 px-4 sm:px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone bg-night-800/80 w-1/4 overflow-hidden border-r border-night-700">
+                    <th className="relative py-3 sm:py-4 px-3.5 sm:px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone bg-night-800/80 w-1/4 overflow-hidden border-r border-night-700">
                       {/* Animated hairline drawing rule */}
                       <div 
                         className={`absolute top-0 left-0 right-0 h-[3px] bg-accent transition-transform duration-600 ease-vapor-m origin-left ${
@@ -77,22 +77,22 @@ export const ComparisonSection: React.FC = () => {
                     return (
                       <tr key={row.feature} className={`hover:bg-white/[0.03] transition-colors ${idx % 2 === 1 ? 'bg-white/[0.015]' : ''}`}>
                         {/* Sticky 1st column */}
-                        <td className="sticky left-0 bg-night-950 z-10 py-3.5 px-4 sm:px-6 font-medium text-bone border-r border-night-700 shadow-[2px_0_10px_rgba(0,0,0,0.5)]">
+                        <td className="sticky left-0 bg-night-950 z-10 py-3 px-3 sm:py-3.5 sm:px-6 font-medium text-bone border-r border-night-700 shadow-[3px_0_12px_rgba(0,0,0,0.7)] text-xs sm:text-sm">
                           {row.feature}
                         </td>
                         
                         {/* Plancha Tradicional */}
-                        <td className="py-3.5 px-4 sm:px-5 text-bone/70 border-r border-night-700/60">
+                        <td className="py-3 px-3.5 sm:py-3.5 sm:px-5 text-bone/70 border-r border-night-700/60 text-xs sm:text-sm">
                           {row.traditionalIron}
                         </td>
 
                         {/* Vaporizador barato */}
-                        <td className="py-3.5 px-4 sm:px-5 text-bone/70 border-r border-night-700/60">
+                        <td className="py-3 px-3.5 sm:py-3.5 sm:px-5 text-bone/70 border-r border-night-700/60 text-xs sm:text-sm">
                           {row.cheapSteamer}
                         </td>
 
                         {/* LISO */}
-                        <td className={`py-3.5 px-4 sm:px-5 font-semibold text-bone bg-accent/10 border-r border-night-700/60 ${isLast ? 'text-bone/60 font-normal italic' : 'text-bone'}`}>
+                        <td className={`py-3 px-3.5 sm:py-3.5 sm:px-5 font-semibold text-bone bg-accent/10 border-r border-night-700/60 text-xs sm:text-sm ${isLast ? 'text-bone/60 font-normal italic' : 'text-bone'}`}>
                           {row.liso}
                         </td>
                       </tr>

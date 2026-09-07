@@ -74,8 +74,8 @@ export const SocialProofSection: React.FC = () => {
               }}
               aria-label="Reproducir video de demostración"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-accent hover:bg-accent-hover text-white flex items-center justify-center shadow-[0_0_24px_rgba(180,36,124,0.5)] transform group-hover:scale-110 transition-transform">
-                <Play className="w-7 h-7 sm:w-8 sm:h-8 ml-1 fill-white" />
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-accent hover:bg-accent-hover active:scale-95 text-white flex items-center justify-center shadow-[0_0_24px_rgba(180,36,124,0.5)] transform group-hover:scale-110 transition-transform">
+                <Play className="w-6 h-6 sm:w-8 sm:h-8 ml-0.5 fill-white" />
               </div>
             </div>
           )}

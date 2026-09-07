@@ -15,11 +15,11 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-night-950 text-bone/70 text-sm border-t border-night-700 py-14">
+    <footer className="bg-night-950 text-bone/70 text-sm border-t border-night-700 pt-12 pb-28 md:py-14">
       <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-night-700">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10 pb-10 md:pb-12 border-b border-night-700">
           
           {/* Col 1: Brand & Identity */}
           <div className="space-y-4 md:col-span-1">

@@ -235,7 +235,7 @@ export const EngineeringSection: React.FC = () => {
         </div>
 
         {/* Mobile quick-switch pill bar (Visible only < 1024px) */}
-        <div className="flex lg:hidden items-center justify-between gap-1 pb-4 mb-2 overflow-x-auto border-b border-white/10">
+        <div className="flex lg:hidden items-center justify-between gap-1 pb-4 mb-2 overflow-x-auto border-b border-white/10 overscroll-contain">
           <div className="flex items-center gap-1.5">
             {pieces.map((p, idx) => {
               const isActive = idx === activeIndex;
@@ -244,10 +244,10 @@ export const EngineeringSection: React.FC = () => {
                   key={p.id}
                   type="button"
                   onClick={() => selectPiece(idx)}
-                  className={`px-3 py-1.5 text-xs font-sans font-bold tracking-wider transition-colors ${
+                  className={`px-3 py-2 min-w-[40px] min-h-[38px] flex items-center justify-center text-xs font-sans font-bold tracking-wider transition-all active:scale-95 ${
                     isActive 
-                      ? 'bg-accent text-white' 
-                      : 'bg-white/5 text-bone/60 hover:text-bone hover:bg-white/10'
+                      ? 'bg-accent text-white shadow-sm' 
+                      : 'bg-white/5 text-bone/60 hover:text-bone hover:bg-white/10 active:bg-white/15'
                   }`}
                   aria-label={`Seleccionar pieza ${p.num}`}
                 >
@@ -260,7 +260,7 @@ export const EngineeringSection: React.FC = () => {
             <button
               type="button"
               onClick={() => selectPiece((activeIndex - 1 + pieces.length) % pieces.length)}
-              className="p-1.5 bg-white/5 hover:bg-white/10 text-bone/80 hover:text-white"
+              className="p-2 min-w-[38px] min-h-[38px] flex items-center justify-center bg-white/5 hover:bg-white/10 active:bg-white/15 text-bone/80 hover:text-white active:scale-95 transition-all"
               aria-label="Pieza anterior"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -268,7 +268,7 @@ export const EngineeringSection: React.FC = () => {
             <button
               type="button"
               onClick={() => selectPiece((activeIndex + 1) % pieces.length)}
-              className="p-1.5 bg-white/5 hover:bg-white/10 text-bone/80 hover:text-white"
+              className="p-2 min-w-[38px] min-h-[38px] flex items-center justify-center bg-white/5 hover:bg-white/10 active:bg-white/15 text-bone/80 hover:text-white active:scale-95 transition-all"
               aria-label="Pieza siguiente"
             >
               <ArrowRight className="w-4 h-4" />
@@ -429,10 +429,10 @@ export const EngineeringSection: React.FC = () => {
                     onClick={() => selectPiece(idx)}
                     onKeyDown={(e) => handleKeyNav(e, idx)}
                     style={{ left: `${p.hotspot.x}%`, top: `${p.hotspot.y}%` }}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 z-20 w-[30px] h-[30px] rounded-full flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bone cursor-pointer ${
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 z-20 w-[30px] h-[30px] rounded-full flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bone cursor-pointer after:absolute after:-inset-2.5 after:content-[''] ${
                       isActive
                         ? 'bg-night-950 border-2 border-accent shadow-[0_0_18px_rgba(180,36,124,0.7)] scale-110 ring-2 ring-accent/30'
-                        : 'bg-night-950/90 border border-white/40 hover:border-bone hover:scale-105'
+                        : 'bg-night-950/90 border border-white/40 hover:border-bone hover:scale-105 active:scale-95'
                     }`}
                     aria-label={`Hotspot ${p.num}: ${p.name}`}
                     aria-selected={isActive}
@@ -547,10 +547,10 @@ export const EngineeringSection: React.FC = () => {
                           setPlateAngle(deg);
                           if (!hasInteracted) setHasInteracted(true);
                         }}
-                        className={`py-2 px-1 text-center font-sans text-xs uppercase tracking-tight font-bold transition-all border ${
+                        className={`py-2.5 px-1 min-h-[46px] text-center font-sans text-xs uppercase tracking-tight font-bold transition-all border active:scale-95 ${
                           plateAngle === deg
                             ? 'bg-accent text-white border-accent shadow-subtle'
-                            : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white'
+                            : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white active:bg-white/10'
                         }`}
                         aria-label={`Ver placa a ${deg} grados`}
                       >
@@ -775,10 +775,10 @@ export const EngineeringSection: React.FC = () => {
                           setSelectedPlug(code);
                           if (!hasInteracted) setHasInteracted(true);
                         }}
-                        className={`py-2 text-center font-sans text-xs font-bold transition-all border ${
+                        className={`py-2.5 min-h-[44px] text-center font-sans text-xs font-bold transition-all border active:scale-95 ${
                           selectedPlug === code
                             ? 'bg-accent text-white border-accent shadow-subtle'
-                            : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white'
+                            : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white active:bg-white/10'
                         }`}
                         aria-label={`Ver clavija ${code}`}
                       >
