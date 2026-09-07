@@ -58,10 +58,10 @@ export const OfferSection: React.FC = () => {
               </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               
-              <div className="absolute top-2.5 left-2.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-mono text-accent font-bold">
+              <div className="absolute top-2.5 left-2.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-sans text-accent font-bold tracking-wider uppercase">
                 KIT COMPLETO
               </div>
-              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-mono text-bone/80">
+              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-sans text-bone/80 font-semibold tracking-wider uppercase">
                 110–240 V DUAL
               </div>
             </div>
@@ -69,7 +69,7 @@ export const OfferSection: React.FC = () => {
             {/* 2. Title, Pricing & Plug Match */}
             <div className="space-y-3 bg-night-950/80 border border-white/10 p-4 rounded-xl">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block">
+                <span className="text-[10px] font-sans uppercase tracking-widest text-accent font-bold block">
                   EDICIÓN ORIGINAL LISO
                 </span>
                 <h3 className="font-display text-xl sm:text-2xl font-bold text-bone mt-0.5">
@@ -101,7 +101,7 @@ export const OfferSection: React.FC = () => {
               {/* Automatic Country Plug Card */}
               <div className="p-2.5 bg-white/[0.04] border border-white/10 rounded-lg flex items-center justify-between gap-3 text-xs">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 border border-accent/60 bg-accent/15 text-accent font-mono font-bold text-xs flex items-center justify-center rounded">
+                  <div className="w-8 h-8 border border-accent/60 bg-accent/15 text-accent font-sans font-bold text-xs flex items-center justify-center rounded">
                     {currentMarket.plugType}
                   </div>
                   <div>
@@ -114,7 +114,7 @@ export const OfferSection: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <span className="text-[10px] font-mono text-bone/40 uppercase">AUTO</span>
+                <span className="text-[10px] font-sans text-bone/40 font-bold uppercase tracking-wider">AUTO</span>
               </div>
 
               {/* 3. Primary Buy CTA in the Thumb Zone */}
@@ -169,7 +169,7 @@ export const OfferSection: React.FC = () => {
 
             {/* 4. What's in the Box (Compact View) */}
             <div className="p-4 bg-night-950/60 border border-white/10 rounded-xl space-y-2.5">
-              <span className="text-xs font-mono uppercase tracking-wider text-bone/70 font-semibold block">
+              <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold block">
                 ¿QUÉ RECIBES EN LA CAJA?
               </span>
               <ul className="space-y-1.5 text-xs text-bone">
@@ -365,7 +365,7 @@ export const OfferSection: React.FC = () => {
                     </div>
                   </div>
                   <div className="hidden sm:block text-right flex-shrink-0">
-                    <span className="text-[10px] font-mono text-bone/50 uppercase tracking-wider bg-white/5 border border-white/10 px-2 py-1">
+                    <span className="text-[10px] font-sans font-semibold text-bone/50 uppercase tracking-wider bg-white/5 border border-white/10 px-2 py-1">
                       110–240 V DUAL
                     </span>
                   </div>
