@@ -75,7 +75,7 @@ export const HeroSection: React.FC = () => {
 
         {/* Ambient Layer: Structural warm/magenta light halo behind the iron head */}
         <div 
-          className="pointer-events-none absolute right-0 top-0 w-80 sm:w-[520px] h-80 sm:h-[520px] bg-halo-structural blur-3xl z-5" 
+          className="pointer-events-none absolute right-0 top-0 w-80 sm:w-[520px] h-80 sm:h-[520px] bg-halo-structural blur-3xl z-5 opacity-90" 
           aria-hidden="true" 
         />
 
@@ -93,11 +93,14 @@ export const HeroSection: React.FC = () => {
               src="/images/hero-steamer-editorial.jpg" 
               alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
               className="w-full h-full object-cover object-[70%_center] transform origin-center transition-all duration-1000 ease-mech-s"
-              style={!prefersReduced ? {
-                opacity: loaded ? 1 : 0,
-                transform: loaded ? 'scale(1)' : 'scale(1.03)',
-                willChange: loaded ? 'auto' : 'opacity, transform'
-              } : undefined}
+              style={{
+                filter: 'brightness(1.09) contrast(1.06)',
+                ...(!prefersReduced ? {
+                  opacity: loaded ? 1 : 0,
+                  transform: loaded ? 'scale(1)' : 'scale(1.03)',
+                  willChange: loaded ? 'auto' : 'opacity, transform'
+                } : undefined)
+              }}
               loading="eager"
             />
           </picture>
@@ -106,7 +109,7 @@ export const HeroSection: React.FC = () => {
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/70 via-transparent to-transparent" />
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0B0C0F] via-transparent to-transparent" />
           {/* Subtle radial vignette darkening garment edges so the iron pops as the undisputed focal hero */}
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_65%_48%,transparent_45%,rgba(11,12,15,0.55)_85%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_65%_48%,transparent_54%,rgba(11,12,15,0.38)_88%)]" />
         </div>
 
         {/* Layer 4: Atmospheric steam glow */}
@@ -184,16 +187,16 @@ export const HeroSection: React.FC = () => {
                   Quiero mi ropa impecable
                 </CTAButton>
 
-                {/* Acción secundaria: Enlace textual discreto con menor peso y contraste */}
+                {/* Acción secundaria: Enlace textual discreto con menor peso y contraste refinado */}
                 <a 
                   href="#como-funciona" 
-                  className="inline-flex items-center justify-start gap-1.5 py-2 px-2 text-xs font-sans font-medium text-bone/60 hover:text-white transition-colors group shrink-0"
+                  className="inline-flex items-center justify-start gap-1.5 py-2 px-1 text-xs font-sans font-medium text-bone/75 hover:text-white transition-colors group shrink-0"
                   aria-label="Ver cómo funciona LISO"
                 >
-                  <span className="underline underline-offset-4 decoration-white/20 group-hover:decoration-white/60">
+                  <span className="border-b border-bone/25 group-hover:border-white/60 transition-colors pb-0.5">
                     Ver cómo funciona
                   </span>
-                  <ArrowDown className="w-3.5 h-3.5 text-bone/40 group-hover:text-bone group-hover:translate-y-0.5 transition-all" />
+                  <ArrowDown className="w-3.5 h-3.5 text-bone/50 group-hover:text-white group-hover:translate-y-0.5 transition-all" />
                 </a>
               </div>
 
@@ -261,14 +264,17 @@ export const HeroSection: React.FC = () => {
                   src="/images/hero-steamer-editorial.jpg" 
                   alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
                   className="w-full h-full object-cover object-[70%_center]"
+                  style={{
+                    filter: 'brightness(1.09) contrast(1.06)'
+                  }}
                   loading="eager"
                 />
               </picture>
               
               {/* Soft dissolved edges to naturally melt into #0B0C0F without harsh borders */}
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0B0C0F] via-transparent to-transparent" />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/80 via-transparent to-transparent" />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0B0C0F]/50 via-transparent to-[#0B0C0F]/50" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/65 via-transparent to-transparent" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0B0C0F]/40 via-transparent to-[#0B0C0F]/40" />
             </div>
           </div>
 
@@ -291,6 +297,20 @@ export const HeroSection: React.FC = () => {
             >
               Quiero mi ropa impecable
             </CTAButton>
+
+            {/* Acción secundaria en móvil: Discreta, elegante y con jerarquía secundaria clara */}
+            <div className="text-center pt-0.5">
+              <a 
+                href="#como-funciona" 
+                className="inline-flex items-center justify-center gap-1.5 py-1 text-xs font-sans font-medium text-bone/70 hover:text-white transition-colors group"
+                aria-label="Ver cómo funciona LISO"
+              >
+                <span className="border-b border-bone/25 group-hover:border-white/60 transition-colors pb-0.5">
+                  Ver cómo funciona
+                </span>
+                <ArrowDown className="w-3.5 h-3.5 text-bone/50 group-hover:text-white group-hover:translate-y-0.5 transition-all" />
+              </a>
+            </div>
 
             {/* Confianza: Una sola línea compacta sin redundancia */}
             <div className="flex items-center justify-between text-[11px] text-bone/70 pt-2 font-sans border-t border-white/10">
