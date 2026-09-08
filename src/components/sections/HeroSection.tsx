@@ -151,7 +151,7 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              ¿Te salió un plan de última hora y tienes la ropa toda arrugada? La conectas y en <strong className="font-semibold text-bone">{productSpecs.heatUpTime}</strong> ya está caliente. Puedes alisar la ropa directamente en la percha gracias a su <strong className="font-semibold text-bone">placa giratoria</strong> y ver la temperatura real en pantalla.
+              ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y en 3 segundos* está caliente. Alisa directamente en la percha, sin sacar la tabla, gracias a su <strong className="font-semibold text-bone">placa giratoria</strong> y temperatura real en pantalla.
             </p>
 
             {/* 4. Price & Primary Conversion Card */}
@@ -165,17 +165,12 @@ export const HeroSection: React.FC = () => {
               } : undefined}
             >
               {/* Nivel 2: Precio */}
-              <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 pb-0.5">
-                <div className="flex items-baseline gap-2.5">
-                  <span className="text-3xl sm:text-[2.2rem] font-display font-bold text-white tracking-tight drop-shadow-sm">
-                    {currentMarket.formattedPrice}
-                  </span>
-                  <span className="text-[11px] sm:text-xs font-sans uppercase tracking-wider text-accent font-semibold">
-                    {currentMarket.shippingLabel}
-                  </span>
-                </div>
-                <span className="text-[11px] font-sans text-bone/50 font-medium">
-                  Precio final neto
+              <div className="flex items-baseline gap-2.5 pb-0.5">
+                <span className="text-3xl sm:text-[2.2rem] font-display font-bold text-white tracking-tight drop-shadow-sm">
+                  {currentMarket.formattedPrice}
+                </span>
+                <span className="text-[11px] sm:text-xs font-sans uppercase tracking-wider text-accent font-semibold">
+                  {currentMarket.shippingLabel}
                 </span>
               </div>
 
@@ -202,11 +197,11 @@ export const HeroSection: React.FC = () => {
                 </a>
               </div>
 
-              {/* Nivel 3: Beneficios de confianza (Bajo ruido, lectura limpia) */}
+              {/* Nivel 3: Beneficios de confianza (Compacto, sin repetición innecesaria) */}
               <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 text-xs text-bone/70 pt-1 font-sans font-medium border-t border-white/5">
-                <span className="inline-flex items-center gap-1.5 text-bone/90">
+                <span className="inline-flex items-center gap-1 text-bone/90">
                   <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                  <span>{currentMarket.shippingLabel}</span>
+                  <span>Envío gratis</span>
                 </span>
                 <span className="text-white/20">·</span>
                 <span>Pago 100% seguro</span>
@@ -233,15 +228,20 @@ export const HeroSection: React.FC = () => {
         <div className="block lg:hidden py-1 max-w-lg mx-auto">
           
           {/* 1. Mobile H1: Balanced title */}
-          <h1 className="text-center font-display text-[1.95rem] xs:text-[2.25rem] font-bold text-bone tracking-tight leading-[1.14] drop-shadow-md mb-1">
+          <h1 className="text-center font-display text-[1.95rem] xs:text-[2.25rem] font-bold text-bone tracking-tight leading-[1.14] drop-shadow-md mb-2">
             <span>Olvídate de la plancha pesada.</span>
             <span className="block text-bone/95 mt-1 font-normal text-[1.55rem] xs:text-[1.75rem]">
               Tu ropa <span className="italic font-display font-medium text-white">impecable</span> en segundos.
             </span>
           </h1>
 
-          {/* 2. Mobile Focal Hero Product Stage (Seamlessly integrated into background, matching desktop logic) */}
-          <div className="relative my-2 xs:my-3 w-full max-w-[420px] mx-auto">
+          {/* 2. Beneficio / Problema: Explanatory paragraph with 'sin tabla / en la percha' benefit */}
+          <p className="text-center text-[13.5px] xs:text-sm text-bone/75 leading-relaxed font-normal max-w-sm mx-auto mb-2">
+            ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y en 3 segundos* está caliente. Alisa directamente en la percha, sin sacar la tabla, gracias a su <strong className="font-semibold text-bone">placa giratoria</strong> y temperatura real en pantalla.
+          </p>
+
+          {/* 3. Mobile Focal Hero Product Stage (Seamlessly integrated into background) */}
+          <div className="relative my-1.5 xs:my-2.5 w-full max-w-[420px] mx-auto">
             {/* Ambient warm/magenta glow behind the product */}
             <div 
               className="pointer-events-none absolute inset-0 -m-4 bg-[radial-gradient(ellipse_at_center,rgba(180,36,124,0.16)_0%,rgba(255,195,130,0.10)_35%,transparent_70%)] blur-2xl z-0" 
@@ -272,24 +272,15 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* 3. Short Subtitle */}
-          <p className="text-center text-[13.5px] text-bone/75 leading-relaxed font-normal max-w-sm mx-auto mb-3.5">
-            ¿Te salió un plan de última hora? La conectas y en <strong className="font-semibold text-bone">{productSpecs.heatUpTime}</strong> ya está lista. Alisas directamente en la percha sin montar la tabla.
-          </p>
-
-          {/* 4. Thumb-Zone Conversion Glass Card */}
+          {/* 4. Thumb-Zone Conversion Glass Card (Precio -> CTA -> Confianza) */}
           <div className="hero-glass-card p-4 rounded-xl space-y-3 shadow-2xl border border-white/10">
-            <div className="flex items-baseline justify-between gap-2 pb-0.5">
-              <div className="flex items-baseline gap-2">
-                <span className="text-[1.85rem] font-display font-bold text-white tracking-tight">
-                  {currentMarket.formattedPrice}
-                </span>
-                <span className="text-[11px] font-sans uppercase tracking-wider text-accent font-semibold">
-                  {currentMarket.shippingLabel}
-                </span>
-              </div>
-              <span className="text-[10.5px] font-sans text-bone/50 uppercase tracking-wider font-medium">
-                Pago Seguro
+            {/* Precio & Envío limpio, sin ruido ni chips redundantes */}
+            <div className="flex items-baseline gap-2 pb-0.5">
+              <span className="text-[1.85rem] font-display font-bold text-white tracking-tight">
+                {currentMarket.formattedPrice}
+              </span>
+              <span className="text-[11px] font-sans uppercase tracking-wider text-accent font-semibold">
+                {currentMarket.shippingLabel}
               </span>
             </div>
 
@@ -301,18 +292,22 @@ export const HeroSection: React.FC = () => {
               Quiero mi ropa impecable
             </CTAButton>
 
-            <div className="flex items-center justify-between text-[11px] text-bone/70 pt-1 font-sans border-t border-white/10">
-              <span className="flex items-center gap-1 text-bone/90">
+            {/* Confianza: Una sola línea compacta sin redundancia */}
+            <div className="flex items-center justify-between text-[11px] text-bone/70 pt-2 font-sans border-t border-white/10">
+              <span className="inline-flex items-center gap-1 text-bone/90">
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Pago 100% seguro</span>
+                <span>Envío gratis</span>
               </span>
               <span className="text-white/20">·</span>
-              <span>Compra segura</span>
+              <span>Pago 100% seguro</span>
               <span className="text-white/20">·</span>
-              <a href="#como-funciona" className="text-accent underline underline-offset-2">
-                Cómo funciona
-              </a>
+              <span>Atención postventa</span>
             </div>
+
+            {/* Nota de laboratorio discreta */}
+            <p className="text-[10px] font-sans text-bone/40 italic text-center pt-0.5">
+              {brandConfig.labClaimNote}
+            </p>
           </div>
 
         </div>
