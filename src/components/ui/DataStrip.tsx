@@ -1,64 +1,60 @@
 import React from 'react';
 import { productSpecs } from '../../config/siteContent';
-import { useInView } from '../../hooks/useInView';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 export const DataStrip: React.FC = () => {
-  const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.2 });
+  const prefersReduced = useReducedMotion();
+
+  const specItems = [
+    { value: productSpecs.power, label: "POTENCIA CONTINUA", isAccent: true },
+    { value: productSpecs.maxTemperature, label: "PANTALLA DIGITAL", isAccent: false },
+    { value: `${productSpecs.tankCapacity} ≈ ${productSpecs.garmentsPerTank}`, label: "POR CARGA", isAccent: false },
+    { value: productSpecs.heatUpTime, label: "CALENTAMIENTO RÁPIDO", isAccent: true },
+    { value: "0° — 45° — 90°", label: "PLACA GIRATORIA", isAccent: false },
+    { value: "Aluminio Inyectado", label: "CÁMARA TÉRMICA", isAccent: false },
+    { value: "Vapor Continuo", label: "PRESIÓN CONSTANTE", isAccent: true },
+    { value: "110V Colombia", label: "ENCHUFE DIRECTO", isAccent: false },
+  ];
+
+  const renderItem = (item: typeof specItems[0], index: number, prefix: string) => (
+    <div 
+      key={`${prefix}-${index}`} 
+      className="inline-flex items-center gap-2.5 sm:gap-3.5 px-6 sm:px-8 shrink-0"
+    >
+      <span className={`w-2 h-2 rounded-full shrink-0 ${item.isAccent ? 'bg-accent shadow-[0_0_8px_rgba(180,36,124,0.4)]' : 'bg-graphite/35'}`} />
+      <div className="flex items-baseline gap-2">
+        <span className="font-sans font-bold text-graphite text-sm sm:text-[15px] tracking-tight">
+          {item.value}
+        </span>
+        <span className="text-graphite/60 text-[11px] sm:text-xs tracking-widest font-medium uppercase">
+          {item.label}
+        </span>
+      </div>
+      <span className="text-graphite/20 font-thin text-sm sm:text-base ml-4 sm:ml-6 select-none">|</span>
+    </div>
+  );
 
   return (
-    <div ref={ref} className="relative z-30 w-full bg-bone/90 backdrop-blur-sm border-y border-graphite/10 py-2 sm:py-3 px-4 sm:px-6 lg:px-8 overflow-hidden select-none">
-      <div className="max-w-[1480px] mx-auto grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center sm:justify-between gap-x-4 sm:gap-x-5 gap-y-2.5 sm:gap-y-2 text-[11px] sm:text-xs font-sans tracking-wider text-graphite/80">
-        
-        {/* Spec Item 1: Potencia */}
-        <div className={`flex items-center gap-2 transition-all duration-250 ease-mech-s ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 min-w-0">
-            <span className="font-sans font-bold text-graphite text-xs sm:text-[13px]">{productSpecs.power}</span>
-            <span className="text-graphite/55 text-[9px] sm:text-[11px] tracking-widest font-normal uppercase">POTENCIA</span>
+    <aside 
+      aria-label="Especificaciones clave de rendimiento en movimiento continuo"
+      className="relative z-30 w-full border-y border-graphite/15 py-3.5 sm:py-4.5 overflow-hidden select-none shadow-sm"
+      style={{ backgroundColor: 'rgba(250, 248, 245, 0.96)' }}
+    >
+      <div className="marquee-container">
+        <div 
+          className="marquee-track flex items-center"
+          style={prefersReduced ? { animation: 'none' } : { animationDuration: '30s' }}
+        >
+          {/* First set */}
+          <div className="flex items-center shrink-0">
+            {specItems.map((item, idx) => renderItem(item, idx, 'set1'))}
+          </div>
+          {/* Duplicate set for infinite seamless loop */}
+          <div className="flex items-center shrink-0" aria-hidden="true">
+            {specItems.map((item, idx) => renderItem(item, idx, 'set2'))}
           </div>
         </div>
-
-        <span className="hidden sm:inline text-graphite/15 font-thin">|</span>
-
-        {/* Spec Item 2: Temperatura */}
-        <div className={`flex items-center gap-2 transition-all duration-250 ease-mech-s delay-[60ms] ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <span className="w-1.5 h-1.5 rounded-full bg-graphite/30 shrink-0" />
-          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 min-w-0">
-            <span className="font-sans font-bold text-graphite text-xs sm:text-[13px]">{productSpecs.maxTemperature}</span>
-            <span className="text-graphite/55 text-[9px] sm:text-[11px] tracking-widest font-normal uppercase">DIGITAL</span>
-          </div>
-        </div>
-
-        <span className="hidden sm:inline text-graphite/15 font-thin">|</span>
-
-        {/* Spec Item 3: Depósito y prendas */}
-        <div className={`flex items-center gap-2 transition-all duration-250 ease-mech-s delay-[120ms] ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <span className="w-1.5 h-1.5 rounded-full bg-graphite/30 shrink-0" />
-          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 min-w-0">
-            <span className="font-sans font-bold text-graphite text-xs sm:text-[13px]">{productSpecs.tankCapacity} ≈ {productSpecs.garmentsPerTank}</span>
-            <span className="text-graphite/55 text-[9px] sm:text-[11px] tracking-widest font-normal uppercase sm:hidden">CAPACIDAD</span>
-          </div>
-        </div>
-
-        <span className="hidden sm:inline text-graphite/15 font-thin">|</span>
-
-        {/* Spec Item 4: Tiempo de calentamiento */}
-        <div className={`flex items-center gap-2 transition-all duration-250 ease-mech-s delay-[180ms] ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 min-w-0">
-            <span className="font-sans font-bold text-graphite text-xs sm:text-[13px]">{productSpecs.heatUpTime}</span>
-            <span className="text-graphite/55 text-[9px] sm:text-[11px] tracking-widest font-normal uppercase">CALENTAMIENTO</span>
-          </div>
-        </div>
-
       </div>
-
-      {/* Decorative hairline progress underline */}
-      <div 
-        className={`absolute bottom-0 left-0 right-0 h-[1px] bg-accent/30 transition-transform duration-600 ease-vapor-m origin-left ${
-          inView ? 'scale-x-100' : 'scale-x-0'
-        }`} 
-      />
-    </div>
+    </aside>
   );
 };

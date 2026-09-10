@@ -66,21 +66,31 @@ export const HeroSection: React.FC = () => {
           aria-hidden="true" 
         />
 
-        {/* Layer 3: Product Image Stage (Rendered cutout with soft long shadow) */}
+        {/* Layer 3: Seamless Product Image Stage (Dedicated right-side visual stage in front of LISO watermark) */}
         <div 
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[50%] xl:w-[48%] z-10 hidden lg:flex items-center justify-center overflow-hidden pr-4"
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[51%] xl:w-[48%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 10%, black 26%, black 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 10%, black 26%, black 100%)',
+          }}
         >
-          <img 
-            src="/images/liso-clean-cutout.webp" 
-            alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital" 
-            className="max-h-[82%] max-w-[92%] w-auto object-contain product-shadow-long transform origin-center transition-all duration-1000 ease-mech-s"
-            style={!prefersReduced ? {
-              opacity: loaded ? 1 : 0,
-              transform: loaded ? 'scale(1)' : 'scale(1.03)',
-              willChange: loaded ? 'auto' : 'opacity, transform'
-            } : undefined}
-            loading="eager"
-          />
+          <picture className="w-full h-full">
+            <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
+            <img 
+              src="/images/hero-steamer-editorial.jpg" 
+              alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
+              className="w-full h-full object-cover object-[70%_center] transform origin-center transition-all duration-1000 ease-mech-s"
+              style={{
+                filter: 'brightness(1.06) contrast(1.06)',
+                ...(!prefersReduced ? {
+                  opacity: loaded ? 1 : 0,
+                  transform: loaded ? 'scale(1)' : 'scale(1.03)',
+                  willChange: loaded ? 'auto' : 'opacity, transform'
+                } : undefined)
+              }}
+              loading="eager"
+            />
+          </picture>
         </div>
 
         <div className="max-w-[1480px] w-full mx-auto px-4 sm:px-8 lg:px-12 relative z-30 my-auto">
@@ -209,21 +219,27 @@ export const HeroSection: React.FC = () => {
             Alisa directo en el gancho y sin sacar la tabla. Placa giratoria y vapor continuo.
           </p>
 
-          {/* 3. Mobile Focal Hero Product Stage (Rendered in bone with long soft shadow & orbit) */}
-          <div className="relative my-2 w-full max-w-[340px] mx-auto flex items-center justify-center">
-            {/* 20% Orbit Hairline */}
+          {/* 3. Mobile Focal Hero Product Stage (Editorial Dark Luxury Anchor) */}
+          <div className="relative my-2 w-full max-w-[360px] mx-auto">
+            {/* Ambient warm/magenta glow behind the product */}
             <div 
-              className="pointer-events-none absolute w-[260px] h-[260px] rounded-full orbit-hairline z-0" 
+              className="pointer-events-none absolute inset-0 -m-3 bg-[radial-gradient(ellipse_at_center,rgba(180,36,124,0.18)_0%,rgba(255,195,130,0.08)_40%,transparent_70%)] blur-2xl z-0" 
               aria-hidden="true" 
             />
 
-            <div className="relative z-10 w-full max-w-[270px] flex items-center justify-center">
-              <img 
-                src="/images/liso-clean-cutout.webp" 
-                alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital" 
-                className="w-full h-auto object-contain product-shadow-long"
-                loading="eager"
-              />
+            <div className="relative aspect-[16/10] xs:aspect-[16/9.5] w-full overflow-hidden rounded-2xl shadow-xl z-10 border border-graphite/15">
+              <picture className="w-full h-full">
+                <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
+                <img 
+                  src="/images/hero-steamer-editorial.jpg" 
+                  alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
+                  className="w-full h-full object-cover object-[70%_center]"
+                  style={{
+                    filter: 'brightness(1.06) contrast(1.06)'
+                  }}
+                  loading="eager"
+                />
+              </picture>
             </div>
           </div>
 
