@@ -21,7 +21,6 @@ export const FAQSection: React.FC = () => {
         
         {/* Section Header */}
         <SectionHeader
-          number="11"
           overline="DUDAS FRECUENTES"
           title="Preguntas frecuentes."
           subtitle="Respuestas claras y directas a lo que todos nos preguntamos antes de comprar."

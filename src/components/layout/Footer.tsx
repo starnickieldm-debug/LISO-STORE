@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { brandConfig, productSpecs } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
-import { CountrySelector } from '../ui/CountrySelector';
 import { PolicyModal, PolicyTab } from '../ui/PolicyModal';
 
 export const Footer: React.FC = () => {
@@ -121,13 +120,14 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright, Country Selector and Mandatory Lab Disclaimer */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-bone/40">
+        {/* Bottom Bar: Copyright, Country Indicator and Mandatory Lab Disclaimer */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-sans text-bone/50">
           <div className="flex flex-wrap items-center gap-4">
             <p>© {new Date().getFullYear()} {brandConfig.name}. Todos los derechos reservados.</p>
-            <CountrySelector variant="footer" />
+            <span className="text-white/20 hidden sm:inline">·</span>
+            <span className="text-bone/60 font-medium">🇨🇴 Colombia · Despachos a nivel nacional</span>
           </div>
-          <p className="text-center sm:text-right">
+          <p className="text-center sm:text-right text-bone/40 text-[10px]">
             {brandConfig.labClaimNote}
           </p>
         </div>

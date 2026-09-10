@@ -58,9 +58,9 @@ const pieces: DissectionPiece[] = [
   {
     id: "voltage",
     num: "06",
-    name: "MULTIVOLTAJE 110–240 V",
-    category: "COMPATIBILIDAD GLOBAL",
-    phrase: "El mismo aparato en cualquier continente: eliges tu enchufe.",
+    name: "CLAVIJA ESTÁNDAR + 110–240 V",
+    category: "CONEXIÓN Y VOLTAJE",
+    phrase: "Clavija plana estándar (110 V) para cualquier toma y multivoltaje para viajes.",
     hotspot: { x: 16, y: 92 }
   }
 ];
@@ -83,9 +83,6 @@ export const EngineeringSection: React.FC = () => {
 
   // 03: Digital temperature counter 90 -> 150 (single run upon selection)
   const [tempCounter, setTempCounter] = useState<number>(prefersReduced ? 150 : 90);
-
-  // 06: Plug selection US -> EU -> UK -> AU
-  const [selectedPlug, setSelectedPlug] = useState<'US' | 'EU' | 'UK' | 'AU'>('US');
 
   const hotspotButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const indexButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
@@ -424,69 +421,26 @@ export const EngineeringSection: React.FC = () => {
             <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden rounded-lg">
               <img 
                 src="/images/liso-plug-us.webp" 
-                alt="Clavija eléctrica estándar US tipo A/B" 
+                alt="Clavija eléctrica plana estándar Tipo A/B (110 V)" 
                 loading="lazy"
                 decoding="async"
                 sizes="(max-width: 768px) 100vw, 400px"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                  prefersReduced ? 'duration-0' : 'duration-200'
-                } ${selectedPlug === 'US' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-              />
-              <img 
-                src="/images/liso-plug-eu.webp" 
-                alt="Clavija eléctrica estándar EU tipo C/F continental" 
-                loading="lazy"
-                decoding="async"
-                sizes="(max-width: 768px) 100vw, 400px"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                  prefersReduced ? 'duration-0' : 'duration-200'
-                } ${selectedPlug === 'EU' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-              />
-              <img 
-                src="/images/liso-plug-uk.webp" 
-                alt="Clavija eléctrica estándar UK tipo G de 3 pines" 
-                loading="lazy"
-                decoding="async"
-                sizes="(max-width: 768px) 100vw, 400px"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                  prefersReduced ? 'duration-0' : 'duration-200'
-                } ${selectedPlug === 'UK' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-              />
-              <img 
-                src="/images/liso-plug-au.webp" 
-                alt="Clavija eléctrica estándar AU tipo I de 3 clavijas" 
-                loading="lazy"
-                decoding="async"
-                sizes="(max-width: 768px) 100vw, 400px"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity ${
-                  prefersReduced ? 'duration-0' : 'duration-200'
-                } ${selectedPlug === 'AU' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                className="w-full h-full object-cover"
               />
 
-              <div className="absolute top-2.5 right-2.5 px-2 py-0.5 bg-black/80 border border-white/20 text-[10px] font-sans text-bone font-bold">
-                {selectedPlug} · 110–240 V
+              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-black/85 border border-white/20 text-[10px] font-sans text-bone font-bold rounded">
+                110 V · MULTIVOLTAJE 110–240 V
               </div>
             </div>
 
-            <div className="grid grid-cols-4 gap-1.5">
-              {(['US', 'EU', 'UK', 'AU'] as const).map((code) => (
-                <button
-                  key={code}
-                  type="button"
-                  onClick={() => {
-                    setSelectedPlug(code);
-                    if (!hasInteracted) setHasInteracted(true);
-                  }}
-                  className={`py-2.5 min-h-[44px] text-center font-sans text-xs font-bold transition-all border active:scale-95 ${
-                    selectedPlug === code
-                      ? 'bg-accent text-white border-accent shadow-subtle'
-                      : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white active:bg-white/10'
-                  }`}
-                  aria-label={`Ver clavija ${code}`}
-                >
-                  <span>{code}</span>
-                </button>
-              ))}
+            <div className="p-3 bg-white/5 border border-white/10 space-y-1 text-xs font-sans rounded-lg">
+              <div className="flex items-center justify-between">
+                <span className="text-bone font-semibold">Estándar Colombia (110 V)</span>
+                <span className="text-accent font-bold">Clavija plana Tipo A/B</span>
+              </div>
+              <p className="text-bone/65 text-[11px] leading-snug">
+                Se conecta directo a cualquier toma de pared del país sin adaptadores. Compatible con 110–240 V si viajas.
+              </p>
             </div>
           </div>
         );

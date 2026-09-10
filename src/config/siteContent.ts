@@ -39,14 +39,14 @@ export const productSpecs: ProductSpecs = {
   dockIncluded: true,
   measuringCupIncluded: true,
   storageBagIncluded: true,
-  plugTypes: ["EU", "US", "UK", "AU"],
+  plugTypes: ["US"],
   weightPlaceholder: "[PESO — PENDIENTE]",
   dimensionsPlaceholder: "[DIMENSIONES — PENDIENTES]"
 };
 
 export const trustBarItems = [
   "Atención y soporte postventa",
-  `Envío ${brandConfig.shippingPlaceholder}`,
+  "Envío gratis a toda Colombia",
   "Pago 100% seguro"
 ];
 
@@ -108,7 +108,7 @@ export const engineeringCallouts = [
   { id: "tank", label: "TANQUE DE ALUMINIO", desc: "Aluminio inyectado: reparte el calor parejo", x: "82%", y: "55%" },
   { id: "steam", label: "2 NIVELES DE VAPOR", desc: "Nivel 1 para telas suaves, Nivel 2 para algodón y lino", x: "75%", y: "78%" },
   { id: "dry", label: "PLANCHADO EN SECO", desc: "Solo calor, sin humedad, para acabados firmes", x: "42%", y: "85%" },
-  { id: "voltage", label: "110–240 V", desc: "Se conecta en cualquier país del mundo sin quemarse", x: "18%", y: "75%" },
+  { id: "voltage", label: "110–240 V", desc: "Conexión directa estándar de 110 V y compatible con 110–240 V para viajes", x: "18%", y: "75%" },
   { id: "dock", label: "BASE DE APOYO", desc: "Para posarla caliente entre prenda y prenda", x: "14%", y: "45%" },
   { id: "abs", label: "ABS RESISTENTE", desc: "Aislante exterior: por donde la tomas no quema", x: "50%", y: "48%" },
 ];
@@ -171,7 +171,7 @@ export const comparisonRows: ComparisonRow[] = [
     feature: "Espacio que ocupa",
     traditionalIron: "Necesitas espacio para guardar la tabla",
     cheapSteamer: "Ocupa poco, pero necesitas dónde guardarlo",
-    liso: "Entra en un rincón del armario o sobre tu mesa."
+    liso: "Entra en un rincón del clóset o sobre tu mesa."
   },
   {
     feature: "Usarla directamente en la percha",
@@ -290,7 +290,7 @@ export const boxItems: BoxItem[] = [
   {
     id: "bag",
     name: "Bolsa de viaje",
-    annotation: "Para guardarla en el armario o meterla en la maleta protegida.",
+    annotation: "Para guardarla en el clóset o meterla en la maleta protegida.",
     includedCount: "1 unidad",
     placeholderText: "FOTOGRAFÍA REAL: Bolsa de transporte en tejido natural"
   },
@@ -337,13 +337,13 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-6",
     question: "¿Qué tipo de enchufe me envían?",
-    answer: "El enchufe que elijas al hacer tu pedido: EU, US, UK o AU. Te enviamos la plancha con el cable y la clavija que calza directo en la toma de tu pared, sin adaptadores sueltos que bailen.",
+    answer: "Te enviamos la versión con clavija plana estándar (Tipo A/B americano, 110 V), el estándar en los hogares colombianos. Se conecta directo a cualquier tomacorriente de la pared, sin necesidad de adaptadores.",
     verified: true
   },
   {
     id: "faq-7",
     question: "¿Funciona en otros países con 110–240 V?",
-    answer: "Sí. Es multivoltaje (110 a 240 V), así que puedes llevarla en tu maleta a cualquier parte del mundo sin miedo a que se queme.",
+    answer: "Sí. Es multivoltaje (110 a 240 V). Funciona directo en Colombia a 110 V y además puedes llevarla en tu maleta a cualquier parte del mundo sin miedo a que se queme.",
     verified: true
   },
   {
@@ -355,13 +355,13 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-9",
     question: "¿Cómo se cuida y se guarda?",
-    answer: "Solo bota el agua que sobre al terminar para que no se formen sedimentos en el aluminio. Déjala enfriar en su base dock y luego guárdala en su bolsa de viaje. [RESPUESTA PENDIENTE DE PRUEBA/CONFIRMACIÓN SOBRE TIPO DE AGUA RECOMENDADA: GRIFO VS DESTILADA].",
+    answer: "Solo vacía el agua sobrante al terminar para que no se formen sedimentos en el aluminio. Déjala enfriar en su base dock y luego guárdala en su bolsa de viaje. [RESPUESTA PENDIENTE DE PRUEBA/CONFIRMACIÓN SOBRE TIPO DE AGUA RECOMENDADA: GRIFO VS DESTILADA].",
     verified: false
   },
   {
     id: "faq-10",
     question: "¿Qué pasa si llega con algún daño o falla?",
-    answer: "Si recibes un producto defectuoso, dañado o con algún problema, contáctanos con tu número de pedido y fotografías o un vídeo que muestre el caso. Revisaremos tu situación y te indicaremos la solución correspondiente con atención directa en tu idioma.",
+    answer: "Si recibes un producto defectuoso, dañado o con algún problema, contáctanos con tu número de pedido y fotografías o un video que muestre el caso. Revisaremos tu situación y te indicaremos la solución correspondiente con atención y soporte directo para tu compra.",
     verified: true
   },
   {
@@ -373,7 +373,7 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-12",
     question: "¿Por qué comprarla aquí y no en una plataforma genérica?",
-    answer: "Porque te respaldamos nosotros con envío local, atención directa de personas reales y un equipo que responde ante cualquier duda o problema con tu pedido.",
+    answer: "Porque te respaldamos nosotros con envío nacional, atención personalizada de personas reales y un equipo que responde ante cualquier duda o problema con tu pedido.",
     verified: true
   }
 ];

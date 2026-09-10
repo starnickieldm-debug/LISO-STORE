@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { brandConfig } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
-import { CountrySelector } from '../ui/CountrySelector';
 import { Menu, X } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -64,14 +63,12 @@ export const Navbar: React.FC = () => {
 
         {/* Header Action CTA (Visible in desktop AND mobile sticky nav) */}
         <div className="flex items-center space-x-2 sm:space-x-3">
-          <CountrySelector variant="navbar" />
-
           <a
             href="#oferta"
             className="inline-flex items-center justify-center px-3.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-sans font-semibold tracking-wider uppercase bg-accent hover:bg-accent-hover text-white transition-all rounded-none"
           >
             <span className="hidden sm:inline">Lo quiero — {currentMarket.formattedPrice}</span>
-            <span className="sm:hidden">Comprar</span>
+            <span className="sm:hidden">Lo quiero</span>
           </a>
 
           {/* Mobile Menu Toggle */}
@@ -101,10 +98,6 @@ export const Navbar: React.FC = () => {
                 <span className="text-white/20 text-xs font-mono">→</span>
               </a>
             ))}
-
-            <div className="pt-3">
-              <CountrySelector variant="drawer" />
-            </div>
 
             <a
               href="#oferta"

@@ -93,7 +93,7 @@ export const ThreeGesturesSection: React.FC = () => {
             Solo 3 pasos para usarla
           </h2>
           <p className="text-base sm:text-lg text-bone/70 max-w-xl mx-auto font-normal leading-relaxed">
-            Olvídate del rollo de sacar la tabla y la plancha pesada.
+            Olvídate de armar la tabla y de la plancha pesada.
           </p>
         </div>
 

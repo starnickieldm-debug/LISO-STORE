@@ -1,27 +1,15 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { CountryCode, MarketConfig, MarketContextValue } from '../types/market';
-import { MARKETS, AVAILABLE_MARKETS, DEFAULT_COUNTRY_CODE } from '../config/markets';
-import { detectBrowserMarket, saveMarket } from '../utils/marketDetection';
+import React, { createContext, useContext } from 'react';
+import { MarketConfig, MarketContextValue } from '../types/market';
+import { MARKETS, AVAILABLE_MARKETS } from '../config/markets';
 
 const MarketContext = createContext<MarketContextValue | undefined>(undefined);
 
 export const MarketProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [currentCountry, setCurrentCountry] = useState<CountryCode>(() => {
-    return detectBrowserMarket();
-  });
-
-  const handleSetMarket = (code: CountryCode) => {
-    if (MARKETS[code]) {
-      setCurrentCountry(code);
-      saveMarket(code);
-    }
-  };
-
-  const currentMarket: MarketConfig = MARKETS[currentCountry] || MARKETS[DEFAULT_COUNTRY_CODE];
+  const currentMarket: MarketConfig = MARKETS.CO;
 
   const value: MarketContextValue = {
     currentMarket,
-    setMarket: handleSetMarket,
+    setMarket: () => {},
     availableMarkets: AVAILABLE_MARKETS,
   };
 

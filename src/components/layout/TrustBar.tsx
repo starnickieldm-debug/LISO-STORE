@@ -8,7 +8,7 @@ export const TrustBar: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
 
   const trustItems = [
-    currentMarket.shippingLabel,
+    'Envío gratis a toda Colombia',
     'Pago 100% seguro',
     'Atención postventa'
   ];
@@ -30,7 +30,7 @@ export const TrustBar: React.FC = () => {
       <div className="max-w-[1480px] mx-auto px-3 sm:px-8 lg:px-12 flex items-center justify-center text-center h-8 sm:h-9">
         {/* Desktop View (>= 640px): All 3 points displayed inline on a single line */}
         <p className="hidden sm:flex items-center justify-center gap-x-3.5 sm:gap-x-4 tracking-wider uppercase whitespace-nowrap">
-          <span>{currentMarket.shippingLabel}</span>
+          <span>Envío gratis a toda Colombia</span>
           <span className="text-accent font-bold">·</span>
           <span>Pago 100% seguro</span>
           <span className="text-accent font-bold">·</span>

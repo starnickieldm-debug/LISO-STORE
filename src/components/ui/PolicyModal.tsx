@@ -67,7 +67,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
             <span className="text-base font-display font-bold text-bone" id="policy-modal-title">
               Información y Políticas
             </span>
-            <span className="text-xs font-mono text-bone/50 border border-white/15 px-1.5 py-0.5">
+            <span className="text-xs font-sans text-bone/60 border border-white/15 px-1.5 py-0.5">
               {currentMarket.flag} {currentMarket.countryName}
             </span>
           </div>
@@ -113,14 +113,14 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                 Política de Envíos
               </h3>
               <p>
-                Procesamos tu pedido en 1–3 días hábiles. El tiempo de entrega depende del país de destino y del método de envío seleccionado. Recibirás información de seguimiento para consultar el estado de tu pedido.
+                Procesamos tu pedido en 1–3 días hábiles. Realizamos despachos a nivel nacional a toda Colombia a través de empresas transportadoras reconocidas.
               </p>
               <p className="text-bone/70">
-                Los tiempos de entrega son estimados y pueden variar por procesos aduaneros, transportistas u otras circunstancias fuera de nuestro control.
+                Una vez despachado el paquete, recibirás vía correo electrónico o mensaje tu número de guía y el enlace para realizar seguimiento en línea de tu entrega.
               </p>
               <div className="p-3 bg-white/5 border border-white/10 text-xs text-bone/70 space-y-1">
-                <p className="font-semibold text-bone">Destino actual: {currentMarket.countryName}</p>
-                <p>Tu compra cuenta con {currentMarket.shippingLabel} y código de rastreo en línea.</p>
+                <p className="font-semibold text-bone">Cobertura: Colombia</p>
+                <p>Tu orden incluye {currentMarket.shippingLabel} y seguimiento en línea continuo hasta tu puerta.</p>
               </div>
             </div>
           )}
@@ -131,15 +131,15 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                 Política de Devoluciones y Reembolsos
               </h3>
               <p>
-                Las condiciones de devolución dependen del país desde el que realizas la compra y de la normativa aplicable.
+                Queremos que tengas la mejor experiencia con LISO. Si por alguna razón necesitas gestionar una devolución o cambio, nuestro equipo de soporte está a tu disposición para orientarte.
               </p>
               <p>
-                Si deseas devolver un producto, contáctanos antes de enviarlo para indicarte el procedimiento correspondiente.
+                Para iniciar cualquier solicitud, contáctanos antes de enviar el producto para asignarte un caso y darte las instrucciones detalladas del proceso.
               </p>
               <div className="p-3 bg-white/5 border border-white/10 text-xs text-bone/70">
-                <p className="font-semibold text-bone mb-1">Procedimiento de contacto</p>
+                <p className="font-semibold text-bone mb-1">Canal de atención</p>
                 <p>
-                  Escríbenos directamente con los datos de tu compra para recibir las instrucciones precisas según tu ubicación geográfica.
+                  Escríbenos con tu número de pedido y los datos de tu compra para recibir asistencia rápida y personalizada.
                 </p>
               </div>
             </div>
@@ -153,12 +153,12 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
               <div className="space-y-2">
                 <h4 className="font-semibold text-bone">Si recibes un producto con algún problema</h4>
                 <p>
-                  Si recibes un producto defectuoso, dañado o diferente al solicitado, contáctanos con tu número de pedido y fotografías o un vídeo que muestre el problema. Revisaremos tu caso y te indicaremos la solución correspondiente.
+                  Si recibes un producto defectuoso, con daños de transporte o diferente al solicitado, contáctanos con tu número de pedido y fotografías o un video que muestre la situación. Revisaremos tu caso con prioridad para darte una solución oportuna.
                 </p>
               </div>
               <div className="p-3 bg-white/5 border border-white/10 text-xs text-bone/70">
                 <p>
-                  La atención y gestión de garantías se realiza directamente a través de nuestro canal de soporte al cliente.
+                  La atención y soporte de garantías se gestiona de forma directa a través de nuestros canales oficiales de atención al cliente.
                 </p>
               </div>
             </div>
@@ -170,10 +170,10 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                 Términos y Condiciones del Servicio
               </h3>
               <p>
-                Al realizar una orden a través de este sitio, aceptas las condiciones comerciales, los precios vigentes para el mercado seleccionado y los términos de servicio aquí descritos.
+                Al realizar una orden a través de este sitio, aceptas las condiciones comerciales, los precios vigentes en pesos colombianos (COP) y los términos de servicio aquí descritos.
               </p>
               <p>
-                Las descripciones y especificaciones técnicas corresponden a los datos de fabricación y ensayos del producto. Nos reservamos el derecho de actualizar la información de disponibilidad conforme a cada mercado.
+                Las especificaciones técnicas y operativas corresponden a las fichas técnicas de fábrica. Las órdenes son procesadas conforme a la disponibilidad del producto para el territorio nacional.
               </p>
             </div>
           )}

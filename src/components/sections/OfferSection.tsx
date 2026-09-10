@@ -33,7 +33,7 @@ export const OfferSection: React.FC = () => {
               Tu LISO, lista para usar.
             </h2>
             <p className="text-base text-bone/70 mt-3">
-              Todo lo que necesitas viene en la caja. Solo elige tu enchufe y empieza.
+              Todo lo que necesitas viene en la caja. La conectas y empiezas.
             </p>
           </div>
         </Reveal>
@@ -98,23 +98,25 @@ export const OfferSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Automatic Country Plug Card */}
+              {/* Enchufe Estándar Colombia Card */}
               <div className="p-2.5 bg-white/[0.04] border border-white/10 rounded-lg flex items-center justify-between gap-3 text-xs">
                 <div className="flex items-center gap-2.5">
                   <div className="w-8 h-8 border border-accent/60 bg-accent/15 text-accent font-sans font-bold text-xs flex items-center justify-center rounded">
-                    {currentMarket.plugType}
+                    110 V
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5 font-semibold text-bone">
-                      <span>{currentMarket.flag}</span>
-                      <span>{currentMarket.countryName}</span>
+                      <span>🇨🇴</span>
+                      <span>Enchufe estándar para Colombia</span>
                     </div>
                     <span className="text-[11px] text-accent font-medium">
-                      ✓ Clavija {currentMarket.plugName} incluida
+                      ✓ Clavija plana Tipo A/B · Conexión directa
                     </span>
                   </div>
                 </div>
-                <span className="text-[10px] font-sans text-bone/40 font-bold uppercase tracking-wider">AUTO</span>
+                <span className="text-[10px] font-sans text-bone/50 font-bold uppercase tracking-wider bg-white/5 border border-white/10 px-2 py-0.5 rounded">
+                  110–240 V
+                </span>
               </div>
 
               {/* 3. Primary Buy CTA in the Thumb Zone */}
@@ -153,7 +155,7 @@ export const OfferSection: React.FC = () => {
                 {/* Trust Bullets */}
                 <div className="flex items-center justify-between pt-2.5 text-[11px] font-sans text-bone/70 border-t border-white/5 mt-2.5">
                   <span className="inline-flex items-center gap-1 text-bone/90">
-                    <span className="text-accent font-bold">✓</span> Envío GRATIS
+                    <span className="text-accent font-bold">✓</span> Envío gratis a toda Colombia
                   </span>
                   <span>·</span>
                   <span className="inline-flex items-center gap-1">
@@ -235,11 +237,11 @@ export const OfferSection: React.FC = () => {
                 <div className="pt-2 pb-1 space-y-2.5 text-xs text-bone/70 font-sans leading-relaxed border-t border-white/10 mt-1 animate-fadeIn">
                   <div>
                     <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Envíos</h5>
-                    <p className="text-[11px] mt-0.5">Procesamiento en 1–3 días hábiles con número de seguimiento continuo hasta tu puerta.</p>
+                    <p className="text-[11px] mt-0.5">Procesamiento en 1–3 días hábiles. Despachos a toda Colombia con número de guía y seguimiento en línea continuo hasta tu puerta.</p>
                   </div>
                   <div>
                     <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Garantía y Devolución</h5>
-                    <p className="text-[11px] mt-0.5">Si recibes un producto con anomalía, te ofrecemos reemplazo o soporte directo sin complicaciones.</p>
+                    <p className="text-[11px] mt-0.5">Si recibes un producto con algún daño o defecto de fábrica, cuentas con soporte directo y solución sin complicaciones.</p>
                   </div>
                 </div>
               )}
@@ -336,31 +338,31 @@ export const OfferSection: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Enchufe Compatible (Sincronizado automáticamente con el mercado seleccionado) */}
+              {/* Enchufe Compatible para Colombia */}
               <div className="space-y-2 pt-2">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                   <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold">
                     ENCHUFE COMPATIBLE
                   </span>
                   <span className="text-[11px] font-sans text-bone/50 font-medium">
-                    El enchufe correcto se incluye automáticamente con tu pedido.
+                    Clavija estándar para Colombia incluida de fábrica con tu pedido.
                   </span>
                 </div>
                 
                 <div className="p-3 sm:p-3.5 bg-night-950/80 border border-night-700 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 border border-accent bg-accent/15 text-accent font-sans font-bold text-sm flex items-center justify-center flex-shrink-0">
-                      {currentMarket.plugType}
+                      110 V
                     </div>
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-1.5 text-sm font-sans font-semibold text-bone">
-                        <span className="text-base" role="img" aria-label={currentMarket.countryName}>{currentMarket.flag}</span>
-                        <span>{currentMarket.countryName}</span>
-                        <span className="text-xs font-normal text-bone/60 hidden sm:inline">· {currentMarket.plugName}</span>
+                        <span className="text-base" role="img" aria-label="Colombia">🇨🇴</span>
+                        <span>Colombia</span>
+                        <span className="text-xs font-normal text-bone/60 hidden sm:inline">· Enchufe estándar de clavija plana (Tipo A/B, 110 V)</span>
                       </div>
                       <p className="text-xs text-accent font-medium flex items-center gap-1.5">
                         <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                        <span>Enchufe incluido para {currentMarket.countryName}</span>
+                        <span>Conexión directa a la pared sin adaptadores</span>
                       </p>
                     </div>
                   </div>
@@ -428,16 +430,16 @@ export const OfferSection: React.FC = () => {
                 {/* Compact Trust Row */}
                 <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1.5 pt-3 text-xs font-sans text-bone/80">
                   <span className="inline-flex items-center gap-1">
-                    <span className="text-accent font-bold">✓</span> Envío GRATIS
+                    <span className="text-accent font-bold">✓</span> Envío gratis a toda Colombia
                   </span>
                   <span className="inline-flex items-center gap-1">
-                    <span className="text-accent font-bold">✓</span> Pago seguro
+                    <span className="text-accent font-bold">✓</span> Pago 100% seguro
                   </span>
                   <span className="inline-flex items-center gap-1">
                     <span className="text-accent font-bold">✓</span> Soporte directo
                   </span>
                   <span className="inline-flex items-center gap-1">
-                    <span className="text-accent font-bold">✓</span> Seguimiento incluido
+                    <span className="text-accent font-bold">✓</span> Seguimiento en línea
                   </span>
                 </div>
               </div>
@@ -496,10 +498,10 @@ export const OfferSection: React.FC = () => {
                           Envíos
                         </h4>
                         <p>
-                          Procesamos tu pedido en 1–3 días hábiles. El tiempo de entrega depende del país de destino y del método de envío seleccionado. Recibirás información de seguimiento para consultar el estado de tu pedido.
+                          Procesamos tu pedido en 1–3 días hábiles. Realizamos despachos a toda Colombia con transportadoras reconocidas. Recibirás tu número de guía y enlace de seguimiento para consultar el estado de tu entrega en todo momento.
                         </p>
                         <p className="text-bone/60 text-[11px]">
-                          Los tiempos de entrega son estimados y pueden variar por procesos aduaneros, transportistas u otras circunstancias fuera de nuestro control.
+                          Los tiempos de entrega son estimados y pueden variar según la ciudad o municipio de destino y la operación logística del transportador.
                         </p>
                       </div>
 
@@ -509,7 +511,7 @@ export const OfferSection: React.FC = () => {
                           Si recibes un producto con algún problema
                         </h4>
                         <p>
-                          Si recibes un producto defectuoso, dañado o diferente al solicitado, contáctanos con tu número de pedido y fotografías o un vídeo que muestre el problema. Revisaremos tu caso y te indicaremos la solución correspondiente.
+                          Si recibes un producto defectuoso, dañado o diferente al solicitado, contáctanos con tu número de pedido y fotografías o un video que muestre el problema. Revisaremos tu caso de inmediato y te indicaremos la solución correspondiente.
                         </p>
                       </div>
 
@@ -519,7 +521,7 @@ export const OfferSection: React.FC = () => {
                           Devoluciones
                         </h4>
                         <p>
-                          Las condiciones de devolución dependen del país desde el que realizas la compra y de la normativa aplicable. Si deseas devolver un producto, contáctanos antes de enviarlo para indicarte el procedimiento correspondiente.
+                          Si deseas gestionar una garantía o devolución, contáctanos a través de nuestros canales oficiales con tu número de pedido antes de realizar cualquier envío para indicarte el procedimiento paso a paso.
                         </p>
                       </div>
                     </div>

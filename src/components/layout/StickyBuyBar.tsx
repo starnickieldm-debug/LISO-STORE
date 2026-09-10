@@ -39,7 +39,7 @@ export const StickyBuyBar: React.FC = () => {
             {currentMarket.formattedPrice}
           </span>
           <span className="text-[11px] font-sans text-bone/70 truncate leading-none mt-0.5">
-            {currentMarket.shippingLabel}
+            Envío gratis a toda Colombia
           </span>
         </div>
 
