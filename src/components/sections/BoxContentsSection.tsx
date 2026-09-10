@@ -42,16 +42,18 @@ export const BoxContentsSection: React.FC = () => {
           
           {/* Flat-lay visual representation (6 cols, balanced max-width) */}
           <Reveal direction="up" duration={700} className="lg:col-span-6 max-w-[460px] sm:max-w-[490px] w-full mx-auto lg:mx-0">
-            <div className="relative aspect-square w-full overflow-hidden bg-night-950 shadow-studio-hard border border-graphite/20 group">
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl sm:rounded-[28px] border border-graphite/15 bg-night-950 shadow-card group-hover:shadow-xl group-hover:border-graphite/30 transition-all duration-500 ease-mech-s group">
               <picture className="w-full h-full">
                 <source srcSet="/images/box-contents.webp" type="image/webp" />
                 <img 
                   src="/images/box-contents.jpg" 
                   alt="Contenido del kit LISO: plancha de vapor, base de apoyo resistente al calor, vaso dosificador y cable de corriente"
-                  className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-mech-s"
+                  className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-mech-s"
                   loading="lazy"
                 />
               </picture>
+              {/* Subtle depth vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-graphite/25 via-transparent to-black/10 pointer-events-none" />
             </div>
           </Reveal>
 
@@ -94,7 +96,7 @@ export const BoxContentsSection: React.FC = () => {
             </div>
 
             {/* Quality seal reminder */}
-            <div className="pt-4 flex items-center justify-between text-xs font-sans text-graphite/70 bg-bone-50/80 p-3 border border-graphite/15 font-medium">
+            <div className="pt-4 flex items-center justify-between text-xs font-sans text-graphite/70 bg-bone-50/80 p-3.5 rounded-xl border border-graphite/15 font-medium">
               <span>RESPALDO Y SOPORTE:</span>
               <span className="font-semibold text-graphite">{brandConfig.factoryWarranty}</span>
             </div>
