@@ -100,10 +100,8 @@ export const ComparisonSection: React.FC = () => {
             
             {/* 1. Header Row (Col 1: Metric, Col 2: LISO Hero, Col 3: Plancha, Col 4: Vaporizador) */}
             <div className="grid grid-cols-[1.05fr_1.45fr_1.2fr_1.2fr] gap-3.5 sm:gap-4 lg:gap-4.5 items-stretch">
-              {/* Col 1 Label */}
-              <div className="rounded-2xl bg-white/40 border border-graphite/10 px-5 sm:px-6 flex flex-col justify-end pb-5 text-xs font-sans font-bold tracking-wider text-graphite/50 uppercase">
-                CRITERIO
-              </div>
+              {/* Col 1 Empty Spacer */}
+              <div aria-hidden="true" />
 
               {/* Col 2: LISO Header Card (Hero) */}
               <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-4 sm:p-5 shadow-sm flex flex-col items-center justify-between text-center relative overflow-hidden group">
