@@ -9,9 +9,46 @@ export const ThreeGesturesSection: React.FC = () => {
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.1, rootMargin: '0px 0px -50px 0px', triggerOnce: true });
   const prefersReduced = useReducedMotion();
   const [activeStep, setActiveStep] = useState<number>(0);
+  const [isInteracting, setIsInteracting] = useState<boolean>(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const interactionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const onUserInteraction = () => {
+    setIsInteracting(true);
+    if (interactionTimerRef.current) {
+      clearTimeout(interactionTimerRef.current);
+    }
+    interactionTimerRef.current = setTimeout(() => {
+      setIsInteracting(false);
+    }, 7000);
+  };
+
+  // Auto-scroll sincronizado con intervalos controlados
+  React.useEffect(() => {
+    if (prefersReduced || isInteracting || !inView) return;
+
+    const timer = setInterval(() => {
+      setActiveStep((prev) => {
+        const next = (prev + 1) % 3;
+        if (carouselRef.current) {
+          const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
+          if (items[next]) {
+            (items[next] as HTMLElement).scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+              inline: 'center'
+            });
+          }
+        }
+        return next;
+      });
+    }, 3800);
+
+    return () => clearInterval(timer);
+  }, [prefersReduced, isInteracting, inView]);
 
   const scrollToStep = (stepIndex: number) => {
+    onUserInteraction();
     setActiveStep(stepIndex);
     if (carouselRef.current) {
       const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
@@ -28,13 +65,14 @@ export const ThreeGesturesSection: React.FC = () => {
   const handleCarouselScroll = () => {
     if (!carouselRef.current) return;
     const scrollLeft = carouselRef.current.scrollLeft;
-    const itemWidth = carouselRef.current.clientWidth * 0.82;
+    const itemWidth = carouselRef.current.clientWidth * 0.76;
     if (itemWidth > 0) {
       const currentIdx = Math.round(scrollLeft / itemWidth);
       const clamped = Math.max(0, Math.min(currentIdx, 2));
       setActiveStep(clamped);
     }
   };
+
 
   const stepImages = [
     {
@@ -136,8 +174,19 @@ export const ThreeGesturesSection: React.FC = () => {
             ========================================================================= */}
         <div className="block md:hidden">
           
+          {/* Subtle scroll invitation cue */}
+          <div className="flex items-center justify-between px-1 mb-2">
+            <span className="text-[10px] font-sans font-bold tracking-widest text-graphite/50 uppercase">
+              PASO A PASO EN VIVO
+            </span>
+            <span className="inline-flex items-center gap-1 text-[11px] font-sans text-accent font-semibold">
+              <span>Desliza para ver más</span>
+              <span className="text-xs animate-pulse">→</span>
+            </span>
+          </div>
+
           {/* Step Pill Navigation Tabs */}
-          <div className="flex items-center justify-between gap-1.5 p-1 bg-graphite/[0.04] border border-graphite/10 rounded-xl mb-4">
+          <div className="flex items-center justify-between gap-1.5 p-1 bg-graphite/[0.04] border border-graphite/10 rounded-xl mb-3.5">
             {threeGestures.map((item, idx) => {
               const isActive = activeStep === idx;
               return (
@@ -157,16 +206,18 @@ export const ThreeGesturesSection: React.FC = () => {
             })}
           </div>
 
-          {/* Horizontal Snap-Track */}
+          {/* Horizontal Snap-Track with User Interaction Tracking */}
           <div 
             ref={carouselRef}
             onScroll={handleCarouselScroll}
-            className="mobile-snap-track gap-4 px-4 -mx-4 pb-3 pt-1"
+            onTouchStart={onUserInteraction}
+            onPointerDown={onUserInteraction}
+            className="mobile-snap-track gap-3.5 px-4 -mx-4 pb-3 pt-1"
           >
             {threeGestures.map((item, idx) => (
               <div
                 key={item.step}
-                className="mobile-snap-item w-[82vw] max-w-[310px] flex flex-col"
+                className="mobile-snap-item w-[76vw] max-w-[290px] flex flex-col"
               >
                 {/* Full-Bleed Portrait Photo Card (4:5 Ratio) */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-night-950 shadow-premium-image">
@@ -183,18 +234,18 @@ export const ThreeGesturesSection: React.FC = () => {
                 </div>
 
                 {/* Decoupled Caption Underneath */}
-                <div className="mt-4 flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-graphite text-white font-sans text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                <div className="mt-3.5 flex items-start gap-2.5">
+                  <div className="w-5 h-5 rounded-full bg-graphite text-white font-sans text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                     {idx + 1}
                   </div>
-                  <div className="space-y-1 flex-1 min-w-0">
-                    <h3 className="font-display text-base font-bold text-graphite">
+                  <div className="space-y-0.5 flex-1 min-w-0">
+                    <h3 className="font-display text-[15px] font-bold text-graphite leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-[13px] font-medium text-graphite/90 leading-snug">
+                    <p className="text-xs font-medium text-graphite/90 leading-snug">
                       {item.description}
                     </p>
-                    <p className="text-[11px] sm:text-xs text-graphite/60 leading-relaxed font-normal">
+                    <p className="text-[11px] text-graphite/60 leading-relaxed font-normal">
                       {item.detail}
                     </p>
                   </div>
@@ -221,34 +272,45 @@ export const ThreeGesturesSection: React.FC = () => {
         </div>
 
         {/* =========================================================================
-            LABORATORY VERIFICATION HIGHLIGHT CARD (Result Claim + Official Seal)
+            LABORATORY VERIFICATION HIGHLIGHT CARD (Compact Horizontal on Mobile)
             ========================================================================= */}
-        <div className="mt-8 sm:mt-10 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:py-6 lg:px-8 shadow-premium hover:shadow-premium-hover flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 relative overflow-hidden group transition-all duration-300">
-          {/* Left: Laboratory Note & Result Claim (Expanded Horizontally) */}
-          <div className="space-y-2 flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[11px] sm:text-xs font-sans uppercase tracking-[0.14em] text-accent font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                RESULTADO COMPROBADO EN LABORATORIO
-              </span>
+        <div className="mt-7 sm:mt-10 bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:py-6 lg:px-8 shadow-premium hover:shadow-premium-hover flex flex-row items-center justify-between gap-3.5 sm:gap-6 relative overflow-hidden group transition-all duration-300">
+          {/* Left: Rotating Seal Stamp (Compact 68px on mobile, 110px on desktop) */}
+          <div className="shrink-0">
+            <div className="block sm:hidden">
+              <RotatingGuaranteeStamp 
+                size={68}
+                circularText="★ 2 A 3 MIN POR PRENDA ★ CERO TABLA ★"
+                centerText="1200 W"
+                textColor="text-graphite"
+                customIcon={<Sparkles className="w-3.5 h-3.5 text-accent stroke-[2.2]" />}
+              />
             </div>
-            <p className="font-display text-lg sm:text-xl md:text-2xl lg:text-[1.5rem] font-bold text-graphite tracking-tight leading-snug">
-              Entre 2 y 3 minutos por prenda. Sin tabla ni accesorios extra.
-            </p>
-            <p className="text-xs sm:text-[12.5px] text-graphite/60 font-normal">
-              *{brandConfig.labClaimNote}
-            </p>
+            <div className="hidden sm:block">
+              <RotatingGuaranteeStamp 
+                size={110}
+                circularText="★ 2 A 3 MIN POR PRENDA ★ CERO TABLA ★"
+                centerText="1200 W"
+                textColor="text-graphite"
+                customIcon={<Sparkles className="w-5 h-5 text-accent stroke-[2.2]" />}
+              />
+            </div>
           </div>
 
-          {/* Right: Rotating Seal Stamp (Official Verification Seal) */}
-          <div className="shrink-0 self-center">
-            <RotatingGuaranteeStamp 
-              size={115}
-              circularText="★ 2 A 3 MIN POR PRENDA ★ CERO TABLA ★"
-              centerText="1200 W"
-              textColor="text-graphite"
-              customIcon={<Sparkles className="w-5 h-5 text-accent stroke-[2.2]" />}
-            />
+          {/* Right: Laboratory Note & Result Claim (Expanded Horizontally) */}
+          <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[9.5px] sm:text-xs font-sans uppercase tracking-[0.14em] text-accent font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                RESULTADO COMPROBADO
+              </span>
+            </div>
+            <p className="font-display text-sm sm:text-lg md:text-xl lg:text-[1.5rem] font-bold text-graphite tracking-tight leading-snug">
+              Entre 2 y 3 minutos por prenda. Sin tabla ni accesorios extra.
+            </p>
+            <p className="text-[10px] sm:text-xs text-graphite/60 font-normal">
+              *{brandConfig.labClaimNote}
+            </p>
           </div>
         </div>
 

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { BeforeAfterSlider } from '../ui/BeforeAfterSlider';
 import { Reveal } from '../ui/Reveal';
+import { useInView } from '../../hooks/useInView';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const TEMP_MODES = [
   {
@@ -24,8 +26,74 @@ const TEMP_MODES = [
 ];
 
 export const BenefitEvidenceSection: React.FC = () => {
-  const [activeMoment, setActiveMoment] = useState<0 | 1 | 2>(0);
+  const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.1, rootMargin: '0px 0px -50px 0px', triggerOnce: true });
+  const prefersReduced = useReducedMotion();
+  const [activeMoment, setActiveMoment] = useState<number>(0);
   const [selectedTempMode, setSelectedTempMode] = useState<number>(1);
+  const [isInteracting, setIsInteracting] = useState<boolean>(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const interactionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const onUserInteraction = () => {
+    setIsInteracting(true);
+    if (interactionTimerRef.current) {
+      clearTimeout(interactionTimerRef.current);
+    }
+    interactionTimerRef.current = setTimeout(() => {
+      setIsInteracting(false);
+    }, 7000);
+  };
+
+  // Auto-scroll para móvil sincronizado con intervalos controlados
+  useEffect(() => {
+    if (prefersReduced || isInteracting || !inView) return;
+
+    const timer = setInterval(() => {
+      setActiveMoment((prev) => {
+        const next = (prev + 1) % 3;
+        if (carouselRef.current) {
+          const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
+          if (items[next]) {
+            (items[next] as HTMLElement).scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+              inline: 'center'
+            });
+          }
+        }
+        return next;
+      });
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [prefersReduced, isInteracting, inView]);
+
+  const scrollToMoment = (momentIndex: number) => {
+    onUserInteraction();
+    setActiveMoment(momentIndex);
+    if (carouselRef.current) {
+      const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
+      if (items[momentIndex]) {
+        (items[momentIndex] as HTMLElement).scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
+  };
+
+  const handleCarouselScroll = () => {
+    if (!carouselRef.current) return;
+    const scrollLeft = carouselRef.current.scrollLeft;
+    const itemWidth = carouselRef.current.clientWidth * 0.84;
+    if (itemWidth > 0) {
+      const currentIdx = Math.round(scrollLeft / itemWidth);
+      const clamped = Math.max(0, Math.min(currentIdx, 2));
+      setActiveMoment(clamped);
+    }
+  };
+
 
   return (
     <section 
@@ -218,21 +286,33 @@ export const BenefitEvidenceSection: React.FC = () => {
         </Reveal>
 
         {/* =========================================================================
-            MOBILE 3-MOMENT NARRATIVE STAGE (< 768px) — Clean Mobile Experience
+            MOBILE 3-MOMENT NARRATIVE STAGE (< 768px) — Touch-Swipeable & Auto-Scrolling
+            Same UX logic and intuitive fluid horizontal snap as Section 2
             ========================================================================= */}
         <div className="block md:hidden">
           
+          {/* Subtle scroll invitation cue */}
+          <div className="flex items-center justify-between px-1 mb-2">
+            <span className="text-[10px] font-sans font-bold tracking-widest text-graphite/50 uppercase">
+              3 MOMENTOS CLAVE
+            </span>
+            <span className="inline-flex items-center gap-1 text-[11px] font-sans text-accent font-semibold">
+              <span>Desliza para explorar</span>
+              <span className="text-xs animate-pulse">→</span>
+            </span>
+          </div>
+
           {/* Segmented Controller Tab Bar */}
-          <div className="flex items-center gap-1.5 p-1 bg-graphite/[0.04] border border-graphite/10 rounded-xl mb-4">
+          <div className="flex items-center gap-1.5 p-1 bg-graphite/[0.04] border border-graphite/10 rounded-xl mb-3.5">
             {([
-              { idx: 0 as const, label: '01 · CONECTAR' },
-              { idx: 1 as const, label: '02 · CONTROLAR' },
-              { idx: 2 as const, label: '03 · GUARDAR' }
+              { idx: 0, label: '01 · CONECTAR' },
+              { idx: 1, label: '02 · CONTROLAR' },
+              { idx: 2, label: '03 · GUARDAR' }
             ]).map((moment) => (
               <button
                 key={moment.idx}
                 type="button"
-                onClick={() => setActiveMoment(moment.idx)}
+                onClick={() => scrollToMoment(moment.idx)}
                 className={`flex-1 py-2 px-1 text-center rounded-lg font-sans text-[10.5px] xs:text-[11px] font-bold tracking-wider uppercase transition-all ${
                   activeMoment === moment.idx
                     ? 'bg-accent text-white shadow-xs'
@@ -244,48 +324,57 @@ export const BenefitEvidenceSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Unified Moment Card */}
-          <div className="bg-white p-5 rounded-2xl sm:rounded-3xl shadow-premium space-y-4 text-graphite">
-            
+          {/* Horizontal Snap-Track */}
+          <div 
+            ref={carouselRef}
+            onScroll={handleCarouselScroll}
+            onTouchStart={onUserInteraction}
+            onPointerDown={onUserInteraction}
+            className="mobile-snap-track gap-3.5 px-4 -mx-4 pb-3 pt-1"
+          >
             {/* Moment 01: Conectar */}
-            {activeMoment === 0 && (
-              <div className="space-y-3 animate-fadeIn">
+            <div className="mobile-snap-item w-[84vw] max-w-[340px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite">
+              <div className="space-y-3">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   01 · CONECTAR
                 </span>
 
                 <div className="space-y-1">
-                  <h3 className="font-display text-xl font-bold text-graphite leading-tight">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight">
                     La conectas y alisas directo en el gancho.
                   </h3>
-                  <p className="text-xs sm:text-sm text-graphite/70 leading-relaxed">
+                  <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed">
                     Con LISO puedes alisar directamente en el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
                   </p>
                 </div>
 
-                {/* Before/After Interactive Slider (Clean) */}
-                <div className="rounded-xl overflow-hidden shadow-premium-image bg-night-950 mt-3">
+                {/* Before/After Interactive Slider */}
+                <div className="rounded-xl overflow-hidden shadow-premium-image bg-night-950 mt-2">
                   <BeforeAfterSlider 
                     beforeImage="/images/before-wrinkled-shirt.jpg"
                     afterImage="/images/after-smooth-shirt.jpg"
                   />
                 </div>
               </div>
-            )}
+
+              <p className="text-[10px] font-sans text-graphite/45 italic pt-2.5 text-center">
+                ← Desliza el divisor central sobre la prenda →
+              </p>
+            </div>
 
             {/* Moment 02: Controlar */}
-            {activeMoment === 1 && (
-              <div className="space-y-3 animate-fadeIn">
+            <div className="mobile-snap-item w-[84vw] max-w-[340px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite">
+              <div className="space-y-2.5">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   02 · CONTROLAR
                 </span>
 
                 <div className="space-y-1">
-                  <h3 className="font-display text-xl font-bold text-graphite leading-tight">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight">
                     Temperatura visible y vapor bajo control.
                   </h3>
-                  <p className="text-xs sm:text-sm text-graphite/70 leading-relaxed">
-                    Elige la temperatura que necesitas y ajusta el vapor según la prenda. Sabes exactamente cómo la estás cuidando.
+                  <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed">
+                    Elige la temperatura que necesitas y ajusta el vapor según la prenda para cuidar tus tejidos sensibles.
                   </p>
                 </div>
 
@@ -297,14 +386,17 @@ export const BenefitEvidenceSection: React.FC = () => {
                       <button
                         key={mode.level}
                         type="button"
-                        onClick={() => setSelectedTempMode(idx)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedTempMode(idx);
+                        }}
                         className={`p-2 text-left rounded-lg border transition-all ${
                           isSelected 
                             ? 'bg-accent/10 border-accent shadow-xs' 
                             : 'bg-graphite/[0.02] border-graphite/10'
                         }`}
                       >
-                        <span className={`text-[11px] font-sans font-bold block ${isSelected ? 'text-graphite' : 'text-graphite/70'}`}>
+                        <span className={`text-[10.5px] font-sans font-bold block ${isSelected ? 'text-graphite' : 'text-graphite/70'}`}>
                           {mode.level}
                         </span>
                         <span className="text-[10px] font-sans text-accent font-semibold block">
@@ -315,8 +407,8 @@ export const BenefitEvidenceSection: React.FC = () => {
                   })}
                 </div>
 
-                {/* LED Screen Macro (Clean) */}
-                <div className="relative aspect-[16/10] w-full bg-night-950 overflow-hidden rounded-xl shadow-premium-image">
+                {/* LED Screen Macro */}
+                <div className="relative aspect-[16/10] w-full bg-night-950 overflow-hidden rounded-xl shadow-premium-image mt-1">
                   <img 
                     src="/images/screen-temperature-display.jpg" 
                     alt="Pantalla digital LED de la plancha LISO" 
@@ -325,26 +417,30 @@ export const BenefitEvidenceSection: React.FC = () => {
                   />
                 </div>
               </div>
-            )}
+
+              <p className="text-[10px] font-sans text-graphite/50 text-center pt-2.5">
+                {TEMP_MODES[selectedTempMode].fabric}
+              </p>
+            </div>
 
             {/* Moment 03: Guardar */}
-            {activeMoment === 2 && (
-              <div className="space-y-3 animate-fadeIn">
+            <div className="mobile-snap-item w-[84vw] max-w-[340px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite">
+              <div className="space-y-2.5">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   03 · GUARDAR
                 </span>
 
                 <div className="space-y-1">
-                  <h3 className="font-display text-xl font-bold text-graphite leading-tight">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight">
                     Pósala caliente entre prenda y prenda.
                   </h3>
-                  <p className="text-xs sm:text-sm text-graphite/70 leading-relaxed">
-                    Su base de apoyo te permite guardarla fácilmente después de usarla, sin desmontar nada ni buscar un lugar especial.
+                  <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed">
+                    Su base de apoyo aislante te permite guardarla fácilmente después de usarla sin esperar a que enfríe.
                   </p>
                 </div>
 
-                {/* Desk Dock Visual (Clean) */}
-                <div className="relative aspect-[16/10] w-full bg-night-950 overflow-hidden rounded-xl shadow-premium-image mt-2">
+                {/* Desk Dock Visual */}
+                <div className="relative aspect-[16/10] w-full bg-night-950 overflow-hidden rounded-xl shadow-premium-image mt-1">
                   <img 
                     src="/images/liso-desk-dock.jpg" 
                     alt="Plancha LISO descansando en base de apoyo resistente al calor" 
@@ -353,8 +449,28 @@ export const BenefitEvidenceSection: React.FC = () => {
                   />
                 </div>
               </div>
-            )}
 
+              <div className="flex items-center justify-center gap-2 pt-2.5 text-[10.5px] font-sans text-accent font-medium">
+                <span>✓ Base térmica aislante</span>
+                <span className="text-graphite/30">•</span>
+                <span>✓ Lista para guardar</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex items-center justify-center gap-1.5 pt-2 pb-1">
+            {[0, 1, 2].map((dotIdx) => (
+              <button
+                key={dotIdx}
+                type="button"
+                onClick={() => scrollToMoment(dotIdx)}
+                aria-label={`Ir al momento ${dotIdx + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeMoment === dotIdx ? 'w-6 bg-accent' : 'w-1.5 bg-graphite/20'
+                }`}
+              />
+            ))}
           </div>
 
         </div>

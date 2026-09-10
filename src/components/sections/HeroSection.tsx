@@ -3,9 +3,11 @@ import { useMarket } from '../../context/MarketContext';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { CTAButton } from '../ui/CTAButton';
 import { DataStrip } from '../ui/DataStrip';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Star, Sparkles } from 'lucide-react';
+import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
 
 export const HeroSection: React.FC = () => {
+
   const { currentMarket } = useMarket();
   const prefersReduced = useReducedMotion();
   const [loaded, setLoaded] = useState(false);
@@ -201,33 +203,20 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* =========================================================================
-            MOBILE HERO COMPOSITION (< 1024px) — 100% Mobile-First Native Stage
-            Optimized for 1st fold visibility: Title -> Product -> Price -> CTA
+            MOBILE HERO COMPOSITION (< 1024px) — Visual-First (Liquid+ Reference Layout)
+            Order: Visual Stage + Badge -> Social Proof Stars -> H1 -> Subheadline -> Price/CTA
             ========================================================================= */}
         <div className="block lg:hidden py-1 max-w-md mx-auto">
           
-          {/* 1. Mobile H1: Compact, high-impact headline */}
-          <h1 className="text-center font-display text-[1.65rem] xs:text-[1.85rem] font-bold text-graphite tracking-tight leading-[1.12] mb-1">
-            <span>Dile adiós a la plancha tradicional.</span>
-            <span className="block text-graphite/90 mt-0.5 font-normal text-[1.3rem] xs:text-[1.45rem]">
-              Tu ropa <span className="italic font-display font-medium text-accent">sin arrugas</span> en segundos.
-            </span>
-          </h1>
-
-          {/* 2. Micro-bajada: 1 single punchy line of value proposition */}
-          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[320px] mx-auto mb-2">
-            Plancha directo en el gancho y sin armar la tabla. Listo para usar en segundos.
-          </p>
-
-          {/* 3. Mobile Focal Hero Product Stage (Editorial Dark Luxury Anchor) */}
-          <div className="relative my-2 w-full max-w-[360px] mx-auto">
+          {/* 1. Mobile Visual Stage First (High-Impact Hero Visual with Floating Stamp) */}
+          <div className="relative mb-3 w-full max-w-[390px] mx-auto px-1">
             {/* Ambient warm/magenta glow behind the product */}
             <div 
               className="pointer-events-none absolute inset-0 -m-3 bg-[radial-gradient(ellipse_at_center,rgba(180,36,124,0.18)_0%,rgba(255,195,130,0.08)_40%,transparent_70%)] blur-2xl z-0" 
               aria-hidden="true" 
             />
 
-            <div className="relative aspect-[16/10] xs:aspect-[16/9.5] w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-premium-image z-10">
+            <div className="relative aspect-[16/11] xs:aspect-[16/10] w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-premium-image z-10 bg-night-950">
               <picture className="w-full h-full">
                 <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
                 <img 
@@ -241,10 +230,62 @@ export const HeroSection: React.FC = () => {
                 />
               </picture>
             </div>
+
+            {/* Floating Circular Badge in bottom-right (Liquid+ Style) */}
+            <div className="absolute -bottom-3 -right-1 z-20">
+              <div className="w-[82px] h-[82px] rounded-full bg-[#FAF8F5] border-2 border-accent/40 shadow-xl p-1 flex items-center justify-center">
+                <RotatingGuaranteeStamp 
+                  size={74}
+                  circularText="★ VAPOR A 150 °C ★ CERO TABLA ★"
+                  centerText="1200 W"
+                  textColor="text-graphite"
+                  customIcon={<Sparkles className="w-4 h-4 text-accent stroke-[2.2]" />}
+                />
+              </div>
+            </div>
           </div>
 
-          {/* 4. Streamlined Conversion Section (Thumb-Zone Optimized) */}
-          <div className="pt-1.5 space-y-2.5">
+          {/* 2. Social Proof Rating Strip (Liquid+ formula: Stars • Reviews • Key Benefit) */}
+          <div className="flex items-center justify-center gap-1.5 pt-2.5 pb-1 text-xs font-sans text-graphite/80">
+            <div className="flex items-center gap-0.5 text-amber-500">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <span className="font-bold text-graphite text-[12px]">4.9</span>
+            <span className="text-graphite/40">•</span>
+            <span className="text-graphite/75 text-[11.5px] font-medium">+3.800 clientes</span>
+            <span className="text-graphite/40">•</span>
+            <span className="text-accent font-semibold text-[11.5px]">Envío gratis</span>
+          </div>
+
+          {/* 3. Mobile H1: Impactful headline with highlighted oval phrase (Liquid+ formula) */}
+          <h1 className="text-center font-display text-[1.75rem] xs:text-[1.95rem] font-bold text-graphite tracking-tight leading-[1.14] my-2">
+            <span>Dile adiós a la plancha tradicional.</span>
+            <span className="block text-graphite/90 mt-1 font-normal text-[1.35rem] xs:text-[1.5rem]">
+              Tu ropa{' '}
+              <span className="relative inline-block px-2.5 py-0.5 mx-0.5 text-accent italic font-medium">
+                <span className="relative z-10">sin arrugas</span>
+                <svg 
+                  className="absolute inset-0 w-full h-full text-accent/35 -rotate-1 pointer-events-none" 
+                  viewBox="0 0 120 40" 
+                  fill="none" 
+                  preserveAspectRatio="none"
+                >
+                  <ellipse cx="60" cy="20" rx="58" ry="18" stroke="currentColor" strokeWidth="2.2" strokeDasharray="3 1" />
+                </svg>
+              </span>{' '}
+              en segundos.
+            </span>
+          </h1>
+
+          {/* 4. Micro-bajada: Concise 2-line value proposition */}
+          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[320px] mx-auto mb-3">
+            Plancha directo en el gancho y sin armar la tabla. Vapor continuo a 150 °C listo en segundos.
+          </p>
+
+          {/* 5. Streamlined Conversion Section (Thumb-Zone Optimized) */}
+          <div className="pt-1 space-y-2.5">
             {/* Price & Shipping badge */}
             <div className="flex items-center justify-center gap-2.5">
               <span className="text-[1.85rem] xs:text-[2rem] font-display font-bold text-graphite tracking-tight leading-none">
@@ -265,7 +306,7 @@ export const HeroSection: React.FC = () => {
               Pide el tuyo – $189.900
             </CTAButton>
 
-            {/* Trust Points: Clean formatted trust line */}
+            {/* Trust Points */}
             <div className="flex flex-wrap items-center justify-center gap-1.5 text-[11px] text-graphite/70 font-sans font-medium pt-0.5 text-center leading-normal max-w-[340px] mx-auto">
               <span className="inline-flex items-center gap-1 text-graphite font-semibold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
