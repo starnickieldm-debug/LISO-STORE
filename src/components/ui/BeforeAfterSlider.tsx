@@ -9,7 +9,6 @@ interface BeforeAfterSliderProps {
   afterAlt?: string;
 }
 
-// Editorial photography of garment finish (wrinkled shirt vs smooth pressed shirt with steamer)
 const DEFAULT_BEFORE_IMAGE = "/images/before-wrinkled-shirt.jpg";
 const DEFAULT_AFTER_IMAGE = "/images/after-smooth-shirt.jpg";
 
@@ -60,12 +59,11 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   };
 
   return (
-    <div className={`space-y-2 ${className}`}>
-      {/* Interactive Drag Container */}
+    <div className={`relative ${className}`}>
+      {/* Interactive Drag Container - Pure clean image with functional divider */}
       <div
         ref={containerRef}
-        className="relative aspect-square bg-night-950 border border-night-700 overflow-hidden select-none cursor-ew-resize group shadow-studio-hard-dark touch-none"
-        style={{ backgroundColor: '#0B0C0F' }}
+        className="relative aspect-[4/3] bg-night-950 overflow-hidden select-none cursor-ew-resize group touch-none rounded-2xl"
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
@@ -92,13 +90,11 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
             className="w-full h-full object-cover select-none pointer-events-none"
             loading="lazy"
           />
-          {/* Subtle lighting vignette overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
         </div>
 
         {/* Layer 2: BEFORE (Top Clipped / Wrinkled Finish) */}
         <div
-          className="absolute inset-y-0 left-0 border-r-2 border-accent overflow-hidden bg-night-950 shadow-[4px_0_20px_rgba(0,0,0,0.6)]"
+          className="absolute inset-y-0 left-0 border-r-2 border-accent overflow-hidden bg-night-950"
           style={{ width: `${sliderPos}%` }}
         >
           <img
@@ -108,8 +104,6 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
             style={{ width: containerWidth || '100%', maxWidth: 'none' }}
             loading="lazy"
           />
-          {/* Subtle lighting vignette overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
         </div>
 
         {/* Divider Drag Line & Central Handle with expanded touch target */}
@@ -117,38 +111,10 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
           className="absolute inset-y-0 w-[2px] bg-accent z-20 pointer-events-none flex items-center justify-center -translate-x-1/2 shadow-lg"
           style={{ left: `${sliderPos}%` }}
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-night-950 text-white border-2 border-accent flex items-center justify-center shadow-[0_0_16px_rgba(180,36,124,0.45)] group-hover:scale-110 transition-transform relative after:absolute after:-inset-3 after:content-['']">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-night-950 text-white border-2 border-accent flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
             <MoveHorizontal className="w-4 h-4 text-accent stroke-[2.5]" />
           </div>
         </div>
-      </div>
-
-      {/* Comparative Detail Strip - Minimal & Clean */}
-      <div className="grid grid-cols-2 gap-3 p-3 sm:p-3.5 bg-night-900/80 border border-white/10 text-xs font-sans">
-        <div className="space-y-0.5">
-          <div className="text-[11px] font-sans font-bold text-bone/60 uppercase tracking-wider flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
-            <span>Antes</span>
-          </div>
-          <p className="text-bone/80 text-xs sm:text-sm font-sans">
-            Pliegues y arrugas
-          </p>
-        </div>
-        
-        <div className="space-y-0.5 border-l border-white/10 pl-3 sm:pl-4">
-          <div className="text-[11px] font-sans font-bold text-accent uppercase tracking-wider flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            <span>Después · 150 °C</span>
-          </div>
-          <p className="text-bone text-xs sm:text-sm font-sans font-medium">
-            Fibra lisa sin brillos
-          </p>
-        </div>
-      </div>
-
-      {/* Instruction Microcopy */}
-      <div className="text-center text-[11px] font-sans text-bone/50 py-0.5">
-        <span>← Arrastra el divisor para comparar el acabado →</span>
       </div>
     </div>
   );
