@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { ShopifyProduct, ShopifyVariant } from '../types/shopify';
-import { getLisoProduct, getColorOptions, resolveVariantForColor, createShopifyCart } from '../services/shopify';
+import { getLisoProduct, getColorOptions, resolveVariantForColor, createShopifyCart, CartLineItem } from '../services/shopify';
 
 export interface UseShopifyCheckoutResult {
   product: ShopifyProduct | null;
@@ -12,7 +12,14 @@ export interface UseShopifyCheckoutResult {
   setSelectedColor: (color: string) => void;
   quantity: number;
   setQuantity: React.Dispatch<React.SetStateAction<number>>;
-  initiateCheckout: (colorToBuy?: string, quantityToBuy?: number, countryCode?: string) => Promise<void>;
+  unitColors: string[];
+  setUnitColor: (index: number, color: string) => void;
+  setAllUnitColors: (color: string) => void;
+  initiateCheckout: (
+    colorToBuy?: string | string[],
+    quantityToBuy?: number | string,
+    countryCode?: string
+  ) => Promise<void>;
   clearError: () => void;
 }
 
@@ -24,6 +31,7 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
   const [colorOptions, setColorOptions] = useState<string[]>(['Negro', 'Gris']);
   const [selectedColor, setSelectedColor] = useState<string>('Negro');
   const [quantity, setQuantity] = useState<number>(1);
+  const [unitColors, setUnitColors] = useState<string[]>(['Negro']);
   const productRef = useRef<ShopifyProduct | null>(null);
 
   useEffect(() => {
@@ -42,11 +50,16 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
             const availableColors = getColorOptions(fetchedProduct);
             if (availableColors && availableColors.length > 0) {
               setColorOptions(availableColors);
-              setSelectedColor(prev => 
-                availableColors.some(c => c.toLowerCase() === prev.toLowerCase())
-                  ? prev
-                  : availableColors[0]
-              );
+              const initialColor = availableColors[0];
+              setSelectedColor(prev => {
+                const match = availableColors.some(c => c.toLowerCase() === prev.toLowerCase());
+                return match ? prev : initialColor;
+              });
+              setUnitColors(prev => {
+                return prev.map(c => 
+                  availableColors.some(ac => ac.toLowerCase() === c.toLowerCase()) ? c : initialColor
+                );
+              });
             }
           }
         }
@@ -68,29 +81,69 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
     };
   }, []);
 
+  // Sincronizar unitColors cuando cambia la cantidad
+  useEffect(() => {
+    setUnitColors(prev => {
+      if (prev.length === quantity) return prev;
+      if (quantity > prev.length) {
+        const fallbackColor = selectedColor || (colorOptions[0] || 'Negro');
+        const additions = Array(quantity - prev.length).fill(fallbackColor);
+        return [...prev, ...additions];
+      } else {
+        return prev.slice(0, quantity);
+      }
+    });
+  }, [quantity, selectedColor, colorOptions]);
+
+  const handleSetSelectedColor = useCallback((color: string) => {
+    setSelectedColor(color);
+    if (quantity === 1) {
+      setUnitColors([color]);
+    }
+  }, [quantity]);
+
+  const setUnitColor = useCallback((index: number, color: string) => {
+    setUnitColors(prev => {
+      const next = [...prev];
+      if (index >= 0 && index < next.length) {
+        next[index] = color;
+      }
+      return next;
+    });
+    setSelectedColor(color);
+  }, []);
+
+  const setAllUnitColors = useCallback((color: string) => {
+    setUnitColors(prev => prev.map(() => color));
+    setSelectedColor(color);
+  }, []);
+
   const clearError = useCallback(() => {
     setError(null);
   }, []);
 
   const initiateCheckout = useCallback(
     async (
-      colorToBuy?: string,
+      colorOrColors?: string | string[],
       quantityOrCountry?: number | string,
       countryCodeParam?: string
     ) => {
       setError(null);
       setIsCheckingOut(true);
 
-      const targetColor = colorToBuy || selectedColor;
-      let targetQty = quantity;
+      let targetColors: string[] = [];
       let countryCode = 'CO';
 
-      if (typeof quantityOrCountry === 'number') {
-        targetQty = quantityOrCountry;
-        if (typeof countryCodeParam === 'string') {
-          countryCode = countryCodeParam;
-        }
-      } else if (typeof quantityOrCountry === 'string') {
+      if (Array.isArray(colorOrColors)) {
+        targetColors = colorOrColors;
+      } else if (typeof colorOrColors === 'string' && colorOrColors.trim() !== '') {
+        const qty = typeof quantityOrCountry === 'number' ? quantityOrCountry : quantity;
+        targetColors = Array(qty).fill(colorOrColors);
+      } else {
+        targetColors = quantity > 1 && unitColors.length === quantity ? unitColors : [selectedColor];
+      }
+
+      if (typeof quantityOrCountry === 'string') {
         countryCode = quantityOrCountry;
       } else if (typeof countryCodeParam === 'string') {
         countryCode = countryCodeParam;
@@ -111,18 +164,31 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
           throw new Error('No se encontró el producto LISO en Shopify.');
         }
 
-        // Resolver variante según el color seleccionado por el cliente
-        const targetVariant: ShopifyVariant | undefined = resolveVariantForColor(currentProduct, targetColor);
+        // Agrupar y contar unidades por color
+        const colorCounts: Record<string, number> = {};
+        targetColors.forEach(c => {
+          const norm = c.trim();
+          colorCounts[norm] = (colorCounts[norm] || 0) + 1;
+        });
 
-        if (!targetVariant) {
-          const available = currentProduct.variants.map(v => v.title).join(', ');
-          throw new Error(
-            `No se encontró la variante para el color "${targetColor}" en Shopify. Variantes disponibles: ${available}`
-          );
+        // Resolver variantes para cada color y armar los line items
+        const lineItems: CartLineItem[] = [];
+        for (const [colorName, count] of Object.entries(colorCounts)) {
+          const variant: ShopifyVariant | undefined = resolveVariantForColor(currentProduct, colorName);
+          if (!variant) {
+            const available = currentProduct.variants.map(v => v.title).join(', ');
+            throw new Error(
+              `No se encontró la variante para el color "${colorName}" en Shopify. Variantes disponibles: ${available}`
+            );
+          }
+          lineItems.push({
+            variantId: variant.id,
+            quantity: count,
+          });
         }
 
-        // Crear carrito moderno con Storefront Cart API 2026-07 (con cantidad y país)
-        const { checkoutUrl } = await createShopifyCart(targetVariant.id, targetQty, countryCode);
+        // Crear carrito multivariante con Storefront Cart API
+        const { checkoutUrl } = await createShopifyCart(lineItems, undefined, countryCode);
 
         // Redirigir al checkout oficial de Shopify
         window.location.href = checkoutUrl;
@@ -132,7 +198,7 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
         setIsCheckingOut(false);
       }
     },
-    [product, selectedColor, quantity]
+    [product, selectedColor, quantity, unitColors]
   );
 
   return {
@@ -142,9 +208,12 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
     error,
     colorOptions,
     selectedColor,
-    setSelectedColor,
+    setSelectedColor: handleSetSelectedColor,
     quantity,
     setQuantity,
+    unitColors,
+    setUnitColor,
+    setAllUnitColors,
     initiateCheckout,
     clearError,
   };

@@ -206,11 +206,16 @@ mutation createCart($input: CartInput!) {
 }
 `;
 
+export interface CartLineItem {
+  variantId: string;
+  quantity: number;
+}
+
 /**
- * Crea un carrito en Shopify con la variante especificada y retorna checkoutUrl
+ * Crea un carrito en Shopify con una o varias variantes y retorna checkoutUrl
  */
 export async function createShopifyCart(
-  variantId: string,
+  variantOrLines: string | CartLineItem[],
   quantity: number = 1,
   countryCode?: string
 ): Promise<{ checkoutUrl: string; cartId: string }> {
@@ -218,15 +223,31 @@ export async function createShopifyCart(
     cartCreate: CartCreatePayload;
   }
 
-  const safeQuantity = Math.max(1, Math.floor(quantity || 1));
+  let lines: Array<{ merchandiseId: string; quantity: number }> = [];
 
-  const input: Record<string, any> = {
-    lines: [
+  if (Array.isArray(variantOrLines)) {
+    lines = variantOrLines
+      .filter(item => item.variantId && item.quantity > 0)
+      .map(item => ({
+        merchandiseId: item.variantId,
+        quantity: Math.max(1, Math.floor(item.quantity)),
+      }));
+  } else {
+    const safeQuantity = Math.max(1, Math.floor(quantity || 1));
+    lines = [
       {
-        merchandiseId: variantId,
+        merchandiseId: variantOrLines,
         quantity: safeQuantity,
       },
-    ],
+    ];
+  }
+
+  if (lines.length === 0) {
+    throw new Error('No hay productos válidos para agregar al carrito.');
+  }
+
+  const input: Record<string, any> = {
+    lines,
   };
 
   // Preparado para localización de precios internacionales
