@@ -64,40 +64,66 @@ export const BenefitEvidenceSection: React.FC = () => {
             Clean, editorial, free of overlays and redundant lines
             ========================================================================= */}
         <Reveal direction="up" duration={700} className="hidden md:block">
-          <div className="grid grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          <div className="space-y-6 lg:space-y-8">
             
-            {/* TARJETA HERO IZQUIERDA: 01 · ALISA DIRECTO EN EL GANCHO (7 Cols Desktop / 12 Cols Tablet) */}
-            <div className="col-span-12 lg:col-span-7 bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-8 lg:p-9 shadow-xs flex flex-col justify-between relative group hover:border-graphite/20 transition-all duration-300">
-              <div>
-                <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-2">
-                  01 · CONECTAR
-                </span>
+            {/* =========================================================================
+                TARJETA HERO PANORÁMICA: 01 · CONECTAR (12 Columnas, Split Horizontal)
+                ========================================================================= */}
+            <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xs relative group hover:border-graphite/20 transition-all duration-300">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+                
+                {/* Columna Izquierda: Información y Pilares (5 Cols) */}
+                <div className="lg:col-span-5 space-y-4">
+                  <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase block">
+                    01 · CONECTAR
+                  </span>
 
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-graphite leading-[1.2] tracking-tight">
-                  La conectas y alisas directo en el gancho.
-                </h3>
+                  <h3 className="font-display text-2xl sm:text-3xl lg:text-[2.1rem] font-bold text-graphite leading-[1.18] tracking-tight">
+                    La conectas y alisas directo en el gancho.
+                  </h3>
 
-                <p className="text-sm sm:text-base text-graphite/70 leading-relaxed mt-2.5 max-w-xl font-normal">
-                  Olvídate de sacar la tabla pesada y de esperar que caliente. Su placa giratoria y vapor continuo de 1200 W eliminan arrugas en minutos.
-                </p>
-              </div>
+                  <p className="text-sm sm:text-base text-graphite/70 leading-relaxed font-normal">
+                    Olvídate de sacar la tabla pesada y de esperar que caliente. Su placa giratoria de 90° y vapor continuo de 1200 W eliminan arrugas en minutos.
+                  </p>
 
-              {/* Before/After Interactive Centerpiece (Clean & Unobstructed) */}
-              <div className="mt-6">
-                <div className="rounded-2xl overflow-hidden border border-graphite/15 shadow-sm bg-night-950">
-                  <BeforeAfterSlider 
-                    beforeImage="/images/before-wrinkled-shirt.jpg"
-                    afterImage="/images/after-smooth-shirt.jpg"
-                  />
+                  {/* Micro proof badges */}
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-graphite/[0.03] border border-graphite/10 text-graphite/80 text-xs font-medium">
+                      ✓ Cero tabla de planchar
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-graphite/[0.03] border border-graphite/10 text-graphite/80 text-xs font-medium">
+                      ✓ Placa giratoria 90°
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-graphite/[0.03] border border-graphite/10 text-graphite/80 text-xs font-medium">
+                      ✓ Ideal camisas y lino
+                    </span>
+                  </div>
+
+                  <p className="text-[11px] font-sans text-graphite/45 italic pt-1">
+                    ← Desliza el separador sobre la prenda para comparar el acabado →
+                  </p>
                 </div>
+
+                {/* Columna Derecha: Slider Antes/Después Panorámico (7 Cols) */}
+                <div className="lg:col-span-7">
+                  <div className="rounded-2xl overflow-hidden border border-graphite/15 shadow-sm bg-night-950">
+                    <BeforeAfterSlider 
+                      beforeImage="/images/before-wrinkled-shirt.jpg"
+                      afterImage="/images/after-smooth-shirt.jpg"
+                    />
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            {/* COLUMNA DERECHA: 2 TARJETAS APILADAS (5 Cols Desktop / 2 cols en Tablet) */}
-            <div className="col-span-12 lg:col-span-5 flex flex-col gap-6 justify-between">
+            {/* =========================================================================
+                DÚO SIMÉTRICO: 02 · CONTROLAR & 03 · GUARDAR (2 Tarjetas Gemelas 6 + 6)
+                ========================================================================= */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               
-              {/* TARJETA SUPERIOR DERECHA: 02 · CONTROLAR (Temperatura en Vivo) */}
-              <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-7 shadow-xs flex flex-col justify-between relative group hover:border-graphite/20 transition-all duration-300">
+              {/* TARJETA 02: CONTROLAR (Temperatura en Vivo) */}
+              <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-7 lg:p-8 shadow-xs flex flex-col justify-between relative group hover:border-graphite/20 transition-all duration-300">
                 <div>
                   <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
                     02 · CONTROLAR
@@ -138,8 +164,8 @@ export const BenefitEvidenceSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Macro Screen Stage (Clean photograph without overlays) */}
-                <div className="relative aspect-[16/9] w-full bg-night-950 border border-graphite/12 overflow-hidden rounded-2xl shadow-xs">
+                {/* Macro Screen Stage */}
+                <div className="relative aspect-[16/9] w-full bg-night-950 border border-graphite/12 overflow-hidden rounded-2xl shadow-xs mt-2">
                   <img 
                     src="/images/screen-temperature-display.jpg" 
                     alt="Pantalla digital LED de la plancha LISO mostrando temperatura en tiempo real" 
@@ -149,8 +175,8 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* TARJETA INFERIOR DERECHA: 03 · GUARDAR (Base de Apoyo) */}
-              <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-7 shadow-xs flex flex-col justify-between relative group hover:border-graphite/20 transition-all duration-300">
+              {/* TARJETA 03: GUARDAR (Base Térmica de Apoyo) */}
+              <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-7 lg:p-8 shadow-xs flex flex-col justify-between relative group hover:border-graphite/20 transition-all duration-300">
                 <div>
                   <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
                     03 · GUARDAR
@@ -163,10 +189,20 @@ export const BenefitEvidenceSection: React.FC = () => {
                   <p className="text-xs sm:text-sm text-graphite/70 leading-relaxed mt-1.5">
                     Su base de apoyo aislante te permite posarla caliente sobre cualquier mesa sin riesgo y tenerla siempre a mano en tu clóset.
                   </p>
+
+                  {/* Supporting Trust Pills */}
+                  <div className="flex flex-wrap gap-2 my-4">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-graphite/[0.03] border border-graphite/10 text-graphite/80 text-xs font-medium">
+                      ✓ Base resistente al calor
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-graphite/[0.03] border border-graphite/10 text-graphite/80 text-xs font-medium">
+                      ✓ Mango seguro ≤42 °C
+                    </span>
+                  </div>
                 </div>
 
-                {/* Desk Dock Visual Stage (Clean photograph without overlays) */}
-                <div className="relative aspect-[16/9] w-full bg-night-950 border border-graphite/12 overflow-hidden rounded-2xl shadow-xs mt-4">
+                {/* Desk Dock Visual Stage */}
+                <div className="relative aspect-[16/9] w-full bg-night-950 border border-graphite/12 overflow-hidden rounded-2xl shadow-xs mt-2">
                   <img 
                     src="/images/liso-desk-dock.jpg" 
                     alt="Plancha de vapor portátil LISO descansando en base de apoyo" 

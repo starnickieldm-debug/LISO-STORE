@@ -72,120 +72,130 @@ export const LifestyleScenesSection: React.FC = () => {
         {/* =========================================================================
             DESKTOP EDITORIAL GRID (>= 768px) — 100% Unchanged Asymmetrical Layout
             ========================================================================= */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8">
           
-          {/* Scene 01: Camisa de oficina (Large feature 7 cols) */}
-          <Reveal direction="up" delay={0} duration={700} className="lg:col-span-7 space-y-3 sm:space-y-4 group hover-lift">
-            <div className="relative aspect-[16/10] sm:aspect-[16/11] w-full overflow-hidden rounded-2xl sm:rounded-[32px] border border-graphite/15 group-hover:border-graphite/30 transition-all duration-300 shadow-card bg-white">
-              <picture className="w-full h-full">
-                <source srcSet="/images/escena-01-camisa.webp" type="image/webp" />
-                <img 
-                  src="/images/escena-01-camisa.jpg" 
-                  alt="Camisa de oficina colgada siendo alisada a vapor con LISO"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-mech-s"
-                  loading="lazy"
-                />
-              </picture>
-            </div>
-            <div className="pt-1 sm:pt-2">
-              <h3 className="font-display text-lg sm:text-2xl font-bold text-graphite">
-                {lifestyleScenes[0].caption}
-              </h3>
-              <p className="text-xs sm:text-sm text-graphite/70 mt-1">
-                {lifestyleScenes[0].context}
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Scene 02: Vestido delicado (5 cols) */}
-          <Reveal direction="up" delay={120} duration={700} className="lg:col-span-5 space-y-3 sm:space-y-4 group hover-lift">
-            <div className="relative aspect-[16/10] sm:aspect-[16/11] w-full overflow-hidden rounded-2xl sm:rounded-[32px] border border-graphite/15 group-hover:border-graphite/30 transition-all duration-300 shadow-card bg-white">
-              <picture className="w-full h-full">
-                <source srcSet="/images/escena-02-vestido.webp" type="image/webp" />
-                <img 
-                  src="/images/escena-02-vestido.jpg" 
-                  alt="Vestido verde de satén vaporizado en gancho con LISO"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-mech-s"
-                  loading="lazy"
-                />
-              </picture>
-            </div>
-            <div className="pt-1 sm:pt-2">
-              <h3 className="font-display text-lg sm:text-2xl font-bold text-graphite">
-                {lifestyleScenes[1].caption}
-              </h3>
-              <p className="text-xs sm:text-sm text-graphite/70 mt-1">
-                {lifestyleScenes[1].context}
-              </p>
+          {/* Fila 1: Escena 01 - Camisa de oficina (6 cols, 50% simétrico) */}
+          <Reveal direction="up" delay={0} duration={700} className="lg:col-span-6 flex">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[32px] border border-graphite/12 p-5 sm:p-6 lg:p-7 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+              <div>
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-4 sm:mb-5">
+                  <picture className="w-full h-full">
+                    <source srcSet="/images/escena-01-camisa.webp" type="image/webp" />
+                    <img 
+                      src="/images/escena-01-camisa.jpg" 
+                      alt="Camisa de oficina colgada siendo alisada a vapor con LISO" 
+                      className="w-full h-full object-cover object-center group-hover:scale-104 transition-transform duration-500 ease-mech-s" 
+                      loading="lazy" 
+                    />
+                  </picture>
+                </div>
+                <h3 className="font-display text-lg sm:text-xl lg:text-2xl font-bold text-graphite leading-snug">
+                  {lifestyleScenes[0].caption}
+                </h3>
+                <p className="text-xs sm:text-sm text-graphite/70 mt-2 leading-relaxed">
+                  {lifestyleScenes[0].context}
+                </p>
+              </div>
             </div>
           </Reveal>
 
-          {/* Scene 03: Cortina (4 cols) */}
-          <Reveal direction="up" delay={0} duration={700} className="lg:col-span-4 space-y-3 sm:space-y-4 group hover-lift">
-            <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden rounded-2xl sm:rounded-[28px] border border-graphite/15 group-hover:border-graphite/30 transition-all duration-300 shadow-card bg-white">
-              <picture className="w-full h-full">
-                <source srcSet="/images/escena-03-cortina.webp" type="image/webp" />
-                <img 
-                  src="/images/escena-03-cortina.jpg" 
-                  alt="Cortina blanca vaporizada directamente en vertical con LISO"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-mech-s"
-                  loading="lazy"
-                />
-              </picture>
-            </div>
-            <div className="pt-1 sm:pt-2">
-              <h3 className="font-display text-base sm:text-xl font-bold text-graphite">
-                {lifestyleScenes[2].caption}
-              </h3>
-              <p className="text-xs sm:text-sm text-graphite/70 mt-1">
-                {lifestyleScenes[2].context}
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Scene 04: Hotel + maleta (4 cols) */}
-          <Reveal direction="up" delay={100} duration={700} className="lg:col-span-4 space-y-3 sm:space-y-4 group hover-lift">
-            <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden rounded-2xl sm:rounded-[28px] border border-graphite/15 group-hover:border-graphite/30 transition-all duration-300 shadow-card bg-white">
-              <picture className="w-full h-full">
-                <source srcSet="/images/escena-04-maleta.webp" type="image/webp" />
-                <img 
-                  src="/images/escena-04-maleta.jpg" 
-                  alt="Plancha de viaje LISO empacada en maleta y bolso de mano"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-mech-s"
-                  loading="lazy"
-                />
-              </picture>
-            </div>
-            <div className="pt-1 sm:pt-2">
-              <h3 className="font-display text-base sm:text-xl font-bold text-graphite">
-                {lifestyleScenes[3].caption}
-              </h3>
-              <p className="text-xs sm:text-sm text-graphite/70 mt-1">
-                {lifestyleScenes[3].context}
-              </p>
+          {/* Fila 1: Escena 02 - Vestido delicado (6 cols, 50% simétrico) */}
+          <Reveal direction="up" delay={120} duration={700} className="lg:col-span-6 flex">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[32px] border border-graphite/12 p-5 sm:p-6 lg:p-7 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+              <div>
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-4 sm:mb-5">
+                  <picture className="w-full h-full">
+                    <source srcSet="/images/escena-02-vestido.webp" type="image/webp" />
+                    <img 
+                      src="/images/escena-02-vestido.jpg" 
+                      alt="Vestido verde de satén vaporizado en gancho con LISO" 
+                      className="w-full h-full object-cover object-center group-hover:scale-104 transition-transform duration-500 ease-mech-s" 
+                      loading="lazy" 
+                    />
+                  </picture>
+                </div>
+                <h3 className="font-display text-lg sm:text-xl lg:text-2xl font-bold text-graphite leading-snug">
+                  {lifestyleScenes[1].caption}
+                </h3>
+                <p className="text-xs sm:text-sm text-graphite/70 mt-2 leading-relaxed">
+                  {lifestyleScenes[1].context}
+                </p>
+              </div>
             </div>
           </Reveal>
 
-          {/* Scene 05: Producto sobre dock (4 cols) */}
-          <Reveal direction="up" delay={200} duration={700} className="lg:col-span-4 space-y-3 sm:space-y-4 group hover-lift">
-            <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden rounded-2xl sm:rounded-[28px] border border-graphite/15 group-hover:border-graphite/30 transition-all duration-300 shadow-card bg-white">
-              <picture className="w-full h-full">
-                <source srcSet="/images/escena-05-dock.webp" type="image/webp" />
-                <img 
-                  src="/images/escena-05-dock.jpg" 
-                  alt="LISO descansando en su base de apoyo sobre superficie de mármol en el baño"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-mech-s"
-                  loading="lazy"
-                />
-              </picture>
+          {/* Fila 2: Escena 03 - Cortina (4 cols) */}
+          <Reveal direction="up" delay={0} duration={700} className="lg:col-span-4 flex">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[28px] border border-graphite/12 p-4 sm:p-5 lg:p-6 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+              <div>
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-3.5 sm:mb-4">
+                  <picture className="w-full h-full">
+                    <source srcSet="/images/escena-03-cortina.webp" type="image/webp" />
+                    <img 
+                      src="/images/escena-03-cortina.jpg" 
+                      alt="Cortina blanca vaporizada directamente en vertical con LISO" 
+                      className="w-full h-full object-cover object-center group-hover:scale-104 transition-transform duration-500 ease-mech-s" 
+                      loading="lazy" 
+                    />
+                  </picture>
+                </div>
+                <h3 className="font-display text-base sm:text-lg font-bold text-graphite leading-snug">
+                  {lifestyleScenes[2].caption}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-graphite/70 mt-1.5 leading-relaxed">
+                  {lifestyleScenes[2].context}
+                </p>
+              </div>
             </div>
-            <div className="pt-1 sm:pt-2">
-              <h3 className="font-display text-base sm:text-xl font-bold text-graphite">
-                {lifestyleScenes[4].caption}
-              </h3>
-              <p className="text-xs sm:text-sm text-graphite/70 mt-1">
-                {lifestyleScenes[4].context}
-              </p>
+          </Reveal>
+
+          {/* Fila 2: Escena 04 - Hotel + maleta (4 cols) */}
+          <Reveal direction="up" delay={100} duration={700} className="lg:col-span-4 flex">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[28px] border border-graphite/12 p-4 sm:p-5 lg:p-6 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+              <div>
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-3.5 sm:mb-4">
+                  <picture className="w-full h-full">
+                    <source srcSet="/images/escena-04-maleta.webp" type="image/webp" />
+                    <img 
+                      src="/images/escena-04-maleta.jpg" 
+                      alt="Plancha de viaje LISO empacada en maleta y bolso de mano" 
+                      className="w-full h-full object-cover object-center group-hover:scale-104 transition-transform duration-500 ease-mech-s" 
+                      loading="lazy" 
+                    />
+                  </picture>
+                </div>
+                <h3 className="font-display text-base sm:text-lg font-bold text-graphite leading-snug">
+                  {lifestyleScenes[3].caption}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-graphite/70 mt-1.5 leading-relaxed">
+                  {lifestyleScenes[3].context}
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Fila 2: Escena 05 - Producto sobre dock (4 cols) */}
+          <Reveal direction="up" delay={200} duration={700} className="lg:col-span-4 flex">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[28px] border border-graphite/12 p-4 sm:p-5 lg:p-6 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+              <div>
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-3.5 sm:mb-4">
+                  <picture className="w-full h-full">
+                    <source srcSet="/images/escena-05-dock.webp" type="image/webp" />
+                    <img 
+                      src="/images/escena-05-dock.jpg" 
+                      alt="LISO descansando en su base de apoyo sobre superficie de mármol en el baño" 
+                      className="w-full h-full object-cover object-center group-hover:scale-104 transition-transform duration-500 ease-mech-s" 
+                      loading="lazy" 
+                    />
+                  </picture>
+                </div>
+                <h3 className="font-display text-base sm:text-lg font-bold text-graphite leading-snug">
+                  {lifestyleScenes[4].caption}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-graphite/70 mt-1.5 leading-relaxed">
+                  {lifestyleScenes[4].context}
+                </p>
+              </div>
             </div>
           </Reveal>
 
