@@ -8,7 +8,7 @@ export const FAQSection: React.FC = () => {
     <section 
       id="faq" 
       className="py-16 sm:py-20 lg:py-28 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
-      style={{ backgroundColor: '#F5F1EA' }}
+      style={{ backgroundColor: '#EFEBE2' }}
     >
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         

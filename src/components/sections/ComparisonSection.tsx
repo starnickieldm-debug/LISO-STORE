@@ -55,6 +55,20 @@ export const ComparisonSection: React.FC = () => {
       className="py-20 sm:py-28 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#F5F1EA' }}
     >
+      {/* Background Texture: Pleated Silk (Horizontal Landscape) */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none"
+        aria-hidden="true"
+      >
+        <img 
+          src="/images/textures/texture-pleated-silk.webp" 
+          alt="" 
+          className="w-full h-full object-cover object-center opacity-25 mix-blend-multiply filter contrast-125"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F5F1EA]/50 via-transparent to-[#F5F1EA]/60 pointer-events-none" />
+      </div>
+
       <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header */}

@@ -40,6 +40,20 @@ export const BenefitEvidenceSection: React.FC = () => {
       className="py-20 sm:py-24 lg:py-28 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#F5F1EA' }}
     >
+      {/* Background Texture: Flowing Satin (Horizontal Landscape) */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none"
+        aria-hidden="true"
+      >
+        <img 
+          src="/images/textures/texture-flowing-satin.webp" 
+          alt="" 
+          className="w-full h-full object-cover object-center opacity-25 mix-blend-multiply filter contrast-125"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F5F1EA]/50 via-transparent to-[#F5F1EA]/60 pointer-events-none" />
+      </div>
+
       {/* Ghost watermark: Quiet architectural depth */}
       <div 
         className="select-none pointer-events-none absolute -left-6 top-16 font-sans font-medium uppercase text-[15vw] tracking-tighter leading-none text-outline-bone-ghost ghost-fade-vertical hidden md:block opacity-10" 

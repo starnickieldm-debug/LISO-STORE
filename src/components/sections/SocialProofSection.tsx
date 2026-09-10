@@ -22,7 +22,7 @@ export const SocialProofSection: React.FC = () => {
     <section 
       id="prueba-real"
       className="py-14 sm:py-20 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
-      style={{ backgroundColor: '#F5F1EA' }}
+      style={{ backgroundColor: '#FAF8F5' }}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         

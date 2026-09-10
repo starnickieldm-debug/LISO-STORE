@@ -12,6 +12,20 @@ export const FinalCTASection: React.FC = () => {
       className="py-14 sm:py-32 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
       style={{ backgroundColor: '#F5F1EA' }}
     >
+      {/* Background Texture: Topographic Curves (Horizontal Landscape) */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none"
+        aria-hidden="true"
+      >
+        <img 
+          src="/images/textures/texture-topographic-curves.webp" 
+          alt="" 
+          className="w-full h-full object-cover object-center opacity-20 mix-blend-multiply filter contrast-125"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F5F1EA]/50 via-transparent to-[#F5F1EA]/60 pointer-events-none" />
+      </div>
+
       {/* 12s Dawn Breath Breathing Radial Glow (Unique Warm Glow in S12) */}
       <div 
         className="pointer-events-none absolute -bottom-32 left-1/2 -translate-x-1/2 w-[800px] h-[550px] bg-[radial-gradient(ellipse_at_bottom,rgba(217,119,6,0.14)_0%,rgba(180,36,124,0.07)_40%,transparent_75%)] blur-3xl animate-dawn-breath z-0" 
