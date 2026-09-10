@@ -38,90 +38,55 @@ export const HeroSection: React.FC = () => {
   return (
     <section 
       id="hero"
-      className="relative flex flex-col justify-between overflow-hidden bg-night-950 text-bone border-b border-white/10 w-full min-h-[calc(100dvh-100px)]"
+      className="relative flex flex-col justify-between overflow-hidden bg-bone text-graphite border-b border-graphite/10 w-full min-h-[calc(100dvh-100px)]"
       style={{ 
-        backgroundColor: '#0B0C0F',
+        backgroundColor: '#F5F1EA',
         minHeight: `calc(100dvh - ${topBarsHeight}px)`
       }}
     >
       {/* Upper Hero Stage: Flex-1 vertically centers content in remaining viewport space */}
       <div className="relative flex-1 flex items-center w-full overflow-hidden py-4 sm:py-6 lg:py-4">
-        {/* Background Layer 1: Luxury draped silk fabric texture (subtle atmospheric grain) */}
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <img 
-            src="/images/fabric-texture-bg.jpg" 
-            alt="" 
-            className="w-full h-full object-cover object-center opacity-20 mix-blend-luminosity scale-105"
-          />
-          {/* Soft dark gradient overlays to retain silk folds while keeping text readable */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0C0F] via-[#0B0C0F]/90 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B0C0F]/90 via-transparent to-[#0B0C0F]" />
-          <div className="absolute inset-0 bg-vignette-cinematic" />
-        </div>
-
-        {/* Layer 2: Giant structural branding word 'LISO' (subtle depth watermark, strictly BEHIND the product) */}
+        
+        {/* Layer 2: Giant structural branding word 'LISO' (solid graphite watermark, strictly BEHIND the product) */}
         <div 
-          className="select-none pointer-events-none absolute right-0 -top-4 sm:-top-8 lg:-top-6 font-giant-structural font-semibold uppercase text-[15vw] sm:text-[13vw] lg:text-[10.5vw] tracking-tighter leading-none whitespace-nowrap z-0 overflow-hidden pr-2 sm:pr-6" 
+          className="select-none pointer-events-none absolute right-0 -top-4 sm:-top-8 lg:-top-6 font-giant-structural font-bold uppercase text-[15vw] sm:text-[13vw] lg:text-[11vw] tracking-tighter leading-none whitespace-nowrap z-0 overflow-hidden pr-2 sm:pr-6" 
           style={!prefersReduced ? {
-            opacity: loaded ? 0.20 : 0,
+            opacity: loaded ? 1 : 0,
             transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(16px, 0, 0)',
             transition: 'opacity 1200ms cubic-bezier(0.16, 1, 0.3, 1) 300ms, transform 1200ms cubic-bezier(0.16, 1, 0.3, 1) 300ms'
-          } : { opacity: 0.20 }}
+          } : undefined}
           aria-hidden="true" 
         >
-          <span className="text-bone/12">LI</span>
-          <span className="text-outline-bone-subtle">SO</span>
+          <span className="text-graphite/[0.06]">LISO</span>
         </div>
 
-        {/* Ambient Layer: Structural warm/magenta light halo behind the iron head */}
+        {/* Ambient Layer: 20% Graphite Orbit Hairline behind product */}
         <div 
-          className="pointer-events-none absolute right-0 top-0 w-80 sm:w-[520px] h-80 sm:h-[520px] bg-halo-structural blur-3xl z-5 opacity-90" 
+          className="pointer-events-none absolute right-4 lg:right-16 top-1/2 -translate-y-1/2 w-[360px] sm:w-[480px] lg:w-[560px] h-[360px] sm:h-[480px] lg:h-[560px] rounded-full orbit-hairline z-5 hidden sm:block"
           aria-hidden="true" 
         />
 
-        {/* Layer 3: Seamless Product Image Stage (Dedicated right-side visual stage in front of LISO watermark) */}
+        {/* Layer 3: Product Image Stage (Rendered cutout with soft long shadow) */}
         <div 
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[51%] xl:w-[48%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
-          style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 10%, black 28%, black 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 10%, black 28%, black 100%)',
-          }}
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[50%] xl:w-[48%] z-10 hidden lg:flex items-center justify-center overflow-hidden pr-4"
         >
-          <picture className="w-full h-full">
-            <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
-            <img 
-              src="/images/hero-steamer-editorial.jpg" 
-              alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
-              className="w-full h-full object-cover object-[70%_center] transform origin-center transition-all duration-1000 ease-mech-s"
-              style={{
-                filter: 'brightness(1.09) contrast(1.06)',
-                ...(!prefersReduced ? {
-                  opacity: loaded ? 1 : 0,
-                  transform: loaded ? 'scale(1)' : 'scale(1.03)',
-                  willChange: loaded ? 'auto' : 'opacity, transform'
-                } : undefined)
-              }}
-              loading="eager"
-            />
-          </picture>
-          {/* Soft dissolved edges: top, left, and bottom fade so the iron has a pristine background without harsh cuts */}
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0B0C0F] via-transparent to-transparent" />
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/70 via-transparent to-transparent" />
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0B0C0F] via-transparent to-transparent" />
-          {/* Subtle radial vignette darkening garment edges so the iron pops as the undisputed focal hero */}
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_65%_48%,transparent_54%,rgba(11,12,15,0.38)_88%)]" />
+          <img 
+            src="/images/liso-clean-cutout.webp" 
+            alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital" 
+            className="max-h-[82%] max-w-[92%] w-auto object-contain product-shadow-long transform origin-center transition-all duration-1000 ease-mech-s"
+            style={!prefersReduced ? {
+              opacity: loaded ? 1 : 0,
+              transform: loaded ? 'scale(1)' : 'scale(1.03)',
+              willChange: loaded ? 'auto' : 'opacity, transform'
+            } : undefined}
+            loading="eager"
+          />
         </div>
-
-        {/* Layer 4: Atmospheric steam glow */}
-        <div 
-          className="pointer-events-none absolute right-4 top-2 w-72 sm:w-[460px] h-72 sm:h-[460px] bg-[radial-gradient(ellipse_at_center,rgba(232,227,218,0.10)_0%,rgba(180,36,124,0.04)_45%,transparent_70%)] blur-2xl z-20" 
-          aria-hidden="true" 
-        />
 
         <div className="max-w-[1480px] w-full mx-auto px-4 sm:px-8 lg:px-12 relative z-30 my-auto">
         
         {/* =========================================================================
-            DESKTOP HERO COMPOSITION (>= 1024px) — 100% Unchanged Layout
+            DESKTOP HERO COMPOSITION (>= 1024px)
             ========================================================================= */}
         <div className="hidden lg:grid grid-cols-12 gap-12 xl:gap-16 items-center">
           
@@ -130,7 +95,7 @@ export const HeroSection: React.FC = () => {
             
             {/* H1 Headline: Impactful 2-block composition with intentional line breaks */}
             <h1 
-              className="font-display text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-bold text-bone tracking-[-0.025em] leading-[1.1] drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]"
+              className="font-display text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-bold text-graphite tracking-[-0.025em] leading-[1.1]"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
@@ -139,14 +104,14 @@ export const HeroSection: React.FC = () => {
               } : undefined}
             >
               <span className="block">Olvídate de la plancha pesada.</span>
-              <span className="block text-bone/95 mt-1.5 font-normal">
-                Tu ropa <span className="italic font-display font-medium text-white">impecable</span> en segundos.
+              <span className="block text-graphite/90 mt-1.5 font-normal">
+                Tu ropa <span className="italic font-display font-medium text-accent">impecable</span> en segundos.
               </span>
             </h1>
 
             {/* 3. Subheadline: Compact secondary explanatory paragraph */}
             <p 
-              className="text-sm sm:text-[15px] lg:text-base text-bone/75 leading-relaxed font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] mt-4 lg:mt-5"
+              className="text-sm sm:text-[15px] lg:text-base text-graphite/75 leading-relaxed font-normal mt-4 lg:mt-5"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 14px, 0)',
@@ -154,12 +119,12 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y calienta en pocos segundos. Alisa directamente en el gancho, sin sacar la tabla, gracias a su <strong className="font-semibold text-bone">placa giratoria</strong> y temperatura real en pantalla.
+              ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y calienta en pocos segundos. Alisa directamente en el gancho, sin sacar la tabla, gracias a su <strong className="font-semibold text-graphite">placa giratoria</strong> y temperatura real en pantalla.
             </p>
 
             {/* 4. Price & Primary Conversion Card */}
             <div 
-              className="hero-glass-card p-5 lg:p-6 shadow-[0_16px_40px_rgba(0,0,0,0.5)] space-y-3.5 rounded-xl mt-6"
+              className="hero-glass-card p-5 lg:p-6 space-y-3.5 rounded-xl mt-6"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
@@ -169,7 +134,7 @@ export const HeroSection: React.FC = () => {
             >
               {/* Nivel 2: Precio */}
               <div className="flex items-baseline gap-2.5 pb-0.5">
-                <span className="text-3xl sm:text-[2.2rem] font-display font-bold text-white tracking-tight drop-shadow-sm">
+                <span className="text-3xl sm:text-[2.2rem] font-display font-bold text-graphite tracking-tight">
                   {currentMarket.formattedPrice}
                 </span>
                 <span className="text-[11px] sm:text-xs font-sans uppercase tracking-wider text-accent font-semibold">
@@ -182,38 +147,38 @@ export const HeroSection: React.FC = () => {
                 <CTAButton 
                   href="#oferta" 
                   size="large" 
-                  className="flex-1 shadow-[0_4px_24px_rgba(180,36,124,0.4)] hover:shadow-[0_6px_30px_rgba(180,36,124,0.55)] text-[15px] font-semibold tracking-wide"
+                  className="flex-1 shadow-[0_4px_24px_rgba(180,36,124,0.35)] hover:shadow-[0_6px_30px_rgba(180,36,124,0.5)] text-[15px] font-semibold tracking-wide"
                 >
                   Pedir LISO — {currentMarket.formattedPrice}
                 </CTAButton>
 
-                {/* Acción secundaria: Enlace textual discreto con menor peso y contraste refinado */}
+                {/* Acción secundaria: Enlace textual discreto con menor peso y contraste */}
                 <a 
                   href="#como-funciona" 
-                  className="inline-flex items-center justify-start gap-1.5 py-2 px-1 text-xs font-sans font-medium text-bone/75 hover:text-white transition-colors group shrink-0"
+                  className="inline-flex items-center justify-start gap-1.5 py-2 px-1 text-xs font-sans font-medium text-graphite/70 hover:text-graphite transition-colors group shrink-0"
                   aria-label="Ver cómo funciona LISO"
                 >
-                  <span className="border-b border-bone/25 group-hover:border-white/60 transition-colors pb-0.5">
+                  <span className="border-b border-graphite/25 group-hover:border-graphite/60 transition-colors pb-0.5">
                     Ver cómo funciona
                   </span>
-                  <ArrowDown className="w-3.5 h-3.5 text-bone/50 group-hover:text-white group-hover:translate-y-0.5 transition-all" />
+                  <ArrowDown className="w-3.5 h-3.5 text-graphite/50 group-hover:text-graphite group-hover:translate-y-0.5 transition-all" />
                 </a>
               </div>
 
               {/* Nivel 3: Beneficios de confianza (Compacto, sin repetición innecesaria) */}
-              <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 text-xs text-bone/70 pt-1 font-sans font-medium border-t border-white/5">
-                <span className="inline-flex items-center gap-1 text-bone/90">
+              <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 text-xs text-graphite/70 pt-1 font-sans font-medium border-t border-graphite/10">
+                <span className="inline-flex items-center gap-1 text-graphite font-semibold">
                   <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
                   <span>Envío gratis</span>
                 </span>
-                <span className="text-white/20">·</span>
+                <span className="text-graphite/20">·</span>
                 <span>Pago seguro (PSE / Tarjetas)</span>
-                <span className="text-white/20">·</span>
+                <span className="text-graphite/20">·</span>
                 <span>Garantía 30 días</span>
               </div>
 
               {/* Nota de laboratorio discreta */}
-              <p className="text-[10px] font-sans text-bone/40 italic pt-0.5">
+              <p className="text-[10px] font-sans text-graphite/55 italic pt-0.5">
                 {brandConfig.labClaimNote}
               </p>
             </div>
@@ -232,58 +197,41 @@ export const HeroSection: React.FC = () => {
         <div className="block lg:hidden py-1 max-w-md mx-auto">
           
           {/* 1. Mobile H1: Compact, high-impact headline */}
-          <h1 className="text-center font-display text-[1.65rem] xs:text-[1.85rem] font-bold text-bone tracking-tight leading-[1.12] drop-shadow-md mb-1">
+          <h1 className="text-center font-display text-[1.65rem] xs:text-[1.85rem] font-bold text-graphite tracking-tight leading-[1.12] mb-1">
             <span>Olvídate de la plancha pesada.</span>
-            <span className="block text-bone/90 mt-0.5 font-normal text-[1.3rem] xs:text-[1.45rem]">
-              Tu ropa <span className="italic font-display font-medium text-white">impecable</span> en segundos.
+            <span className="block text-graphite/90 mt-0.5 font-normal text-[1.3rem] xs:text-[1.45rem]">
+              Tu ropa <span className="italic font-display font-medium text-accent">impecable</span> en segundos.
             </span>
           </h1>
 
           {/* 2. Micro-bajada: 1 single punchy line of value proposition */}
-          <p className="text-center text-[12.5px] xs:text-[13px] text-bone/70 leading-snug max-w-[320px] mx-auto mb-2">
+          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/70 leading-snug max-w-[320px] mx-auto mb-2">
             Alisa directo en el gancho y sin sacar la tabla. Placa giratoria y vapor continuo.
           </p>
 
-          {/* 3. Mobile Focal Hero Product Stage (Seamless integration + floating tech badges) */}
-          <div className="relative my-1 w-full max-w-[360px] mx-auto">
-            {/* Ambient warm/magenta glow behind the product */}
+          {/* 3. Mobile Focal Hero Product Stage (Rendered in bone with long soft shadow & orbit) */}
+          <div className="relative my-2 w-full max-w-[340px] mx-auto flex items-center justify-center">
+            {/* 20% Orbit Hairline */}
             <div 
-              className="pointer-events-none absolute inset-0 -m-3 bg-[radial-gradient(ellipse_at_center,rgba(180,36,124,0.18)_0%,rgba(255,195,130,0.08)_40%,transparent_70%)] blur-2xl z-0" 
+              className="pointer-events-none absolute w-[260px] h-[260px] rounded-full orbit-hairline z-0" 
               aria-hidden="true" 
             />
 
-            <div 
-              className="relative aspect-[16/10] xs:aspect-[16/9.5] w-full overflow-hidden rounded-xl z-10"
-              style={{
-                maskImage: 'radial-gradient(ellipse 95% 90% at 50% 50%, black 70%, transparent 100%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 95% 90% at 50% 50%, black 70%, transparent 100%)'
-              }}
-            >
-              <picture className="w-full h-full">
-                <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
-                <img 
-                  src="/images/hero-steamer-editorial.jpg" 
-                  alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
-                  className="w-full h-full object-cover object-[70%_center]"
-                  style={{
-                    filter: 'brightness(1.08) contrast(1.06)'
-                  }}
-                  loading="eager"
-                />
-              </picture>
-              
-              {/* Soft dissolved edges into #0B0C0F */}
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0B0C0F] via-transparent to-transparent" />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/70 via-transparent to-transparent" />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0B0C0F]/40 via-transparent to-[#0B0C0F]/40" />
+            <div className="relative z-10 w-full max-w-[270px] flex items-center justify-center">
+              <img 
+                src="/images/liso-clean-cutout.webp" 
+                alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital" 
+                className="w-full h-auto object-contain product-shadow-long"
+                loading="eager"
+              />
             </div>
           </div>
 
-          {/* 4. Streamlined Conversion Section (Thumb-Zone Optimized, No Heavy Outer Card) */}
+          {/* 4. Streamlined Conversion Section (Thumb-Zone Optimized) */}
           <div className="pt-1.5 space-y-2">
             {/* Price & Shipping badge */}
             <div className="flex items-baseline justify-center gap-2">
-              <span className="text-[1.75rem] xs:text-[1.95rem] font-display font-bold text-white tracking-tight leading-none">
+              <span className="text-[1.75rem] xs:text-[1.95rem] font-display font-bold text-graphite tracking-tight leading-none">
                 {currentMarket.formattedPrice}
               </span>
               <span className="text-[10px] font-sans uppercase tracking-wider text-accent font-semibold bg-accent/10 border border-accent/25 px-2 py-0.5 rounded">
@@ -295,32 +243,32 @@ export const HeroSection: React.FC = () => {
             <CTAButton 
               href="#oferta" 
               size="large" 
-              className="w-full shadow-[0_4px_24px_rgba(180,36,124,0.35)] active:scale-[0.98] py-3 text-[15px] font-semibold tracking-wide"
+              className="w-full shadow-[0_4px_24px_rgba(180,36,124,0.3)] active:scale-[0.98] py-3 text-[15px] font-semibold tracking-wide"
             >
               Pedir LISO — {currentMarket.formattedPrice}
             </CTAButton>
 
             {/* Trust Points: Compact single row */}
-            <div className="flex items-center justify-between text-[10.5px] xs:text-[11px] text-bone/70 pt-0.5 font-sans px-1">
-              <span className="inline-flex items-center gap-1 text-bone/90">
+            <div className="flex items-center justify-between text-[10.5px] xs:text-[11px] text-graphite/70 pt-0.5 font-sans px-1">
+              <span className="inline-flex items-center gap-1 text-graphite font-medium">
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
                 <span>PSE / Tarjetas</span>
               </span>
-              <span className="text-white/20">·</span>
+              <span className="text-graphite/20">·</span>
               <span>Garantía legal 30 días</span>
-              <span className="text-white/20">·</span>
+              <span className="text-graphite/20">·</span>
               <span>Rastreo en línea</span>
             </div>
 
             {/* Secondary navigation & micro footnote */}
-            <div className="flex items-center justify-between pt-0.5 text-[10px] font-sans text-bone/45 px-1">
+            <div className="flex items-center justify-between pt-0.5 text-[10px] font-sans text-graphite/55 px-1">
               <a 
                 href="#como-funciona" 
-                className="inline-flex items-center gap-1 text-bone/60 hover:text-white transition-colors"
+                className="inline-flex items-center gap-1 text-graphite/70 hover:text-graphite transition-colors"
                 aria-label="Ver cómo funciona LISO"
               >
                 <span>Ver cómo funciona</span>
-                <ArrowDown className="w-3 h-3 text-bone/40" />
+                <ArrowDown className="w-3 h-3 text-graphite/40" />
               </a>
               <span className="italic">{brandConfig.labClaimNote}</span>
             </div>

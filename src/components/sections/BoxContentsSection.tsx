@@ -12,7 +12,7 @@ export const BoxContentsSection: React.FC = () => {
   return (
     <section 
       className="py-14 sm:py-28 bg-bone border-b border-graphite/10"
-      style={{ backgroundColor: '#F6F4EF', color: '#17181C' }}
+      style={{ backgroundColor: '#F5F1EA', color: '#17181C' }}
     >
       <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12">
         
@@ -79,7 +79,7 @@ export const BoxContentsSection: React.FC = () => {
             </div>
 
             {/* Quality seal reminder */}
-            <div className="pt-4 flex items-center justify-between text-xs font-sans text-graphite/60 bg-vapor-light/60 p-3 border border-vapor-border font-medium">
+            <div className="pt-4 flex items-center justify-between text-xs font-sans text-graphite/70 bg-bone-50/80 p-3 border border-graphite/15 font-medium">
               <span>RESPALDO Y SOPORTE:</span>
               <span className="font-semibold text-graphite">{brandConfig.factoryWarranty}</span>
             </div>

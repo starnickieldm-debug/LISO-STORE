@@ -25,7 +25,7 @@ export const TrustBar: React.FC = () => {
     <aside 
       aria-label="Condiciones de compra y confianza" 
       className="w-full bg-night-950 text-bone/80 text-[11px] sm:text-xs font-sans font-semibold border-b border-white/10 select-none overflow-hidden"
-      style={{ backgroundColor: '#0B0C0F' }}
+      style={{ backgroundColor: '#14151A' }}
     >
       <div className="max-w-[1480px] mx-auto px-3 sm:px-8 lg:px-12 flex items-center justify-center text-center h-8 sm:h-9">
         {/* Desktop View (>= 640px): All 3 points displayed inline on a single line */}

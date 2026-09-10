@@ -37,12 +37,12 @@ export const BenefitEvidenceSection: React.FC = () => {
   return (
     <section 
       id="beneficios"
-      className="py-20 sm:py-24 lg:py-28 bg-night-950 text-bone border-b border-white/10 relative overflow-hidden bg-macro-fabric scroll-mt-16 sm:scroll-mt-20"
-      style={{ backgroundColor: '#0B0C0F' }}
+      className="py-20 sm:py-24 lg:py-28 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
+      style={{ backgroundColor: '#F5F1EA' }}
     >
       {/* Ghost watermark: Quiet architectural depth */}
       <div 
-        className="select-none pointer-events-none absolute -left-6 top-16 font-sans font-medium uppercase text-[15vw] tracking-tighter leading-none text-outline-bone-ghost ghost-fade-vertical hidden md:block opacity-20" 
+        className="select-none pointer-events-none absolute -left-6 top-16 font-sans font-medium uppercase text-[15vw] tracking-tighter leading-none text-outline-bone-ghost ghost-fade-vertical hidden md:block opacity-10" 
         aria-hidden="true" 
       >
         150°
@@ -52,14 +52,14 @@ export const BenefitEvidenceSection: React.FC = () => {
         
         {/* Section Header: Connected entry to the 3-moment narrative */}
         <div className="max-w-3xl mb-10 sm:mb-14 lg:mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-sans text-accent font-semibold tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-graphite/[0.04] border border-graphite/10 rounded-full text-xs font-sans text-accent font-semibold tracking-wider uppercase">
             <Sparkles className="w-3.5 h-3.5" />
             <span>EL MÉTODO DE 3 PASOS</span>
           </div>
-          <h2 className="font-display text-2xl sm:text-4xl lg:text-[2.65rem] font-bold text-bone tracking-tight leading-[1.15]">
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.15]">
             Menos vueltas para tener tu ropa lista.
           </h2>
-          <p className="text-sm sm:text-lg text-bone/70 font-normal leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-lg text-graphite/70 font-normal leading-relaxed max-w-2xl">
             Olvídate de sacar la tabla cada vez que una prenda necesita un retoque. LISO está pensada para resolverlo en minutos.
           </p>
         </div>
@@ -72,56 +72,53 @@ export const BenefitEvidenceSection: React.FC = () => {
           <div className="grid grid-cols-12 gap-6 items-stretch">
             
             {/* TARJETA HERO IZQUIERDA: 01 · ALISA DIRECTO EN EL GANCHO (7 Cols Desktop / 12 Cols Tablet) */}
-            <div className="col-span-12 lg:col-span-7 bg-night-900/85 backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl overflow-hidden flex flex-col justify-between relative group hover:border-white/20 transition-all duration-300">
-              {/* Soft ambient lighting */}
-              <div className="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl group-hover:bg-accent/15 transition-all duration-500" />
-
+            <div className="col-span-12 lg:col-span-7 bg-white/90 backdrop-blur-sm border border-graphite/10 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-card overflow-hidden flex flex-col justify-between relative group hover:border-graphite/25 transition-all duration-300">
               <div>
                 {/* Header Moment 01 */}
-                <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                <div className="flex items-center justify-between pb-3 border-b border-graphite/10">
                   <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5" />
                     01 · CONECTAR
                   </span>
-                  <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10">
+                  <span className="text-[11px] font-sans font-semibold tracking-wider text-graphite/60 uppercase px-2.5 py-0.5 rounded-full bg-graphite/[0.04] border border-graphite/10">
                     CALIENTA EN 3 SEG · 150 °C
                   </span>
                 </div>
 
-                <h3 className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold text-bone leading-[1.2] tracking-tight mt-4">
+                <h3 className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold text-graphite leading-[1.2] tracking-tight mt-4">
                   La conectas y alisas directo en el gancho.
                 </h3>
 
-                <p className="text-sm sm:text-base text-bone/75 leading-relaxed mt-2.5 max-w-xl font-normal">
+                <p className="text-sm sm:text-base text-graphite/75 leading-relaxed mt-2.5 max-w-xl font-normal">
                   Olvídate de sacar la tabla pesada y de esperar que caliente. Su placa giratoria y vapor continuo de 1200 W eliminan arrugas rebeldes en minutos.
                 </p>
 
                 {/* Key feature pills */}
                 <div className="flex flex-wrap gap-2 mt-4">
-                  <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-xs font-sans text-bone/85 font-medium flex items-center gap-1.5">
+                  <span className="px-3 py-1.5 bg-graphite/[0.04] border border-graphite/10 rounded-lg text-xs font-sans text-graphite/85 font-medium flex items-center gap-1.5">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
                     Cero tabla de planchar
                   </span>
-                  <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-xs font-sans text-bone/85 font-medium flex items-center gap-1.5">
+                  <span className="px-3 py-1.5 bg-graphite/[0.04] border border-graphite/10 rounded-lg text-xs font-sans text-graphite/85 font-medium flex items-center gap-1.5">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
                     Placa giratoria 90°
                   </span>
-                  <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-xs font-sans text-bone/85 font-medium flex items-center gap-1.5">
+                  <span className="px-3 py-1.5 bg-graphite/[0.04] border border-graphite/10 rounded-lg text-xs font-sans text-graphite/85 font-medium flex items-center gap-1.5">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
                     Ideal camisas y lino
                   </span>
                 </div>
               </div>
 
-              {/* Before/After Interactive Centerpiece */}
-              <div className="mt-6 pt-5 border-t border-white/10">
-                <div className="rounded-2xl overflow-hidden border border-white/15 shadow-dark-card bg-night-950">
+              {/* Before/After Interactive Centerpiece framed in dark luxury container */}
+              <div className="mt-6 pt-5 border-t border-graphite/10">
+                <div className="rounded-2xl overflow-hidden border border-graphite/20 shadow-dark-card bg-night-950">
                   <BeforeAfterSlider 
                     beforeImage="/images/before-wrinkled-shirt.jpg"
                     afterImage="/images/after-smooth-shirt.jpg"
                   />
                 </div>
-                <div className="mt-2.5 flex items-center justify-between text-[11px] font-sans text-bone/50 px-1">
+                <div className="mt-2.5 flex items-center justify-between text-[11px] font-sans text-graphite/50 px-1">
                   <span>← Desliza el separador para ver el antes y después</span>
                   <span className="text-accent font-medium">Prueba real de resultado</span>
                 </div>
@@ -132,25 +129,23 @@ export const BenefitEvidenceSection: React.FC = () => {
             <div className="col-span-12 lg:col-span-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
               
               {/* TARJETA SUPERIOR DERECHA: 02 · CONTROLAR (Temperatura en Vivo) */}
-              <div className="bg-night-900/85 backdrop-blur-sm border border-white/10 rounded-3xl p-6 lg:p-7 shadow-xl overflow-hidden flex flex-col justify-between relative group hover:border-white/20 transition-all duration-300">
-                <div className="pointer-events-none absolute -left-16 -bottom-16 w-48 h-48 bg-accent/5 rounded-full blur-2xl" />
-
+              <div className="bg-white/90 backdrop-blur-sm border border-graphite/10 rounded-3xl p-6 lg:p-7 shadow-card overflow-hidden flex flex-col justify-between relative group hover:border-graphite/25 transition-all duration-300">
                 <div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-graphite/10">
                     <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase flex items-center gap-1.5">
                       <Flame className="w-3.5 h-3.5 text-accent" />
                       02 · CONTROLAR
                     </span>
-                    <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
+                    <span className="text-[11px] font-sans font-semibold tracking-wider text-graphite/60 uppercase px-2 py-0.5 rounded-full bg-graphite/[0.04] border border-graphite/10">
                       PANTALLA DIGITAL LED
                     </span>
                   </div>
 
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-bone leading-tight tracking-tight mt-3">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-graphite leading-tight tracking-tight mt-3">
                     Temperatura visible y vapor bajo control.
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-bone/75 leading-relaxed mt-1.5">
+                  <p className="text-xs sm:text-sm text-graphite/75 leading-relaxed mt-1.5">
                     Ajusta los grados según el tejido para cuidar tus prendas sensibles sin riesgo de quemadura.
                   </p>
 
@@ -165,11 +160,11 @@ export const BenefitEvidenceSection: React.FC = () => {
                           onClick={() => setSelectedTempMode(idx)}
                           className={`p-2 text-left rounded-xl border transition-all cursor-pointer ${
                             isSelected 
-                              ? 'bg-white/10 border-accent shadow-sm ring-1 ring-accent' 
-                              : 'bg-white/[0.02] border-white/10 hover:border-white/25 hover:bg-white/[0.04]'
+                              ? 'bg-accent/10 border-accent shadow-sm ring-1 ring-accent' 
+                              : 'bg-graphite/[0.02] border-graphite/10 hover:border-graphite/25 hover:bg-graphite/[0.04]'
                           }`}
                         >
-                          <span className={`text-[11px] font-sans font-bold block ${isSelected ? 'text-white' : 'text-bone/70'}`}>
+                          <span className={`text-[11px] font-sans font-bold block ${isSelected ? 'text-graphite font-bold' : 'text-graphite/70'}`}>
                             {mode.level}
                           </span>
                           <span className="text-[10px] font-mono text-accent font-semibold block mt-0.5">
@@ -182,8 +177,8 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
 
                 {/* Macro Screen Stage */}
-                <div className="mt-4 pt-3 border-t border-white/10">
-                  <div className="relative aspect-[16/8] sm:aspect-[16/7] w-full bg-night-950 border border-white/15 overflow-hidden rounded-xl shadow-md group/screen">
+                <div className="mt-4 pt-3 border-t border-graphite/10">
+                  <div className="relative aspect-[16/8] sm:aspect-[16/7] w-full bg-night-950 border border-graphite/15 overflow-hidden rounded-xl shadow-md group/screen">
                     <img 
                       src="/images/screen-temperature-display.jpg" 
                       alt="Pantalla digital LED de la plancha LISO mostrando temperatura en tiempo real" 
@@ -207,32 +202,30 @@ export const BenefitEvidenceSection: React.FC = () => {
               </div>
 
               {/* TARJETA INFERIOR DERECHA: 03 · GUARDAR (Base de Apoyo) */}
-              <div className="bg-night-900/85 backdrop-blur-sm border border-white/10 rounded-3xl p-6 lg:p-7 shadow-xl overflow-hidden flex flex-col justify-between relative group hover:border-white/20 transition-all duration-300">
-                <div className="pointer-events-none absolute -right-16 -bottom-16 w-48 h-48 bg-accent/5 rounded-full blur-2xl" />
-
+              <div className="bg-white/90 backdrop-blur-sm border border-graphite/10 rounded-3xl p-6 lg:p-7 shadow-card overflow-hidden flex flex-col justify-between relative group hover:border-graphite/25 transition-all duration-300">
                 <div>
-                  <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
+                  <div className="flex items-center justify-between pb-2.5 border-b border-graphite/10">
                     <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase flex items-center gap-1.5">
                       <ShieldCheck className="w-3.5 h-3.5 text-accent" />
                       03 · GUARDAR
                     </span>
-                    <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
+                    <span className="text-[11px] font-sans font-semibold tracking-wider text-graphite/60 uppercase px-2 py-0.5 rounded-full bg-graphite/[0.04] border border-graphite/10">
                       BASE TÉRMICA INCLUIDA
                     </span>
                   </div>
 
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-bone leading-tight tracking-tight mt-3">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-graphite leading-tight tracking-tight mt-3">
                     Pósala caliente entre prenda y prenda.
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-bone/75 leading-relaxed mt-1.5">
+                  <p className="text-xs sm:text-sm text-graphite/75 leading-relaxed mt-1.5">
                     Su base de apoyo aislante te permite posarla caliente sobre cualquier mesa sin riesgo y tenerla siempre a mano en tu clóset.
                   </p>
                 </div>
 
                 {/* Desk Dock Visual Stage */}
-                <div className="mt-4 pt-3 border-t border-white/10 space-y-3">
-                  <div className="relative aspect-[16/8] sm:aspect-[16/7] w-full bg-night-950 border border-white/15 overflow-hidden rounded-xl shadow-md group/dock">
+                <div className="mt-4 pt-3 border-t border-graphite/10 space-y-3">
+                  <div className="relative aspect-[16/8] sm:aspect-[16/7] w-full bg-night-950 border border-graphite/15 overflow-hidden rounded-xl shadow-md group/dock">
                     <img 
                       src="/images/liso-desk-dock.jpg" 
                       alt="Plancha de vapor portátil LISO descansando en base de apoyo" 
@@ -253,12 +246,12 @@ export const BenefitEvidenceSection: React.FC = () => {
                   </div>
 
                   {/* Micro Specs Footer */}
-                  <div className="flex items-center justify-between text-xs font-sans text-bone/70 pt-1">
+                  <div className="flex items-center justify-between text-xs font-sans text-graphite/70 pt-1">
                     <span className="flex items-center gap-1.5 font-medium">
                       <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
                       100 ml (2–3 prendas)
                     </span>
-                    <span className="text-bone/50 font-mono text-[11px]">
+                    <span className="text-graphite/50 font-mono text-[11px]">
                       Cable 1.8 m directo
                     </span>
                   </div>
@@ -277,7 +270,7 @@ export const BenefitEvidenceSection: React.FC = () => {
         <div className="block md:hidden">
           
           {/* Segmented Controller Tab Bar */}
-          <div className="flex items-center gap-1.5 p-1 bg-white/[0.04] border border-white/10 rounded-xl mb-4">
+          <div className="flex items-center gap-1.5 p-1 bg-graphite/[0.04] border border-graphite/10 rounded-xl mb-4">
             {([
               { idx: 0 as const, label: '01 · CONECTAR' },
               { idx: 1 as const, label: '02 · CONTROLAR' },
@@ -290,7 +283,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 className={`flex-1 py-2 px-1 text-center rounded-lg font-sans text-[10.5px] xs:text-[11px] font-bold tracking-wider uppercase transition-all active:scale-95 ${
                   activeMoment === moment.idx
                     ? 'bg-accent text-white shadow-sm'
-                    : 'text-bone/60 hover:text-bone active:bg-white/5'
+                    : 'text-graphite/60 hover:text-graphite active:bg-graphite/5'
                 }`}
               >
                 {moment.label}
@@ -299,27 +292,27 @@ export const BenefitEvidenceSection: React.FC = () => {
           </div>
 
           {/* Unified Moment Card */}
-          <div className="bg-night-900/90 border border-white/15 p-4 sm:p-5 rounded-2xl shadow-xl space-y-4">
+          <div className="bg-white border border-graphite/15 p-4 sm:p-5 rounded-2xl shadow-card space-y-4 text-graphite">
             
             {/* Moment 01: Conectar */}
             {activeMoment === 0 && (
               <div className="space-y-3.5 animate-fadeIn">
-                <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px] font-sans font-medium">
+                <div className="flex items-center justify-between pb-2 border-b border-graphite/10 text-[11px] font-sans font-medium">
                   <span className="text-accent font-bold uppercase tracking-wider">01 · CONECTAR</span>
-                  <span className="text-bone/50 uppercase">1200 W · RÁPIDO · 150 °C</span>
+                  <span className="text-graphite/50 uppercase">1200 W · RÁPIDO · 150 °C</span>
                 </div>
 
                 <div className="space-y-1">
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-bone leading-tight">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-graphite leading-tight">
                     La conectas y empiezas en segundos.
                   </h3>
-                  <p className="text-xs sm:text-sm text-bone/75 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-graphite/75 leading-relaxed">
                     Con LISO puedes alisar directamente en el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
                   </p>
                 </div>
 
                 {/* Before/After Interactive Slider */}
-                <div className="rounded-xl overflow-hidden border border-white/10 shadow-md bg-night-950">
+                <div className="rounded-xl overflow-hidden border border-graphite/20 shadow-md bg-night-950">
                   <BeforeAfterSlider 
                     beforeImage="/images/before-wrinkled-shirt.jpg"
                     afterImage="/images/after-smooth-shirt.jpg"
@@ -328,10 +321,10 @@ export const BenefitEvidenceSection: React.FC = () => {
 
                 {/* Key feature pills */}
                 <div className="flex flex-wrap gap-2 pt-1">
-                  <span className="px-2.5 py-1 bg-white/[0.05] border border-white/10 rounded-md text-[11px] font-sans text-bone/80 font-medium">
+                  <span className="px-2.5 py-1 bg-graphite/[0.04] border border-graphite/10 rounded-md text-[11px] font-sans text-graphite/80 font-medium">
                     ✓ Sin tabla de planchar
                   </span>
-                  <span className="px-2.5 py-1 bg-white/[0.05] border border-white/10 rounded-md text-[11px] font-sans text-bone/80 font-medium">
+                  <span className="px-2.5 py-1 bg-graphite/[0.04] border border-graphite/10 rounded-md text-[11px] font-sans text-graphite/80 font-medium">
                     ✓ Calentamiento rápido
                   </span>
                 </div>
@@ -341,16 +334,16 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* Moment 02: Controlar */}
             {activeMoment === 1 && (
               <div className="space-y-3.5 animate-fadeIn">
-                <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px] font-sans font-medium">
+                <div className="flex items-center justify-between pb-2 border-b border-graphite/10 text-[11px] font-sans font-medium">
                   <span className="text-accent font-bold uppercase tracking-wider">02 · CONTROLAR</span>
-                  <span className="text-bone/50 uppercase">2 NIVELES · MODO SECO</span>
+                  <span className="text-graphite/50 uppercase">2 NIVELES · MODO SECO</span>
                 </div>
 
                 <div className="space-y-1">
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-bone leading-tight">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-graphite leading-tight">
                     Tienes la temperatura a la vista y vapor bajo control.
                   </h3>
-                  <p className="text-xs sm:text-sm text-bone/75 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-graphite/75 leading-relaxed">
                     Elige la temperatura que necesitas y ajusta el vapor según la prenda. Sabes exactamente cómo la estás cuidando.
                   </p>
                 </div>
@@ -366,11 +359,11 @@ export const BenefitEvidenceSection: React.FC = () => {
                         onClick={() => setSelectedTempMode(idx)}
                         className={`p-2 text-left rounded-lg border transition-all ${
                           isSelected 
-                            ? 'bg-white/10 border-accent shadow-sm' 
-                            : 'bg-white/[0.02] border-white/10'
+                            ? 'bg-accent/10 border-accent shadow-sm ring-1 ring-accent' 
+                            : 'bg-graphite/[0.02] border-graphite/10'
                         }`}
                       >
-                        <span className={`text-[11px] font-sans font-bold block ${isSelected ? 'text-white' : 'text-bone/70'}`}>
+                        <span className={`text-[11px] font-sans font-bold block ${isSelected ? 'text-graphite font-bold' : 'text-graphite/70'}`}>
                           {mode.level}
                         </span>
                         <span className="text-[10px] font-mono text-accent font-semibold block">
@@ -382,7 +375,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
 
                 {/* LED Screen Macro */}
-                <div className="relative aspect-[4/3] w-full bg-night-950 border border-white/15 overflow-hidden rounded-xl shadow-md">
+                <div className="relative aspect-[4/3] w-full bg-night-950 border border-graphite/15 overflow-hidden rounded-xl shadow-md">
                   <img 
                     src="/images/screen-temperature-display.jpg" 
                     alt="Pantalla digital LED de la plancha LISO" 
@@ -396,7 +389,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
 
                 {/* Explanation text */}
-                <p className="text-[11px] text-bone/65 leading-normal bg-white/[0.02] border border-white/5 p-2 rounded-lg">
+                <p className="text-[11px] text-graphite/75 leading-normal bg-graphite/[0.03] border border-graphite/10 p-2 rounded-lg">
                   {TEMP_MODES[selectedTempMode].desc}
                 </p>
               </div>
@@ -405,22 +398,22 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* Moment 03: Guardar */}
             {activeMoment === 2 && (
               <div className="space-y-3.5 animate-fadeIn">
-                <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[11px] font-sans font-medium">
+                <div className="flex items-center justify-between pb-2 border-b border-graphite/10 text-[11px] font-sans font-medium">
                   <span className="text-accent font-bold uppercase tracking-wider">03 · GUARDAR</span>
-                  <span className="text-bone/50 uppercase">100 ML ≈ 2–3 PRENDAS</span>
+                  <span className="text-graphite/50 uppercase">100 ML ≈ 2–3 PRENDAS</span>
                 </div>
 
                 <div className="space-y-1">
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-bone leading-tight">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-graphite leading-tight">
                     La dejas a mano y está lista cuando la vuelves a necesitar.
                   </h3>
-                  <p className="text-xs sm:text-sm text-bone/75 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-graphite/75 leading-relaxed">
                     Su base de apoyo te permite guardarla fácilmente después de usarla, sin desmontar nada ni buscar un lugar especial.
                   </p>
                 </div>
 
                 {/* Desk Dock Visual */}
-                <div className="relative aspect-[16/11] w-full bg-night-950 border border-white/15 overflow-hidden rounded-xl shadow-md">
+                <div className="relative aspect-[16/11] w-full bg-night-950 border border-graphite/15 overflow-hidden rounded-xl shadow-md">
                   <img 
                     src="/images/liso-desk-dock.jpg" 
                     alt="Plancha LISO descansando en base de apoyo resistente al calor" 
@@ -432,10 +425,10 @@ export const BenefitEvidenceSection: React.FC = () => {
 
                 {/* Feature Chips */}
                 <div className="flex flex-wrap gap-2 pt-1">
-                  <span className="px-2.5 py-1 bg-white/[0.05] border border-white/10 rounded-md text-[11px] font-sans text-bone/80 font-medium">
+                  <span className="px-2.5 py-1 bg-graphite/[0.04] border border-graphite/10 rounded-md text-[11px] font-sans text-graphite/80 font-medium">
                     ✓ Base de apoyo resistente al calor
                   </span>
-                  <span className="px-2.5 py-1 bg-white/[0.05] border border-white/10 rounded-md text-[11px] font-sans text-bone/80 font-medium">
+                  <span className="px-2.5 py-1 bg-graphite/[0.04] border border-graphite/10 rounded-md text-[11px] font-sans text-graphite/80 font-medium">
                     ✓ Lista en tu clóset o mesa de noche
                   </span>
                 </div>
@@ -443,11 +436,11 @@ export const BenefitEvidenceSection: React.FC = () => {
             )}
 
             {/* Stepper Footer Controls */}
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+            <div className="pt-3 border-t border-graphite/10 flex items-center justify-between">
               <button
                 type="button"
                 onClick={() => setActiveMoment(prev => (prev === 0 ? 2 : (prev - 1) as 0 | 1 | 2))}
-                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all cursor-pointer"
+                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-graphite/60 hover:text-graphite active:scale-95 py-1 px-2.5 rounded bg-graphite/[0.04] border border-graphite/10 transition-all cursor-pointer"
                 aria-label="Momento anterior"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
@@ -461,7 +454,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                     type="button"
                     onClick={() => setActiveMoment(idx)}
                     className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      activeMoment === idx ? 'w-5 bg-accent' : 'w-1.5 bg-white/20'
+                      activeMoment === idx ? 'w-5 bg-accent' : 'w-1.5 bg-graphite/20'
                     }`}
                     aria-label={`Ir al momento ${idx + 1}`}
                   />
@@ -471,7 +464,7 @@ export const BenefitEvidenceSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveMoment(prev => (prev === 2 ? 0 : (prev + 1) as 0 | 1 | 2))}
-                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all cursor-pointer"
+                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-graphite/60 hover:text-graphite active:scale-95 py-1 px-2.5 rounded bg-graphite/[0.04] border border-graphite/10 transition-all cursor-pointer"
                 aria-label="Momento siguiente"
               >
                 <span>Siguiente</span>

@@ -23,7 +23,7 @@ export const RotatingGuaranteeStamp: React.FC<RotatingGuaranteeStampProps> = ({
       {/* Rotating SVG with curved circular text */}
       <svg
         viewBox="0 0 120 120"
-        className="w-full h-full animate-spin-slow text-bone/60"
+        className="w-full h-full animate-spin-slow text-accent"
       >
         <defs>
           <path
@@ -33,12 +33,12 @@ export const RotatingGuaranteeStamp: React.FC<RotatingGuaranteeStampProps> = ({
         </defs>
         
         {/* Subtle circular boundary hairlines */}
-        <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3 3" opacity="0.3" />
-        <circle cx="60" cy="60" r="38" fill="none" stroke="currentColor" strokeWidth="0.75" opacity="0.25" />
+        <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3 3" opacity="0.5" />
+        <circle cx="60" cy="60" r="38" fill="none" stroke="currentColor" strokeWidth="0.75" opacity="0.4" />
 
         {/* Circular text */}
         <text 
-          className="text-[8px] font-sans font-bold uppercase tracking-[0.24em] fill-bone"
+          className="text-[8px] font-sans font-bold uppercase tracking-[0.24em] fill-accent"
         >
           <textPath href="#circlePath" startOffset="0%">
             {circularText}

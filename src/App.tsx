@@ -51,8 +51,8 @@ export function App() {
     <MarketProvider>
       <ScrollToTop />
       <div 
-        className="min-h-screen flex flex-col bg-night-950 text-bone antialiased font-sans relative selection:bg-accent selection:text-white"
-        style={{ backgroundColor: '#0B0C0F', color: '#F6F4EF' }}
+        className="min-h-screen flex flex-col bg-bone text-graphite antialiased font-sans relative selection:bg-accent selection:text-white"
+        style={{ backgroundColor: '#F5F1EA', color: '#17181C' }}
       >
         <ScrollProgress />
         <div className="paper-grain-overlay" aria-hidden="true" />

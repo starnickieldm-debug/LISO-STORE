@@ -15,7 +15,7 @@ export const HonestyLabelSection: React.FC = () => {
     <section 
       id="etiqueta" 
       className="py-20 sm:py-28 bg-bone border-b border-graphite/10 scroll-mt-16 sm:scroll-mt-20"
-      style={{ backgroundColor: '#F6F4EF', color: '#17181C' }}
+      style={{ backgroundColor: '#F5F1EA', color: '#17181C' }}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12">
         
@@ -28,7 +28,7 @@ export const HonestyLabelSection: React.FC = () => {
 
         {/* Nutritional-Style Technical Label Card with Thermal Print Effect */}
         <Reveal direction="up" duration={700}>
-          <div ref={ref} className="bg-bone-50 border-2 border-graphite p-4 sm:p-8 lg:p-10 shadow-card relative">
+          <div ref={ref} className="bg-white border-2 border-graphite p-4 sm:p-8 lg:p-10 shadow-card relative">
             
             {/* Label Header */}
             <div className="border-b-4 border-graphite pb-4 mb-6">
@@ -181,7 +181,7 @@ export const HonestyLabelSection: React.FC = () => {
             </div>
 
             {/* Cable Design Rationale Subcard */}
-            <div className="mt-8 pt-4 bg-vapor-light/80 border border-graphite/20 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="mt-8 pt-4 bg-bone-50/80 border border-graphite/15 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div className="w-12 h-12 rounded-none bg-graphite text-white flex items-center justify-center flex-shrink-0">
                 <Cable className="w-6 h-6 text-accent" />
               </div>

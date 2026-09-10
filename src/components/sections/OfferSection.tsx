@@ -31,24 +31,18 @@ export const OfferSection: React.FC = () => {
   return (
     <section 
       id="oferta" 
-      className="py-20 sm:py-28 bg-night-950 text-bone border-b border-night-700 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
-      style={{ backgroundColor: '#0B0C0F' }}
+      className="py-20 sm:py-28 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
+      style={{ backgroundColor: '#F5F1EA' }}
     >
-      {/* Ambient Layer (e): Halo de luz detrás del bloque de compra y sello */}
-      <div 
-        className="pointer-events-none absolute top-1/3 -right-24 w-[500px] h-[500px] bg-halo-structural blur-3xl z-0" 
-        aria-hidden="true" 
-      />
-
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Editorial Section Intro */}
         <Reveal direction="up" duration={600}>
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-bone tracking-tight">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-graphite tracking-tight">
               Tu LISO, lista para usar.
             </h2>
-            <p className="text-base text-bone/70 mt-3">
+            <p className="text-base text-graphite/70 mt-3">
               Todo lo que necesitas viene en la caja. La conectas y empiezas.
             </p>
           </div>
@@ -59,7 +53,7 @@ export const OfferSection: React.FC = () => {
           {/* =========================================================================
               MOBILE PDP CHECKOUT EXPERIENCE (< 1024px) — 100% Native Mobile-First Flow
               ========================================================================= */}
-          <div className="block lg:hidden space-y-5">
+          <div className="block lg:hidden space-y-5 bg-night-950 border border-white/10 p-4 sm:p-6 rounded-2xl shadow-xl text-bone">
             
             {/* 1. Mobile Product Interactive Gallery with Carousel & Thumbnails */}
             <ProductGallery selectedColor={selectedColor} className="max-w-md mx-auto" />
@@ -326,7 +320,7 @@ export const OfferSection: React.FC = () => {
           {/* =========================================================================
               DESKTOP CONVERSION CONTAINER (>= 1024px) — 100% Unchanged Layout
               ========================================================================= */}
-          <div className="hidden lg:block bg-night-900/90 border border-night-700 p-8 sm:p-10 lg:p-12 shadow-studio-hard-dark">
+          <div className="hidden lg:block bg-night-950 border border-white/10 p-8 sm:p-10 lg:p-12 shadow-2xl rounded-3xl text-bone">
             <div className="grid grid-cols-12 gap-8 lg:gap-12 items-start">
             
             {/* Left: Product Visual Interactive Gallery */}
@@ -352,7 +346,7 @@ export const OfferSection: React.FC = () => {
               </div>
 
               {/* Price Presentation: Antes / Ahora */}
-              <div className="py-3 border-y border-night-700 space-y-1">
+              <div className="py-3 border-y border-white/10 space-y-1">
                 {currentMarket.formattedCompareAtPrice && (
                   <div className="text-xs font-sans text-bone/50 tracking-wider">
                     <span>Antes: </span>
@@ -374,10 +368,10 @@ export const OfferSection: React.FC = () => {
 
               {/* What's Included */}
               <div className="space-y-2">
-                <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold block">
+                <span className="text-xs font-mono uppercase tracking-wider text-bone/70 font-semibold block">
                   ¿QUÉ RECIBES?
                 </span>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-bone">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm font-mono text-bone/90">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
                     <span>Plancha vaporizadora LISO (1200 W)</span>
@@ -465,7 +459,7 @@ export const OfferSection: React.FC = () => {
 
               {/* Enchufe Compatible para Colombia */}
               <div className="space-y-2 pt-1">
-                <div className="p-3 sm:p-3.5 bg-night-950/80 border border-night-700 flex items-center justify-between gap-4">
+                <div className="p-3 sm:p-3.5 bg-night-950/80 border border-white/10 flex items-center justify-between gap-4 rounded-xl">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 border border-accent bg-accent/15 text-accent font-sans font-bold text-sm flex items-center justify-center flex-shrink-0">
                       110 V
@@ -491,7 +485,7 @@ export const OfferSection: React.FC = () => {
               </div>
 
               {/* Legal Guarantee Highlight Card */}
-              <div className="p-4 sm:p-5 bg-night-950 border border-night-700 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              <div className="p-4 sm:p-5 bg-night-950 border border-white/10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-xl">
                 <div className="flex-shrink-0">
                   <RotatingGuaranteeStamp size={100} />
                 </div>

@@ -21,24 +21,18 @@ export const SocialProofSection: React.FC = () => {
   return (
     <section 
       id="prueba-real"
-      className="py-14 sm:py-20 bg-night-900 text-bone border-b border-white/10 relative overflow-hidden"
-      style={{ backgroundColor: '#121318' }}
+      className="py-14 sm:py-20 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
+      style={{ backgroundColor: '#F5F1EA' }}
     >
-      {/* Subtle ambient light */}
-      <div 
-        className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-[radial-gradient(ellipse_at_top_left,rgba(255,195,130,0.06)_0%,transparent_65%)] blur-2xl" 
-        aria-hidden="true" 
-      />
-
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Clean, concise header */}
         <Reveal direction="up" duration={600}>
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-bone leading-[1.2] pb-1">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-graphite leading-[1.2] pb-1">
               No te lo contamos. Te lo mostramos.
             </h2>
-            <p className="text-sm sm:text-base text-bone/70 font-sans">
+            <p className="text-sm sm:text-base text-graphite/70 font-sans">
               Mira LISO en acción directamente sobre la prenda.
             </p>
           </div>
@@ -46,7 +40,7 @@ export const SocialProofSection: React.FC = () => {
 
         {/* Video Player - Full prominence, clean frame, zero dead space */}
         <Reveal direction="up" delay={120} duration={700}>
-          <div className="relative aspect-video w-full max-w-4xl mx-auto bg-black rounded-xl sm:rounded-2xl border border-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.6)] overflow-hidden group">
+          <div className="relative aspect-video w-full max-w-4xl mx-auto bg-black rounded-xl sm:rounded-2xl border border-graphite/20 shadow-studio-hard overflow-hidden group">
           <video
             ref={videoRef}
             src="/videos/liso-prueba-real.mp4"

@@ -26,7 +26,8 @@ export const StickyBuyBar: React.FC = () => {
     <aside 
       aria-label="Acceso rápido a compra" 
       aria-hidden={!visible}
-      className={`fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md bg-night-950/90 text-bone border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.6)] md:hidden pb-[env(safe-area-inset-bottom,0px)] transition-transform ease-mech-s ${
+      style={{ backgroundColor: 'rgba(20, 21, 26, 0.95)' }}
+      className={`fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md bg-night-950/95 text-bone border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.6)] md:hidden pb-[env(safe-area-inset-bottom,0px)] transition-transform ease-mech-s ${
         prefersReduced ? 'duration-0' : 'duration-300'
       } ${
         visible ? 'translate-y-0 pointer-events-auto' : 'translate-y-full pointer-events-none'
