@@ -228,7 +228,7 @@ export const HonestyLabelSection: React.FC = () => {
               </div>
 
               {/* 3. Detail Content Card */}
-              <div className="bg-[#FAF8F5] border border-graphite/12 rounded-2xl p-4.5 sm:p-5 shadow-sm">
+              <div className="bg-[#FAF8F5] border border-graphite/12 rounded-2xl p-5 sm:p-6 shadow-sm">
                 <div className="pb-3 mb-3 border-b border-graphite/10 flex items-center justify-between">
                   <h4 className="font-display font-bold text-sm sm:text-base text-graphite tracking-tight">
                     {mobileTab === 'does' ? 'Donde LISO realmente brilla:' : 'Para lo que no está hecha:'}

@@ -345,7 +345,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             className="mobile-snap-track gap-4 px-4 -mx-4 pb-3 pt-1"
           >
             {/* Moment 01: Conectar */}
-            <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
+            <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-5 sm:p-6 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
               <div className="space-y-3">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   01 · CONECTAR
@@ -375,7 +375,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             </div>
 
             {/* Moment 02: Controlar */}
-            <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
+            <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-5 sm:p-6 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
               <div className="space-y-2.5">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   02 · CONTROLAR
@@ -436,7 +436,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             </div>
 
             {/* Moment 03: Guardar */}
-            <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
+            <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-5 sm:p-6 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
               <div className="space-y-2.5">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   03 · GUARDAR

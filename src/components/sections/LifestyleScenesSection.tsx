@@ -306,7 +306,7 @@ export const LifestyleScenesSection: React.FC = () => {
             {lifestyleScenes.map((scene, idx) => (
               <div
                 key={scene.id}
-                className="mobile-snap-item w-[76vw] max-w-[300px] bg-white p-4.5 rounded-2xl sm:rounded-3xl shadow-premium flex flex-col justify-between overflow-hidden"
+                className="mobile-snap-item w-[76vw] max-w-[300px] bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-premium flex flex-col justify-between overflow-hidden"
               >
                 <div>
                   {/* Slide Top Metadata */}
