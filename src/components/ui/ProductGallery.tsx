@@ -183,7 +183,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
               {currentImage.badge}
             </div>
             
-            <div className="px-2.5 py-1 bg-[#181615]/85 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-mono text-bone/80 font-medium tracking-wider shadow-sm">
+            <div className="px-2.5 py-1 bg-[#181615]/85 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-sans text-bone/80 font-medium tracking-wider shadow-sm">
               0{activeIndex + 1} / 0{images.length}
             </div>
           </div>

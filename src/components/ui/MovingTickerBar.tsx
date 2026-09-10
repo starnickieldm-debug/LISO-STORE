@@ -35,7 +35,7 @@ export const MovingTickerBar: React.FC<MovingTickerBarProps> = ({
       <div key={key} className="inline-flex items-center gap-2.5 sm:gap-3 px-4 sm:px-6 shrink-0">
         {icon && <span className="shrink-0 text-accent">{icon}</span>}
         {badge && (
-          <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
+          <span className={`text-[10px] font-sans font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
             isDark ? 'bg-accent/20 text-accent border border-accent/30' : 'bg-accent text-white'
           }`}>
             {badge}

@@ -43,7 +43,7 @@ export const Navbar: React.FC = () => {
             <span className="font-display italic font-semibold text-2xl sm:text-2xl tracking-tighter text-bone group-hover:text-accent transition-colors">
               {brandConfig.name}
             </span>
-            <span className="text-[10px] font-mono font-medium tracking-widest text-bone/60 border border-white/20 px-1.5 py-0.5 rounded-none uppercase hidden xs:inline-block">
+            <span className="text-[10px] font-sans font-medium tracking-widest text-bone/60 border border-white/20 px-1.5 py-0.5 rounded-none uppercase hidden xs:inline-block">
               CARE
             </span>
           </Link>
@@ -98,7 +98,7 @@ export const Navbar: React.FC = () => {
                 className="text-base font-medium text-bone/85 active:text-accent active:bg-white/5 py-2.5 px-2 rounded border-b border-white/10 transition-colors flex items-center justify-between"
               >
                 <span>{link.label}</span>
-                <span className="text-bone/40 text-xs font-mono">→</span>
+                <span className="text-bone/40 text-xs font-sans">→</span>
               </a>
             ))}
 

@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
               <Link to="/" className="font-display italic text-2xl font-semibold tracking-tight text-bone hover:text-accent transition-colors">
                 {brandConfig.name}
               </Link>
-              <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 border border-white/20 text-bone/60">
+              <span className="text-[10px] font-sans font-medium px-1.5 py-0.5 border border-white/20 text-bone/60">
                 EDICIÓN ORIGINAL
               </span>
             </div>
@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Transparencia & Especificaciones */}
           <div className="space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-bone font-semibold">
+            <h3 className="text-xs font-sans uppercase tracking-wider text-bone font-semibold">
               Especificaciones Clave
             </h3>
             <ul className="text-xs space-y-1.5 text-bone/60 font-sans">
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Atención & Soporte */}
           <div className="space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-bone font-semibold">
+            <h3 className="text-xs font-sans uppercase tracking-wider text-bone font-semibold">
               Atención & Soporte
             </h3>
             <ul className="text-xs space-y-2 text-bone/60 font-sans">
@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Legal & Información al Consumidor */}
           <div className="space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-bone font-semibold">
+            <h3 className="text-xs font-sans uppercase tracking-wider text-bone font-semibold">
               Legal
             </h3>
             <ul className="text-xs space-y-2 text-bone/60 font-sans">

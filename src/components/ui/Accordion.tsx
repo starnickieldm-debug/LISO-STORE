@@ -30,7 +30,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({ item, isOpen, onTo
         aria-expanded={isOpen}
       >
         <div className="flex items-center gap-3 sm:gap-3.5 flex-1 min-w-0">
-          <span className={`text-xs font-mono font-bold shrink-0 ${isDarkTheme ? 'text-accent' : 'text-accent'}`}>
+          <span className={`text-xs font-sans font-bold shrink-0 ${isDarkTheme ? 'text-accent' : 'text-accent'}`}>
             {String(index + 1).padStart(2, '0')}
           </span>
           <span className={`text-[15px] sm:text-base lg:text-[17px] font-semibold transition-colors leading-snug ${
@@ -67,7 +67,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({ item, isOpen, onTo
           }`}>
             <p>{item.answer}</p>
             {!item.verified && (
-              <div className={`mt-3 inline-flex items-center space-x-2 px-2.5 py-1 text-[10px] sm:text-[11px] font-mono font-medium rounded ${
+              <div className={`mt-3 inline-flex items-center space-x-2 px-2.5 py-1 text-[10px] sm:text-[11px] font-sans font-medium rounded ${
                 isDarkTheme 
                   ? 'bg-white/5 border border-white/10 text-bone/70' 
                   : 'bg-graphite/5 border border-graphite/10 text-graphite/70'

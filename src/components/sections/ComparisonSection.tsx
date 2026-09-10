@@ -101,14 +101,14 @@ export const ComparisonSection: React.FC = () => {
             {/* 1. Header Row (Col 1: Metric, Col 2: LISO Hero, Col 3: Plancha, Col 4: Vaporizador) */}
             <div className="grid grid-cols-[1.05fr_1.45fr_1.2fr_1.2fr] gap-3.5 sm:gap-4 lg:gap-4.5 items-stretch">
               {/* Col 1 Label */}
-              <div className="rounded-2xl bg-white/40 border border-graphite/10 px-5 sm:px-6 flex flex-col justify-end pb-5 text-xs font-mono font-bold tracking-wider text-graphite/50 uppercase">
+              <div className="rounded-2xl bg-white/40 border border-graphite/10 px-5 sm:px-6 flex flex-col justify-end pb-5 text-xs font-sans font-bold tracking-wider text-graphite/50 uppercase">
                 CRITERIO
               </div>
 
               {/* Col 2: LISO Header Card (Hero) */}
               <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-4 sm:p-5 shadow-sm flex flex-col items-center justify-between text-center relative overflow-hidden group">
                 <div className="w-full flex justify-between items-center mb-1">
-                  <span className="text-[10px] font-mono text-accent font-bold tracking-wider uppercase">
+                  <span className="text-[10px] font-sans text-accent font-bold tracking-wider uppercase">
                     OPCIÓN ÓPTIMA
                   </span>
                   <span className="text-[10px] bg-accent text-white font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
@@ -130,7 +130,7 @@ export const ComparisonSection: React.FC = () => {
                     <span className="font-display italic font-bold text-base sm:text-lg text-graphite tracking-tight">
                       {brandConfig.name}
                     </span>
-                    <span className="text-[11px] font-mono text-accent font-bold">CARE</span>
+                    <span className="text-[11px] font-sans text-accent font-bold">CARE</span>
                   </div>
                   <span className="text-xs font-sans text-graphite/65 block mt-0.5 font-medium">
                     Placa giratoria + vapor
@@ -141,7 +141,7 @@ export const ComparisonSection: React.FC = () => {
               {/* Col 3: Plancha + Tabla Header Card */}
               <div className="rounded-2xl bg-white/85 border border-graphite/12 p-4 sm:p-5 shadow-xs flex flex-col items-center justify-between text-center relative overflow-hidden group">
                 <div className="w-full flex justify-start items-center mb-1">
-                  <span className="text-[10px] font-mono text-graphite/40 font-semibold tracking-wider uppercase">
+                  <span className="text-[10px] font-sans text-graphite/40 font-semibold tracking-wider uppercase">
                     TRADICIONAL
                   </span>
                 </div>
@@ -168,7 +168,7 @@ export const ComparisonSection: React.FC = () => {
               {/* Col 4: Vaporizador Común Header Card */}
               <div className="rounded-2xl bg-white/85 border border-graphite/12 p-4 sm:p-5 shadow-xs flex flex-col items-center justify-between text-center relative overflow-hidden group">
                 <div className="w-full flex justify-start items-center mb-1">
-                  <span className="text-[10px] font-mono text-graphite/40 font-semibold tracking-wider uppercase">
+                  <span className="text-[10px] font-sans text-graphite/40 font-semibold tracking-wider uppercase">
                     GENÉRICO
                   </span>
                 </div>
@@ -201,7 +201,7 @@ export const ComparisonSection: React.FC = () => {
               >
                 {/* Col 1: Criterio */}
                 <div className="rounded-2xl bg-white/90 border border-graphite/12 p-4 sm:p-4.5 px-5 sm:px-6 flex items-center gap-3 shadow-xs transition-colors hover:bg-white">
-                  <span className="text-[11px] font-mono text-graphite/40 font-bold shrink-0">
+                  <span className="text-[11px] font-sans text-graphite/40 font-bold shrink-0">
                     0{idx + 1}
                   </span>
                   <span className="font-sans font-bold text-graphite text-xs sm:text-[13.5px] leading-snug">
@@ -337,7 +337,7 @@ export const ComparisonSection: React.FC = () => {
 
             {/* Competitor Card */}
             <div className="p-3 bg-white border border-graphite/15 rounded-2xl flex flex-col items-center text-center shadow-xs">
-              <span className="text-[9px] text-graphite/50 font-mono font-bold uppercase tracking-wider mb-1.5">
+              <span className="text-[9px] text-graphite/50 font-sans font-bold uppercase tracking-wider mb-1.5">
                 {compareTarget === 'traditional' ? 'TRADICIONAL' : 'GENÉRICO'}
               </span>
               <div className="w-20 h-20 rounded-xl bg-graphite/[0.03] p-1.5 flex items-center justify-center mb-1.5 border border-graphite/10">
@@ -368,7 +368,7 @@ export const ComparisonSection: React.FC = () => {
                   <span className="font-sans text-[11px] uppercase tracking-wider text-accent font-bold">
                     0{idx + 1} · {row.feature}
                   </span>
-                  <span className="text-[10px] font-mono text-graphite/40 uppercase">CRITERIO</span>
+                  <span className="text-[10px] font-sans text-graphite/40 uppercase">CRITERIO</span>
                 </div>
 
                 {/* 2-Column Side-by-Side Confrontation Cards */}

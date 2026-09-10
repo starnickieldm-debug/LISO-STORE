@@ -38,7 +38,7 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
       <div className={`absolute bottom-2 right-2 w-2 h-2 border-b border-r ${isDark ? 'border-white/20' : 'border-graphite/30'}`} />
 
       {/* Top bar info */}
-      <div className={`flex items-center justify-between z-10 text-[11px] font-mono font-medium uppercase tracking-wider ${
+      <div className={`flex items-center justify-between z-10 text-[11px] font-sans font-medium uppercase tracking-wider ${
         isDark ? 'text-bone/60' : 'text-graphite/60'
       }`}>
         <div className="flex items-center space-x-2">
@@ -46,7 +46,7 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
           <span>{type === 'video' ? 'VIDEO / GIF 6–8S' : 'ACTIVO REAL'}</span>
         </div>
         {badge && (
-          <span className={`px-2 py-0.5 border text-[10px] font-mono font-medium tracking-normal rounded-sm ${
+          <span className={`px-2 py-0.5 border text-[10px] font-sans font-medium tracking-normal rounded-sm ${
             isDark 
               ? 'bg-white/5 border-white/10 text-bone' 
               : 'bg-graphite/5 border-graphite/10 text-graphite'
@@ -88,7 +88,7 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
       </div>
 
       {/* Bottom technical specs tag */}
-      <div className={`flex items-center justify-between z-10 text-[10px] font-mono font-medium pt-2 border-t ${
+      <div className={`flex items-center justify-between z-10 text-[10px] font-sans font-medium pt-2 border-t ${
         isDark ? 'text-bone/40 border-night-700' : 'text-graphite/50 border-graphite/10'
       }`}>
         <span>ASSET ID: {specs || 'LISO-7005-MEDIA'}</span>

@@ -70,7 +70,7 @@ export const LedTemperatureCounter: React.FC<LedTemperatureCounterProps> = ({
   return (
     <span 
       ref={ref}
-      className={`font-mono tabular-specs transition-all duration-300 ${textColor} ${className}`}
+      className={`font-sans tabular-specs transition-all duration-300 ${textColor} ${className}`}
     >
       {value} {unit}
     </span>

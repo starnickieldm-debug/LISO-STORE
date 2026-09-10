@@ -68,7 +68,7 @@ export const HonestyLabelSection: React.FC = () => {
               {/* COLUMNA 1 (4 COLS): Panel de Inspección Técnica de Producto */}
               <div className="col-span-12 lg:col-span-4 bg-graphite/[0.025] border border-graphite/15 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden group">
                 {/* Header Tag */}
-                <div className="w-full flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-graphite/60 font-semibold border-b border-graphite/10 pb-2.5">
+                <div className="w-full flex items-center justify-between text-[10px] font-sans uppercase tracking-wider text-graphite/60 font-semibold border-b border-graphite/10 pb-2.5">
                   <span>DISPOSITIVO ANALIZADO</span>
                   <span className="text-accent font-bold px-1.5 py-0.5 rounded bg-accent/10 border border-accent/20">
                     SERIE 01
@@ -90,15 +90,15 @@ export const HonestyLabelSection: React.FC = () => {
                 <div className="w-full space-y-2 pt-3 border-t border-graphite/10 font-sans text-xs">
                   <div className="flex items-center justify-between">
                     <span className="text-graphite/65">Potencia nominal</span>
-                    <span className="font-mono font-bold text-graphite">1200 W directa</span>
+                    <span className="font-sans font-bold text-graphite">1200 W directa</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-graphite/65">Placa térmica</span>
-                    <span className="font-mono font-bold text-graphite">150 °C digital</span>
+                    <span className="font-sans font-bold text-graphite">150 °C digital</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-graphite/65">Depósito calibrado</span>
-                    <span className="font-mono font-bold text-graphite">100 ml (2–3 prendas)</span>
+                    <span className="font-sans font-bold text-graphite">100 ml (2–3 prendas)</span>
                   </div>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export const HonestyLabelSection: React.FC = () => {
               
               {/* Mobile Visual Header Card */}
               <div className="bg-graphite/[0.03] border border-graphite/15 rounded-2xl p-4 mb-4 text-center">
-                <div className="flex items-center justify-between text-[9.5px] font-mono text-graphite/60 uppercase tracking-wider mb-2">
+                <div className="flex items-center justify-between text-[9.5px] font-sans text-graphite/60 uppercase tracking-wider mb-2">
                   <span>MUESTRA VERIFICADA</span>
                   <span className="text-accent font-bold">SERIE 01 · 1200 W</span>
                 </div>
@@ -255,7 +255,7 @@ export const HonestyLabelSection: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-accent px-2 py-0.5 rounded bg-accent/10 border border-accent/20">
+                  <span className="text-[10px] font-sans uppercase tracking-wider font-bold text-accent px-2 py-0.5 rounded bg-accent/10 border border-accent/20">
                     DISEÑO CON CABLE
                   </span>
                   <h5 className="font-display font-bold text-base sm:text-lg text-graphite">

@@ -40,7 +40,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       {/* Optional Overline / Step Counter */}
       {(number || overline) && (
         <div 
-          className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-widest text-accent font-semibold"
+          className="flex items-center gap-2 mb-2 font-sans text-xs uppercase tracking-widest text-accent font-semibold"
           style={shouldAnimate ? {
             opacity: inView ? 1 : 0,
             transform: inView ? 'translate3d(0,0,0)' : 'translate3d(0,10px,0)',

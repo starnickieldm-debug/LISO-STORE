@@ -79,7 +79,7 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
                   <span className="text-base" aria-hidden="true">{market.flag}</span>
                   <span>{market.countryName}</span>
                 </span>
-                <span className="text-xs font-mono opacity-80">
+                <span className="text-xs font-sans opacity-80">
                   {market.formattedPrice}
                 </span>
               </button>
@@ -135,7 +135,7 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
           style={{ backgroundColor: 'rgba(18, 19, 24, 0.98)' }}
         >
           <div className="px-3 py-1.5 border-b border-white/10 mb-1">
-            <p className="text-[10px] font-mono uppercase tracking-widest text-bone/50">
+            <p className="text-[10px] font-sans uppercase tracking-widest text-bone/50">
               Mercado y Moneda Local
             </p>
           </div>
@@ -163,7 +163,7 @@ export const CountrySelector: React.FC<CountrySelectorProps> = ({
                     <span className="truncate">{market.countryName}</span>
                   </span>
 
-                  <span className="flex items-center gap-2 text-[11px] font-mono text-bone/60 shrink-0 ml-2">
+                  <span className="flex items-center gap-2 text-[11px] font-sans text-bone/60 shrink-0 ml-2">
                     <span>{market.formattedPrice}</span>
                     {isSelected && (
                       <Check className="w-3.5 h-3.5 text-accent stroke-[2.5]" aria-hidden="true" />

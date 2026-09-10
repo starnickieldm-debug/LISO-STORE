@@ -112,7 +112,7 @@ export const ThreeGesturesSection: React.FC = () => {
 
               {/* Decoupled Caption Row Underneath */}
               <div className="mt-5 sm:mt-6 flex items-start gap-3.5">
-                <div className="w-7 h-7 rounded-full bg-graphite text-white font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm group-hover:bg-accent transition-colors duration-300">
+                <div className="w-7 h-7 rounded-full bg-graphite text-white font-sans text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm group-hover:bg-accent transition-colors duration-300">
                   {idx + 1}
                 </div>
                 <div className="space-y-1.5 flex-1 min-w-0">
@@ -184,7 +184,7 @@ export const ThreeGesturesSection: React.FC = () => {
 
                 {/* Decoupled Caption Underneath */}
                 <div className="mt-4 flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-graphite text-white font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <div className="w-6 h-6 rounded-full bg-graphite text-white font-sans text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                     {idx + 1}
                   </div>
                   <div className="space-y-1 flex-1 min-w-0">

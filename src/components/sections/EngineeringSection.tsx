@@ -242,7 +242,7 @@ export const EngineeringSection: React.FC = () => {
                 } ${plateAngle === 90 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
               />
 
-              <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 bg-[#181615]/90 border border-white/20 text-[10px] font-mono text-accent font-bold rounded">
+              <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 bg-[#181615]/90 border border-white/20 text-[10px] font-sans text-accent font-bold rounded">
                 {plateAngle}° ACTIVO
               </div>
             </div>
@@ -256,7 +256,7 @@ export const EngineeringSection: React.FC = () => {
                     setPlateAngle(deg);
                     if (!hasInteracted) setHasInteracted(true);
                   }}
-                  className={`py-2.5 px-1 min-h-[46px] text-center font-mono text-xs uppercase tracking-tight font-bold transition-all border rounded-lg active:scale-95 ${
+                  className={`py-2.5 px-1 min-h-[46px] text-center font-sans text-xs uppercase tracking-tight font-bold transition-all border rounded-lg active:scale-95 ${
                     plateAngle === deg
                       ? 'bg-accent text-white border-accent shadow-sm'
                       : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white active:bg-white/10'
@@ -278,7 +278,7 @@ export const EngineeringSection: React.FC = () => {
             <div className="p-5 bg-night-950/80 border border-white/15 space-y-4 rounded-xl">
               <div className="flex items-center justify-between text-xs font-sans">
                 <span className="text-bone/60 uppercase tracking-wider font-semibold">TIEMPO AL ARRANQUE</span>
-                <span className="text-accent font-mono font-bold">150 °C OBJETIVO</span>
+                <span className="text-accent font-sans font-bold">150 °C OBJETIVO</span>
               </div>
 
               <div className="py-4 text-center space-y-2 border-y border-white/10 bg-white/[0.02] rounded-lg">
@@ -330,13 +330,13 @@ export const EngineeringSection: React.FC = () => {
               
               <div className="absolute bottom-2.5 inset-x-2.5 p-2.5 bg-[#181615]/90 backdrop-blur-xs border border-white/20 flex items-center justify-between font-sans text-xs rounded-lg">
                 <span className="text-bone/70 uppercase font-medium">LECTURA TÉRMICA:</span>
-                <span className="text-accent font-mono font-bold tracking-wider">{tempCounter} °C</span>
+                <span className="text-accent font-sans font-bold tracking-wider">{tempCounter} °C</span>
               </div>
             </div>
 
             <div className="p-3 bg-white/5 border border-white/10 flex items-center justify-between text-xs font-sans rounded-xl">
               <span className="text-bone/70 font-medium">MODOS ACTIVOS:</span>
-              <span className="text-accent font-mono font-bold">2 NIVELES + PLANCHADO EN SECO</span>
+              <span className="text-accent font-sans font-bold">2 NIVELES + PLANCHADO EN SECO</span>
             </div>
           </div>
         );
@@ -358,7 +358,7 @@ export const EngineeringSection: React.FC = () => {
               <div className="space-y-1">
                 <div className="flex items-center justify-between text-bone font-bold text-[11px]">
                   <span>1200 W CONSTANTE</span>
-                  <span className="text-accent font-mono">100% SOSTENIDO</span>
+                  <span className="text-accent font-sans">100% SOSTENIDO</span>
                 </div>
                 <div className="h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
                   <div className="h-full bg-accent w-full" />
@@ -368,7 +368,7 @@ export const EngineeringSection: React.FC = () => {
               <div className="space-y-1">
                 <div className="flex items-center justify-between text-bone/50 text-[11px] font-medium">
                   <span>MODELOS A BATERÍA</span>
-                  <span className="font-mono">DECAE TRAS 3 MIN</span>
+                  <span className="font-sans">DECAE TRAS 3 MIN</span>
                 </div>
                 <div className="h-2.5 w-full bg-white/10 rounded-full overflow-hidden">
                   <div className="h-full bg-white/20 w-[35%]" />
@@ -398,13 +398,13 @@ export const EngineeringSection: React.FC = () => {
             <div className="grid grid-cols-2 gap-2 text-center font-sans">
               <div className="p-3 bg-night-950/80 border border-white/15 rounded-xl">
                 <span className="text-[10px] text-bone/50 uppercase block font-medium">CÁMARA INTERNA</span>
-                <span className="text-xl font-bold text-bone mt-0.5 block font-mono">150 °C</span>
+                <span className="text-xl font-bold text-bone mt-0.5 block font-sans">150 °C</span>
                 <span className="text-[9px] text-bone/40 block mt-0.5 font-medium">Por dentro</span>
               </div>
 
               <div className="p-3 bg-night-950/80 border border-accent/40 shadow-[0_0_12px_rgba(180,36,124,0.15)] rounded-xl">
                 <span className="text-[10px] text-accent uppercase font-bold block">SUPERFICIE MANGO</span>
-                <span className="text-xl font-bold text-accent mt-0.5 block font-mono">≤42 °C</span>
+                <span className="text-xl font-bold text-accent mt-0.5 block font-sans">≤42 °C</span>
                 <span className="text-[9px] text-bone/60 block mt-0.5 font-medium">Seguro al tacto</span>
               </div>
             </div>
@@ -427,7 +427,7 @@ export const EngineeringSection: React.FC = () => {
                 className="w-full h-full object-cover"
               />
 
-              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-[#181615]/90 border border-white/20 text-[10px] font-mono text-bone font-bold rounded">
+              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-[#181615]/90 border border-white/20 text-[10px] font-sans text-bone font-bold rounded">
                 110 V · MULTIVOLTAJE 110–240 V
               </div>
             </div>
@@ -537,10 +537,10 @@ export const EngineeringSection: React.FC = () => {
             {/* Header: Category + Counter + Component Name + Phrase */}
             <div className="pb-3 border-b border-white/10 space-y-1">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold">
+                <span className="text-[10px] font-sans uppercase tracking-widest text-accent font-bold">
                   {activePiece.category}
                 </span>
-                <span className="font-mono text-xs font-bold text-bone/50 tracking-wider">
+                <span className="font-sans text-xs font-bold text-bone/50 tracking-wider">
                   PIEZA {activePiece.num} / 06
                 </span>
               </div>
@@ -615,7 +615,7 @@ export const EngineeringSection: React.FC = () => {
             <div>
               {/* Card Header */}
               <div className="pb-3 mb-3 border-b border-white/10">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block mb-0.5">
+                <span className="text-[10px] font-sans uppercase tracking-widest text-accent font-bold block mb-0.5">
                   ANATOMÍA TÉCNICA
                 </span>
                 <h3 className="font-display text-lg font-bold text-bone">
@@ -643,7 +643,7 @@ export const EngineeringSection: React.FC = () => {
                       aria-label={`Ver pieza ${piece.num}: ${piece.name}`}
                     >
                       <div className="flex items-center gap-3 min-w-0">
-                        <span className={`w-6 h-6 rounded-full font-mono text-xs font-bold flex items-center justify-center shrink-0 transition-colors ${
+                        <span className={`w-6 h-6 rounded-full font-sans text-xs font-bold flex items-center justify-center shrink-0 transition-colors ${
                           isActive 
                             ? 'bg-accent text-white' 
                             : 'bg-white/10 text-bone/60 group-hover:text-bone group-hover:bg-white/15'
@@ -755,7 +755,7 @@ export const EngineeringSection: React.FC = () => {
                 }`}
                 aria-hidden="true"
               >
-                <span className="font-mono text-[10px] tracking-widest text-bone/70 uppercase bg-night-950/90 px-3 py-1 border border-white/15 shadow-sm font-semibold rounded-full">
+                <span className="font-sans text-[10px] tracking-widest text-bone/70 uppercase bg-night-950/90 px-3 py-1 border border-white/15 shadow-sm font-semibold rounded-full">
                   TOCA UN COMPONENTE
                 </span>
               </div>
@@ -781,7 +781,7 @@ export const EngineeringSection: React.FC = () => {
                     aria-selected={isActive}
                     role="tab"
                   >
-                    <span className={`font-mono text-[11px] font-bold ${
+                    <span className={`font-sans text-[11px] font-bold ${
                       isActive ? 'text-accent' : 'text-bone/85 hover:text-white'
                     }`}>
                       {p.num}
@@ -795,10 +795,10 @@ export const EngineeringSection: React.FC = () => {
               })}
 
               {/* Corner technical markers */}
-              <div className="absolute bottom-2.5 left-2.5 font-mono text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
+              <div className="absolute bottom-2.5 left-2.5 font-sans text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
                 DISECCIÓN 01–06
               </div>
-              <div className="absolute bottom-2.5 right-2.5 font-mono text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
+              <div className="absolute bottom-2.5 right-2.5 font-sans text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
                 HOTSPOT {activePiece.num}
               </div>
             </div>
@@ -811,10 +811,10 @@ export const EngineeringSection: React.FC = () => {
             {/* Top: Category & Piece Title */}
             <div className="space-y-1.5 pb-4 border-b border-white/10 transition-all duration-200 ease-mech-s">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold">
+                <span className="text-[10px] font-sans uppercase tracking-widest text-accent font-bold">
                   {activePiece.category}
                 </span>
-                <span className="font-mono text-xs font-bold text-bone/50 tracking-wider">
+                <span className="font-sans text-xs font-bold text-bone/50 tracking-wider">
                   PIEZA {activePiece.num} / 06
                 </span>
               </div>
@@ -850,7 +850,7 @@ export const EngineeringSection: React.FC = () => {
                   />
                 ))}
               </div>
-              <span className="font-mono text-[11px]">PIEZA {activePiece.num} DE 06</span>
+              <span className="font-sans text-[11px]">PIEZA {activePiece.num} DE 06</span>
             </div>
 
           </div>
@@ -862,20 +862,20 @@ export const EngineeringSection: React.FC = () => {
             ========================================================================= */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-sans">
           <div className="p-4 bg-night-900/90 border border-white/15 rounded-2xl hover:border-white/25 transition-colors">
-            <span className="text-bone/50 block uppercase text-[10px] font-mono font-semibold tracking-wider">Potencia Sostenida</span>
-            <span className="text-lg font-bold text-bone mt-1 block font-mono">{productSpecs.power}</span>
+            <span className="text-bone/50 block uppercase text-[10px] font-sans font-semibold tracking-wider">Potencia Sostenida</span>
+            <span className="text-lg font-bold text-bone mt-1 block font-sans">{productSpecs.power}</span>
           </div>
           <div className="p-4 bg-night-900/90 border border-white/15 rounded-2xl hover:border-white/25 transition-colors">
-            <span className="text-bone/50 block uppercase text-[10px] font-mono font-semibold tracking-wider">Temperatura Máxima</span>
-            <span className="text-lg font-bold text-bone mt-1 block font-mono">{productSpecs.maxTemperature}</span>
+            <span className="text-bone/50 block uppercase text-[10px] font-sans font-semibold tracking-wider">Temperatura Máxima</span>
+            <span className="text-lg font-bold text-bone mt-1 block font-sans">{productSpecs.maxTemperature}</span>
           </div>
           <div className="p-4 bg-night-900/90 border border-white/15 rounded-2xl hover:border-white/25 transition-colors">
-            <span className="text-bone/50 block uppercase text-[10px] font-mono font-semibold tracking-wider">Depósito Calibrado</span>
-            <span className="text-lg font-bold text-bone mt-1 block font-mono">{productSpecs.tankCapacity} (~5 min)</span>
+            <span className="text-bone/50 block uppercase text-[10px] font-sans font-semibold tracking-wider">Depósito Calibrado</span>
+            <span className="text-lg font-bold text-bone mt-1 block font-sans">{productSpecs.tankCapacity} (~5 min)</span>
           </div>
           <div className="p-4 bg-night-900/90 border border-white/15 rounded-2xl hover:border-white/25 transition-colors">
-            <span className="text-bone/50 block uppercase text-[10px] font-mono font-semibold tracking-wider">Cámara Térmica</span>
-            <span className="text-lg font-bold text-bone mt-1 block font-mono">{productSpecs.innerTankMaterial}</span>
+            <span className="text-bone/50 block uppercase text-[10px] font-sans font-semibold tracking-wider">Cámara Térmica</span>
+            <span className="text-lg font-bold text-bone mt-1 block font-sans">{productSpecs.innerTankMaterial}</span>
           </div>
         </div>
 

@@ -98,10 +98,10 @@ export const OfferSection: React.FC = () => {
 
               {/* What's Included */}
               <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-wider text-bone/70 font-semibold block">
+                <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold block">
                   ¿QUÉ RECIBES EN LA CAJA?
                 </span>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm font-mono text-bone/90">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm font-sans text-bone/90">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
                     <span>Plancha vaporizadora LISO (1200 W)</span>

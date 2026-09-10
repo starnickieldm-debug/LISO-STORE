@@ -29,23 +29,8 @@ export const FAQSection: React.FC = () => {
                 />
               </picture>
               
-              {/* Subtle bottom vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none" />
-
-              {/* Floating Trust Pill Badge */}
-              <div className="absolute bottom-4 inset-x-4 p-3.5 rounded-2xl bg-night-950/80 backdrop-blur-md border border-white/15 text-bone flex items-center justify-between shadow-lg">
-                <div className="space-y-0.5">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block">
-                    COMPRA PROTEGIDA
-                  </span>
-                  <p className="text-xs font-sans text-bone/90 font-medium">
-                    Garantía legal 30 días · Envío gratis a Colombia
-                  </p>
-                </div>
-                <span className="font-mono text-[11px] font-bold text-accent px-2 py-1 rounded-lg bg-accent/15 border border-accent/30 shrink-0">
-                  LISO OFICIAL
-                </span>
-              </div>
+              {/* Subtle depth vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-graphite/25 via-transparent to-black/10 pointer-events-none" />
             </div>
           </div>
 
@@ -55,7 +40,7 @@ export const FAQSection: React.FC = () => {
           <div className="lg:col-span-7">
             {/* Editorial Header */}
             <div className="mb-6 sm:mb-8 space-y-2">
-              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent font-semibold">
+              <div className="flex items-center gap-2 font-sans text-xs uppercase tracking-widest text-accent font-semibold">
                 <span>[09]</span>
                 <span>DUDAS FRECUENTES</span>
               </div>

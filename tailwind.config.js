@@ -58,7 +58,7 @@ export default {
       fontFamily: {
         display: ["'Playfair Display'", 'Georgia', 'serif'],
         sans: ["'Instrument Sans'", '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        mono: ["'JetBrains Mono'", 'monospace'],
+        mono: ["'Instrument Sans'", '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         serif: ["'Playfair Display'", 'Georgia', 'serif'],
       },
       letterSpacing: {

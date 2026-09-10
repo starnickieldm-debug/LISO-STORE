@@ -74,7 +74,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 
                 {/* Columna Izquierda: Información y Pilares (5 Cols) */}
                 <div className="lg:col-span-5 space-y-4">
-                  <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase block">
+                  <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase block">
                     01 · CONECTAR
                   </span>
 
@@ -125,7 +125,7 @@ export const BenefitEvidenceSection: React.FC = () => {
               {/* TARJETA 02: CONTROLAR (Temperatura en Vivo) */}
               <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-7 lg:p-8 shadow-xs flex flex-col justify-between relative group hover:border-graphite/20 transition-all duration-300">
                 <div>
-                  <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
+                  <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
                     02 · CONTROLAR
                   </span>
 
@@ -155,7 +155,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                           <span className={`text-[11px] font-sans font-bold block ${isSelected ? 'text-graphite' : 'text-graphite/70'}`}>
                             {mode.level}
                           </span>
-                          <span className="text-[10px] font-mono text-accent font-semibold block mt-0.5">
+                          <span className="text-[10px] font-sans text-accent font-semibold block mt-0.5">
                             {mode.temp}
                           </span>
                         </button>
@@ -178,7 +178,7 @@ export const BenefitEvidenceSection: React.FC = () => {
               {/* TARJETA 03: GUARDAR (Base Térmica de Apoyo) */}
               <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-7 lg:p-8 shadow-xs flex flex-col justify-between relative group hover:border-graphite/20 transition-all duration-300">
                 <div>
-                  <span className="font-mono text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
+                  <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
                     03 · GUARDAR
                   </span>
 
@@ -250,7 +250,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* Moment 01: Conectar */}
             {activeMoment === 0 && (
               <div className="space-y-3 animate-fadeIn">
-                <span className="text-accent font-bold font-mono text-[11px] uppercase tracking-wider block">
+                <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   01 · CONECTAR
                 </span>
 
@@ -276,7 +276,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* Moment 02: Controlar */}
             {activeMoment === 1 && (
               <div className="space-y-3 animate-fadeIn">
-                <span className="text-accent font-bold font-mono text-[11px] uppercase tracking-wider block">
+                <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   02 · CONTROLAR
                 </span>
 
@@ -307,7 +307,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                         <span className={`text-[11px] font-sans font-bold block ${isSelected ? 'text-graphite' : 'text-graphite/70'}`}>
                           {mode.level}
                         </span>
-                        <span className="text-[10px] font-mono text-accent font-semibold block">
+                        <span className="text-[10px] font-sans text-accent font-semibold block">
                           {mode.temp}
                         </span>
                       </button>
@@ -330,7 +330,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* Moment 03: Guardar */}
             {activeMoment === 2 && (
               <div className="space-y-3 animate-fadeIn">
-                <span className="text-accent font-bold font-mono text-[11px] uppercase tracking-wider block">
+                <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   03 · GUARDAR
                 </span>
 

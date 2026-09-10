@@ -57,7 +57,7 @@ export const RotatingPlateVisual: React.FC<RotatingPlateVisualProps> = ({ classN
             MECANISMO GIRATORIO 90°
           </span>
         </div>
-        <span className="font-mono tabular-specs text-[11px] px-2 py-0.5 bg-white/10 text-accent font-bold">
+        <span className="font-sans tabular-specs text-[11px] px-2 py-0.5 bg-white/10 text-accent font-bold">
           {angle}° ACTIVO
         </span>
       </div>
@@ -68,9 +68,9 @@ export const RotatingPlateVisual: React.FC<RotatingPlateVisualProps> = ({ classN
         {/* Background Compass / Protractor Dial */}
         <div className="absolute w-44 sm:w-52 h-44 sm:h-52 rounded-full border border-dashed border-white/20 flex items-center justify-center pointer-events-none">
           {/* Degree Ticks */}
-          <span className="absolute top-2 font-mono text-[9px] text-bone/40 font-bold">90°</span>
-          <span className="absolute right-2 font-mono text-[9px] text-bone/40 font-bold">0°</span>
-          <span className="absolute top-6 right-6 font-mono text-[9px] text-bone/40 font-bold">45°</span>
+          <span className="absolute top-2 font-sans text-[9px] text-bone/40 font-bold">90°</span>
+          <span className="absolute right-2 font-sans text-[9px] text-bone/40 font-bold">0°</span>
+          <span className="absolute top-6 right-6 font-sans text-[9px] text-bone/40 font-bold">45°</span>
           <div className="w-full h-[1px] bg-white/10 absolute top-1/2 left-0" />
           <div className="h-full w-[1px] bg-white/10 absolute top-0 left-1/2" />
         </div>
@@ -93,7 +93,7 @@ export const RotatingPlateVisual: React.FC<RotatingPlateVisualProps> = ({ classN
             </div>
 
             {/* Plate Core Spec */}
-            <div className="font-mono text-[10px] text-white uppercase tracking-widest font-bold">
+            <div className="font-sans text-[10px] text-white uppercase tracking-widest font-bold">
               PLACA 150°C
             </div>
 
@@ -111,7 +111,7 @@ export const RotatingPlateVisual: React.FC<RotatingPlateVisualProps> = ({ classN
 
       {/* Degree feedback caption */}
       <div className="text-center pb-4">
-        <p className="font-mono text-xs text-bone/80 font-medium">
+        <p className="font-sans text-xs text-bone/80 font-medium">
           {angleDescriptions[angle]}
         </p>
       </div>
@@ -127,7 +127,7 @@ export const RotatingPlateVisual: React.FC<RotatingPlateVisualProps> = ({ classN
               key={deg}
               type="button"
               onClick={() => handleSelectAngle(deg)}
-              className={`py-2 px-1 text-center font-mono text-xs uppercase tracking-tight font-bold transition-all border ${
+              className={`py-2 px-1 text-center font-sans text-xs uppercase tracking-tight font-bold transition-all border ${
                 angle === deg
                   ? 'bg-accent text-white border-accent shadow-subtle scale-[1.02]'
                   : 'bg-white/5 text-bone/70 border-white/15 hover:border-white/40 hover:text-white'

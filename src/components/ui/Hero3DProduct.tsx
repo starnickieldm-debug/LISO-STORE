@@ -119,10 +119,10 @@ export const Hero3DProduct: React.FC<Hero3DProductProps> = ({ className = '' }) 
 
                 {/* Soleplate Core Spec */}
                 <div className="text-right">
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-bone/60 block font-bold">
+                  <span className="font-sans text-[9px] uppercase tracking-widest text-bone/60 block font-bold">
                     CERÁMICA
                   </span>
-                  <span className="font-mono text-[11px] text-accent font-bold">
+                  <span className="font-sans text-[11px] text-accent font-bold">
                     150 °C
                   </span>
                 </div>
@@ -147,7 +147,7 @@ export const Hero3DProduct: React.FC<Hero3DProductProps> = ({ className = '' }) 
             >
               {/* Integrated Digital LED Window (MOMENTO-FIRMA 1) */}
               <div className="w-full bg-black/90 border border-white/25 rounded-md p-2 text-center shadow-inner mt-1">
-                <div className="text-[8px] font-mono text-bone/50 tracking-wider uppercase font-semibold">
+                <div className="text-[8px] font-sans text-bone/50 tracking-wider uppercase font-semibold">
                   TEMPERATURA REAL
                 </div>
                 <div className="text-xl sm:text-2xl font-bold mt-0.5">
@@ -160,7 +160,7 @@ export const Hero3DProduct: React.FC<Hero3DProductProps> = ({ className = '' }) 
                 </div>
                 <div className="flex items-center justify-center gap-1 mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                  <span className="text-[8px] font-mono text-bone/70 uppercase">
+                  <span className="text-[8px] font-sans text-bone/70 uppercase">
                     VAPOR ACTIVO
                   </span>
                 </div>
@@ -184,7 +184,7 @@ export const Hero3DProduct: React.FC<Hero3DProductProps> = ({ className = '' }) 
               className="relative -mt-4 z-10 w-24 sm:w-28 h-20 bg-gradient-to-b from-white/5 to-white/10 rounded-b-xl border-x border-b border-white/15 backdrop-blur-xs flex flex-col items-center justify-end pb-2"
               style={{ transform: 'translateZ(10px)', backgroundColor: '#181A20' }}
             >
-              <div className="text-[9px] font-mono text-bone/50 tracking-tight">
+              <div className="text-[9px] font-sans text-bone/50 tracking-tight">
                 100 ml MAX
               </div>
               <div className="w-12 h-1 bg-accent/40 rounded-full mt-1" />
@@ -195,13 +195,13 @@ export const Hero3DProduct: React.FC<Hero3DProductProps> = ({ className = '' }) 
       </div>
 
       {/* Technical Spec & Scrub HUD Overlay */}
-      <div className="absolute top-2 left-2 flex items-center gap-2 text-[10px] font-mono text-bone/60 bg-night-900/80 px-2.5 py-1 border border-white/10 backdrop-blur-sm">
+      <div className="absolute top-2 left-2 flex items-center gap-2 text-[10px] font-sans text-bone/60 bg-night-900/80 px-2.5 py-1 border border-white/10 backdrop-blur-sm">
         <Rotate3d className="w-3.5 h-3.5 text-accent animate-pulse" />
         <span>3D SCRUB V2 · GIRO: {Math.round(yaw)}°</span>
       </div>
 
       {/* Production Asset Notice */}
-      <div className="absolute bottom-2 right-2 text-[9px] font-mono text-bone/40 bg-night-950/90 px-2 py-0.5 border border-white/10">
+      <div className="absolute bottom-2 right-2 text-[9px] font-sans text-bone/40 bg-night-950/90 px-2 py-0.5 border border-white/10">
         GEOMETRÍA VECTORIAL REAL · LISTO PARA .GLB
       </div>
     </div>

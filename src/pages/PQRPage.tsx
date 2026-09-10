@@ -183,7 +183,7 @@ export const PQRPage: React.FC = () => {
             <div className="p-4 bg-black/50 border border-white/15 rounded-lg space-y-2 text-xs font-sans">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-white/10">
                 <span className="text-bone/50 uppercase tracking-wider text-[10px]">Código de Radicado Oficial:</span>
-                <span className="font-mono text-sm sm:text-base font-bold text-accent tracking-wider">{radicado}</span>
+                <span className="font-sans text-sm sm:text-base font-bold text-accent tracking-wider">{radicado}</span>
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <span className="text-bone/50">Fecha y Hora de Radicación:</span>
