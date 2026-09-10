@@ -678,43 +678,32 @@ export const EngineeringSection: React.FC = () => {
             </div>
           </div>
 
-          {/* 2. CENTER CARD: THE INTERACTIVE APPARATUS (liso-main.webp with Spotlight, Leader Line & Hotspots) */}
-          <div className="lg:col-span-5 bg-night-900/85 border border-white/15 rounded-3xl p-5 xl:p-6 flex flex-col items-center justify-center relative shadow-2xl backdrop-blur-md overflow-hidden min-h-[480px]">
+          {/* 2. CENTER STAGE: THE FLOATING APPARATUS (liso-cutout.webp Floating on Background with Aura & Hotspots) */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative min-h-[480px] select-none">
             
-            {/* Background Warm Steam Glow (Liquid+ Splash Aura Concept) */}
+            {/* Background Warm Steam Glow (Floating Depth Aura) */}
             <div 
               className="absolute inset-0 pointer-events-none flex items-center justify-center"
               aria-hidden="true"
             >
-              <div className="w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(180,36,124,0.20)_0%,rgba(255,195,130,0.10)_40%,transparent_70%)] blur-2xl animate-pulse" />
-              <div className="absolute w-[260px] h-[260px] rounded-full border border-dashed border-white/10 pointer-events-none" />
+              <div className="w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(180,36,124,0.22)_0%,rgba(255,195,130,0.10)_40%,transparent_70%)] blur-3xl animate-pulse" />
+              <div className="absolute w-[300px] h-[300px] rounded-full border border-dashed border-white/10 pointer-events-none" />
             </div>
 
-            <div className="relative w-full aspect-square max-w-[440px] overflow-hidden rounded-2xl shadow-studio-hard-dark bg-night-950 border border-white/10">
-              {/* Center Raw Image */}
+            <div className="relative w-full aspect-square max-w-[460px] flex items-center justify-center select-none">
+              {/* Floating Cutout Apparatus */}
               <img 
-                src="/images/liso-main.webp" 
+                src="/images/liso-cutout.webp" 
                 alt="Plancha de vapor LISO disección anatómica en perspectiva técnica" 
                 loading="eager"
                 fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 500px"
-                className="w-full h-full object-cover select-none pointer-events-none"
-              />
-
-              {/* Dynamic Spotlight Layer */}
-              <div 
-                className="pointer-events-none absolute inset-0 transition-all duration-200 ease-mech-s"
-                style={{
-                  background: prefersReduced 
-                    ? 'transparent' 
-                    : `radial-gradient(circle 135px at ${activePiece.hotspot.x}% ${activePiece.hotspot.y}%, transparent 15%, rgba(11, 12, 15, 0.72) 100%)`
-                }}
-                aria-hidden="true"
+                className="w-full h-full object-contain select-none pointer-events-none drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)] filter"
               />
 
               {/* Ambient Active Pulse Ring */}
               <div 
-                className={`pointer-events-none absolute w-32 h-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/40 shadow-[0_0_30px_rgba(180,36,124,0.35)] ${
+                className={`pointer-events-none absolute w-28 h-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/40 shadow-[0_0_30px_rgba(180,36,124,0.35)] ${
                   prefersReduced ? 'duration-0' : 'transition-all duration-200 ease-mech-s'
                 }`}
                 style={{
@@ -750,12 +739,12 @@ export const EngineeringSection: React.FC = () => {
 
               {/* Initial Hint */}
               <div 
-                className={`absolute top-3 inset-x-0 flex justify-center pointer-events-none z-30 transition-opacity duration-300 ${
+                className={`absolute top-2 inset-x-0 flex justify-center pointer-events-none z-30 transition-opacity duration-300 ${
                   hasInteracted ? 'opacity-0' : 'opacity-100'
                 }`}
                 aria-hidden="true"
               >
-                <span className="font-sans text-[10px] tracking-widest text-bone/70 uppercase bg-night-950/90 px-3 py-1 border border-white/15 shadow-sm font-semibold rounded-full">
+                <span className="font-sans text-[10px] tracking-widest text-bone/70 uppercase bg-night-900/90 px-3 py-1 border border-white/15 shadow-sm font-semibold rounded-full backdrop-blur-sm">
                   TOCA UN COMPONENTE
                 </span>
               </div>
@@ -795,10 +784,10 @@ export const EngineeringSection: React.FC = () => {
               })}
 
               {/* Corner technical markers */}
-              <div className="absolute bottom-2.5 left-2.5 font-sans text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
+              <div className="absolute bottom-2 left-2 font-sans text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
                 DISECCIÓN 01–06
               </div>
-              <div className="absolute bottom-2.5 right-2.5 font-sans text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
+              <div className="absolute bottom-2 right-2 font-sans text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
                 HOTSPOT {activePiece.num}
               </div>
             </div>
