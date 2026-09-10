@@ -65,15 +65,16 @@ const HomePage: React.FC = () => (
     <MovingTickerBar items={technicalTickerItems} theme="dark" speedSeconds={32} />
     <EngineeringSection />
     
-    {/* Puente de Degradado Continuo Suave: Carbón Cálido (#211F1D) a Arena Suave (#EFEBE2) */}
+    {/* Puente de Degradado Continuo Suave: Carbón Cálido (#211F1D) a Arena Suave (#FAF8F5) */}
     <div 
       className="h-20 sm:h-28 lg:h-32 w-full -my-px pointer-events-none"
       style={{
-        background: 'linear-gradient(180deg, #211F1D 0%, #35302B 22%, #5A5047 48%, #9E9283 75%, #EFEBE2 100%)'
+        background: 'linear-gradient(180deg, #211F1D 0%, #35302B 22%, #5A5047 48%, #9E9283 75%, #FAF8F5 100%)'
       }}
       aria-hidden="true"
     />
     
+    <OfferSection />
     <HonestyLabelSection />
     <ComparisonSection />
     <MovingTickerBar items={lifestyleTickerItems} theme="light" speedSeconds={34} />
@@ -81,7 +82,6 @@ const HomePage: React.FC = () => (
     <BoxContentsSection />
     <MovingTickerBar items={trustTickerItems} theme="light" speedSeconds={36} />
     <SocialProofSection />
-    <OfferSection />
     <FAQSection />
     <FinalCTASection />
   </main>
