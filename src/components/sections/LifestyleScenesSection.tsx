@@ -76,9 +76,9 @@ export const LifestyleScenesSection: React.FC = () => {
           
           {/* Fila 1: Escena 01 - Camisa de oficina (6 cols, 50% simétrico) */}
           <Reveal direction="up" delay={0} duration={700} className="lg:col-span-6 flex">
-            <div className="w-full bg-white rounded-2xl sm:rounded-[32px] border border-graphite/12 p-5 sm:p-6 lg:p-7 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[32px] p-5 sm:p-6 lg:p-7 shadow-premium hover:shadow-premium-hover flex flex-col justify-between group hover-lift transition-all duration-300">
               <div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-4 sm:mb-5">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-premium-image bg-night-950 mb-4 sm:mb-5">
                   <picture className="w-full h-full">
                     <source srcSet="/images/escena-01-camisa.webp" type="image/webp" />
                     <img 
@@ -101,9 +101,9 @@ export const LifestyleScenesSection: React.FC = () => {
 
           {/* Fila 1: Escena 02 - Vestido delicado (6 cols, 50% simétrico) */}
           <Reveal direction="up" delay={120} duration={700} className="lg:col-span-6 flex">
-            <div className="w-full bg-white rounded-2xl sm:rounded-[32px] border border-graphite/12 p-5 sm:p-6 lg:p-7 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[32px] p-5 sm:p-6 lg:p-7 shadow-premium hover:shadow-premium-hover flex flex-col justify-between group hover-lift transition-all duration-300">
               <div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-4 sm:mb-5">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-premium-image bg-night-950 mb-4 sm:mb-5">
                   <picture className="w-full h-full">
                     <source srcSet="/images/escena-02-vestido.webp" type="image/webp" />
                     <img 
@@ -126,9 +126,9 @@ export const LifestyleScenesSection: React.FC = () => {
 
           {/* Fila 2: Escena 03 - Cortina (4 cols) */}
           <Reveal direction="up" delay={0} duration={700} className="lg:col-span-4 flex">
-            <div className="w-full bg-white rounded-2xl sm:rounded-[28px] border border-graphite/12 p-4 sm:p-5 lg:p-6 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[28px] p-4 sm:p-5 lg:p-6 shadow-premium hover:shadow-premium-hover flex flex-col justify-between group hover-lift transition-all duration-300">
               <div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-3.5 sm:mb-4">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-premium-image bg-night-950 mb-3.5 sm:mb-4">
                   <picture className="w-full h-full">
                     <source srcSet="/images/escena-03-cortina.webp" type="image/webp" />
                     <img 
@@ -151,9 +151,9 @@ export const LifestyleScenesSection: React.FC = () => {
 
           {/* Fila 2: Escena 04 - Hotel + maleta (4 cols) */}
           <Reveal direction="up" delay={100} duration={700} className="lg:col-span-4 flex">
-            <div className="w-full bg-white rounded-2xl sm:rounded-[28px] border border-graphite/12 p-4 sm:p-5 lg:p-6 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[28px] p-4 sm:p-5 lg:p-6 shadow-premium hover:shadow-premium-hover flex flex-col justify-between group hover-lift transition-all duration-300">
               <div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-3.5 sm:mb-4">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-premium-image bg-night-950 mb-3.5 sm:mb-4">
                   <picture className="w-full h-full">
                     <source srcSet="/images/escena-04-maleta.webp" type="image/webp" />
                     <img 
@@ -176,9 +176,9 @@ export const LifestyleScenesSection: React.FC = () => {
 
           {/* Fila 2: Escena 05 - Producto sobre dock (4 cols) */}
           <Reveal direction="up" delay={200} duration={700} className="lg:col-span-4 flex">
-            <div className="w-full bg-white rounded-2xl sm:rounded-[28px] border border-graphite/12 p-4 sm:p-5 lg:p-6 shadow-card flex flex-col justify-between group hover-lift transition-all duration-300">
+            <div className="w-full bg-white rounded-2xl sm:rounded-[28px] p-4 sm:p-5 lg:p-6 shadow-premium hover:shadow-premium-hover flex flex-col justify-between group hover-lift transition-all duration-300">
               <div>
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl border border-graphite/10 bg-night-950 mb-3.5 sm:mb-4">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-premium-image bg-night-950 mb-3.5 sm:mb-4">
                   <picture className="w-full h-full">
                     <source srcSet="/images/escena-05-dock.webp" type="image/webp" />
                     <img 
@@ -236,7 +236,7 @@ export const LifestyleScenesSection: React.FC = () => {
             {lifestyleScenes.map((scene, idx) => (
               <div
                 key={scene.id}
-                className="mobile-snap-item w-[85vw] max-w-[340px] bg-white border border-graphite/15 p-4 rounded-2xl shadow-card flex flex-col justify-between"
+                className="mobile-snap-item w-[85vw] max-w-[340px] bg-white p-4.5 rounded-2xl sm:rounded-3xl shadow-premium flex flex-col justify-between"
               >
                 <div>
                   {/* Slide Top Metadata */}
@@ -250,7 +250,7 @@ export const LifestyleScenesSection: React.FC = () => {
                   </div>
 
                   {/* High Quality Photograph */}
-                  <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-night-950 border border-graphite/10 mb-3 shadow-md">
+                  <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-night-950 mb-3 shadow-premium-image">
                     <picture>
                       <source srcSet={sceneImages[idx].webp} type="image/webp" />
                       <img 

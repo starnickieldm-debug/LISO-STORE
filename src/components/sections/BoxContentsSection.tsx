@@ -42,7 +42,7 @@ export const BoxContentsSection: React.FC = () => {
           
           {/* Flat-lay visual representation (6 cols, balanced max-width) */}
           <Reveal direction="up" duration={700} className="lg:col-span-6 max-w-[460px] sm:max-w-[490px] w-full mx-auto lg:mx-0">
-            <div className="relative aspect-square w-full overflow-hidden rounded-2xl sm:rounded-[28px] border border-graphite/15 bg-night-950 shadow-card group-hover:shadow-xl group-hover:border-graphite/30 transition-all duration-500 ease-mech-s group">
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl sm:rounded-[28px] bg-night-950 shadow-premium-image hover:shadow-premium-hover transition-all duration-500 ease-mech-s group">
               <picture className="w-full h-full">
                 <source srcSet="/images/box-contents.webp" type="image/webp" />
                 <img 

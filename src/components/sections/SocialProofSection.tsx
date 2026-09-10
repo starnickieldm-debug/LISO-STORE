@@ -40,7 +40,7 @@ export const SocialProofSection: React.FC = () => {
 
         {/* Video Player - Full prominence, clean frame, zero dead space */}
         <Reveal direction="up" delay={120} duration={700}>
-          <div className="relative aspect-video w-full max-w-4xl mx-auto bg-black rounded-xl sm:rounded-2xl border border-graphite/20 shadow-studio-hard overflow-hidden group">
+          <div className="relative aspect-video w-full max-w-4xl mx-auto bg-black rounded-2xl sm:rounded-3xl shadow-premium-lg overflow-hidden group">
           <video
             ref={videoRef}
             src="/videos/liso-prueba-real.mp4"

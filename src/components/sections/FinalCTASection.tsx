@@ -47,7 +47,7 @@ export const FinalCTASection: React.FC = () => {
           
           {/* Left Column: Visual Placement */}
           <Reveal direction="left" duration={750} className="lg:col-span-6">
-            <div className="shadow-studio-hard border border-graphite/15 rounded-2xl sm:rounded-[24px] overflow-hidden group bg-white">
+            <div className="rounded-3xl sm:rounded-[32px] overflow-hidden group bg-white shadow-premium-image hover:shadow-premium-hover transition-all duration-500">
               <picture className="w-full h-full">
                 <source srcSet="/images/final-cta-steamer.webp" type="image/webp" />
                 <img 

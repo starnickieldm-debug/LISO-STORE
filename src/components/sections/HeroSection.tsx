@@ -210,7 +210,7 @@ export const HeroSection: React.FC = () => {
               aria-hidden="true" 
             />
 
-            <div className="relative aspect-[16/10] xs:aspect-[16/9.5] w-full overflow-hidden rounded-2xl shadow-xl z-10 border border-graphite/15">
+            <div className="relative aspect-[16/10] xs:aspect-[16/9.5] w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-premium-image z-10">
               <picture className="w-full h-full">
                 <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
                 <img 

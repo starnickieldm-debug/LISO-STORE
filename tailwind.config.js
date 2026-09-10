@@ -75,6 +75,10 @@ export default {
         'studio-hard': '6px 6px 0px rgba(23, 24, 28, 0.08)',
         'studio-hard-dark': '6px 6px 0px rgba(255, 255, 255, 0.08)',
         'rim-warm': 'inset 0 1px 1.5px 0 rgba(255, 220, 180, 0.22), 0 8px 24px -4px rgba(0, 0, 0, 0.6)',
+        'premium': '0 12px 36px -4px rgba(26, 23, 20, 0.08), 0 4px 12px -2px rgba(26, 23, 20, 0.04)',
+        'premium-lg': '0 20px 50px -8px rgba(26, 23, 20, 0.12), 0 8px 20px -4px rgba(26, 23, 20, 0.06)',
+        'premium-image': '0 16px 40px -6px rgba(26, 23, 20, 0.12), 0 6px 16px -2px rgba(26, 23, 20, 0.06)',
+        'premium-hover': '0 24px 60px -10px rgba(26, 23, 20, 0.16), 0 10px 24px -4px rgba(26, 23, 20, 0.08)',
       },
       transitionTimingFunction: {
         'vapor-m': 'cubic-bezier(0.25, 1, 0.5, 1)',

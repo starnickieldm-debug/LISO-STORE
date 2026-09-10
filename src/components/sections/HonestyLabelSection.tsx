@@ -39,10 +39,10 @@ export const HonestyLabelSection: React.FC = () => {
 
         {/* Nutritional-Style Technical Label Card with Thermal Print Effect */}
         <Reveal direction="up" duration={700}>
-          <div className="bg-white border-2 border-graphite p-4 sm:p-8 lg:p-10 shadow-card relative">
+          <div className="bg-white rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 shadow-premium-lg relative overflow-hidden">
             
             {/* Label Header */}
-            <div className="border-b-4 border-graphite pb-4 mb-6">
+            <div className="border-b border-graphite/10 pb-5 mb-8">
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                 <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-tight text-graphite">
                   LO QUE PUEDES ESPERAR DE LISO
@@ -63,10 +63,10 @@ export const HonestyLabelSection: React.FC = () => {
                 Col 1 (4 cols): Product Inspection Stage (Visual Anchor with specs)
                 Col 2 (8 cols): 2-Column Honesty Matrix (Brilla vs. No está hecha)
                 ========================================================================= */}
-            <div className="hidden md:grid grid-cols-12 gap-6 lg:gap-8 pb-8 border-b-2 border-graphite items-stretch">
+            <div className="hidden md:grid grid-cols-12 gap-6 lg:gap-8 pb-8 border-b border-graphite/10 items-stretch">
               
               {/* COLUMNA 1 (4 COLS): Panel de Inspección Técnica de Producto */}
-              <div className="col-span-12 lg:col-span-4 bg-graphite/[0.025] border border-graphite/15 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden group">
+              <div className="col-span-12 lg:col-span-4 bg-white rounded-2xl sm:rounded-[24px] p-5 lg:p-6 flex flex-col justify-between relative overflow-hidden shadow-premium-image group">
                 {/* Header Tag */}
                 <div className="w-full flex items-center justify-between text-[10px] font-sans uppercase tracking-wider text-graphite/60 font-semibold border-b border-graphite/10 pb-2.5">
                   <span>DISPOSITIVO ANALIZADO</span>
@@ -108,7 +108,7 @@ export const HonestyLabelSection: React.FC = () => {
                 
                 {/* SUBCOL A: DONDE REALMENTE BRILLA */}
                 <div className="space-y-4">
-                  <div className="flex items-center gap-2 pb-2 border-b-2 border-graphite">
+                  <div className="flex items-center gap-2 pb-2.5 border-b border-graphite/10">
                     <span className="w-5 h-5 rounded-full bg-emerald-700 text-white flex items-center justify-center shrink-0">
                       <Check className="w-3.5 h-3.5 stroke-[3]" />
                     </span>
@@ -135,7 +135,7 @@ export const HonestyLabelSection: React.FC = () => {
 
                 {/* SUBCOL B: PARA LO QUE NO ESTÁ HECHA */}
                 <div className="space-y-4">
-                  <div className="flex items-center gap-2 pb-2 border-b-2 border-graphite">
+                  <div className="flex items-center gap-2 pb-2.5 border-b border-graphite/10">
                     <span className="w-5 h-5 rounded-full bg-graphite text-white flex items-center justify-center shrink-0">
                       <X className="w-3.5 h-3.5 stroke-[3]" />
                     </span>
@@ -167,10 +167,10 @@ export const HonestyLabelSection: React.FC = () => {
             {/* =========================================================================
                 MOBILE SEGMENTED CONTROL (< 768px)
                 ========================================================================= */}
-            <div className="block md:hidden pb-6 border-b-2 border-graphite">
+            <div className="block md:hidden pb-6 border-b border-graphite/10">
               
               {/* Mobile Visual Header Card */}
-              <div className="bg-graphite/[0.03] border border-graphite/15 rounded-2xl p-4 mb-4 text-center">
+              <div className="bg-white rounded-2xl p-4 mb-4 text-center shadow-premium-image">
                 <div className="flex items-center justify-between text-[9.5px] font-sans text-graphite/60 uppercase tracking-wider mb-2">
                   <span>MUESTRA VERIFICADA</span>
                   <span className="text-accent font-bold">SERIE 01 · 1200 W</span>
@@ -189,7 +189,7 @@ export const HonestyLabelSection: React.FC = () => {
               </div>
 
               {/* Segmented Tab Switcher */}
-              <div className="flex items-center gap-1.5 p-1 bg-graphite/5 border border-graphite/20 rounded-xl mb-4">
+              <div className="flex items-center gap-1.5 p-1 bg-graphite/[0.04] rounded-xl mb-4">
                 <button
                   type="button"
                   onClick={() => setMobileTab('does')}
@@ -244,7 +244,7 @@ export const HonestyLabelSection: React.FC = () => {
             </div>
 
             {/* Label Footer Note */}
-            <div className="mt-8 pt-4 border-t border-graphite/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] font-sans font-medium text-graphite/60">
+            <div className="mt-8 pt-4 border-t border-graphite/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] font-sans font-medium text-graphite/60">
               <span>COMPROMISO DE TRANSPARENCIA LISO</span>
               <span>{brandConfig.labClaimNote}</span>
             </div>

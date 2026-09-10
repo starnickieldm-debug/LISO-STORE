@@ -96,7 +96,7 @@ export const ThreeGesturesSection: React.FC = () => {
               }}
             >
               {/* Full-Bleed Portrait Photo Card (4:5 Ratio) */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:rounded-[28px] border border-graphite/15 bg-night-950 shadow-card group-hover:shadow-xl group-hover:border-graphite/30 transition-all duration-500 ease-mech-s">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:rounded-[28px] bg-night-950 shadow-premium-image hover:shadow-premium-hover transition-all duration-500 ease-mech-s">
                 <picture>
                   <source srcSet={stepImages[idx].webp} type="image/webp" />
                   <img 
@@ -169,7 +169,7 @@ export const ThreeGesturesSection: React.FC = () => {
                 className="mobile-snap-item w-[82vw] max-w-[310px] flex flex-col"
               >
                 {/* Full-Bleed Portrait Photo Card (4:5 Ratio) */}
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-graphite/15 bg-night-950 shadow-card">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-night-950 shadow-premium-image">
                   <picture>
                     <source srcSet={stepImages[idx].webp} type="image/webp" />
                     <img 
@@ -223,7 +223,7 @@ export const ThreeGesturesSection: React.FC = () => {
         {/* =========================================================================
             LABORATORY VERIFICATION HIGHLIGHT CARD (Result Claim + Official Seal)
             ========================================================================= */}
-        <div className="mt-8 sm:mt-10 bg-white border border-graphite/15 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:py-6 lg:px-8 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 relative overflow-hidden group">
+        <div className="mt-8 sm:mt-10 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:py-6 lg:px-8 shadow-premium hover:shadow-premium-hover flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 relative overflow-hidden group transition-all duration-300">
           {/* Left: Laboratory Note & Result Claim (Expanded Horizontally) */}
           <div className="space-y-2 flex-1 min-w-0">
             <div className="flex items-center gap-2">

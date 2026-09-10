@@ -18,7 +18,7 @@ export const FAQSection: React.FC = () => {
               LEFT COLUMN (Desktop Sticky Lifestyle Photographic Anchor)
               ========================================================================= */}
           <div className="lg:col-span-5 lg:sticky lg:top-24">
-            <div className="relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] xl:aspect-[4/5] w-full overflow-hidden rounded-3xl lg:rounded-[32px] border border-graphite/15 bg-night-950 shadow-card group">
+            <div className="relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] xl:aspect-[4/5] w-full overflow-hidden rounded-3xl lg:rounded-[32px] bg-night-950 shadow-premium-lg group">
               <picture>
                 <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
                 <img 

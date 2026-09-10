@@ -69,7 +69,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             {/* =========================================================================
                 TARJETA HERO PANORÁMICA: 01 · CONECTAR (12 Columnas, Split Horizontal)
                 ========================================================================= */}
-            <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xs relative group hover:border-graphite/20 transition-all duration-300">
+            <div className="bg-white rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-10 shadow-premium hover:shadow-premium-hover relative group transition-all duration-300">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
                 
                 {/* Columna Izquierda: Información y Pilares (5 Cols) */}
@@ -106,7 +106,7 @@ export const BenefitEvidenceSection: React.FC = () => {
 
                 {/* Columna Derecha: Slider Antes/Después Panorámico (7 Cols) */}
                 <div className="lg:col-span-7">
-                  <div className="rounded-2xl overflow-hidden border border-graphite/15 shadow-sm bg-night-950">
+                  <div className="rounded-2xl sm:rounded-[24px] overflow-hidden shadow-premium-image bg-night-950">
                     <BeforeAfterSlider 
                       beforeImage="/images/before-wrinkled-shirt.jpg"
                       afterImage="/images/after-smooth-shirt.jpg"
@@ -123,7 +123,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               
               {/* TARJETA 02: CONTROLAR (Temperatura en Vivo) */}
-              <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-7 lg:p-8 shadow-xs flex flex-col justify-between relative group hover:border-graphite/20 transition-all duration-300">
+              <div className="bg-white rounded-3xl p-6 sm:p-7 lg:p-8 shadow-premium hover:shadow-premium-hover flex flex-col justify-between relative group transition-all duration-300">
                 <div>
                   <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
                     02 · CONTROLAR
@@ -165,7 +165,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
 
                 {/* Macro Screen Stage */}
-                <div className="relative aspect-[16/9] w-full bg-night-950 border border-graphite/12 overflow-hidden rounded-2xl shadow-xs mt-2">
+                <div className="relative aspect-[16/9] w-full bg-night-950 overflow-hidden rounded-2xl shadow-premium-image mt-2">
                   <img 
                     src="/images/screen-temperature-display.jpg" 
                     alt="Pantalla digital LED de la plancha LISO mostrando temperatura en tiempo real" 
@@ -176,7 +176,7 @@ export const BenefitEvidenceSection: React.FC = () => {
               </div>
 
               {/* TARJETA 03: GUARDAR (Base Térmica de Apoyo) */}
-              <div className="bg-white/95 border border-graphite/12 rounded-3xl p-6 sm:p-7 lg:p-8 shadow-xs flex flex-col justify-between relative group hover:border-graphite/20 transition-all duration-300">
+              <div className="bg-white rounded-3xl p-6 sm:p-7 lg:p-8 shadow-premium hover:shadow-premium-hover flex flex-col justify-between relative group transition-all duration-300">
                 <div>
                   <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
                     03 · GUARDAR
@@ -202,7 +202,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
 
                 {/* Desk Dock Visual Stage */}
-                <div className="relative aspect-[16/9] w-full bg-night-950 border border-graphite/12 overflow-hidden rounded-2xl shadow-xs mt-2">
+                <div className="relative aspect-[16/9] w-full bg-night-950 overflow-hidden rounded-2xl shadow-premium-image mt-2">
                   <img 
                     src="/images/liso-desk-dock.jpg" 
                     alt="Plancha de vapor portátil LISO descansando en base de apoyo" 
@@ -245,7 +245,7 @@ export const BenefitEvidenceSection: React.FC = () => {
           </div>
 
           {/* Unified Moment Card */}
-          <div className="bg-white border border-graphite/12 p-5 rounded-2xl shadow-xs space-y-4 text-graphite">
+          <div className="bg-white p-5 rounded-2xl sm:rounded-3xl shadow-premium space-y-4 text-graphite">
             
             {/* Moment 01: Conectar */}
             {activeMoment === 0 && (
@@ -264,7 +264,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
 
                 {/* Before/After Interactive Slider (Clean) */}
-                <div className="rounded-xl overflow-hidden border border-graphite/15 shadow-sm bg-night-950 mt-3">
+                <div className="rounded-xl overflow-hidden shadow-premium-image bg-night-950 mt-3">
                   <BeforeAfterSlider 
                     beforeImage="/images/before-wrinkled-shirt.jpg"
                     afterImage="/images/after-smooth-shirt.jpg"
@@ -316,7 +316,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
 
                 {/* LED Screen Macro (Clean) */}
-                <div className="relative aspect-[16/10] w-full bg-night-950 border border-graphite/12 overflow-hidden rounded-xl shadow-xs">
+                <div className="relative aspect-[16/10] w-full bg-night-950 overflow-hidden rounded-xl shadow-premium-image">
                   <img 
                     src="/images/screen-temperature-display.jpg" 
                     alt="Pantalla digital LED de la plancha LISO" 
@@ -344,7 +344,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
 
                 {/* Desk Dock Visual (Clean) */}
-                <div className="relative aspect-[16/10] w-full bg-night-950 border border-graphite/12 overflow-hidden rounded-xl shadow-xs mt-2">
+                <div className="relative aspect-[16/10] w-full bg-night-950 overflow-hidden rounded-xl shadow-premium-image mt-2">
                   <img 
                     src="/images/liso-desk-dock.jpg" 
                     alt="Plancha LISO descansando en base de apoyo resistente al calor" 
