@@ -165,8 +165,8 @@ export const comparisonRows: ComparisonRow[] = [
     steamerHighlight: "1–2 minutos",
     cheapSteamer: "Variable según potencia",
     steamerVerdict: "neutral",
-    lisoHighlight: "Pocos segundos",
-    liso: "Enchufas y alisas directo en el gancho",
+    lisoHighlight: "Lista en 15 segundos",
+    liso: "Lista en 15 segundos",
     lisoVerdict: "good"
   },
   {
@@ -177,8 +177,8 @@ export const comparisonRows: ComparisonRow[] = [
     steamerHighlight: "Solo en vertical",
     cheapSteamer: "Difícil apoyo en horizontal",
     steamerVerdict: "neutral",
-    lisoHighlight: "Cero tabla",
-    liso: "Directo en el gancho o sobre la cama (placa 90°)",
+    lisoHighlight: "Sin tabla",
+    liso: "Sin tabla (Plancha en el gancho)",
     lisoVerdict: "good"
   },
   {
@@ -189,8 +189,8 @@ export const comparisonRows: ComparisonRow[] = [
     steamerHighlight: "Insuficiente",
     cheapSteamer: "Solo vapor; arrugas marcadas persisten",
     steamerVerdict: "bad",
-    lisoHighlight: "Placa caliente 150 °C",
-    liso: "Alisa y prensa cuellos con precisión",
+    lisoHighlight: "Acabado perfecto 150 °C",
+    liso: "Acabado perfecto a 150 °C",
     lisoVerdict: "good"
   },
   {
@@ -201,8 +201,8 @@ export const comparisonRows: ComparisonRow[] = [
     steamerHighlight: "Gotea al inclinarlo",
     cheapSteamer: "Condensa y moja la prenda",
     steamerVerdict: "bad",
-    lisoHighlight: "Cero goteo",
-    liso: "Vapor seco continuo en cualquier ángulo",
+    lisoHighlight: "100% Antigoteo",
+    liso: "100% Antigoteo (Cero manchas)",
     lisoVerdict: "good"
   },
   {
@@ -213,8 +213,8 @@ export const comparisonRows: ComparisonRow[] = [
     steamerHighlight: "Ocupa espacio medio",
     cheapSteamer: "Cuerpo voluminoso",
     steamerVerdict: "neutral",
-    lisoHighlight: "Mínimo espacio",
-    liso: "Cabe en tu mesa de noche o gaveta",
+    lisoHighlight: "Cajón o maleta",
+    liso: "Cabe en cualquier cajón o maleta",
     lisoVerdict: "good"
   },
   {
@@ -225,9 +225,9 @@ export const comparisonRows: ComparisonRow[] = [
     steamerHighlight: "No recomendado",
     cheapSteamer: "Se recalienta y cansa la mano",
     steamerVerdict: "bad",
-    lisoHighlight: "No (hecha para 2–3)",
-    liso: "Pensada para el retoque rápido diario",
-    lisoVerdict: "neutral"
+    lisoHighlight: "3 minutos",
+    liso: "Listos en 3 minutos antes de salir",
+    lisoVerdict: "good"
   }
 ];
 

@@ -16,7 +16,7 @@ interface LiquidComparisonRow {
 export const liquidComparisonRows: LiquidComparisonRow[] = [
   {
     feature: "Tiempo de inicio",
-    liso: "Pocos segundos",
+    liso: "Lista en 15 segundos",
     traditional: "5–10 minutos",
     traditionalAlert: true,
     steamer: "1–2 minutos",
@@ -24,7 +24,7 @@ export const liquidComparisonRows: LiquidComparisonRow[] = [
   },
   {
     feature: "¿Requiere tabla?",
-    liso: "Cero tabla",
+    liso: "Sin tabla (Plancha en el gancho)",
     traditional: "Obligatoria",
     traditionalAlert: true,
     steamer: "Solo en vertical",
@@ -32,7 +32,7 @@ export const liquidComparisonRows: LiquidComparisonRow[] = [
   },
   {
     feature: "Cuellos y puños",
-    liso: "Placa a 150 °C",
+    liso: "Acabado perfecto a 150 °C",
     traditional: "Muy buena",
     traditionalAlert: false,
     steamer: "Insuficiente",
@@ -40,7 +40,7 @@ export const liquidComparisonRows: LiquidComparisonRow[] = [
   },
   {
     feature: "Control antigoteo",
-    liso: "Cero goteo",
+    liso: "100% Antigoteo (Cero manchas)",
     traditional: "Riesgo de gotas",
     traditionalAlert: false,
     steamer: "Gotea al inclinar",
@@ -48,7 +48,7 @@ export const liquidComparisonRows: LiquidComparisonRow[] = [
   },
   {
     feature: "Espacio y guardado",
-    liso: "Mínimo espacio",
+    liso: "Cabe en cualquier cajón o maleta",
     traditional: "Ocupa un clóset",
     traditionalAlert: true,
     steamer: "Cuerpo voluminoso",
@@ -56,7 +56,7 @@ export const liquidComparisonRows: LiquidComparisonRow[] = [
   },
   {
     feature: "Uso ideal",
-    liso: "1 a 3 prendas rápido",
+    liso: "Listos en 3 minutos antes de salir",
     traditional: "Tandas grandes",
     traditionalAlert: false,
     steamer: "No recomendado",
@@ -123,7 +123,7 @@ export const ComparisonSection: React.FC = () => {
 
             <div className="max-w-lg lg:text-right">
               <p className="text-sm sm:text-[15px] font-sans text-graphite/75 leading-relaxed">
-                Depende de lo que quieras hacer. Para una pila de ropa de toda la semana, hay herramientas mejores. Para arreglarte rápido en 5 minutos antes de salir, <strong className="font-semibold text-graphite">LISO juega en otra liga</strong>.
+                Olvídate de perder tiempo planchando. <strong className="font-semibold text-graphite">LISO®</strong> está lista para usar en segundos y dejarte impecable antes de salir.
               </p>
             </div>
           </div>
