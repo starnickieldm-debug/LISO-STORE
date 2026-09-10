@@ -4,7 +4,7 @@ import { brandConfig, productSpecs } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { CTAButton } from '../ui/CTAButton';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
-import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2 } from 'lucide-react';
+import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2, Minus, Plus } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { useShopifyCheckout } from '../../hooks/useShopifyCheckout';
 import { LEGAL_SELLER } from '../../config/legalInfo';
@@ -24,9 +24,23 @@ export const OfferSection: React.FC = () => {
     colorOptions,
     selectedColor,
     setSelectedColor,
+    quantity,
+    setQuantity,
     initiateCheckout,
     clearError,
   } = useShopifyCheckout();
+
+  // Precios dinámicos calculados según la cantidad seleccionada
+  const unitPrice = currentMarket.price;
+  const unitCompareAtPrice = currentMarket.compareAtPrice || 250000;
+  const totalPrice = unitPrice * quantity;
+  const totalCompareAtPrice = unitCompareAtPrice * quantity;
+  const totalSavings = totalCompareAtPrice - totalPrice;
+
+  const formattedTotalPrice = `$${totalPrice.toLocaleString('es-CO')}`;
+  const formattedTotalCompareAt = `$${totalCompareAtPrice.toLocaleString('es-CO')}`;
+  const formattedSavings = `$${totalSavings.toLocaleString('es-CO')}`;
+
 
   return (
     <section 
@@ -77,18 +91,27 @@ export const OfferSection: React.FC = () => {
                 {currentMarket.formattedCompareAtPrice && (
                   <div className="flex items-center gap-2 text-xs font-sans text-bone/50 tracking-wider">
                     <span>Antes: </span>
-                    <span className="line-through decoration-bone/40 font-medium">{currentMarket.formattedCompareAtPrice}</span>
+                    <span className="line-through decoration-bone/40 font-medium">
+                      {quantity > 1 ? formattedTotalCompareAt : currentMarket.formattedCompareAtPrice}
+                    </span>
                     <span className="px-1.5 py-0.5 bg-accent/20 border border-accent/40 text-accent font-bold text-[10px] rounded">
-                      AHORRA
+                      AHORRA {quantity > 1 ? formattedSavings : '24%'}
                     </span>
                   </div>
                 )}
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-sm font-sans text-bone/60 font-medium">Ahora:</span>
-                    <span className="text-4xl sm:text-5xl font-display font-bold text-bone tracking-tight">
-                      {currentMarket.formattedPrice}
+                    <span className="text-sm font-sans text-bone/60 font-medium">
+                      {quantity > 1 ? `Total (${quantity} unds):` : 'Ahora:'}
                     </span>
+                    <span className="text-4xl sm:text-5xl font-display font-bold text-bone tracking-tight">
+                      {quantity > 1 ? formattedTotalPrice : currentMarket.formattedPrice}
+                    </span>
+                    {quantity > 1 && (
+                      <span className="text-xs text-bone/50 font-sans">
+                        ({currentMarket.formattedPrice} c/u)
+                      </span>
+                    )}
                   </div>
                   <span className="text-xs font-sans uppercase tracking-wider text-accent font-semibold">
                     Precio final · {currentMarket.shippingLabel}
@@ -187,6 +210,70 @@ export const OfferSection: React.FC = () => {
                 </div>
               </div>
 
+              {/* Selector de Cantidad */}
+              <div className="space-y-2 pt-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold">
+                    CANTIDAD
+                  </span>
+                  <span className="text-[11px] font-sans text-accent font-medium">
+                    {quantity > 1 ? `${quantity} unidades seleccionadas` : '1 unidad'}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between p-3 bg-night-950/80 border border-white/15 rounded-xl">
+                  {/* Stepper Controls */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center border border-white/20 bg-white/5 rounded-lg overflow-hidden shadow-inner">
+                      <button
+                        type="button"
+                        onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
+                        disabled={quantity <= 1 || isCheckingOut}
+                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-bone hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                        aria-label="Disminuir cantidad"
+                      >
+                        <Minus className="w-4 h-4" />
+                      </button>
+
+                      <span className="w-10 sm:w-12 text-center font-display font-bold text-base sm:text-lg text-white select-none">
+                        {quantity}
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() => setQuantity(prev => Math.min(10, prev + 1))}
+                        disabled={quantity >= 10 || isCheckingOut}
+                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-bone hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                        aria-label="Aumentar cantidad"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-xs sm:text-sm font-sans font-bold text-white">
+                        {quantity === 1 ? '1 plancha LISO' : `${quantity} planchas LISO`}
+                      </span>
+                      <span className="text-[10.5px] font-sans text-bone/50 truncate">
+                        {quantity >= 2 ? 'Garantía individual para c/u' : 'Lista para despacho inmediato'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Subtotal */}
+                  <div className="text-right pl-2 flex-shrink-0">
+                    {quantity > 1 && (
+                      <span className="block text-[11px] font-sans text-bone/50 line-through">
+                        {formattedTotalCompareAt}
+                      </span>
+                    )}
+                    <span className="text-sm sm:text-base font-display font-bold text-bone">
+                      {formattedTotalPrice}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
               {/* Enchufe Compatible para Colombia */}
               <div className="space-y-2 pt-1">
                 <div className="p-3 bg-night-950/80 border border-white/10 flex items-center justify-between gap-4 rounded-xl">
@@ -236,7 +323,7 @@ export const OfferSection: React.FC = () => {
                   size="large"
                   fullWidth
                   disabled={isCheckingOut}
-                  onClick={() => initiateCheckout(selectedColor, 'CO')}
+                  onClick={() => initiateCheckout(selectedColor, quantity, 'CO')}
                 >
                   {isCheckingOut ? (
                     <span className="flex items-center gap-2">
@@ -244,7 +331,7 @@ export const OfferSection: React.FC = () => {
                       <span>Preparando pedido...</span>
                     </span>
                   ) : (
-                    `Pedir LISO en ${selectedColor} — ${currentMarket.formattedPrice}`
+                    `Pedir ${quantity > 1 ? `${quantity} unidades` : 'LISO'} en ${selectedColor} — ${formattedTotalPrice}`
                   )}
                 </CTAButton>
 

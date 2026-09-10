@@ -211,17 +211,20 @@ mutation createCart($input: CartInput!) {
  */
 export async function createShopifyCart(
   variantId: string,
+  quantity: number = 1,
   countryCode?: string
 ): Promise<{ checkoutUrl: string; cartId: string }> {
   interface CartMutationResponse {
     cartCreate: CartCreatePayload;
   }
 
+  const safeQuantity = Math.max(1, Math.floor(quantity || 1));
+
   const input: Record<string, any> = {
     lines: [
       {
         merchandiseId: variantId,
-        quantity: 1,
+        quantity: safeQuantity,
       },
     ],
   };

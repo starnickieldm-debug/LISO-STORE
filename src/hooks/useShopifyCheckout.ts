@@ -10,7 +10,9 @@ export interface UseShopifyCheckoutResult {
   colorOptions: string[];
   selectedColor: string;
   setSelectedColor: (color: string) => void;
-  initiateCheckout: (colorToBuy?: string, countryCode?: string) => Promise<void>;
+  quantity: number;
+  setQuantity: React.Dispatch<React.SetStateAction<number>>;
+  initiateCheckout: (colorToBuy?: string, quantityToBuy?: number, countryCode?: string) => Promise<void>;
   clearError: () => void;
 }
 
@@ -21,6 +23,7 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
   const [error, setError] = useState<string | null>(null);
   const [colorOptions, setColorOptions] = useState<string[]>(['Negro', 'Gris']);
   const [selectedColor, setSelectedColor] = useState<string>('Negro');
+  const [quantity, setQuantity] = useState<number>(1);
   const productRef = useRef<ShopifyProduct | null>(null);
 
   useEffect(() => {
@@ -70,11 +73,28 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
   }, []);
 
   const initiateCheckout = useCallback(
-    async (colorToBuy?: string, countryCode: string = 'CO') => {
+    async (
+      colorToBuy?: string,
+      quantityOrCountry?: number | string,
+      countryCodeParam?: string
+    ) => {
       setError(null);
       setIsCheckingOut(true);
 
       const targetColor = colorToBuy || selectedColor;
+      let targetQty = quantity;
+      let countryCode = 'CO';
+
+      if (typeof quantityOrCountry === 'number') {
+        targetQty = quantityOrCountry;
+        if (typeof countryCodeParam === 'string') {
+          countryCode = countryCodeParam;
+        }
+      } else if (typeof quantityOrCountry === 'string') {
+        countryCode = quantityOrCountry;
+      } else if (typeof countryCodeParam === 'string') {
+        countryCode = countryCodeParam;
+      }
 
       try {
         // Obtener el producto si aún no está en memoria
@@ -101,8 +121,8 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
           );
         }
 
-        // Crear carrito moderno con Storefront Cart API 2026-07 (exclusivo para Colombia CO)
-        const { checkoutUrl } = await createShopifyCart(targetVariant.id, countryCode);
+        // Crear carrito moderno con Storefront Cart API 2026-07 (con cantidad y país)
+        const { checkoutUrl } = await createShopifyCart(targetVariant.id, targetQty, countryCode);
 
         // Redirigir al checkout oficial de Shopify
         window.location.href = checkoutUrl;
@@ -112,7 +132,7 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
         setIsCheckingOut(false);
       }
     },
-    [product, selectedColor]
+    [product, selectedColor, quantity]
   );
 
   return {
@@ -123,7 +143,10 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
     colorOptions,
     selectedColor,
     setSelectedColor,
+    quantity,
+    setQuantity,
     initiateCheckout,
     clearError,
   };
 }
+
