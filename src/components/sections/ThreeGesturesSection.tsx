@@ -63,24 +63,18 @@ export const ThreeGesturesSection: React.FC = () => {
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* =========================================================================
-            ASYMMETRIC EDITORIAL HEADER (Reference Formula: Problem + 3 Frictions + Pill)
+            ASYMMETRIC EDITORIAL HEADER (Reference Formula: Problem + 3 Frictions + Solution)
             ========================================================================= */}
         <div className="max-w-3xl mb-10 sm:mb-12 lg:mb-16">
-          {/* Overline step counter */}
-          <div className="flex items-center gap-2 mb-2.5 font-mono text-xs uppercase tracking-widest text-accent font-semibold">
-            <span>[02]</span>
-            <span>GESTOS SENCILLOS</span>
-          </div>
-
           {/* Main Problem Heading */}
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.18]">
             Planchar da pereza por 3 razones:
           </h2>
 
-          {/* Subheading Frictions + Inline Solution Pill */}
-          <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-center gap-x-3 gap-y-2.5 text-base sm:text-lg md:text-xl lg:text-2xl text-graphite/70 font-normal">
-            <span>Armar la tabla, esperar que caliente, el peso.*</span>
-            <span className="inline-flex items-center px-3.5 py-1 rounded-full border border-graphite/30 bg-white/90 backdrop-blur-sm text-graphite text-xs sm:text-sm font-bold tracking-wide shadow-sm align-middle">
+          {/* Subheading Frictions + Floating Solution Text */}
+          <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-baseline gap-x-3 gap-y-1.5 text-base sm:text-lg md:text-xl lg:text-2xl text-graphite/70 font-normal">
+            <span>Armar la tabla, esperar que caliente, y el peso de la plancha.</span>
+            <span className="font-sans font-bold text-lg sm:text-xl md:text-2xl lg:text-[1.65rem] text-graphite tracking-tight">
               LISO resolvió las 3
             </span>
           </div>
@@ -234,7 +228,7 @@ export const ThreeGesturesSection: React.FC = () => {
           <div className="space-y-1.5 max-w-xl">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-accent font-semibold">
+              <span className="text-[11px] sm:text-xs font-sans uppercase tracking-[0.14em] text-accent font-bold">
                 RESULTADO COMPROBADO EN LABORATORIO
               </span>
             </div>
@@ -246,14 +240,14 @@ export const ThreeGesturesSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Right: Rotating Seal Stamp */}
+          {/* Right: Rotating Seal Stamp (Enlarged) */}
           <div className="shrink-0 self-end sm:self-center">
             <RotatingGuaranteeStamp 
-              size={92}
+              size={120}
               circularText="★ 2 A 3 MIN POR PRENDA ★ CERO TABLA ★"
               centerText="1200 W"
               textColor="text-graphite"
-              customIcon={<Sparkles className="w-4 h-4 text-accent stroke-[2.2]" />}
+              customIcon={<Sparkles className="w-5 h-5 text-accent stroke-[2.2]" />}
             />
           </div>
         </div>
