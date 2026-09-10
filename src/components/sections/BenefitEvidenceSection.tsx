@@ -65,253 +65,216 @@ export const BenefitEvidenceSection: React.FC = () => {
         </div>
 
         {/* =========================================================================
-            DESKTOP 3-MOMENT BENTO STORYLINE (>= 1024px) — High-Conversion Layout
+            DESKTOP & TABLET: ASYMMETRIC BENTO GRID (>= 768px)
+            Condensed high-impact single-screen layout (~600px height)
             ========================================================================= */}
-        <div className="hidden lg:block space-y-8">
-          
-          {/* MOMENTO 01: CONECTAR */}
-          <Reveal direction="up" duration={700}>
-            <div className="relative bg-night-900/85 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl overflow-hidden group hover:border-white/20 transition-all duration-300">
+        <Reveal direction="up" duration={700} className="hidden md:block">
+          <div className="grid grid-cols-12 gap-6 items-stretch">
+            
+            {/* TARJETA HERO IZQUIERDA: 01 · ALISA DIRECTO EN EL GANCHO (7 Cols Desktop / 12 Cols Tablet) */}
+            <div className="col-span-12 lg:col-span-7 bg-night-900/85 backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl overflow-hidden flex flex-col justify-between relative group hover:border-white/20 transition-all duration-300">
               {/* Soft ambient lighting */}
-              <div className="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-              
-              <div className="grid grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-center">
-                {/* Columna Narrativa (5 cols) */}
-                <div className="col-span-5 space-y-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase">
-                      01 · CONECTAR
-                    </span>
-                    <span className="text-white/20">|</span>
-                    <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase">
-                      1200 W · RÁPIDO · 150 °C
-                    </span>
-                  </div>
+              <div className="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl group-hover:bg-accent/15 transition-all duration-500" />
 
-                  <h3 className="font-display text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-bone leading-[1.18] tracking-tight">
-                    La conectas y empiezas en segundos.
-                  </h3>
-
-                  <p className="text-base text-bone/75 leading-relaxed font-normal">
-                    Con LISO puedes alisar directamente en el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
-                  </p>
-
-                  <div className="pt-2 flex flex-wrap gap-2 text-xs font-sans text-bone/70">
-                    <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-md font-medium flex items-center gap-1.5">
-                      <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
-                      Sin tabla de planchar
-                    </span>
-                    <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-md font-medium flex items-center gap-1.5">
-                      <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
-                      Calentamiento rápido
-                    </span>
-                  </div>
+              <div>
+                {/* Header Moment 01 */}
+                <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                  <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    01 · CONECTAR
+                  </span>
+                  <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10">
+                    CALIENTA EN 3 SEG · 150 °C
+                  </span>
                 </div>
 
-                {/* Columna Visual: Comparador Interactivo (7 cols) */}
-                <div className="col-span-7">
-                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-dark-card bg-night-950">
-                    <BeforeAfterSlider 
-                      beforeImage="/images/before-wrinkled-shirt.jpg"
-                      afterImage="/images/after-smooth-shirt.jpg"
-                    />
-                  </div>
+                <h3 className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold text-bone leading-[1.2] tracking-tight mt-4">
+                  La conectas y alisas directo en el gancho.
+                </h3>
+
+                <p className="text-sm sm:text-base text-bone/75 leading-relaxed mt-2.5 max-w-xl font-normal">
+                  Olvídate de sacar la tabla pesada y de esperar que caliente. Su placa giratoria y vapor continuo de 1200 W eliminan arrugas rebeldes en minutos.
+                </p>
+
+                {/* Key feature pills */}
+                <div className="flex flex-wrap gap-2 mt-4">
+                  <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-xs font-sans text-bone/85 font-medium flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
+                    Cero tabla de planchar
+                  </span>
+                  <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-xs font-sans text-bone/85 font-medium flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
+                    Placa giratoria 90°
+                  </span>
+                  <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-xs font-sans text-bone/85 font-medium flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
+                    Ideal camisas y lino
+                  </span>
+                </div>
+              </div>
+
+              {/* Before/After Interactive Centerpiece */}
+              <div className="mt-6 pt-5 border-t border-white/10">
+                <div className="rounded-2xl overflow-hidden border border-white/15 shadow-dark-card bg-night-950">
+                  <BeforeAfterSlider 
+                    beforeImage="/images/before-wrinkled-shirt.jpg"
+                    afterImage="/images/after-smooth-shirt.jpg"
+                  />
+                </div>
+                <div className="mt-2.5 flex items-center justify-between text-[11px] font-sans text-bone/50 px-1">
+                  <span>← Desliza el separador para ver el antes y después</span>
+                  <span className="text-accent font-medium">Prueba real de resultado</span>
                 </div>
               </div>
             </div>
-          </Reveal>
 
-          {/* Conector Editorial 01 → 02 */}
-          <div className="flex flex-col items-center py-1" aria-hidden="true">
-            <div className="w-[1px] h-6 bg-gradient-to-b from-white/15 to-accent/60" />
-            <div className="w-2.5 h-2.5 rounded-full bg-accent ring-4 ring-accent/20" />
-            <div className="w-[1px] h-6 bg-gradient-to-b from-accent/60 to-white/15" />
-          </div>
+            {/* COLUMNA DERECHA: 2 TARJETAS APILADAS (5 Cols Desktop / 2 cols en Tablet) */}
+            <div className="col-span-12 lg:col-span-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
+              
+              {/* TARJETA SUPERIOR DERECHA: 02 · CONTROLAR (Temperatura en Vivo) */}
+              <div className="bg-night-900/85 backdrop-blur-sm border border-white/10 rounded-3xl p-6 lg:p-7 shadow-xl overflow-hidden flex flex-col justify-between relative group hover:border-white/20 transition-all duration-300">
+                <div className="pointer-events-none absolute -left-16 -bottom-16 w-48 h-48 bg-accent/5 rounded-full blur-2xl" />
 
-          {/* MOMENTO 02: CONTROLAR (Con simulador de temperatura interactivo) */}
-          <Reveal direction="up" duration={700}>
-            <div className="relative bg-night-900/85 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl overflow-hidden group hover:border-white/20 transition-all duration-300">
-              {/* Soft ambient lighting */}
-              <div className="pointer-events-none absolute -left-20 -bottom-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-
-              <div className="grid grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-center">
-                {/* Columna Narrativa (5 cols) */}
-                <div className="col-span-5 space-y-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase">
+                <div>
+                  <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
+                    <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase flex items-center gap-1.5">
+                      <Flame className="w-3.5 h-3.5 text-accent" />
                       02 · CONTROLAR
                     </span>
-                    <span className="text-white/20">|</span>
-                    <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase">
-                      2 NIVELES DE VAPOR · MODO SECO
+                    <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
+                      PANTALLA DIGITAL LED
                     </span>
                   </div>
 
-                  <h3 className="font-display text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-bone leading-[1.18] tracking-tight">
-                    Tienes la temperatura a la vista y el vapor bajo control.
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-bone leading-tight tracking-tight mt-3">
+                    Temperatura visible y vapor bajo control.
                   </h3>
 
-                  <p className="text-base text-bone/75 leading-relaxed font-normal">
-                    Elige la temperatura que necesitas y ajusta el vapor según la prenda que estés tratando. Así sabes exactamente cómo la estás cuidando.
+                  <p className="text-xs sm:text-sm text-bone/75 leading-relaxed mt-1.5">
+                    Ajusta los grados según el tejido para cuidar tus prendas sensibles sin riesgo de quemadura.
                   </p>
 
-                  {/* Interactive Fabric Mode Tabs */}
-                  <div className="pt-2 space-y-2">
-                    <span className="text-[11px] font-sans uppercase tracking-wider text-bone/50 font-semibold block">
-                      ELIGE TU TIPO DE PRENDA:
-                    </span>
-                    <div className="grid grid-cols-3 gap-2">
-                      {TEMP_MODES.map((mode, idx) => {
-                        const isSelected = idx === selectedTempMode;
-                        return (
-                          <button
-                            key={mode.level}
-                            type="button"
-                            onClick={() => setSelectedTempMode(idx)}
-                            className={`p-2.5 text-left rounded-xl border transition-all cursor-pointer ${
-                              isSelected 
-                                ? 'bg-white/10 border-accent shadow-sm ring-1 ring-accent' 
-                                : 'bg-white/[0.02] border-white/10 hover:border-white/25 hover:bg-white/[0.04]'
-                            }`}
-                          >
-                            <span className={`text-xs font-sans font-bold block ${isSelected ? 'text-white' : 'text-bone/70'}`}>
-                              {mode.level}
-                            </span>
-                            <span className="text-[11px] font-mono text-accent font-semibold block mt-0.5">
-                              {mode.temp}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Active Mode Explanation Card */}
-                  <div className="p-3.5 bg-white/[0.03] border border-white/[0.08] rounded-xl space-y-1">
-                    <div className="flex items-center justify-between text-xs font-sans font-semibold text-bone">
-                      <span>{TEMP_MODES[selectedTempMode].fabric}</span>
-                      <span className="text-[10.5px] text-accent font-mono">{TEMP_MODES[selectedTempMode].steam}</span>
-                    </div>
-                    <p className="text-xs text-bone/65 leading-relaxed">
-                      {TEMP_MODES[selectedTempMode].desc}
-                    </p>
+                  {/* Mode Selector Tabs */}
+                  <div className="grid grid-cols-3 gap-1.5 mt-3.5">
+                    {TEMP_MODES.map((mode, idx) => {
+                      const isSelected = idx === selectedTempMode;
+                      return (
+                        <button
+                          key={mode.level}
+                          type="button"
+                          onClick={() => setSelectedTempMode(idx)}
+                          className={`p-2 text-left rounded-xl border transition-all cursor-pointer ${
+                            isSelected 
+                              ? 'bg-white/10 border-accent shadow-sm ring-1 ring-accent' 
+                              : 'bg-white/[0.02] border-white/10 hover:border-white/25 hover:bg-white/[0.04]'
+                          }`}
+                        >
+                          <span className={`text-[11px] font-sans font-bold block ${isSelected ? 'text-white' : 'text-bone/70'}`}>
+                            {mode.level}
+                          </span>
+                          <span className="text-[10px] font-mono text-accent font-semibold block mt-0.5">
+                            {mode.temp}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
-                {/* Columna Visual: Studio Macro Display Stage (7 cols) */}
-                <div className="col-span-7">
-                  <div className="relative aspect-[16/10] w-full bg-night-950 border border-white/15 overflow-hidden rounded-2xl shadow-dark-card group">
+                {/* Macro Screen Stage */}
+                <div className="mt-4 pt-3 border-t border-white/10">
+                  <div className="relative aspect-[16/8] sm:aspect-[16/7] w-full bg-night-950 border border-white/15 overflow-hidden rounded-xl shadow-md group/screen">
                     <img 
                       src="/images/screen-temperature-display.jpg" 
                       alt="Pantalla digital LED de la plancha LISO mostrando temperatura en tiempo real" 
-                      className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-mech-s"
+                      className="w-full h-full object-cover object-center group-hover/screen:scale-105 transition-transform duration-500 ease-mech-s"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
 
-                    {/* Dynamic Floating Badges over the Macro Display */}
-                    <div className="absolute top-4 left-4 px-3.5 py-1.5 bg-black/80 backdrop-blur-md border border-white/20 rounded-full text-xs font-mono text-bone flex items-center gap-2 shadow-lg">
-                      <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                      <span>TEMPERATURA ACTIVA: <strong className="text-accent">{TEMP_MODES[selectedTempMode].temp}</strong></span>
+                    {/* Active Temperature Badge */}
+                    <div className="absolute top-2.5 left-2.5 px-2.5 py-1 bg-black/80 backdrop-blur-md border border-white/20 rounded-full text-[10.5px] font-mono text-bone flex items-center gap-1.5 shadow-lg">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                      <span>ACTIVA: <strong className="text-accent">{TEMP_MODES[selectedTempMode].temp}</strong></span>
                     </div>
 
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                      <span className="px-3 py-1.5 bg-black/75 backdrop-blur-md border border-white/15 rounded-lg text-xs font-sans text-bone/90 font-medium">
-                        ✓ {TEMP_MODES[selectedTempMode].status}
-                      </span>
-                      <span className="px-3 py-1.5 bg-black/75 backdrop-blur-md border border-white/15 rounded-lg text-[11px] font-sans text-bone/60">
-                        Pantalla digital LED en vivo
-                      </span>
+                    <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10.5px] font-sans text-bone/90 pointer-events-none">
+                      <span className="truncate pr-2 font-medium">✓ {TEMP_MODES[selectedTempMode].status}</span>
+                      <span className="text-bone/50 shrink-0 font-mono text-[10px]">{TEMP_MODES[selectedTempMode].steam}</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Reveal>
 
-          {/* Conector Editorial 02 → 03 */}
-          <div className="flex flex-col items-center py-1" aria-hidden="true">
-            <div className="w-[1px] h-6 bg-gradient-to-b from-white/15 to-accent/60" />
-            <div className="w-2.5 h-2.5 rounded-full bg-accent ring-4 ring-accent/20" />
-            <div className="w-[1px] h-6 bg-gradient-to-b from-accent/60 to-white/15" />
-          </div>
+              {/* TARJETA INFERIOR DERECHA: 03 · GUARDAR (Base de Apoyo) */}
+              <div className="bg-night-900/85 backdrop-blur-sm border border-white/10 rounded-3xl p-6 lg:p-7 shadow-xl overflow-hidden flex flex-col justify-between relative group hover:border-white/20 transition-all duration-300">
+                <div className="pointer-events-none absolute -right-16 -bottom-16 w-48 h-48 bg-accent/5 rounded-full blur-2xl" />
 
-          {/* MOMENTO 03: GUARDAR */}
-          <Reveal direction="up" duration={700}>
-            <div className="relative bg-night-900/85 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl overflow-hidden group hover:border-white/20 transition-all duration-300">
-              {/* Soft ambient lighting */}
-              <div className="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-
-              <div className="grid grid-cols-12 gap-8 lg:gap-12 xl:gap-14 items-center">
-                {/* Columna Narrativa (5 cols) */}
-                <div className="col-span-5 space-y-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase">
+                <div>
+                  <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
+                    <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-accent" />
                       03 · GUARDAR
                     </span>
-                    <span className="text-white/20">|</span>
-                    <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase">
-                      100 ML ≈ 5 MIN ≈ 2–3 PRENDAS
+                    <span className="text-[11px] font-sans font-semibold tracking-wider text-bone/50 uppercase px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
+                      BASE TÉRMICA INCLUIDA
                     </span>
                   </div>
 
-                  <h3 className="font-display text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-bone leading-[1.18] tracking-tight">
-                    La dejas a mano y está lista cuando la vuelves a necesitar.
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-bone leading-tight tracking-tight mt-3">
+                    Pósala caliente entre prenda y prenda.
                   </h3>
 
-                  <p className="text-base text-bone/75 leading-relaxed font-normal">
-                    Su base de apoyo te permite guardarla fácilmente después de usarla, sin tener que desmontar nada ni buscarle un lugar especial.
+                  <p className="text-xs sm:text-sm text-bone/75 leading-relaxed mt-1.5">
+                    Su base de apoyo aislante te permite posarla caliente sobre cualquier mesa sin riesgo y tenerla siempre a mano en tu clóset.
                   </p>
-
-                  <div className="pt-2 flex flex-wrap gap-2 text-xs font-sans text-bone/70">
-                    <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-md font-medium flex items-center gap-1.5">
-                      <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
-                      Base de apoyo resistente al calor
-                    </span>
-                    <span className="px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-md font-medium flex items-center gap-1.5">
-                      <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
-                      Siempre a mano en tu clóset o mesa de noche
-                    </span>
-                  </div>
                 </div>
 
-                {/* Columna Visual: Hábitat del producto (7 cols) */}
-                <div className="col-span-7">
-                  <div className="relative aspect-[16/10] w-full bg-night-950 border border-white/15 overflow-hidden rounded-2xl shadow-dark-card group">
+                {/* Desk Dock Visual Stage */}
+                <div className="mt-4 pt-3 border-t border-white/10 space-y-3">
+                  <div className="relative aspect-[16/8] sm:aspect-[16/7] w-full bg-night-950 border border-white/15 overflow-hidden rounded-xl shadow-md group/dock">
                     <img 
                       src="/images/liso-desk-dock.jpg" 
-                      alt="Plancha de vapor portátil LISO con base de apoyo y vaso dosificador" 
-                      className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-mech-s"
+                      alt="Plancha de vapor portátil LISO descansando en base de apoyo" 
+                      className="w-full h-full object-cover object-center group-hover/dock:scale-105 transition-transform duration-500 ease-mech-s"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent pointer-events-none" />
 
-                    {/* Floating Specs */}
-                    <div className="absolute top-4 left-4 px-3.5 py-1.5 bg-black/80 backdrop-blur-md border border-white/20 rounded-full text-xs font-sans text-bone flex items-center gap-2 shadow-lg">
-                      <span className="w-2 h-2 rounded-full bg-accent" />
-                      <span>BASE TÉRMICA INCLUIDA</span>
+                    <div className="absolute top-2.5 left-2.5 px-2.5 py-1 bg-black/80 backdrop-blur-md border border-white/20 rounded-full text-[10.5px] font-sans text-bone flex items-center gap-1.5 shadow-lg">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      <span>BASE RESISTENTE AL CALOR</span>
                     </div>
 
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-sans text-bone/90 pointer-events-none">
-                      <span className="px-3 py-1.5 bg-black/75 backdrop-blur-md border border-white/15 rounded-lg">
-                        ✓ Posarla caliente con total seguridad
-                      </span>
-                      <span className="px-3 py-1.5 bg-black/75 backdrop-blur-md border border-white/15 rounded-lg text-bone/60">
-                        Ocupa mínimo espacio
-                      </span>
+                    <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10.5px] font-sans text-bone/90 pointer-events-none">
+                      <span className="font-medium">✓ Apoyo seguro sin quemar muebles</span>
+                      <span className="text-bone/50">Mínimo espacio</span>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
 
-        </div>
+                  {/* Micro Specs Footer */}
+                  <div className="flex items-center justify-between text-xs font-sans text-bone/70 pt-1">
+                    <span className="flex items-center gap-1.5 font-medium">
+                      <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
+                      100 ml (2–3 prendas)
+                    </span>
+                    <span className="text-bone/50 font-mono text-[11px]">
+                      Cable 1.8 m directo
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </Reveal>
 
         {/* =========================================================================
-            MOBILE 3-MOMENT NARRATIVE STAGE (< 1024px) — 100% Mobile-First Experience
+            MOBILE 3-MOMENT NARRATIVE STAGE (< 768px) — 100% Mobile-First Experience
             ========================================================================= */}
-        <div className="block lg:hidden">
+        <div className="block md:hidden">
           
           {/* Segmented Controller Tab Bar */}
           <div className="flex items-center gap-1.5 p-1 bg-white/[0.04] border border-white/10 rounded-xl mb-4">
