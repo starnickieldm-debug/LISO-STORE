@@ -104,7 +104,7 @@ export const ComparisonSection: React.FC = () => {
               <div aria-hidden="true" />
 
               {/* Col 2: LISO Header Card (Hero) */}
-              <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-4 sm:p-5 shadow-sm flex flex-col items-center justify-between text-center relative overflow-hidden group">
+              <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-4 sm:p-5 shadow-sm flex flex-col justify-between relative overflow-hidden group">
                 <div className="w-full flex justify-between items-center mb-1">
                   <span className="text-[10px] font-sans text-accent font-bold tracking-wider uppercase">
                     OPCIÓN ÓPTIMA
@@ -114,79 +114,85 @@ export const ComparisonSection: React.FC = () => {
                   </span>
                 </div>
                 
-                {/* Large Product Photo */}
-                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl bg-white/90 border border-accent/20 p-2 flex items-center justify-center my-2 shadow-xs group-hover:scale-103 transition-transform duration-300">
-                  <img 
-                    src="/images/liso-pure-cutout.webp" 
-                    alt="Plancha de vapor portátil LISO" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-
-                <div className="mt-1">
-                  <div className="flex items-center justify-center gap-1.5">
-                    <span className="font-display italic font-bold text-base sm:text-lg text-graphite tracking-tight">
-                      {brandConfig.name}
-                    </span>
-                    <span className="text-[11px] font-sans text-accent font-bold">CARE</span>
+                {/* Floating Product Cutout Lockup (Liquid+ Concept) */}
+                <div className="flex items-center gap-3 sm:gap-4 my-1.5">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src="/images/liso-pure-cutout.webp" 
+                      alt="Plancha de vapor portátil LISO" 
+                      className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(180,36,124,0.18)]"
+                    />
                   </div>
-                  <span className="text-xs font-sans text-graphite/65 block mt-0.5 font-medium">
-                    Placa giratoria + vapor
-                  </span>
+
+                  <div className="text-left">
+                    <div className="flex items-center gap-1.5">
+                      <span className="font-display italic font-bold text-base sm:text-lg text-graphite tracking-tight">
+                        {brandConfig.name}
+                      </span>
+                      <span className="text-[11px] font-sans text-accent font-bold">CARE</span>
+                    </div>
+                    <span className="text-xs font-sans text-graphite/65 block mt-0.5 font-medium leading-snug">
+                      Placa giratoria + vapor
+                    </span>
+                  </div>
                 </div>
               </div>
 
               {/* Col 3: Plancha + Tabla Header Card */}
-              <div className="rounded-2xl bg-white/85 border border-graphite/12 p-4 sm:p-5 shadow-xs flex flex-col items-center justify-between text-center relative overflow-hidden group">
+              <div className="rounded-2xl bg-white/85 border border-graphite/12 p-4 sm:p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group">
                 <div className="w-full flex justify-start items-center mb-1">
                   <span className="text-[10px] font-sans text-graphite/40 font-semibold tracking-wider uppercase">
                     TRADICIONAL
                   </span>
                 </div>
                 
-                {/* Large Product Photo */}
-                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl bg-graphite/[0.02] border border-graphite/10 p-2 flex items-center justify-center my-2 shadow-xs group-hover:scale-103 transition-transform duration-300">
-                  <img 
-                    src="/images/comp-iron-board.webp" 
-                    alt="Plancha pesada tradicional con tabla de planchar" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+                {/* Floating Product Cutout Lockup (Liquid+ Concept) */}
+                <div className="flex items-center gap-3 sm:gap-4 my-1.5">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src="/images/comp-iron-board-cutout.webp" 
+                      alt="Plancha pesada tradicional con tabla de planchar" 
+                      className="w-full h-full object-contain filter drop-shadow-[0_6px_12px_rgba(0,0,0,0.08)]"
+                    />
+                  </div>
 
-                <div className="mt-1">
-                  <span className="font-sans font-bold text-sm sm:text-[15px] text-graphite block">
-                    Plancha + Tabla
-                  </span>
-                  <span className="text-xs font-sans text-graphite/55 block mt-0.5">
-                    Pesada y tradicional
-                  </span>
+                  <div className="text-left">
+                    <span className="font-sans font-bold text-sm sm:text-[15px] text-graphite block leading-snug">
+                      Plancha + Tabla
+                    </span>
+                    <span className="text-xs font-sans text-graphite/55 block mt-0.5 leading-snug">
+                      Pesada y tradicional
+                    </span>
+                  </div>
                 </div>
               </div>
 
               {/* Col 4: Vaporizador Común Header Card */}
-              <div className="rounded-2xl bg-white/85 border border-graphite/12 p-4 sm:p-5 shadow-xs flex flex-col items-center justify-between text-center relative overflow-hidden group">
+              <div className="rounded-2xl bg-white/85 border border-graphite/12 p-4 sm:p-5 shadow-xs flex flex-col justify-between relative overflow-hidden group">
                 <div className="w-full flex justify-start items-center mb-1">
                   <span className="text-[10px] font-sans text-graphite/40 font-semibold tracking-wider uppercase">
                     GENÉRICO
                   </span>
                 </div>
                 
-                {/* Large Product Photo */}
-                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl bg-graphite/[0.02] border border-graphite/10 p-2 flex items-center justify-center my-2 shadow-xs group-hover:scale-103 transition-transform duration-300">
-                  <img 
-                    src="/images/comp-common-steamer.webp" 
-                    alt="Vaporizador vertical común de plástico" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+                {/* Floating Product Cutout Lockup (Liquid+ Concept) */}
+                <div className="flex items-center gap-3 sm:gap-4 my-1.5">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src="/images/comp-common-steamer-cutout.webp" 
+                      alt="Vaporizador vertical común de plástico" 
+                      className="w-full h-full object-contain filter drop-shadow-[0_6px_12px_rgba(0,0,0,0.08)]"
+                    />
+                  </div>
 
-                <div className="mt-1">
-                  <span className="font-sans font-bold text-sm sm:text-[15px] text-graphite block">
-                    Vaporizador común
-                  </span>
-                  <span className="text-xs font-sans text-graphite/55 block mt-0.5">
-                    Vertical de plástico
-                  </span>
+                  <div className="text-left">
+                    <span className="font-sans font-bold text-sm sm:text-[15px] text-graphite block leading-snug">
+                      Vaporizador común
+                    </span>
+                    <span className="text-xs font-sans text-graphite/55 block mt-0.5 leading-snug">
+                      Vertical de plástico
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -315,40 +321,40 @@ export const ComparisonSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Visual Dual Product Preview for Mobile with Large Photos */}
-          <div className="grid grid-cols-2 gap-2 mb-4">
+          {/* Visual Dual Product Preview for Mobile with Liquid+ Floating Cutouts */}
+          <div className="grid grid-cols-2 gap-2.5 mb-4">
             {/* LISO Card */}
             <div className="p-3 bg-[#FAF0F5] border-2 border-accent/40 rounded-2xl flex flex-col items-center text-center shadow-xs">
-              <span className="text-[9px] bg-accent text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider mb-1.5">
+              <span className="text-[9px] bg-accent text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider mb-1">
                 RECOMENDADO
               </span>
-              <div className="w-20 h-20 rounded-xl bg-white/90 p-1.5 flex items-center justify-center mb-1.5 border border-accent/20">
+              <div className="w-20 h-20 flex items-center justify-center my-1">
                 <img 
                   src="/images/liso-pure-cutout.webp" 
                   alt="LISO" 
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain filter drop-shadow-[0_6px_12px_rgba(180,36,124,0.18)]"
                 />
               </div>
-              <span className="font-display italic font-bold text-xs text-graphite">LISO CARE</span>
-              <span className="text-[10px] text-graphite/60">Placa giratoria + vapor</span>
+              <span className="font-display italic font-bold text-xs text-graphite mt-0.5">LISO CARE</span>
+              <span className="text-[10px] font-sans text-graphite/60">Placa giratoria + vapor</span>
             </div>
 
             {/* Competitor Card */}
             <div className="p-3 bg-white border border-graphite/15 rounded-2xl flex flex-col items-center text-center shadow-xs">
-              <span className="text-[9px] text-graphite/50 font-sans font-bold uppercase tracking-wider mb-1.5">
+              <span className="text-[9px] text-graphite/50 font-sans font-bold uppercase tracking-wider mb-1">
                 {compareTarget === 'traditional' ? 'TRADICIONAL' : 'GENÉRICO'}
               </span>
-              <div className="w-20 h-20 rounded-xl bg-graphite/[0.03] p-1.5 flex items-center justify-center mb-1.5 border border-graphite/10">
+              <div className="w-20 h-20 flex items-center justify-center my-1">
                 <img 
-                  src={compareTarget === 'traditional' ? '/images/comp-iron-board.webp' : '/images/comp-common-steamer.webp'} 
+                  src={compareTarget === 'traditional' ? '/images/comp-iron-board-cutout.webp' : '/images/comp-common-steamer-cutout.webp'} 
                   alt={compareTarget === 'traditional' ? 'Plancha + Tabla' : 'Vaporizador'} 
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
                 />
               </div>
-              <span className="font-sans font-bold text-xs text-graphite">
+              <span className="font-sans font-bold text-xs text-graphite mt-0.5">
                 {compareTarget === 'traditional' ? 'Plancha + Tabla' : 'Vaporizador'}
               </span>
-              <span className="text-[10px] text-graphite/50">
+              <span className="text-[10px] font-sans text-graphite/50">
                 {compareTarget === 'traditional' ? 'Pesada y voluminosa' : 'Vertical de plástico'}
               </span>
             </div>
