@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { brandConfig, productSpecs } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { CTAButton } from '../ui/CTAButton';
@@ -219,10 +220,24 @@ export const OfferSection: React.FC = () => {
                   </div>
                 )}
 
+                {/* Pre-checkout Legal Notice */}
+                <p className="mt-2.5 text-[10px] font-sans text-bone/60 leading-normal text-center">
+                  Al solicitar tu pedido aceptas nuestros{' '}
+                  <Link to="/terminos-y-condiciones" className="underline hover:text-bone text-bone/80">Términos</Link>
+                  {', '}
+                  <Link to="/politica-de-privacidad" className="underline hover:text-bone text-bone/80">Privacidad</Link>
+                  {', '}
+                  <Link to="/garantia" className="underline hover:text-bone text-bone/80">Garantía Legal (3 meses)</Link>
+                  {', '}
+                  <Link to="/retracto-y-devoluciones" className="underline hover:text-bone text-bone/80">Retracto (5 días)</Link>
+                  {' y '}
+                  <Link to="/reversion-del-pago" className="underline hover:text-bone text-bone/80">Reversión</Link>.
+                </p>
+
                 {/* Trust Bullets */}
                 <div className="flex items-center justify-between pt-2.5 text-[11px] font-sans text-bone/70 border-t border-white/5 mt-2.5">
                   <span className="inline-flex items-center gap-1 text-bone/90">
-                    <span className="text-accent font-bold">✓</span> Envío gratis a toda Colombia
+                    <span className="text-accent font-bold">✓</span> Envío gratis Colombia
                   </span>
                   <span>·</span>
                   <span className="inline-flex items-center gap-1">
@@ -230,8 +245,16 @@ export const OfferSection: React.FC = () => {
                   </span>
                   <span>·</span>
                   <span className="inline-flex items-center gap-1">
-                    <span className="text-accent font-bold">✓</span> Soporte directo
+                    <span className="text-accent font-bold">✓</span> Garantía 3 meses
                   </span>
+                </div>
+
+                {/* Discrete legal line under offer */}
+                <div className="pt-2 text-center text-[10px] font-sans text-bone/50">
+                  Compra segura · Envíos nacionales (15–20 días hábiles) · Garantía legal ·{' '}
+                  <Link to="/terminos-y-condiciones" className="underline hover:text-bone/80">
+                    Consulta nuestras políticas
+                  </Link>
                 </div>
               </div>
             </div>
@@ -303,12 +326,12 @@ export const OfferSection: React.FC = () => {
               {policyAccordionOpen && (
                 <div className="pt-2 pb-1 space-y-2.5 text-xs text-bone/70 font-sans leading-relaxed border-t border-white/10 mt-1 animate-fadeIn">
                   <div>
-                    <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Envíos</h5>
-                    <p className="text-[11px] mt-0.5">Procesamiento en 1–3 días hábiles. Despachos a toda Colombia con número de guía y seguimiento en línea continuo hasta tu puerta.</p>
+                    <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Envíos Nacionales</h5>
+                    <p className="text-[11px] mt-0.5">Envío gratis a toda Colombia. Tiempo estimado de entrega informado por la logística: 15–20 días hábiles. Despachos con número de guía y seguimiento en línea continuo hasta tu puerta.</p>
                   </div>
                   <div>
                     <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Garantía y Devolución</h5>
-                    <p className="text-[11px] mt-0.5">Si recibes un producto con algún daño o defecto de fábrica, cuentas con soporte directo y solución sin complicaciones.</p>
+                    <p className="text-[11px] mt-0.5">Cuenta con 3 meses de garantía legal por defectos de fabricación y 5 días hábiles para ejercer el derecho de retracto conforme al Estatuto del Consumidor en Colombia.</p>
                   </div>
                 </div>
               )}
@@ -547,6 +570,20 @@ export const OfferSection: React.FC = () => {
                   </div>
                 )}
 
+                {/* Pre-checkout Legal Notice */}
+                <p className="mt-3 text-[11px] font-sans text-bone/60 leading-normal text-center max-w-lg mx-auto">
+                  Al completar tu pedido aceptas nuestros{' '}
+                  <Link to="/terminos-y-condiciones" className="underline hover:text-bone text-bone/80">Términos y Condiciones</Link>
+                  {' y '}
+                  <Link to="/politica-de-privacidad" className="underline hover:text-bone text-bone/80">Política de Privacidad</Link>.
+                  {' '}Tu compra cuenta con{' '}
+                  <Link to="/garantia" className="underline hover:text-bone text-bone/80">3 meses de garantía legal</Link>
+                  {', '}
+                  <Link to="/retracto-y-devoluciones" className="underline hover:text-bone text-bone/80">derecho de retracto (5 días hábiles)</Link>
+                  {' y '}
+                  <Link to="/reversion-del-pago" className="underline hover:text-bone text-bone/80">reversión del pago</Link>.
+                </p>
+
                 {/* Compact Trust Row */}
                 <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1.5 pt-3 text-xs font-sans text-bone/80">
                   <span className="inline-flex items-center gap-1">
@@ -556,11 +593,19 @@ export const OfferSection: React.FC = () => {
                     <span className="text-accent font-bold">✓</span> Pago 100% seguro
                   </span>
                   <span className="inline-flex items-center gap-1">
-                    <span className="text-accent font-bold">✓</span> Soporte directo
+                    <span className="text-accent font-bold">✓</span> 3 meses de garantía legal
                   </span>
                   <span className="inline-flex items-center gap-1">
                     <span className="text-accent font-bold">✓</span> Seguimiento en línea
                   </span>
+                </div>
+
+                {/* Discrete legal line under offer */}
+                <div className="pt-2 text-center text-[11px] font-sans text-bone/50">
+                  Compra segura · Envíos nacionales (15–20 días hábiles) · Garantía legal ·{' '}
+                  <Link to="/terminos-y-condiciones" className="underline hover:text-bone/80">
+                    Consulta nuestras políticas
+                  </Link>
                 </div>
               </div>
 
@@ -569,7 +614,7 @@ export const OfferSection: React.FC = () => {
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5">
                   <Truck className="w-4 h-4 mx-auto mb-1 text-bone/70" />
                   <p className="font-semibold text-bone">Envío</p>
-                  <p className="text-bone/60 text-[10px]">{currentMarket.shippingLabel}</p>
+                  <p className="text-bone/60 text-[10px]">15–20 días hábiles</p>
                 </div>
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5">
                   <Lock className="w-4 h-4 mx-auto mb-1 text-bone/70" />
@@ -579,12 +624,12 @@ export const OfferSection: React.FC = () => {
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5">
                   <ShieldCheck className="w-4 h-4 mx-auto mb-1 text-bone/70" />
                   <p className="font-semibold text-bone">Garantía</p>
-                  <p className="text-bone/60 text-[10px]">Soporte oficial</p>
+                  <p className="text-bone/60 text-[10px]">3 meses legal</p>
                 </div>
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5">
                   <RotateCcw className="w-4 h-4 mx-auto mb-1 text-bone/70" />
-                  <p className="font-semibold text-bone">Soporte</p>
-                  <p className="text-bone/60 text-[10px]">Atención directa</p>
+                  <p className="font-semibold text-bone">Retracto</p>
+                  <p className="text-bone/60 text-[10px]">5 días hábiles</p>
                 </div>
               </div>
 
@@ -615,33 +660,33 @@ export const OfferSection: React.FC = () => {
                       {/* Envíos */}
                       <div className="space-y-1">
                         <h4 className="font-semibold text-bone uppercase tracking-wider text-[11px] text-accent">
-                          Envíos
+                          Envíos Nacionales
                         </h4>
                         <p>
-                          Procesamos tu pedido en 1–3 días hábiles. Realizamos despachos a toda Colombia con transportadoras reconocidas. Recibirás tu número de guía y enlace de seguimiento para consultar el estado de tu entrega en todo momento.
+                          Envío gratis a toda Colombia. El tiempo estimado de entrega informado por la logística es de 15 a 20 días hábiles posteriores a la confirmación de la compra. Realizamos despachos con transportadoras reconocidas y te proporcionamos número de guía con seguimiento en línea continuo.
                         </p>
                         <p className="text-bone/60 text-[11px]">
-                          Los tiempos de entrega son estimados y pueden variar según la ciudad o municipio de destino y la operación logística del transportador.
+                          Los tiempos son estimados y dependen de la cobertura y trayectos de las empresas transportadoras en cada municipio.
                         </p>
                       </div>
 
-                      {/* Si recibes un producto con algún problema */}
+                      {/* Garantía Legal */}
                       <div className="space-y-1">
                         <h4 className="font-semibold text-bone uppercase tracking-wider text-[11px] text-accent">
-                          Si recibes un producto con algún problema
+                          Garantía Legal (3 meses)
                         </h4>
                         <p>
-                          Si recibes un producto defectuoso, dañado o diferente al solicitado, contáctanos con tu número de pedido y fotografías o un video que muestre el problema. Revisaremos tu caso de inmediato y te indicaremos la solución correspondiente.
+                          Tu compra cuenta con 3 meses de garantía legal amparada por la Ley 1480 de 2011 por defectos de fábrica o funcionamiento técnico. Si requieres hacer efectiva la garantía, escríbenos a <a href="mailto:atencion@lisostore.co" className="text-accent underline">atencion@lisostore.co</a> o radica tu solicitud en <Link to="/pqr" className="text-accent underline">PQR</Link>. Los fletes válidos por garantía son asumidos por LISO.
                         </p>
                       </div>
 
-                      {/* Devoluciones */}
+                      {/* Derecho de Retracto */}
                       <div className="space-y-1">
                         <h4 className="font-semibold text-bone uppercase tracking-wider text-[11px] text-accent">
-                          Devoluciones
+                          Derecho de Retracto y Devoluciones
                         </h4>
                         <p>
-                          Si deseas gestionar una garantía o devolución, contáctanos a través de nuestros canales oficiales con tu número de pedido antes de realizar cualquier envío para indicarte el procedimiento paso a paso.
+                          Conforme al artículo 47 del Estatuto del Consumidor, cuentas con 5 días hábiles tras la entrega para retractarte de la compra siempre que el producto esté sin uso y en su empaque original con todos sus accesorios. Conoce los detalles en nuestra <Link to="/retracto-y-devoluciones" className="text-accent underline">Política de Retracto</Link>.
                         </p>
                       </div>
                     </div>

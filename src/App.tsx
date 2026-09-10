@@ -1,10 +1,12 @@
 import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { MarketProvider } from './context/MarketContext';
 import { TrustBar } from './components/layout/TrustBar';
 import { Navbar } from './components/layout/Navbar';
 import { StickyBuyBar } from './components/layout/StickyBuyBar';
 import { Footer } from './components/layout/Footer';
 import { ScrollProgress } from './components/ui/ScrollProgress';
+import { ScrollToTop } from './components/common/ScrollToTop';
 
 import { HeroSection } from './components/sections/HeroSection';
 import { ThreeGesturesSection } from './components/sections/ThreeGesturesSection';
@@ -19,70 +21,59 @@ import { OfferSection } from './components/sections/OfferSection';
 import { FAQSection } from './components/sections/FAQSection';
 import { FinalCTASection } from './components/sections/FinalCTASection';
 
+import { TerminosCondicionesPage } from './pages/TerminosCondicionesPage';
+import { PoliticaPrivacidadPage } from './pages/PoliticaPrivacidadPage';
+import { GarantiaPage } from './pages/GarantiaPage';
+import { RetractoDevolucionesPage } from './pages/RetractoDevolucionesPage';
+import { ReversionPagoPage } from './pages/ReversionPagoPage';
+import { EnviosPage } from './pages/EnviosPage';
+import { PQRPage } from './pages/PQRPage';
+
+const HomePage: React.FC = () => (
+  <main className="flex-grow">
+    <HeroSection />
+    <ThreeGesturesSection />
+    <BenefitEvidenceSection />
+    <EngineeringSection />
+    <HonestyLabelSection />
+    <ComparisonSection />
+    <LifestyleScenesSection />
+    <BoxContentsSection />
+    <SocialProofSection />
+    <OfferSection />
+    <FAQSection />
+    <FinalCTASection />
+  </main>
+);
+
 export function App() {
   return (
     <MarketProvider>
+      <ScrollToTop />
       <div 
         className="min-h-screen flex flex-col bg-night-950 text-bone antialiased font-sans relative selection:bg-accent selection:text-white"
         style={{ backgroundColor: '#0B0C0F', color: '#F6F4EF' }}
       >
-      {/* Barra sutil de progreso de lectura editorial */}
-      <ScrollProgress />
+        <ScrollProgress />
+        <div className="paper-grain-overlay" aria-hidden="true" />
+        <TrustBar />
+        <Navbar />
 
-      {/* Capa de textura editorial: grano de papel sutil al 2% */}
-      <div className="paper-grain-overlay" aria-hidden="true" />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/terminos-y-condiciones" element={<TerminosCondicionesPage />} />
+          <Route path="/politica-de-privacidad" element={<PoliticaPrivacidadPage />} />
+          <Route path="/garantia" element={<GarantiaPage />} />
+          <Route path="/retracto-y-devoluciones" element={<RetractoDevolucionesPage />} />
+          <Route path="/reversion-del-pago" element={<ReversionPagoPage />} />
+          <Route path="/envios" element={<EnviosPage />} />
+          <Route path="/pqr" element={<PQRPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
 
-      {/* S0: Barra Superior de Confianza */}
-      <TrustBar />
-
-      {/* Navegación Principal */}
-      <Navbar />
-
-      {/* Recorrido psicológico estructurado */}
-      <main className="flex-grow">
-        {/* S1: Hero con layout 50/50, loop video y precio visible */}
-        <HeroSection />
-
-        {/* S2: El Método de los 3 Gestos */}
-        <ThreeGesturesSection />
-
-        {/* S3: Beneficios con Evidencia */}
-        <BenefitEvidenceSection />
-
-        {/* S4: Capítulo de Ingeniería (Oscuro #14151A) */}
-        <EngineeringSection />
-
-        {/* S5: Etiqueta de Honestidad */}
-        <HonestyLabelSection />
-
-        {/* S6: Comparativa Honesta */}
-        <ComparisonSection />
-
-        {/* S7: Escenas Reales */}
-        <LifestyleScenesSection />
-
-        {/* S8: Dentro de la Caja */}
-        <BoxContentsSection />
-
-        {/* S9: Prueba Social Transparente */}
-        <SocialProofSection />
-
-        {/* S10: Oferta + Compra Respaldada */}
-        <OfferSection />
-
-        {/* S11: FAQ Acordeón */}
-        <FAQSection />
-
-        {/* S12: CTA Final */}
-        <FinalCTASection />
-      </main>
-
-      {/* Footer Minimalista */}
-      <Footer />
-
-      {/* Mobile Sticky Buy Bar (<768px, <=56px height, >=52px button) */}
-      <StickyBuyBar />
-    </div>
+        <Footer />
+        <StickyBuyBar />
+      </div>
     </MarketProvider>
   );
 }

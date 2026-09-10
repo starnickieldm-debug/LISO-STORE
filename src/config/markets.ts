@@ -3,9 +3,9 @@ import { CountryCode, MarketConfig } from '../types/market';
 export const DEFAULT_COUNTRY_CODE: CountryCode = 'CO';
 
 const defaultShippingPolicy = {
-  processingTime: "Procesamos tu pedido en 1–3 días hábiles.",
+  processingTime: "Tiempo estimado de entrega informado por la logística: 15–20 días hábiles.",
   deliveryEstimate: "Recibirás tu número de guía para consultar el estado y rastrear tu pedido en línea hasta la entrega.",
-  disclaimer: "Los tiempos de entrega son estimados y están sujetos a la cobertura de la transportadora nacional.",
+  disclaimer: "Los tiempos de entrega son estimados y están sujetos a la operación del transporte terrestre nacional.",
 };
 
 const defaultReturnsPolicy = {

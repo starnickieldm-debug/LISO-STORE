@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { brandConfig } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { Menu, X } from 'lucide-react';
@@ -18,11 +19,11 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: "Cómo funciona", href: "#como-funciona" },
-    { label: "Ingeniería", href: "#ingenieria" },
-    { label: "Etiqueta", href: "#etiqueta" },
-    { label: "Comparativa", href: "#comparativa" },
-    { label: "FAQ", href: "#faq" }
+    { label: "Cómo funciona", href: "/#como-funciona" },
+    { label: "Ingeniería", href: "/#ingenieria" },
+    { label: "Etiqueta", href: "/#etiqueta" },
+    { label: "Comparativa", href: "/#comparativa" },
+    { label: "FAQ", href: "/#faq" }
   ];
 
   return (
@@ -38,14 +39,14 @@ export const Navbar: React.FC = () => {
         
         {/* Brand Logo / Typography in Playfair Display Italic */}
         <div className="flex items-center space-x-3">
-          <a href="#" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-2 group">
             <span className="font-display italic font-semibold text-2xl sm:text-2xl tracking-tighter text-bone group-hover:text-accent transition-colors">
               {brandConfig.name}
             </span>
             <span className="text-[10px] font-mono font-medium tracking-widest text-bone/50 border border-white/20 px-1.5 py-0.5 rounded-none uppercase hidden xs:inline-block">
               CARE
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -64,7 +65,7 @@ export const Navbar: React.FC = () => {
         {/* Header Action CTA (Visible in desktop AND mobile sticky nav) */}
         <div className="flex items-center space-x-2 sm:space-x-3">
           <a
-            href="#oferta"
+            href="/#oferta"
             className="inline-flex items-center justify-center px-3.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-sans font-semibold tracking-wider uppercase bg-accent hover:bg-accent-hover text-white transition-all rounded-none"
           >
             <span className="hidden sm:inline">Lo quiero — {currentMarket.formattedPrice}</span>
@@ -100,7 +101,7 @@ export const Navbar: React.FC = () => {
             ))}
 
             <a
-              href="#oferta"
+              href="/#oferta"
               onClick={() => setMobileMenuOpen(false)}
               className="mt-4 flex items-center justify-center min-h-[50px] text-sm font-semibold tracking-wide uppercase bg-accent active:scale-[0.98] text-white transition-transform shadow-lg shadow-accent/20"
             >

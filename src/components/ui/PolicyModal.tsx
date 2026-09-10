@@ -113,13 +113,13 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                 Política de Envíos
               </h3>
               <p>
-                Procesamos tu pedido en 1–3 días hábiles. Realizamos despachos a nivel nacional a toda Colombia a través de empresas transportadoras reconocidas.
+                El tiempo estimado de entrega informado actualmente por la operación logística es de 15 a 20 días hábiles. Realizamos despachos a nivel nacional a toda Colombia a través de empresas transportadoras reconocidas.
               </p>
               <p className="text-bone/70">
-                Una vez despachado el paquete, recibirás vía correo electrónico o mensaje tu número de guía y el enlace para realizar seguimiento en línea de tu entrega.
+                Una vez despachado el paquete, recibirás vía correo electrónico tu número de guía y el enlace para realizar seguimiento en línea de tu entrega.
               </p>
               <div className="p-3 bg-white/5 border border-white/10 text-xs text-bone/70 space-y-1">
-                <p className="font-semibold text-bone">Cobertura: Colombia</p>
+                <p className="font-semibold text-bone">Cobertura: Colombia (Nivel Nacional)</p>
                 <p>Tu orden incluye {currentMarket.shippingLabel} y seguimiento en línea continuo hasta tu puerta.</p>
               </div>
             </div>
@@ -131,15 +131,15 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                 Política de Devoluciones y Reembolsos
               </h3>
               <p>
-                Queremos que tengas la mejor experiencia con LISO. Si por alguna razón necesitas gestionar una devolución o cambio, nuestro equipo de soporte está a tu disposición para orientarte.
+                Queremos que tengas la mejor experiencia con LISO. Conforme a la legislación colombiana (Ley 1480 de 2011), cuentas con derecho de retracto dentro de los primeros 5 días hábiles posteriores a la entrega.
               </p>
               <p>
-                Para iniciar cualquier solicitud, contáctanos antes de enviar el producto para asignarte un caso y darte las instrucciones detalladas del proceso.
+                Para iniciar cualquier solicitud, contáctanos a través de nuestro correo oficial antes de enviar el producto para asignarte un caso y darte las instrucciones detalladas del proceso.
               </p>
               <div className="p-3 bg-white/5 border border-white/10 text-xs text-bone/70">
                 <p className="font-semibold text-bone mb-1">Canal de atención</p>
                 <p>
-                  Escríbenos con tu número de pedido y los datos de tu compra para recibir asistencia rápida y personalizada.
+                  Escríbenos a atencion@lisostore.co con tu número de pedido y los datos de tu compra para recibir asistencia rápida y personalizada.
                 </p>
               </div>
             </div>
@@ -151,14 +151,17 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                 Garantía y Asistencia
               </h3>
               <div className="space-y-2">
-                <h4 className="font-semibold text-bone">Si recibes un producto con algún problema</h4>
+                <h4 className="font-semibold text-bone">Garantía Legal de 3 Meses</h4>
                 <p>
-                  Si recibes un producto defectuoso, con daños de transporte o diferente al solicitado, contáctanos con tu número de pedido y fotografías o un video que muestre la situación. Revisaremos tu caso con prioridad para darte una solución oportuna.
+                  El producto cuenta con una garantía legal de tres (3) meses a partir de su entrega física, que cubre fallas de fabricación, calidad e idoneidad a 110 V.
+                </p>
+                <p>
+                  Si recibes un producto defectuoso, con daños de transporte o diferente al solicitado, contáctanos a atencion@lisostore.co con tu número de pedido y fotografías o un video que muestre la situación.
                 </p>
               </div>
               <div className="p-3 bg-white/5 border border-white/10 text-xs text-bone/70">
                 <p>
-                  La atención y soporte de garantías se gestiona de forma directa a través de nuestros canales oficiales de atención al cliente.
+                  La atención y soporte de garantías se gestiona de forma directa y los fletes correspondientes a la garantía son cubiertos por LISO.
                 </p>
               </div>
             </div>
