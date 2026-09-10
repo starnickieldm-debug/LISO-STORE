@@ -493,7 +493,7 @@
   * Enlace oficial: [Superintendencia de Industria y Comercio (SIC) ↗](https://www.sic.gov.co)
 * **Franja Inferior:**
   * © 2026 LISO. Todos los derechos reservados.
-  * Vendedor: **Blanca Astrid Melo Castañeda** · RUT 141276147685 · Ibagué, Tolima, Colombia
+  * Vendedor: **Blanca Astrid Melo Castañeda** · NIT: 52056602-4 · Ibagué, Tolima, Colombia
   * 🇨🇴 Colombia · Despachos a nivel nacional
 
 ---

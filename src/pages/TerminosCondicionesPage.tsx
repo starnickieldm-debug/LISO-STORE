@@ -42,7 +42,7 @@ export const TerminosCondicionesPage: React.FC = () => {
           <span className="text-accent text-sm">01.</span> Identificación del Vendedor
         </h2>
         <p>
-          El presente sitio web y la oferta de productos comercializados bajo la marca <strong>LISO</strong> son operados por <strong>{LEGAL_SELLER.name}</strong>, identificada tributariamente bajo el Registro Único Tributario (RUT) número <strong>{LEGAL_SELLER.rut}</strong>, actuando como persona natural en la República de Colombia, con domicilio y dirección de notificación judicial en {LEGAL_SELLER.notificationAddress}, correo electrónico de atención oficial: <a href={`mailto:${LEGAL_SELLER.contactEmail}`} className="text-accent underline">{LEGAL_SELLER.contactEmail}</a>.
+          El presente sitio web y la oferta de productos comercializados bajo la marca <strong>LISO</strong> son operados por <strong>{LEGAL_SELLER.name}</strong>, identificada tributariamente con NIT número <strong>{LEGAL_SELLER.nit}</strong>, actuando como persona natural en la República de Colombia, con domicilio y dirección de notificación judicial en {LEGAL_SELLER.notificationAddress}, correo electrónico de atención oficial: <a href={`mailto:${LEGAL_SELLER.contactEmail}`} className="text-accent underline">{LEGAL_SELLER.contactEmail}</a>.
         </p>
       </section>
 

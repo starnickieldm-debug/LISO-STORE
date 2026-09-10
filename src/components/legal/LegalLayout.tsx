@@ -69,8 +69,8 @@ export const LegalLayout: React.FC<LegalLayoutProps> = ({
               <span className="text-bone/90 font-medium">{LEGAL_SELLER.name}</span>
             </div>
             <div>
-              <span className="text-bone/40 block text-[10px] uppercase tracking-wider">RUT / Identificación</span>
-              <span className="text-bone/90 font-medium">{LEGAL_SELLER.rut}</span>
+              <span className="text-bone/40 block text-[10px] uppercase tracking-wider">NIT</span>
+              <span className="text-bone/90 font-medium">{LEGAL_SELLER.nit}</span>
             </div>
             <div>
               <span className="text-bone/40 block text-[10px] uppercase tracking-wider">Última actualización</span>

@@ -128,7 +128,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-center sm:text-left">
             <p>© {new Date().getFullYear()} {brandConfig.name}. Todos los derechos reservados.</p>
             <span className="text-white/20 hidden sm:inline">·</span>
-            <p>Vendedor: <strong className="text-bone/80">{LEGAL_SELLER.name}</strong> · RUT {LEGAL_SELLER.rut} · Ibagué, Tolima, Colombia</p>
+            <p>Vendedor: <strong className="text-bone/80">{LEGAL_SELLER.name}</strong> · NIT: {LEGAL_SELLER.nit} · Ibagué, Tolima, Colombia</p>
           </div>
           <div className="flex items-center gap-2 text-bone/60 font-medium">
             <span>🇨🇴 Colombia · Despachos a nivel nacional</span>

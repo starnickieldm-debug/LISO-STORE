@@ -17,7 +17,7 @@ export const PoliticaPrivacidadPage: React.FC = () => {
           <span>Responsable del Tratamiento de Datos</span>
         </div>
         <p className="text-xs text-bone/80 leading-relaxed">
-          <strong>{LEGAL_SELLER.name}</strong>, persona natural identificada con RUT <strong>{LEGAL_SELLER.rut}</strong>, con domicilio en {LEGAL_SELLER.notificationAddress}, y correo de contacto <a href={`mailto:${LEGAL_SELLER.contactEmail}`} className="text-accent underline">{LEGAL_SELLER.contactEmail}</a>, actúa como Responsable del tratamiento de sus datos personales.
+          <strong>{LEGAL_SELLER.name}</strong>, persona natural identificada con NIT <strong>{LEGAL_SELLER.nit}</strong>, con domicilio en {LEGAL_SELLER.notificationAddress}, y correo de contacto <a href={`mailto:${LEGAL_SELLER.contactEmail}`} className="text-accent underline">{LEGAL_SELLER.contactEmail}</a>, actúa como Responsable del tratamiento de sus datos personales.
         </p>
       </div>
 
