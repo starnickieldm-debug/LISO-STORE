@@ -203,7 +203,7 @@ export const OfferSection: React.FC = () => {
                       <span>Preparando pedido...</span>
                     </span>
                   ) : (
-                    `Quiero LISO en ${selectedColor} — ${currentMarket.formattedPrice}`
+                    `Pedir LISO en ${selectedColor} — ${currentMarket.formattedPrice}`
                   )}
                 </CTAButton>
 
@@ -242,7 +242,7 @@ export const OfferSection: React.FC = () => {
                   </span>
                   <span>·</span>
                   <span className="inline-flex items-center gap-1">
-                    <span className="text-accent font-bold">✓</span> Pago seguro
+                    <span className="text-accent font-bold">✓</span> Pago seguro (PSE / Tarjetas)
                   </span>
                   <span>·</span>
                   <span className="inline-flex items-center gap-1">
@@ -272,11 +272,11 @@ export const OfferSection: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                  <span>Base dock térmica de apoyo</span>
+                  <span>Base de apoyo resistente al calor</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                  <span>Vaso medidor de 100 ml</span>
+                  <span>Vaso dosificador de 100 ml</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
@@ -302,7 +302,7 @@ export const OfferSection: React.FC = () => {
                   </h4>
                 </div>
                 <p className="text-[11px] text-bone/80 leading-relaxed">
-                  Cuentas con 30 días calendario de garantía legal desde la entrega física. Solución directa por defectos o fallas de fábrica con fletes cubiertos por LISO.
+                  Cuentas con 30 días calendario de garantía legal desde la entrega física. Solución directa por defectos o fallas de fábrica con costos de envío cubiertos por LISO.
                 </p>
               </div>
             </div>
@@ -328,7 +328,7 @@ export const OfferSection: React.FC = () => {
                 <div className="pt-2 pb-1 space-y-2.5 text-xs text-bone/70 font-sans leading-relaxed border-t border-white/10 mt-1 animate-fadeIn">
                   <div>
                     <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Envíos Nacionales</h5>
-                    <p className="text-[11px] mt-0.5">Envío gratis a toda Colombia. Tiempo estimado de entrega informado por la logística: 15–20 días hábiles. Despachos con número de guía y seguimiento en línea continuo hasta tu puerta.</p>
+                    <p className="text-[11px] mt-0.5">Envío gratis a toda Colombia. Despacho directo desde fábrica con entrega estimada de 15 a 20 días hábiles y guía de rastreo en línea permanente.</p>
                   </div>
                   <div>
                     <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Garantía y Devolución</h5>
@@ -412,15 +412,15 @@ export const OfferSection: React.FC = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
-                    <span>Base dock de apoyo</span>
+                    <span>Base de apoyo resistente al calor</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
-                    <span>Vaso medidor de 100 ml</span>
+                    <span>Vaso dosificador de 100 ml</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
-                    <span>Bolsa de transporte</span>
+                    <span>Bolsa de transporte y protección</span>
                   </li>
                   <li className="flex items-center gap-2 sm:col-span-2">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3]" />
@@ -534,7 +534,7 @@ export const OfferSection: React.FC = () => {
                     Cuentas con 30 días calendario de garantía legal desde la entrega de tu producto. Si presenta cualquier falla de fábrica o funcionamiento, te brindamos solución directa con reparación, cambio o devolución sin intermediarios.
                   </p>
                   <p className="text-[10px] font-sans text-bone/50 italic">
-                    Garantía amparada por la Ley 1480 de 2011 · Fletes de garantía asumidos en su totalidad por LISO.
+                    Garantía amparada por la Ley 1480 de 2011 · Costos de envío por garantía asumidos en su totalidad por LISO.
                   </p>
                 </div>
               </div>
@@ -553,7 +553,7 @@ export const OfferSection: React.FC = () => {
                       <span>Preparando pedido...</span>
                     </span>
                   ) : (
-                    `Quiero LISO en ${selectedColor} — ${currentMarket.formattedPrice}`
+                    `Pedir LISO en ${selectedColor} — ${currentMarket.formattedPrice}`
                   )}
                 </CTAButton>
 
@@ -591,7 +591,7 @@ export const OfferSection: React.FC = () => {
                     <span className="text-accent font-bold">✓</span> Envío gratis a toda Colombia
                   </span>
                   <span className="inline-flex items-center gap-1">
-                    <span className="text-accent font-bold">✓</span> Pago 100% seguro
+                    <span className="text-accent font-bold">✓</span> Pago seguro (PSE / Tarjetas)
                   </span>
                   <span className="inline-flex items-center gap-1">
                     <span className="text-accent font-bold">✓</span> Garantía legal 30 días
@@ -664,7 +664,7 @@ export const OfferSection: React.FC = () => {
                           Envíos Nacionales
                         </h4>
                         <p>
-                          Envío gratis a toda Colombia. El tiempo estimado de entrega informado por la logística es de 15 a 20 días hábiles posteriores a la confirmación de la compra. Realizamos despachos con transportadoras reconocidas y te proporcionamos número de guía con seguimiento en línea continuo.
+                          Envío gratis a toda Colombia. Despachamos tu pedido directamente desde fábrica con entrega estimada de 15 a 20 días hábiles. Te proporcionamos número de guía y seguimiento en línea continuo hasta la entrega en tu domicilio.
                         </p>
                         <p className="text-bone/60 text-[11px]">
                           Los tiempos son estimados y dependen de la cobertura y trayectos de las empresas transportadoras en cada municipio.
@@ -677,7 +677,7 @@ export const OfferSection: React.FC = () => {
                           Garantía Legal (30 días)
                         </h4>
                         <p>
-                          Los productos LISO cuentan con una garantía legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor, amparada por la Ley 1480 de 2011 por defectos de calidad, idoneidad o funcionamiento técnico atribuibles al producto. Si requieres hacer efectiva la garantía, escríbenos a <a href={`mailto:${LEGAL_SELLER.contactEmail}`} className="text-accent underline">{LEGAL_SELLER.contactEmail}</a> o radica tu solicitud en <Link to="/pqr" className="text-accent underline">PQR</Link>. Los fletes válidos por garantía son asumidos por LISO.
+                          Los productos LISO cuentan con una garantía legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor, amparada por la Ley 1480 de 2011 por defectos de calidad, idoneidad o funcionamiento técnico atribuibles al producto. Si requieres hacer efectiva la garantía, escríbenos a <a href={`mailto:${LEGAL_SELLER.contactEmail}`} className="text-accent underline">{LEGAL_SELLER.contactEmail}</a> o radica tu solicitud en <Link to="/pqr" className="text-accent underline">PQR</Link>. Los costos de envío válidos por garantía son asumidos por LISO.
                         </p>
                       </div>
 

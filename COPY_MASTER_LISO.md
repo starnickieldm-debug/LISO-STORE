@@ -34,8 +34,8 @@
 
 * **Texto rotativo / continuo:**
   * Envío gratis a toda Colombia
-  * Pago 100% seguro
-  * Atención postventa
+  * Pago seguro con PSE y tarjetas
+  * Garantía legal de 30 días
 
 ---
 
@@ -49,8 +49,8 @@
   * Comparativa
   * FAQ
 * **Botón de acción rápida (CTA):**
-  * Escritorio: `Lo quiero — $189.900`
-  * Móvil: `Lo quiero`
+  * Escritorio: `Pedir LISO — $189.900`
+  * Móvil: `Pedir LISO`
 
 ---
 
@@ -61,29 +61,29 @@
   > Olvídate de la plancha pesada.  
   > Tu ropa *impecable* en segundos.
 * **Párrafo Secundario (Propuesta de valor y contexto):**
-  > ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y en 3 segundos* está caliente. Alisa directamente en la percha, sin sacar la tabla, gracias a su **placa giratoria** y temperatura real en pantalla.
+  > ¿Tienes un plan y la ropa arrugada? La conectas y calienta en pocos segundos. Alisa directamente en el gancho, sin sacar la tabla, gracias a su **placa giratoria** y temperatura real en pantalla.
 * **Tarjeta de Conversión (Glass Card):**
   * **Precio:** `$189.900`
   * **Etiqueta de envío:** `ENVÍO GRATIS COLOMBIA`
-  * **Botón principal (CTA):** `Quiero mi ropa impecable`
+  * **Botón principal (CTA):** `Pedir LISO — $189.900`
   * **Acción secundaria (enlace de navegación):** `Ver cómo funciona ↓`
   * **Puntos de confianza:**
-    * ✓ Envío gratis
+    * ✓ Envío gratis a toda Colombia
     * ·
-    * Pago 100% seguro
+    * Pago seguro (PSE / Tarjetas)
     * ·
-    * Atención postventa
+    * Garantía 30 días
   * **Nota técnica legal:**
-    * `*Según pruebas de laboratorio del fabricante.`
+    * `*Pruebas térmicas de laboratorio de fábrica.`
 
 ---
 
 ## 3. DataStrip Técnica (Ficha Rápida)
 
-* **Potencia:** `1200 W` — POTENCIA
-* **Pantalla:** `150 °C` — DIGITAL
+* **Potencia:** `1200 W` — POTENCIA CONTINUA
+* **Pantalla:** `150 °C` — DIGITAL EN VIVO
 * **Capacidad:** `100 ml ≈ 2–3 prendas por carga` — CAPACIDAD
-* **Calentamiento:** `≈ 3 s*` — PARA CALENTARSE
+* **Calentamiento:** `Pocos segundos` — CALENTAMIENTO RÁPIDO
 
 ---
 
@@ -97,27 +97,26 @@
 ### Paso 01: Llena
 * **Encabezado:** `PASO 01 · LLENA`
 * **Título:** Llena
-* **Descripción:** 100 ml con el vasito que viene dentro.
+* **Descripción:** 100 ml con el vaso dosificador que viene dentro.
 * **Detalle:** Es la medida exacta del depósito. No se riega el agua y no tienes que calcular nada.
 
 ### Paso 02: Enciende
 * **Encabezado:** `PASO 02 · ENCIENDE`
 * **Título:** Enciende
-* **Descripción:** La pantalla marca hasta 150 °C*.
-* **Detalle:** Ves la temperatura subir al instante. Lista en solo 3 segundos*.
+* **Descripción:** La pantalla marca hasta 150 °C.
+* **Detalle:** Ves la temperatura subir al instante. Lista en pocos segundos para empezar.
 
 ### Paso 03: Pasa y listo
 * **Encabezado:** `PASO 03 · PLANCHA`
 * **Título:** Pasa y listo
 * **Descripción:** Vapor potente + placa giratoria.
-* **Detalle:** Directo en la percha o sobre la cama. La placa se acomoda al ángulo que necesites.
+* **Detalle:** Directo en el gancho o sobre la cama. La placa se acomoda al ángulo que necesites.
 
 ### Conclusión del proceso:
 * **Insignia:** `EL RESULTADO`
 * **Impacto:**
   > Entre 2 y 3 minutos por prenda.
-* **Bajada:** Sin tabla de planchar · Sin accesorios extra
-* **Nota:** `*Según pruebas de laboratorio del fabricante.`
+* **Bajada:** Sin tabla de planchar · Sin accesorios inútiles
 
 ---
 
@@ -131,14 +130,14 @@
 ---
 
 ### Momento 01 · CONECTAR
-* **Etiquetas técnicas:** `01 · CONECTAR` | `1200 W · 3 s* · 150 °C`
+* **Etiquetas técnicas:** `01 · CONECTAR` | `1200 W · RÁPIDO · 150 °C`
 * **Titular:**
   > La conectas y empiezas en segundos.
 * **Explicación:**
-  > Con LISO puedes alisar directamente sobre la percha, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
+  > Con LISO puedes alisar directamente sobre el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
 * **Pastillas de soporte:**
   * Sin tabla de planchar
-  * Calor listo en 3 s*
+  * Calentamiento rápido
 * **Evidencia visual:** Comparador interactivo deslizante antes y después (camisa arrugada vs. camisa lisa).
 
 ---
@@ -162,8 +161,8 @@
 * **Explicación:**
   > Su base de apoyo te permite guardarla fácilmente después de usarla, sin tener que desmontar nada ni buscarle un lugar especial.
 * **Pastillas de soporte:**
-  * Base dock térmica incluida
-  * Siempre a mano sobre tu escritorio
+  * Base de apoyo resistente al calor incluida
+  * Siempre a mano en tu clóset o mesa de noche
 
 ---
 
@@ -179,17 +178,17 @@
 #### 01. PLACA GIRATORIA 90°
 * **Categoría:** CABEZAL ERGONÓMICO
 * **Frase técnica:**
-  > Plancha en la percha, en la tabla y en cuellos: el ángulo te sigue a ti.
+  > Plancha en el gancho, en la mesa y en cuellos: el ángulo te sigue a ti.
 * **Micro-prueba interactiva:** Selector de ángulo con 3 estados:
-  * `0°`: Vertical (directo en la percha)
+  * `0°`: Vertical (directo en el gancho)
   * `45°`: Cuellos, hombros y mangas
   * `90°`: Plano horizontal entre botones
 
 #### 02. CÁMARA TÉRMICA DE ALUMINIO
 * **Categoría:** SISTEMA TÉRMICO INTERNO
 * **Frase técnica:**
-  > El aluminio calienta en 3 s*: vapor listo antes de que cuelgues la camisa.
-* **Micro-prueba interactiva:** Contador de arranque regresivo (3 s → Vapor listo a 150 °C).
+  > El aluminio calienta en pocos segundos: vapor continuo antes de colgar la camisa.
+* **Micro-prueba interactiva:** Contador de arranque (Vapor listo a 150 °C).
 
 #### 03. PANTALLA DIGITAL LED
 * **Categoría:** CONTROL TÉRMICO EN VIVO
@@ -200,7 +199,7 @@
 #### 04. ALIMENTACIÓN DIRECTA 1200 W
 * **Categoría:** POTENCIA CONTINUA
 * **Frase técnica:**
-  > Potencia constante por cable: sin batería que muera con los meses.
+  > Potencia constante por cable: sin batería que pierda fuerza con los meses.
 * **Micro-prueba interactiva:** Gráfico comparativo de estabilidad:
   * 1200 W Constante: 100% sostenido por red eléctrica.
   * Modelos a batería: Decae drásticamente tras 3 minutos de uso.
@@ -208,21 +207,21 @@
 #### 05. CARCASA BICAPA CON AGARRE
 * **Categoría:** AISLAMIENTO TÉRMICO
 * **Frase técnica:**
-  > Aislamiento bicapa: 150 °C por dentro; por fuera se toma con la mano.
+  > Aislamiento bicapa: 150 °C en la placa térmica; mango frío y seguro al tacto.
 * **Micro-prueba interactiva:** Medición térmica diferencial:
-  * Cámara interna: 150 °C (por dentro)
-  * Superficie mango: ≤ 42 °C (se toma seguro con la mano)
+  * Cámara interna: 150 °C (placa térmica)
+  * Superficie mango: ≤ 42 °C (seguro al tacto)
 
 #### 06. CLAVIJA ESTÁNDAR + 110–240 V
 * **Categoría:** CONEXIÓN Y VOLTAJE
 * **Frase técnica:**
-  > Clavija plana estándar (110 V) para cualquier toma y multivoltaje para viajes.
+  > Clavija plana estándar (110 V) para cualquier toma en Colombia y multivoltaje para viajes.
 * **Micro-prueba interactiva:**
   * Estándar Colombia (110 V): Clavija plana Tipo A/B sin adaptadores.
   * Multivoltaje 110–240 V: compatible a nivel internacional.
 
 * **Nota de manufactura:**
-  > Construcción OEM Asurson (Mod. 7005): aleación de aluminio inyectado y carcasa ignífuga de alta densidad.
+  > Ingeniería y materiales: Cámara térmica en aleación de aluminio inyectado y polímero exterior aislante de alta resistencia.
 
 ---
 
@@ -237,10 +236,10 @@
   * `LISO · PLANCHA A VAPOR · Depósito: 100 ml`
 
 ### DONDE LISO REALMENTE BRILLA (Lo que hace mejor)
-1. **Deja tu ropa lista en minutos:** Directamente en la percha, sin sacar la tabla de planchar.
+1. **Deja tu ropa lista en minutos:** Directamente en el gancho, sin sacar la tabla de planchar.
 2. **Cuellos y puños sin complicarte:** Su placa giratoria llega justo donde una plancha convencional puede resultar incómoda.
 3. **Refresca prendas entre lavadas:** Ayuda a quitar arrugas y a neutralizar olores de uso.
-4. **Perfecta para retoques rápidos:** Una camisa antes de salir, una prenda que se arrugó en la maleta o ese outfit que quieres volver a usar.
+4. **Perfecta para retoques rápidos:** Una camisa antes de salir, una prenda que se arrugó en la maleta o esa ropa que quieres volver a ponerte.
 5. **También puedes usarla en prendas delicadas:** Empieza en el nivel 1 y prueba primero en una zona poco visible.
 
 ### PARA LO QUE NO ESTÁ HECHA (Lo que no hace)
@@ -250,7 +249,7 @@
 4. **Necesita estar conectada:** El cable permite mantener el calor estable y la potencia del vapor durante el uso.
 
 ### ¿Por qué tiene cable? (Explicación de diseño)
-> Para alcanzar los 3 segundos de calentamiento y mantener una temperatura estable de hasta 150 °C, LISO necesita corriente directa. Una batería capaz de entregar esa potencia haría que fuera más pesada, más grande y menos práctica.
+> Para lograr un calentamiento rápido y mantener un flujo continuo de vapor a 150 °C, LISO necesita corriente directa. Una batería con esa potencia haría que fuera pesada, aparatosa y perdería vida útil con los meses.
 
 * **Firma de marca:**
   > *"Queremos que sepas exactamente qué estás comprando."* — Compromiso de transparencia LISO.
@@ -268,19 +267,19 @@
 
 | Criterio | Plancha Tradicional + Tabla | Vaporizador Barato de Mano | **LISO (Edición Original)** |
 | :--- | :--- | :--- | :--- |
-| **Tiempo hasta empezar** | 5–10 min entre sacar, montar y calentar | 1–2 min, según el modelo | **3 segundos. Enchufas y empiezas.** |
-| **Espacio que ocupa** | Necesitas espacio para guardar la tabla | Ocupa poco, pero necesitas dónde guardarlo | **Entra en un rincón del clóset o sobre tu mesa.** |
-| **Usarla en la percha** | Incómodo y poco práctico | Sí, pero depende del resultado que busques | **Sí. Vapor + placa caliente para dejar la prenda lisa.** |
+| **Tiempo hasta empezar** | 5–10 min entre sacar, montar y calentar | 1–2 min, según el modelo | **Pocos segundos. Enchufas y empiezas.** |
+| **Espacio que ocupa** | Necesitas espacio para guardar la tabla | Ocupa poco, pero necesitas dónde guardarlo | **Entra en un rincón del clóset o mesa de noche.** |
+| **Usarla en el gancho** | Incómodo y poco práctico | Sí, pero depende del resultado que busques | **Sí. Vapor + placa caliente para dejar la prenda lisa.** |
 | **Usarla en horizontal** | Es donde mejor funciona. | Puede gotear al inclinarla | **Sí. Giras la placa y trabajas sin que gotee.** |
 | **Cuellos, puños y detalles** | Funciona, pero sobre la tabla | El vapor ayuda, pero se queda corto en arrugas marcadas | **La placa caliente ayuda a marcar y alisar estos detalles.** |
 | **Retoques antes de salir** | Sacar la tabla por una sola prenda da pereza | Buena opción | **Para eso está hecha.** |
 | **Llevarla en la maleta** | Demasiado grande | Depende del modelo | **Ligera, compacta y con bolsa. 110–240 V.** |
-| **Cuando terminas** | Esperar, guardar y volver a armar todo | Esperar y guardar | **La dejas en su base y sigues con tu día.** |
+| **Cuando terminas** | Esperar, guardar y volver a armar todo | Esperar y guardar | **La dejas en su base de apoyo y sigues con tu día.** |
 | **Planchar 10+ prendas a la vez** | Sí, es la herramienta adecuada. | No es lo ideal. | **No. Está pensada para 2–3 prendas por carga.** |
 
 * **Conclusión:**
   > Para una pila de ropa, usa una plancha. Para una prenda que necesitas lista en cinco minutos, usa LISO. LISO está hecha exactamente para esos momentos.
-* **Botón CTA:** `Quiero LISO — $189.900`
+* **Botón CTA:** `Pedir LISO — $189.900`
 
 ---
 
@@ -301,15 +300,15 @@
 
 ### Escena 03 · Cortinas y telas colgadas
 * **Titular:** Cuando planchar sobre una mesa no es una opción.
-* **Contexto:** Úsala directamente en la percha para refrescar prendas, cortinas y telas difíciles de llevar a la tabla.
+* **Contexto:** Úsala directamente en el gancho para refrescar prendas, cortinas y telas difíciles de llevar a la tabla.
 
 ### Escena 04 · Hotel y maleta
 * **Titular:** Cuando llegas de viaje, tu ropa no siempre llega igual de bien.
 * **Contexto:** LISO cabe en la maleta, funciona a 110–240 V y está lista para devolverle el aspecto a tu ropa.
 
-### Escena 05 · En su base dock
+### Escena 05 · En su base de apoyo
 * **Titular:** La dejas a mano porque sabes que vas a volver a usarla.
-* **Contexto:** Diseño compacto, base segura y todo en su sitio para el próximo retoque.
+* **Contexto:** Diseño compacto, base de apoyo segura y todo en su sitio para el próximo retoque.
 
 ---
 
@@ -320,13 +319,13 @@
 * **Subtítulo:**
   > Todo lo que necesitas para dejar tu ropa lista desde el primer minuto. Sin accesorios inútiles.
 
-1. **01 · Plancha de vapor LISO (1 unidad):** Con placa giratoria, pantalla digital y depósito de 100 ml.
-2. **02 · Base dock de apoyo (1 unidad):** Para posarla caliente entre prenda y prenda de forma segura.
-3. **03 · Vaso medidor de 100 ml (1 unidad):** La medida exacta para llenar el depósito de una vez y sin regar agua.
-4. **04 · Bolsa de viaje (1 unidad):** Para guardarla en el clóset o meterla en la maleta protegida.
-5. **05 · Guía rápida y manual (1 documento):** Instrucciones sencillas para cuidarla y sacarle provecho desde el primer día.
+1. **01 · Plancha vaporizadora LISO (1200 W):** Con placa giratoria, pantalla digital y depósito de 100 ml.
+2. **02 · Base de apoyo resistente al calor (1 unidad):** Para posarla caliente entre prenda y prenda de forma segura.
+3. **03 · Vaso dosificador de 100 ml (1 unidad):** La medida exacta para llenar el depósito de una vez y sin regar agua.
+4. **04 · Bolsa de transporte y protección (1 unidad):** Para guardarla en el clóset o meterla en la maleta protegida.
+5. **05 · Manual de uso y guía rápida (1 documento):** Instrucciones sencillas para cuidarla y sacarle provecho desde el primer día.
 
-* **Sello:** `RESPALDO Y SOPORTE: Garantía oficial y soporte directo`
+* **Sello:** `RESPALDO Y SOPORTE: Garantía legal de 30 días y soporte directo en Colombia`
 
 ---
 
@@ -336,7 +335,7 @@
   > No te lo contamos. Te lo mostramos.
 * **Subtítulo:**
   > Mira LISO en acción directamente sobre la prenda.
-* **Video:** Demostración real de vaporizado en percha sobre prenda arrugada.
+* **Video:** Demostración real de vaporizado en el gancho sobre prenda arrugada.
 
 ---
 
@@ -347,12 +346,12 @@
 * **Precio:**
   * **Antes (referencial):** `$289.900`
   * **Ahora:** `$189.900 COP`
-  * **Envío:** `ENVÍO GRATIS COLOMBIA` (Tiempo estimado: 15–20 días hábiles)
+  * **Envío:** `ENVÍO GRATIS COLOMBIA` (Despacho directo de fábrica · 15–20 días hábiles)
 
 ### Selector de Color (Dinámico):
 * **Opciones disponibles:**
-  * **Negro:** Elegante acabado grafito satinado.
-  * **Gris:** Moderno tono titanio plata.
+  * **Negro:** Acabado grafito mate.
+  * **Gris:** Acabado titanio satinado.
 * **Recordatorio:** `Ambas opciones con clavija estándar 110 V para Colombia.`
 
 ### Insignia de Enchufe Colombiano:
@@ -367,17 +366,17 @@
 * **Texto:**
   > Cuentas con 30 días calendario de garantía legal desde la entrega de tu producto. Si presenta cualquier falla de fábrica o funcionamiento, te brindamos solución directa con reparación, cambio o devolución sin intermediarios.
 * **Subtexto:**
-  > Garantía amparada por la Ley 1480 de 2011 · Fletes de garantía asumidos en su totalidad por LISO.
+  > Garantía amparada por la Ley 1480 de 2011 · Costos de envío por garantía asumidos en su totalidad por LISO.
 
 ### Botón de Compra Principal (CTA):
-* `Quiero LISO en [Color seleccionado] — $189.900`
+* `Pedir LISO en [Color seleccionado] — $189.900`
 
 ### Aviso Previo al Pago (Consentimiento Legal):
 > Al completar tu pedido aceptas nuestros [Términos y Condiciones] y [Política de Privacidad]. Tu compra cuenta con [garantía legal (30 días calendario)], [derecho de retracto (5 días hábiles)] y [reversión del pago].
 
 ### Fila de Confianza Rápida:
 * ✓ Envío gratis a toda Colombia
-* ✓ Pago 100% seguro
+* ✓ Pago seguro (PSE / Tarjetas)
 * ✓ Garantía legal 30 días
 * ✓ Seguimiento en línea
 
@@ -386,9 +385,9 @@
 
 ### Acordeón Desplegable de Políticas en la Oferta:
 * **Envíos Nacionales:**
-  > Envío gratis a toda Colombia. El tiempo estimado de entrega informado por la logística es de 15 a 20 días hábiles posteriores a la confirmación de la compra. Realizamos despachos con transportadoras reconocidas y te proporcionamos número de guía con seguimiento en línea continuo. Los tiempos son estimados y dependen de la cobertura y trayectos de las empresas transportadoras en cada municipio.
+  > Envío gratis a toda Colombia. Despachamos tu pedido directamente desde fábrica con entrega estimada de 15 a 20 días hábiles. Te proporcionamos número de guía y seguimiento en línea continuo hasta la entrega en tu domicilio. Los tiempos son estimados y dependen de la cobertura y trayectos de las empresas transportadoras en cada municipio.
 * **Garantía Legal (30 días):**
-  > Los productos LISO cuentan con una garantía legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor, amparada por la Ley 1480 de 2011 por defectos de calidad, idoneidad o funcionamiento técnico atribuibles al producto. Si requieres hacer efectiva la garantía, escríbenos a atencion.lisostore@gmail.com o radica tu solicitud en PQR. Los fletes válidos por garantía son asumidos por LISO.
+  > Los productos LISO cuentan con una garantía legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor, amparada por la Ley 1480 de 2011 por defectos de calidad, idoneidad o funcionamiento técnico atribuibles al producto. Si requieres hacer efectiva la garantía, escríbenos a atencion.lisostore@gmail.com o radica tu solicitud en PQR. Los costos de envío válidos por garantía son asumidos por LISO.
 * **Derecho de Retracto y Devoluciones:**
   > Conforme al artículo 47 del Estatuto del Consumidor, cuentas con 5 días hábiles tras la entrega para retractarte de la compra siempre que el producto esté sin uso y en su empaque original con todos sus accesorios. Conoce los detalles en nuestra Política de Retracto.
 
@@ -404,37 +403,37 @@
 > El depósito de 100 ml da para unos 5 minutos de vapor continuo a máxima fuerza. Está pensado así para que la plancha sea liviana y no te canse la mano mientras la usas.
 
 ### 02. ¿Cuántas prendas puedo dejar listas con una sola carga?
-> Entre 2 y 3 prendas. Por ejemplo, dos camisas para salir a trabajar o un vestido y una blusa. Es perfecta para el retoque del día a día; si necesitas más, solo rellenas con el vasito y sigues.
+> Entre 2 y 3 prendas. Por ejemplo, dos camisas para salir a trabajar o un vestido y una blusa. Es perfecta para el retoque del día a día; si necesitas más, solo recargas con el vaso dosificador y sigues.
 
-### 03. ¿Me escupe agua al planchar?
-> No escupe agua. Su cámara interna de aluminio inyectado calienta a 150 °C para convertir el agua en vapor antes de que salga por las boquillas.
+### 03. ¿Gotea o moja la ropa al usarla?
+> No moja la ropa. Su cámara térmica de aluminio inyectado calienta a 150 °C para convertir el agua en vapor seco y homogéneo antes de que entre en contacto con la prenda.
 
 ### 04. ¿Qué telas puedo planchar?
 > Algodón, lino y mezclas habituales quedan impecables. Para telas delicadas o vestidos especiales, usa el Nivel 1 y haz una pequeña prueba en una costura interior que no se vea.
 
 ### 05. ¿Se puede usar tanto en vertical como en horizontal?
-> Sí. Para eso tiene la placa giratoria: en vertical planchas la ropa colgada en la percha, y en horizontal puedes apoyarte sobre la cama o una mesa sin sacar ninguna tabla.
+> Sí. Para eso tiene la placa giratoria: en vertical planchas la ropa colgada en el gancho, y en horizontal puedes apoyarte sobre la cama o una mesa sin sacar ninguna tabla.
 
 ### 06. ¿Qué tipo de enchufe me envían?
-> Te enviamos la versión con clavija plana estándar (Tipo A/B americano, 110 V), el estándar en los hogares colombianos. Se conecta directo a cualquier tomacorriente de la pared, sin necesidad de adaptadores.
+> Te enviamos la versión con clavija plana estándar (Tipo A/B americano, 110 V), el estándar en cualquier enchufe de la casa en Colombia. Se conecta directo a la pared sin adaptadores.
 
 ### 07. ¿Funciona en otros países con 110–240 V?
-> Sí. Es multivoltaje (110 a 240 V). Funciona directo en Colombia a 110 V y además puedes llevarla en tu maleta a cualquier parte del mundo sin miedo a que se queme.
+> Sí. Es multivoltaje (110 a 240 V). Funciona directo en Colombia a 110 V y además puedes llevarla en tu maleta a cualquier parte del mundo sin miedo a que se dañe.
 
 ### 08. ¿Pesa mucho al usarla?
-> Es compacta, ligera y el depósito es de 100 ml justamente para que el centro de gravedad quede pegado a la mano y no te canse la muñeca.
+> Pesa solo 650 g. Es liviana, compacta y su depósito de 100 ml equilibra el peso justo sobre la mano para que puedas retocar varias prendas sin cansarte la muñeca.
 
 ### 09. ¿Cómo se cuida y se guarda?
-> Solo vacía el agua sobrante al terminar para que no se formen sedimentos en el aluminio. Déjala enfriar en su base dock y luego guárdala en su bolsa de viaje.
+> Solo vacía el agua sobrante al terminar para que no se formen sedimentos minerales. Déjala enfriar en su base de apoyo y luego guárdala en su bolsa de transporte.
 
 ### 10. ¿Qué pasa si llega con algún daño o falla?
-> Si recibes un producto defectuoso, dañado o con algún problema, contáctanos con tu número de pedido y fotografías o un video que muestre el caso. Revisaremos tu situación y te indicaremos la solución correspondiente con atención y soporte directo para tu compra.
+> Cuentas con 30 días calendario de garantía legal directa. Si el producto presenta cualquier defecto de fábrica o daño en el transporte, nos escribes a atencion.lisostore@gmail.com o radicas tu solicitud en PQR y gestionamos el reemplazo o devolución sin costo adicional de envío.
 
 ### 11. ¿Por qué no es inalámbrica?
-> Porque para darte 1200 W continuos, calentar en 3 segundos* y dejar la ropa impecable sin perder fuerza, necesita conexión a la pared. Una batería con esa potencia la haría pesada, aparatosa y al año no retendría carga.
+> Porque para darte 1200 W continuos, calentar en pocos segundos y dejar la ropa impecable sin perder fuerza, necesita conexión a la pared. Una batería con esa potencia la haría pesada, aparatosa y perdería rendimiento con los meses.
 
 ### 12. ¿Por qué comprarla aquí y no en una plataforma genérica?
-> Porque te respaldamos nosotros con envío nacional, atención personalizada de personas reales y un equipo que responde ante cualquier duda o problema con tu pedido.
+> Porque te respaldamos nosotros con envío gratis a toda Colombia, medios de pago seguros (PSE y tarjetas), garantía legal de 30 días y atención personalizada con personas reales.
 
 ---
 
@@ -448,9 +447,9 @@
 * **Párrafo:**
   > Dale unos minutos de vapor, gira la placa para los cuellos y los detalles, y listo: tu prenda queda preparada sin tener que montar todo el ritual de planchar.
 * **Puntos de respaldo:**
-  * **Atención directa y soporte postventa:** Canal directo de contacto si necesitas asistencia con tu pedido.
-  * **Envío gratis a toda Colombia:** Con seguimiento para que sepas dónde está tu pedido.
-* **Botón CTA:** `Quiero LISO — $189.900`
+  * **Garantía legal y soporte directo en Colombia:** Respaldo de 30 días y canal de atención directa si necesitas cualquier ayuda.
+  * **Envío gratis a toda Colombia:** Despacho con guía de rastreo para que sepas en todo momento el avance de tu entrega.
+* **Botón CTA:** `Pedir LISO — $189.900`
 
 ---
 
@@ -460,7 +459,7 @@
 
 * **Precio visible:** `$189.900`
 * **Beneficio clave:** `Envío gratis a toda Colombia`
-* **Botón táctil:** `LO QUIERO` (conduce a la sección de oferta)
+* **Botón táctil:** `PEDIR LISO` (conduce a la sección de oferta)
 
 ---
 

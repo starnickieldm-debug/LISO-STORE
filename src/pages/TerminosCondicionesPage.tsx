@@ -70,8 +70,8 @@ export const TerminosCondicionesPage: React.FC = () => {
         <ul className="list-disc pl-5 space-y-1 text-bone/75">
           <li><strong>Potencia:</strong> {LEGAL_COMMERCIAL.power}.</li>
           <li><strong>Tensión eléctrica:</strong> {LEGAL_COMMERCIAL.voltage} (clavija plana estándar tipo A/B de conexión directa a tomacorrientes domésticos en Colombia).</li>
-          <li><strong>Funcionalidad:</strong> Placa giratoria bidireccional, pantalla digital con visualización de temperatura y modo de vapor continuo para alisar prendas en percha o en plano.</li>
-          <li><strong>Accesorios incluidos:</strong> Base dock térmica de apoyo, vaso medidor de 100 ml, bolsa de transporte y manual de uso.</li>
+          <li><strong>Funcionalidad:</strong> Placa giratoria bidireccional, pantalla digital con visualización de temperatura y modo de vapor continuo para alisar prendas en el gancho o en plano.</li>
+          <li><strong>Accesorios incluidos:</strong> Base de apoyo resistente al calor, vaso dosificador de 100 ml, bolsa de transporte y manual de uso.</li>
         </ul>
       </section>
 

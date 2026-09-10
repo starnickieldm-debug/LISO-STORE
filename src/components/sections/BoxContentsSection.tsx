@@ -32,7 +32,7 @@ export const BoxContentsSection: React.FC = () => {
                 <source srcSet="/images/box-contents.webp" type="image/webp" />
                 <img 
                   src="/images/box-contents.jpg" 
-                  alt="Contenido del kit LISO: plancha de vapor, base dock de apoyo, vaso medidor y cable de corriente"
+                  alt="Contenido del kit LISO: plancha de vapor, base de apoyo resistente al calor, vaso dosificador y cable de corriente"
                   className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-mech-s"
                   loading="lazy"
                 />

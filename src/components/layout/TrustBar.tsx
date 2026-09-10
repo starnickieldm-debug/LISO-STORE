@@ -9,8 +9,8 @@ export const TrustBar: React.FC = () => {
 
   const trustItems = [
     'Envío gratis a toda Colombia',
-    'Pago 100% seguro',
-    'Atención postventa'
+    'Pago seguro con PSE y tarjetas',
+    'Garantía legal de 30 días'
   ];
 
   useEffect(() => {
@@ -32,9 +32,9 @@ export const TrustBar: React.FC = () => {
         <p className="hidden sm:flex items-center justify-center gap-x-3.5 sm:gap-x-4 tracking-wider uppercase whitespace-nowrap">
           <span>Envío gratis a toda Colombia</span>
           <span className="text-accent font-bold">·</span>
-          <span>Pago 100% seguro</span>
+          <span>Pago seguro con PSE y tarjetas</span>
           <span className="text-accent font-bold">·</span>
-          <span>Atención postventa</span>
+          <span>Garantía legal de 30 días</span>
         </p>
 
         {/* Mobile View (< 640px): 100% Mobile-First Single-Line Ticker (Zero vertical growth, zero text stacking) */}

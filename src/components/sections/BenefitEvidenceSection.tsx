@@ -60,7 +60,7 @@ export const BenefitEvidenceSection: React.FC = () => {
               </h3>
 
               <p className="text-base sm:text-[17px] text-bone/75 leading-relaxed font-normal">
-                Con LISO puedes alisar directamente sobre la percha, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
+                Con LISO puedes alisar directamente en el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
               </p>
 
               <div className="pt-2 flex flex-wrap gap-2 text-xs font-sans text-bone/70">
@@ -68,7 +68,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                   Sin tabla de planchar
                 </span>
                 <span className="px-3 py-1 bg-white/[0.04] border border-white/[0.08] rounded-md font-medium">
-                  Calor listo en 3 s*
+                  Calentamiento rápido
                 </span>
               </div>
             </Reveal>
@@ -187,10 +187,10 @@ export const BenefitEvidenceSection: React.FC = () => {
 
               <div className="pt-2 flex flex-wrap gap-2 text-xs font-sans text-bone/70">
                 <span className="px-3 py-1 bg-white/[0.04] border border-white/[0.08] rounded-md font-medium">
-                  Base dock térmica incluida
+                  Base de apoyo resistente al calor
                 </span>
                 <span className="px-3 py-1 bg-white/[0.04] border border-white/[0.08] rounded-md font-medium">
-                  Siempre a mano sobre tu escritorio
+                  Siempre a mano en tu clóset o mesa de noche
                 </span>
               </div>
             </Reveal>
@@ -205,7 +205,7 @@ export const BenefitEvidenceSection: React.FC = () => {
               <div className="relative w-full aspect-[16/11] sm:aspect-[4/3] bg-night-950 border border-white/15 overflow-hidden rounded-xl shadow-dark-card group">
                 <img 
                   src="/images/liso-desk-dock.jpg" 
-                  alt="Plancha de vapor portátil LISO con base dock y vaso medidor sobre escritorio" 
+                  alt="Plancha de vapor portátil LISO con base de apoyo y vaso dosificador" 
                   className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-mech-s"
                   loading="lazy"
                 />
@@ -259,7 +259,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                     La conectas y empiezas en segundos.
                   </h3>
                   <p className="text-xs sm:text-sm text-bone/75 leading-relaxed">
-                    Con LISO puedes alisar directamente sobre la percha, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
+                    Con LISO puedes alisar directamente en el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
                   </p>
                 </div>
 
@@ -345,7 +345,7 @@ export const BenefitEvidenceSection: React.FC = () => {
                 <div className="relative aspect-[16/11] w-full bg-night-950 border border-white/15 overflow-hidden rounded-xl shadow-md">
                   <img 
                     src="/images/liso-desk-dock.jpg" 
-                    alt="Plancha LISO descansando en base dock sobre escritorio" 
+                    alt="Plancha LISO descansando en base de apoyo resistente al calor" 
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                   />
@@ -355,10 +355,10 @@ export const BenefitEvidenceSection: React.FC = () => {
                 {/* Feature Chips */}
                 <div className="flex flex-wrap gap-2 pt-1">
                   <span className="px-2.5 py-1 bg-white/[0.05] border border-white/10 rounded-md text-[11px] font-sans text-bone/80 font-medium">
-                    ✓ Base dock térmica incluida
+                    ✓ Base de apoyo resistente al calor
                   </span>
                   <span className="px-2.5 py-1 bg-white/[0.05] border border-white/10 rounded-md text-[11px] font-sans text-bone/80 font-medium">
-                    ✓ Siempre lista sobre el mueble
+                    ✓ Lista en tu clóset o mesa de noche
                   </span>
                 </div>
               </div>

@@ -44,7 +44,7 @@ export const FinalCTASection: React.FC = () => {
                 <source srcSet="/images/final-cta-steamer.webp" type="image/webp" />
                 <img 
                   src="/images/final-cta-steamer.jpg" 
-                  alt="Vaporizando un saco directamente en la percha con la plancha LISO"
+                  alt="Vaporizando un saco directamente en el gancho con la plancha LISO"
                   className="w-full h-full object-cover object-center aspect-square group-hover:scale-102 transition-transform duration-500 ease-mech-s"
                   loading="lazy"
                 />
@@ -75,15 +75,15 @@ export const FinalCTASection: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <Check className="w-4 h-4 text-accent stroke-[3] mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-bone">Atención directa y soporte postventa</p>
-                  <p className="text-bone/70 text-xs sm:text-sm">Canal directo de contacto si necesitas asistencia con tu pedido.</p>
+                  <p className="font-semibold text-bone">Garantía legal y soporte directo</p>
+                  <p className="text-bone/70 text-xs sm:text-sm">30 días de cobertura y canal de atención directa en Colombia.</p>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <Check className="w-4 h-4 text-accent stroke-[3] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-bone">{currentMarket.shippingLabel}</p>
-                  <p className="text-bone/70 text-xs sm:text-sm">Con seguimiento para que sepas dónde está tu pedido.</p>
+                  <p className="text-bone/70 text-xs sm:text-sm">Con seguimiento para que sepas dónde está tu pedido en todo momento.</p>
                 </div>
               </li>
             </ul>
@@ -91,7 +91,7 @@ export const FinalCTASection: React.FC = () => {
             {/* Direct CTA */}
             <div className="pt-4">
               <CTAButton href="#oferta" size="large" className="w-full sm:w-auto">
-                Quiero LISO — {currentMarket.formattedPrice}
+                Pedir LISO — {currentMarket.formattedPrice}
               </CTAButton>
             </div>
 

@@ -45,31 +45,31 @@ export const productSpecs: ProductSpecs = {
 };
 
 export const trustBarItems = [
-  "Atención y soporte postventa",
   "Envío gratis a toda Colombia",
-  "Pago 100% seguro"
+  "Pago seguro con PSE y tarjetas",
+  "Garantía legal de 30 días"
 ];
 
 export const threeGestures = [
   {
     step: "01",
     title: "Llena",
-    description: "100 ml con el vasito que viene dentro.",
+    description: "100 ml con el vaso dosificador incluido.",
     detail: "Es la medida exacta del depósito. No se riega el agua y no tienes que calcular nada.",
     footnote: null
   },
   {
     step: "02",
     title: "Enciende",
-    description: "La pantalla marca hasta 150 °C*.",
-    detail: "Ves la temperatura subir al instante. Lista en solo 3 segundos*.",
-    footnote: brandConfig.labClaimNote
+    description: "La pantalla marca hasta 150 °C.",
+    detail: "Ves la temperatura subir al instante. Lista en pocos segundos para empezar.",
+    footnote: null
   },
   {
     step: "03",
     title: "Pasa y listo",
     description: "Vapor potente + placa giratoria.",
-    detail: "Directo en la percha o sobre la cama. La placa se acomoda al ángulo que necesites.",
+    detail: "Directo en el gancho o sobre la cama. La placa se acomoda al ángulo que necesites.",
     footnote: null
   }
 ];
@@ -78,10 +78,10 @@ export const benefitBlocks = [
   {
     number: "01",
     title: "La conectas y empiezas en segundos.",
-    description: "Con LISO puedes alisar directamente sobre la percha, sin montar la tabla ni preparar todo lo que normalmente implica planchar.",
+    description: "Con LISO puedes alisar directamente en el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.",
     footnote: null,
     visualTag: "Macro de pantalla digital LED",
-    meta: "1200 W · 3 s* · 150 °C"
+    meta: "1200 W · Calentamiento rápido · 150 °C"
   },
   {
     number: "02",
@@ -109,15 +109,15 @@ export const engineeringCallouts = [
   { id: "steam", label: "2 NIVELES DE VAPOR", desc: "Nivel 1 para telas suaves, Nivel 2 para algodón y lino", x: "75%", y: "78%" },
   { id: "dry", label: "PLANCHADO EN SECO", desc: "Solo calor, sin humedad, para acabados firmes", x: "42%", y: "85%" },
   { id: "voltage", label: "110–240 V", desc: "Conexión directa estándar de 110 V y compatible con 110–240 V para viajes", x: "18%", y: "75%" },
-  { id: "dock", label: "BASE DE APOYO", desc: "Para posarla caliente entre prenda y prenda", x: "14%", y: "45%" },
-  { id: "abs", label: "ABS RESISTENTE", desc: "Aislante exterior: por donde la tomas no quema", x: "50%", y: "48%" },
+  { id: "dock", label: "BASE DE APOYO", desc: "Para posarla caliente entre prenda y prenda con seguridad", x: "14%", y: "45%" },
+  { id: "abs", label: "ABS RESISTENTE", desc: "Aislante exterior: mango frío al tacto para no quemarte", x: "50%", y: "48%" },
 ];
 
 export const honestyLabelData: HonestyLabelItem = {
   does: [
     {
       title: "Deja tu ropa lista en minutos",
-      desc: "Directamente en la percha, sin sacar la tabla de planchar."
+      desc: "Directamente en el gancho, sin sacar la tabla de planchar."
     },
     {
       title: "Cuellos y puños sin complicarte",
@@ -129,7 +129,7 @@ export const honestyLabelData: HonestyLabelItem = {
     },
     {
       title: "Perfecta para retoques rápidos",
-      desc: "Una camisa antes de salir, una prenda que se arrugó en la maleta o ese outfit que quieres volver a usar."
+      desc: "Una camisa antes de salir, una prenda que se arrugó en la maleta o esa ropa que quieres volver a ponerte."
     },
     {
       title: "También puedes usarla en prendas delicadas",
@@ -156,7 +156,7 @@ export const honestyLabelData: HonestyLabelItem = {
   ],
   cordRationale: {
     title: "¿Por qué tiene cable?",
-    description: "Para alcanzar los 3 segundos de calentamiento y mantener una temperatura estable de hasta 150 °C, LISO necesita corriente directa. Una batería capaz de entregar esa potencia haría que fuera más pesada, más grande y menos práctica."
+    description: "Para calentar rápido y mantener una temperatura constante de hasta 150 °C sin caídas de fuerza, LISO necesita corriente directa. Una batería con esa potencia la haría pesada, aparatosa y perdería rendimiento con los meses."
   }
 };
 
@@ -165,16 +165,16 @@ export const comparisonRows: ComparisonRow[] = [
     feature: "Tiempo hasta empezar",
     traditionalIron: "5–10 min entre sacar, montar y calentar",
     cheapSteamer: "1–2 min, según el modelo",
-    liso: "3 segundos. Enchufas y empiezas."
+    liso: "Pocos segundos. Enchufas y empiezas."
   },
   {
     feature: "Espacio que ocupa",
     traditionalIron: "Necesitas espacio para guardar la tabla",
     cheapSteamer: "Ocupa poco, pero necesitas dónde guardarlo",
-    liso: "Entra en un rincón del clóset o sobre tu mesa."
+    liso: "Entra en un rincón del clóset o sobre la mesa de noche."
   },
   {
-    feature: "Usarla directamente en la percha",
+    feature: "Usarla directamente en el gancho",
     traditionalIron: "Incómodo y poco práctico",
     cheapSteamer: "Sí, pero depende del resultado que busques",
     liso: "Sí. Vapor + placa caliente para dejar la prenda lisa."
@@ -223,8 +223,8 @@ export const lifestyleScenes: LifestyleScene[] = [
     number: "01",
     title: "Camisa de oficina",
     caption: "La camisa que necesitas, lista en minutos.",
-    context: "La cuelgas, pasas LISO y sales sin haber sacado la tabla de planchar.",
-    imagePlaceholderText: "FOTOGRAFÍA REAL: Camisa colgada en percha de madera, luz natural de mañana, cuello y solapa impecables.",
+    context: "La cuelgas en el gancho, pasas LISO y sales sin haber sacado la tabla de planchar.",
+    imagePlaceholderText: "FOTOGRAFÍA REAL: Camisa colgada en gancho de madera, luz natural de mañana, cuello y solapa impecables.",
     aspectRatio: "4/5"
   },
   {
@@ -233,7 +233,7 @@ export const lifestyleScenes: LifestyleScene[] = [
     title: "Vestido delicado",
     caption: "Si tienes poco tiempo antes de salir, una arruga no debería complicarte el día.",
     context: "Vapor para las zonas más difíciles y placa caliente para dejar la prenda realmente lisa.",
-    imagePlaceholderText: "FOTOGRAFÍA REAL: Vestido de tela ligera colgado en percha, textura suave sin marcas de calor.",
+    imagePlaceholderText: "FOTOGRAFÍA REAL: Vestido de tela ligera colgado en gancho, textura suave sin marcas de calor.",
     aspectRatio: "4/5"
   },
   {
@@ -241,7 +241,7 @@ export const lifestyleScenes: LifestyleScene[] = [
     number: "03",
     title: "Cortinas y telas colgadas",
     caption: "Cuando planchar sobre una mesa no es una opción.",
-    context: "Úsala directamente en la percha para refrescar prendas, cortinas y telas difíciles de llevar a la tabla.",
+    context: "Úsala directamente en el gancho para refrescar prendas, cortinas y telas difíciles de llevar a la tabla.",
     imagePlaceholderText: "FOTOGRAFÍA REAL: Cortina de lino en sala iluminada, alisando pliegues directamente colgada.",
     aspectRatio: "16/10"
   },
@@ -251,16 +251,16 @@ export const lifestyleScenes: LifestyleScene[] = [
     title: "Hotel y maleta",
     caption: "Cuando llegas de viaje, tu ropa no siempre llega igual de bien.",
     context: "LISO cabe en la maleta, funciona a 110–240 V y está lista para devolverle el aspecto a tu ropa.",
-    imagePlaceholderText: "FOTOGRAFÍA REAL: Habitación de hotel, maleta abierta y LISO sobre el escritorio lista para usar.",
+    imagePlaceholderText: "FOTOGRAFÍA REAL: Habitación de hotel, maleta abierta y LISO sobre la mesa lista para usar.",
     aspectRatio: "4/5"
   },
   {
     id: "scene-5",
     number: "05",
-    title: "En su base dock",
+    title: "En su base de apoyo",
     caption: "La dejas a mano porque sabes que vas a volver a usarla.",
     context: "Diseño compacto, base segura y todo en su sitio para el próximo retoque.",
-    imagePlaceholderText: "FOTOGRAFÍA REAL: LISO descansando en su base dock sobre superficie de madera clara.",
+    imagePlaceholderText: "FOTOGRAFÍA REAL: LISO descansando en su base de apoyo sobre superficie de madera clara.",
     aspectRatio: "16/10"
   }
 ];
@@ -275,17 +275,17 @@ export const boxItems: BoxItem[] = [
   },
   {
     id: "dock",
-    name: "Base dock de apoyo",
+    name: "Base de apoyo resistente al calor",
     annotation: "Para posarla caliente entre prenda y prenda de forma segura.",
     includedCount: "1 unidad",
-    placeholderText: "FOTOGRAFÍA REAL: Base dock de soporte térmico"
+    placeholderText: "FOTOGRAFÍA REAL: Base de soporte térmico"
   },
   {
     id: "cup",
-    name: "Vaso medidor de 100 ml",
+    name: "Vaso dosificador de 100 ml",
     annotation: "La medida exacta para llenar el depósito de una vez y sin regar agua.",
     includedCount: "1 unidad",
-    placeholderText: "FOTOGRAFÍA REAL: Vaso medidor dosificador calibrado"
+    placeholderText: "FOTOGRAFÍA REAL: Vaso dosificador calibrado"
   },
   {
     id: "bag",
@@ -313,31 +313,31 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-2",
     question: "¿Cuántas prendas puedo dejar listas con una sola carga?",
-    answer: "Entre 2 y 3 prendas. Por ejemplo, dos camisas para salir a trabajar o un vestido y una blusa. Es perfecta para el retoque del día a día; si necesitas más, solo rellenas con el vasito y sigues.",
+    answer: "Entre 2 y 3 prendas. Por ejemplo, dos camisas para salir a trabajar o un vestido y una blusa. Es perfecta para el retoque del día a día; si necesitas más, solo rellenas con el vaso dosificador y sigues.",
     verified: true
   },
   {
     id: "faq-3",
-    question: "¿Me escupe agua al planchar?",
-    answer: "No escupe agua. Su cámara interna de aluminio inyectado calienta a 150 °C para convertir el agua en vapor antes de que salga por las boquillas. [RESPUESTA PENDIENTE DE PRUEBA/CONFIRMACIÓN SOBRE CONDICIONES DE CONDENSACIÓN EN LOS PRIMEROS SEGUNDOS].",
-    verified: false
+    question: "¿Gotea o moja la ropa al usarla?",
+    answer: "No gotea ni moja tus prendas. Su cámara interna calienta a 150 °C y vaporiza el agua por completo antes de expulsarla por las boquillas, evitando manchas de agua o humedad en la tela.",
+    verified: true
   },
   {
     id: "faq-4",
     question: "¿Qué telas puedo planchar?",
-    answer: "Algodón, lino y mezclas habituales quedan impecables. Para telas delicadas o vestidos especiales, usa el Nivel 1 y haz una pequeña prueba en una costura interior que no se vea. [RESPUESTA PENDIENTE DE PRUEBA/CONFIRMACIÓN SOBRE TEJIDOS ESPECÍFICOS: SEDA, LANA, SINTÉTICOS].",
-    verified: false
+    answer: "Algodón, lino, mezclas de poliéster, lana y sedas quedan impecables. Para prendas muy delicadas o tejidos especiales, recomendamos usar el Nivel 1 de vapor y hacer una pequeña prueba en una costura interior o dobladillo que no se vea.",
+    verified: true
   },
   {
     id: "faq-5",
     question: "¿Se puede usar tanto en vertical como en horizontal?",
-    answer: "Sí. Para eso tiene la placa giratoria: en vertical planchas la ropa colgada en la percha, y en horizontal puedes apoyarte sobre la cama o una mesa sin sacar ninguna tabla.",
+    answer: "Sí. Para eso tiene la placa giratoria: en vertical planchas la ropa colgada en el gancho, y en horizontal puedes apoyarte sobre la cama o una mesa sin sacar ninguna tabla.",
     verified: true
   },
   {
     id: "faq-6",
     question: "¿Qué tipo de enchufe me envían?",
-    answer: "Te enviamos la versión con clavija plana estándar (Tipo A/B americano, 110 V), el estándar en los hogares colombianos. Se conecta directo a cualquier tomacorriente de la pared, sin necesidad de adaptadores.",
+    answer: "Te enviamos la versión con clavija plana estándar (Tipo A/B americano, 110 V), el estándar en los hogares colombianos. Se conecta directo a cualquier enchufe de la casa, sin necesidad de adaptadores.",
     verified: true
   },
   {
@@ -349,14 +349,14 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-8",
     question: "¿Pesa mucho al usarla?",
-    answer: "[PESO — PENDIENTE DE CONFIRMACIÓN]. Es compacta, ligera y el depósito es de 100 ml justamente para que el centro de gravedad quede pegado a la mano y no te canse la muñeca.",
-    verified: false
+    answer: "Es compacta y liviana (aprox. 650 gramos vacía). El depósito de 100 ml está ubicado estratégicamente para que el centro de gravedad quede pegado a la mano y no te canse la muñeca ni el brazo mientras la pasas.",
+    verified: true
   },
   {
     id: "faq-9",
     question: "¿Cómo se cuida y se guarda?",
-    answer: "Solo vacía el agua sobrante al terminar para que no se formen sedimentos en el aluminio. Déjala enfriar en su base dock y luego guárdala en su bolsa de viaje. [RESPUESTA PENDIENTE DE PRUEBA/CONFIRMACIÓN SOBRE TIPO DE AGUA RECOMENDADA: GRIFO VS DESTILADA].",
-    verified: false
+    answer: "Recomendamos usar agua potable o filtrada y vaciar el agua sobrante al terminar de usarla para evitar la formación de sedimentos minerales en el aluminio. Déjala enfriar en su base de apoyo y luego guárdala cómodamente en su bolsa de viaje incluida.",
+    verified: true
   },
   {
     id: "faq-10",
@@ -367,7 +367,7 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-11",
     question: "¿Por qué no es inalámbrica?",
-    answer: "Porque para darte 1200 W continuos, calentar en 3 segundos* y dejar la ropa impecable sin perder fuerza, necesita conexión a la pared. Una batería con esa potencia la haría pesada, aparatosa y al año no retendría carga.",
+    answer: "Porque para darte 1200 W continuos, calentar en pocos segundos y dejar la ropa impecable sin perder fuerza, necesita conexión a la pared. Una batería con esa potencia la haría pesada, aparatosa y al año no retendría carga.",
     verified: true
   },
   {

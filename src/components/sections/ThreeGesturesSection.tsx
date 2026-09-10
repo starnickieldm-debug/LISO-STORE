@@ -56,7 +56,7 @@ export const ThreeGesturesSection: React.FC = () => {
     {
       webp: "/images/paso-03-planchar.webp",
       jpg: "/images/paso-03-planchar.jpg",
-      alt: "Planchado a vapor en percha sobre abrigo de lana con la plancha LISO"
+      alt: "Planchado a vapor en gancho sobre abrigo de lana con la plancha LISO"
     }
   ];
 

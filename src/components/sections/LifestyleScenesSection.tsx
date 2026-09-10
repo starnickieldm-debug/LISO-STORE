@@ -5,10 +5,10 @@ import { Reveal } from '../ui/Reveal';
 
 const sceneImages = [
   { webp: "/images/escena-01-camisa.webp", jpg: "/images/escena-01-camisa.jpg", alt: "Camisa de oficina colgada siendo alisada a vapor con LISO" },
-  { webp: "/images/escena-02-vestido.webp", jpg: "/images/escena-02-vestido.jpg", alt: "Vestido verde de satén vaporizado en percha con LISO" },
+  { webp: "/images/escena-02-vestido.webp", jpg: "/images/escena-02-vestido.jpg", alt: "Vestido verde de satén vaporizado en gancho con LISO" },
   { webp: "/images/escena-03-cortina.webp", jpg: "/images/escena-03-cortina.jpg", alt: "Cortina blanca vaporizada directamente en vertical con LISO" },
   { webp: "/images/escena-04-maleta.webp", jpg: "/images/escena-04-maleta.jpg", alt: "Plancha de viaje LISO empacada en maleta y bolso de mano" },
-  { webp: "/images/escena-05-dock.webp", jpg: "/images/escena-05-dock.jpg", alt: "LISO descansando en su base dock sobre superficie de mármol en el baño" },
+  { webp: "/images/escena-05-dock.webp", jpg: "/images/escena-05-dock.jpg", alt: "LISO descansando en su base de apoyo sobre superficie de mármol en el baño" },
 ];
 
 export const LifestyleScenesSection: React.FC = () => {
@@ -90,7 +90,7 @@ export const LifestyleScenesSection: React.FC = () => {
                 <source srcSet="/images/escena-02-vestido.webp" type="image/webp" />
                 <img 
                   src="/images/escena-02-vestido.jpg" 
-                  alt="Vestido verde de satén vaporizado en percha con LISO"
+                  alt="Vestido verde de satén vaporizado en gancho con LISO"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-mech-s"
                   loading="lazy"
                 />
@@ -159,7 +159,7 @@ export const LifestyleScenesSection: React.FC = () => {
                 <source srcSet="/images/escena-05-dock.webp" type="image/webp" />
                 <img 
                   src="/images/escena-05-dock.jpg" 
-                  alt="LISO descansando en su base dock sobre superficie de mármol en el baño"
+                  alt="LISO descansando en su base de apoyo sobre superficie de mármol en el baño"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-mech-s"
                   loading="lazy"
                 />

@@ -39,7 +39,7 @@ export const RotatingPlateVisual: React.FC<RotatingPlateVisualProps> = ({ classN
   };
 
   const angleDescriptions = {
-    0: '0° · Horizontal (prendas en plano o percha abierta)',
+    0: '0° · Horizontal (prendas en plano o gancho abierto)',
     45: '45° · Esquinas, sisas y pliegues estrechos',
     90: '90° · Vertical directa entre botones y cuellos'
   };

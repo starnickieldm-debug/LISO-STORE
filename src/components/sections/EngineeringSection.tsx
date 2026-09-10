@@ -20,7 +20,7 @@ const pieces: DissectionPiece[] = [
     num: "01",
     name: "PLACA GIRATORIA 90°",
     category: "CABEZAL ERGONÓMICO",
-    phrase: "Plancha en la percha, en la tabla y en cuellos: el ángulo te sigue a ti.",
+    phrase: "Plancha en el gancho, en la tabla y en cuellos: el ángulo te sigue a ti.",
     hotspot: { x: 67, y: 37 }
   },
   {
@@ -28,7 +28,7 @@ const pieces: DissectionPiece[] = [
     num: "02",
     name: "CÁMARA TÉRMICA DE ALUMINIO",
     category: "SISTEMA TÉRMICO INTERNO",
-    phrase: "El aluminio calienta en 3 s*: vapor listo antes de que cuelgues la camisa.",
+    phrase: "El aluminio calienta en pocos segundos: vapor listo antes de que cuelgues la camisa.",
     hotspot: { x: 53, y: 25 }
   },
   {
@@ -44,7 +44,7 @@ const pieces: DissectionPiece[] = [
     num: "04",
     name: "ALIMENTACIÓN DIRECTA 1200 W",
     category: "POTENCIA CONTINUA",
-    phrase: "Potencia constante por cable: sin batería que muera con los meses.",
+    phrase: "Potencia constante por cable: sin batería que pierda fuerza con los meses.",
     hotspot: { x: 23, y: 88 }
   },
   {
@@ -52,7 +52,7 @@ const pieces: DissectionPiece[] = [
     num: "05",
     name: "CARCASA BICAPA CON AGARRE",
     category: "AISLAMIENTO TÉRMICO",
-    phrase: "Aislamiento bicapa: 150 °C por dentro; por fuera se toma con la mano.",
+    phrase: "Aislamiento bicapa: 150 °C en la placa térmica; mango frío y seguro al tacto.",
     hotspot: { x: 35, y: 64 }
   },
   {
@@ -406,7 +406,7 @@ export const EngineeringSection: React.FC = () => {
               <div className="p-3 bg-night-950 border border-accent/40 shadow-[0_0_12px_rgba(180,36,124,0.15)] rounded-lg">
                 <span className="text-[10px] text-accent uppercase font-bold block">SUPERFICIE MANGO</span>
                 <span className="text-xl font-bold text-accent mt-0.5 block">≤42 °C</span>
-                <span className="text-[9px] text-bone/60 block mt-0.5 font-medium">Se toma con la mano</span>
+                <span className="text-[9px] text-bone/60 block mt-0.5 font-medium">Seguro al tacto</span>
               </div>
             </div>
 
@@ -639,7 +639,7 @@ export const EngineeringSection: React.FC = () => {
             {/* Bottom OEM Note in Instrument Sans */}
             <div className="mt-8 pt-4 border-t border-white/10">
               <p className="text-[11px] font-sans uppercase tracking-wider text-bone/50 leading-relaxed font-medium">
-                Construcción OEM Asurson (Mod. 7005): aleación de aluminio inyectado y carcasa ignífuga de alta densidad.
+                Ingeniería y materiales: Cámara térmica en aleación de aluminio inyectado y polímero exterior aislante de alta resistencia.
               </p>
             </div>
           </div>

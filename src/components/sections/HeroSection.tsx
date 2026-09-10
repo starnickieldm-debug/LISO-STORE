@@ -154,7 +154,7 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y en 3 segundos* está caliente. Alisa directamente en la percha, sin sacar la tabla, gracias a su <strong className="font-semibold text-bone">placa giratoria</strong> y temperatura real en pantalla.
+              ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y calienta en pocos segundos. Alisa directamente en el gancho, sin sacar la tabla, gracias a su <strong className="font-semibold text-bone">placa giratoria</strong> y temperatura real en pantalla.
             </p>
 
             {/* 4. Price & Primary Conversion Card */}
@@ -184,7 +184,7 @@ export const HeroSection: React.FC = () => {
                   size="large" 
                   className="flex-1 shadow-[0_4px_24px_rgba(180,36,124,0.4)] hover:shadow-[0_6px_30px_rgba(180,36,124,0.55)] text-[15px] font-semibold tracking-wide"
                 >
-                  Quiero mi ropa impecable
+                  Pedir LISO — {currentMarket.formattedPrice}
                 </CTAButton>
 
                 {/* Acción secundaria: Enlace textual discreto con menor peso y contraste refinado */}
@@ -207,9 +207,9 @@ export const HeroSection: React.FC = () => {
                   <span>Envío gratis</span>
                 </span>
                 <span className="text-white/20">·</span>
-                <span>Pago 100% seguro</span>
+                <span>Pago seguro (PSE / Tarjetas)</span>
                 <span className="text-white/20">·</span>
-                <span>Atención postventa</span>
+                <span>Garantía 30 días</span>
               </div>
 
               {/* Nota de laboratorio discreta */}
@@ -240,7 +240,7 @@ export const HeroSection: React.FC = () => {
 
           {/* 2. Beneficio / Problema: Explanatory paragraph with 'sin tabla / en la percha' benefit */}
           <p className="text-center text-[13.5px] xs:text-sm text-bone/75 leading-relaxed font-normal max-w-sm mx-auto mb-2">
-            ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y en 3 segundos* está caliente. Alisa directamente en la percha, sin sacar la tabla, gracias a su <strong className="font-semibold text-bone">placa giratoria</strong> y temperatura real en pantalla.
+            ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y calienta en pocos segundos. Alisa directamente en el gancho, sin sacar la tabla, gracias a su <strong className="font-semibold text-bone">placa giratoria</strong> y temperatura real en pantalla.
           </p>
 
           {/* 3. Mobile Focal Hero Product Stage (Seamlessly integrated into background) */}
@@ -295,7 +295,7 @@ export const HeroSection: React.FC = () => {
               size="large" 
               className="w-full shadow-[0_4px_24px_rgba(180,36,124,0.4)] active:scale-[0.98] text-[15px] font-semibold tracking-wide"
             >
-              Quiero mi ropa impecable
+              Pedir LISO — {currentMarket.formattedPrice}
             </CTAButton>
 
             {/* Acción secundaria en móvil: Discreta, elegante y con jerarquía secundaria clara */}
@@ -319,9 +319,9 @@ export const HeroSection: React.FC = () => {
                 <span>Envío gratis</span>
               </span>
               <span className="text-white/20">·</span>
-              <span>Pago 100% seguro</span>
+              <span>Pago seguro (PSE / Tarjetas)</span>
               <span className="text-white/20">·</span>
-              <span>Atención postventa</span>
+              <span>Garantía 30 días</span>
             </div>
 
             {/* Nota de laboratorio discreta */}

@@ -57,7 +57,7 @@ export const RetractoDevolucionesPage: React.FC = () => {
         </p>
         <ul className="list-disc pl-5 space-y-1.5 text-bone/75">
           <li>El producto debe devolverse por los mismos medios y en las mismas condiciones en que fue recibido.</li>
-          <li>Debe conservar sus empaques originales, etiquetas, bolsas de protección, accesorios completos (base dock, vaso medidor de 100 ml) y manuales de usuario.</li>
+          <li>Debe conservar sus empaques originales, etiquetas, bolsas de protección, accesorios completos (base de apoyo, vaso dosificador de 100 ml) y manuales de usuario.</li>
           <li>No debe presentar signos de maltrato, golpes, fracturas o intervenciones mecánicas ajenas al ensamble original.</li>
         </ul>
       </section>
