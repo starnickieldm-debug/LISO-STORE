@@ -6,7 +6,7 @@ import { Sparkles } from 'lucide-react';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
 
 export const ThreeGesturesSection: React.FC = () => {
-  const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.1, rootMargin: '0px 0px -50px 0px', triggerOnce: true });
+  const [ref, inView] = useInView<HTMLElement>({ threshold: 0.15, rootMargin: '0px', triggerOnce: false, initialInView: false });
   const prefersReduced = useReducedMotion();
   const [activeStep, setActiveStep] = useState<number>(0);
   const [isInteracting, setIsInteracting] = useState<boolean>(false);
@@ -23,26 +23,31 @@ export const ThreeGesturesSection: React.FC = () => {
     }, 7000);
   };
 
-  // Auto-scroll sincronizado con intervalos controlados
+  const scrollContainerTo = (stepIndex: number) => {
+    const container = carouselRef.current;
+    if (!container) return;
+    const items = container.querySelectorAll('.mobile-snap-item');
+    const targetItem = items[stepIndex] as HTMLElement;
+    if (targetItem) {
+      const targetLeft = targetItem.offsetLeft - container.offsetLeft - (container.clientWidth - targetItem.clientWidth) / 2;
+      container.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Auto-scroll sincronizado: SOLO si la sección está visible en pantalla
   React.useEffect(() => {
     if (prefersReduced || isInteracting || !inView) return;
 
     const timer = setInterval(() => {
       setActiveStep((prev) => {
         const next = (prev + 1) % 3;
-        if (carouselRef.current) {
-          const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
-          if (items[next]) {
-            (items[next] as HTMLElement).scrollIntoView({
-              behavior: 'smooth',
-              block: 'nearest',
-              inline: 'center'
-            });
-          }
-        }
+        scrollContainerTo(next);
         return next;
       });
-    }, 3800);
+    }, 4200);
 
     return () => clearInterval(timer);
   }, [prefersReduced, isInteracting, inView]);
@@ -50,26 +55,28 @@ export const ThreeGesturesSection: React.FC = () => {
   const scrollToStep = (stepIndex: number) => {
     onUserInteraction();
     setActiveStep(stepIndex);
-    if (carouselRef.current) {
-      const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
-      if (items[stepIndex]) {
-        (items[stepIndex] as HTMLElement).scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center'
-        });
-      }
-    }
+    scrollContainerTo(stepIndex);
   };
 
   const handleCarouselScroll = () => {
     if (!carouselRef.current) return;
-    const scrollLeft = carouselRef.current.scrollLeft;
-    const itemWidth = carouselRef.current.clientWidth * 0.76;
-    if (itemWidth > 0) {
-      const currentIdx = Math.round(scrollLeft / itemWidth);
-      const clamped = Math.max(0, Math.min(currentIdx, 2));
-      setActiveStep(clamped);
+    const container = carouselRef.current;
+    const scrollLeft = container.scrollLeft;
+    const items = container.querySelectorAll('.mobile-snap-item');
+    if (items.length > 0) {
+      let closestIdx = 0;
+      let minDiff = Infinity;
+      const containerCenter = scrollLeft + container.clientWidth / 2;
+      items.forEach((item, idx) => {
+        const el = item as HTMLElement;
+        const itemCenter = el.offsetLeft - container.offsetLeft + el.clientWidth / 2;
+        const diff = Math.abs(containerCenter - itemCenter);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIdx = idx;
+        }
+      });
+      setActiveStep(closestIdx);
     }
   };
 
@@ -94,6 +101,7 @@ export const ThreeGesturesSection: React.FC = () => {
 
   return (
     <section 
+      ref={ref}
       id="como-funciona" 
       className="py-10 sm:py-14 lg:py-16 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#FAF8F5' }}
@@ -121,7 +129,7 @@ export const ThreeGesturesSection: React.FC = () => {
         {/* =========================================================================
             DESKTOP PROCESS GRID (>= 768px) — Vertical 4:5 Cards + Decoupled Captions
             ========================================================================= */}
-        <div ref={ref} className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 relative items-stretch">
+        <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 relative items-stretch">
           {threeGestures.map((item, idx) => (
             <div
               key={item.step}

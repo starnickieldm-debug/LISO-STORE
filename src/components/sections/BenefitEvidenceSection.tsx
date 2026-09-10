@@ -26,7 +26,12 @@ const TEMP_MODES = [
 ];
 
 export const BenefitEvidenceSection: React.FC = () => {
-  const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.1, rootMargin: '0px 0px -50px 0px', triggerOnce: true });
+  const [sectionRef, inView] = useInView<HTMLElement>({
+    threshold: 0.15,
+    rootMargin: '0px',
+    triggerOnce: false,
+    initialInView: false
+  });
   const prefersReduced = useReducedMotion();
   const [activeMoment, setActiveMoment] = useState<number>(0);
   const [selectedTempMode, setSelectedTempMode] = useState<number>(1);
@@ -44,26 +49,31 @@ export const BenefitEvidenceSection: React.FC = () => {
     }, 7000);
   };
 
-  // Auto-scroll para móvil sincronizado con intervalos controlados
+  const scrollContainerTo = (index: number) => {
+    const container = carouselRef.current;
+    if (!container) return;
+    const items = container.querySelectorAll('.mobile-snap-item');
+    const targetItem = items[index] as HTMLElement;
+    if (targetItem) {
+      const targetLeft = targetItem.offsetLeft - container.offsetLeft - (container.clientWidth - targetItem.clientWidth) / 2;
+      container.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Auto-scroll para móvil sincronizado: SOLO si la sección está realmente visible en pantalla
   useEffect(() => {
     if (prefersReduced || isInteracting || !inView) return;
 
     const timer = setInterval(() => {
       setActiveMoment((prev) => {
         const next = (prev + 1) % 3;
-        if (carouselRef.current) {
-          const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
-          if (items[next]) {
-            (items[next] as HTMLElement).scrollIntoView({
-              behavior: 'smooth',
-              block: 'nearest',
-              inline: 'center'
-            });
-          }
-        }
+        scrollContainerTo(next);
         return next;
       });
-    }, 4000);
+    }, 4500);
 
     return () => clearInterval(timer);
   }, [prefersReduced, isInteracting, inView]);
@@ -71,32 +81,34 @@ export const BenefitEvidenceSection: React.FC = () => {
   const scrollToMoment = (momentIndex: number) => {
     onUserInteraction();
     setActiveMoment(momentIndex);
-    if (carouselRef.current) {
-      const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
-      if (items[momentIndex]) {
-        (items[momentIndex] as HTMLElement).scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center'
-        });
-      }
-    }
+    scrollContainerTo(momentIndex);
   };
 
   const handleCarouselScroll = () => {
     if (!carouselRef.current) return;
-    const scrollLeft = carouselRef.current.scrollLeft;
-    const itemWidth = carouselRef.current.clientWidth * 0.84;
-    if (itemWidth > 0) {
-      const currentIdx = Math.round(scrollLeft / itemWidth);
-      const clamped = Math.max(0, Math.min(currentIdx, 2));
-      setActiveMoment(clamped);
+    const container = carouselRef.current;
+    const scrollLeft = container.scrollLeft;
+    const items = container.querySelectorAll('.mobile-snap-item');
+    if (items.length > 0) {
+      let closestIdx = 0;
+      let minDiff = Infinity;
+      const containerCenter = scrollLeft + container.clientWidth / 2;
+      items.forEach((item, idx) => {
+        const el = item as HTMLElement;
+        const itemCenter = el.offsetLeft - container.offsetLeft + el.clientWidth / 2;
+        const diff = Math.abs(containerCenter - itemCenter);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIdx = idx;
+        }
+      });
+      setActiveMoment(closestIdx);
     }
   };
 
-
   return (
     <section 
+      ref={sectionRef}
       id="beneficios"
       className="py-12 sm:py-16 lg:py-18 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#F0ECE3' }}
@@ -330,20 +342,20 @@ export const BenefitEvidenceSection: React.FC = () => {
             onScroll={handleCarouselScroll}
             onTouchStart={onUserInteraction}
             onPointerDown={onUserInteraction}
-            className="mobile-snap-track gap-3.5 px-4 -mx-4 pb-3 pt-1"
+            className="mobile-snap-track gap-4 px-4 -mx-4 pb-3 pt-1"
           >
             {/* Moment 01: Conectar */}
-            <div className="mobile-snap-item w-[84vw] max-w-[340px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite">
+            <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
               <div className="space-y-3">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   01 · CONECTAR
                 </span>
 
                 <div className="space-y-1">
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight break-words">
                     La conectas y alisas directo en el gancho.
                   </h3>
-                  <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed">
+                  <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed break-words">
                     Con LISO puedes alisar directamente en el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
                   </p>
                 </div>
@@ -363,17 +375,17 @@ export const BenefitEvidenceSection: React.FC = () => {
             </div>
 
             {/* Moment 02: Controlar */}
-            <div className="mobile-snap-item w-[84vw] max-w-[340px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite">
+            <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
               <div className="space-y-2.5">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   02 · CONTROLAR
                 </span>
 
                 <div className="space-y-1">
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight break-words">
                     Temperatura visible y vapor bajo control.
                   </h3>
-                  <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed">
+                  <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed break-words">
                     Elige la temperatura que necesitas y ajusta el vapor según la prenda para cuidar tus tejidos sensibles.
                   </p>
                 </div>
@@ -424,17 +436,17 @@ export const BenefitEvidenceSection: React.FC = () => {
             </div>
 
             {/* Moment 03: Guardar */}
-            <div className="mobile-snap-item w-[84vw] max-w-[340px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite">
+            <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-4.5 sm:p-5 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
               <div className="space-y-2.5">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
                   03 · GUARDAR
                 </span>
 
                 <div className="space-y-1">
-                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight break-words">
                     Pósala caliente entre prenda y prenda.
                   </h3>
-                  <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed">
+                  <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed break-words">
                     Su base de apoyo aislante te permite guardarla fácilmente después de usarla sin esperar a que enfríe.
                   </p>
                 </div>

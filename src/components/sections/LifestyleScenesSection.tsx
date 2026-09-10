@@ -14,7 +14,7 @@ const sceneImages = [
 ];
 
 export const LifestyleScenesSection: React.FC = () => {
-  const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.1, rootMargin: '0px 0px -50px 0px', triggerOnce: true });
+  const [ref, inView] = useInView<HTMLElement>({ threshold: 0.15, rootMargin: '0px', triggerOnce: false, initialInView: false });
   const prefersReduced = useReducedMotion();
   const [activeScene, setActiveScene] = useState<number>(0);
   const [isInteracting, setIsInteracting] = useState<boolean>(false);
@@ -31,55 +31,61 @@ export const LifestyleScenesSection: React.FC = () => {
     }, 7000);
   };
 
-  // Auto-scroll sincronizado cada 4s
+  const scrollContainerTo = (index: number) => {
+    const container = carouselRef.current;
+    if (!container) return;
+    const items = container.querySelectorAll('.mobile-snap-item');
+    const targetItem = items[index] as HTMLElement;
+    if (targetItem) {
+      const targetLeft = targetItem.offsetLeft - container.offsetLeft - (container.clientWidth - targetItem.clientWidth) / 2;
+      container.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Auto-scroll sincronizado: SOLO si la sección está visible en pantalla
   useEffect(() => {
     if (prefersReduced || isInteracting || !inView) return;
 
     const timer = setInterval(() => {
       setActiveScene((prev) => {
         const next = (prev + 1) % lifestyleScenes.length;
-        if (carouselRef.current) {
-          const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
-          if (items[next]) {
-            (items[next] as HTMLElement).scrollIntoView({
-              behavior: 'smooth',
-              block: 'nearest',
-              inline: 'center'
-            });
-          }
-        }
+        scrollContainerTo(next);
         return next;
       });
-    }, 4000);
+    }, 4200);
 
     return () => clearInterval(timer);
   }, [prefersReduced, isInteracting, inView]);
 
   const handleCarouselScroll = () => {
     if (!carouselRef.current) return;
-    const { scrollLeft, clientWidth } = carouselRef.current;
-    if (clientWidth === 0) return;
-    const itemWidth = clientWidth * 0.76;
-    if (itemWidth > 0) {
-      const index = Math.round(scrollLeft / itemWidth);
-      const clamped = Math.max(0, Math.min(lifestyleScenes.length - 1, index));
-      setActiveScene(clamped);
+    const container = carouselRef.current;
+    const scrollLeft = container.scrollLeft;
+    const items = container.querySelectorAll('.mobile-snap-item');
+    if (items.length > 0) {
+      let closestIdx = 0;
+      let minDiff = Infinity;
+      const containerCenter = scrollLeft + container.clientWidth / 2;
+      items.forEach((item, idx) => {
+        const el = item as HTMLElement;
+        const itemCenter = el.offsetLeft - container.offsetLeft + el.clientWidth / 2;
+        const diff = Math.abs(containerCenter - itemCenter);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIdx = idx;
+        }
+      });
+      setActiveScene(closestIdx);
     }
   };
 
   const scrollToScene = (index: number) => {
     onUserInteraction();
     setActiveScene(index);
-    if (carouselRef.current) {
-      const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
-      if (items[index]) {
-        (items[index] as HTMLElement).scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center'
-        });
-      }
-    }
+    scrollContainerTo(index);
   };
 
   return (
@@ -300,7 +306,7 @@ export const LifestyleScenesSection: React.FC = () => {
             {lifestyleScenes.map((scene, idx) => (
               <div
                 key={scene.id}
-                className="mobile-snap-item w-[76vw] max-w-[300px] bg-white p-4.5 rounded-2xl sm:rounded-3xl shadow-premium flex flex-col justify-between"
+                className="mobile-snap-item w-[76vw] max-w-[300px] bg-white p-4.5 rounded-2xl sm:rounded-3xl shadow-premium flex flex-col justify-between overflow-hidden"
               >
                 <div>
                   {/* Slide Top Metadata */}

@@ -68,9 +68,18 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onMouseMove={handleMouseMove}
-        onTouchMove={handleTouchMove}
-        onTouchStart={() => setIsDragging(true)}
-        onTouchEnd={() => setIsDragging(false)}
+        onTouchMove={(e) => {
+          e.stopPropagation();
+          handleTouchMove(e);
+        }}
+        onTouchStart={(e) => {
+          e.stopPropagation();
+          setIsDragging(true);
+        }}
+        onTouchEnd={(e) => {
+          e.stopPropagation();
+          setIsDragging(false);
+        }}
         role="slider"
         aria-valuenow={Math.round(sliderPos)}
         aria-valuemin={0}
