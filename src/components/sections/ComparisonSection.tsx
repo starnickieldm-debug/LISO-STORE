@@ -49,8 +49,8 @@ export const ComparisonSection: React.FC = () => {
   return (
     <section 
       id="comparativa" 
-      className="py-20 sm:py-28 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
-      style={{ backgroundColor: '#F5F1EA' }}
+      className="py-12 sm:py-16 lg:py-18 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
+      style={{ backgroundColor: '#FAF8F5' }}
     >
       {/* Background Texture: Pleated Silk (Horizontal Landscape) */}
       <div 
@@ -63,7 +63,7 @@ export const ComparisonSection: React.FC = () => {
           className="w-full h-full object-cover object-center opacity-25 mix-blend-multiply filter contrast-125"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F5F1EA]/50 via-transparent to-[#F5F1EA]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/50 via-transparent to-[#FAF8F5]/60 pointer-events-none" />
       </div>
 
       <div className="max-w-[1680px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 relative z-10">
@@ -73,7 +73,7 @@ export const ComparisonSection: React.FC = () => {
             Left: Brand vs. The Rest Title + Tag | Right: Editorial Thesis Paragraph
             ========================================================================= */}
         <Reveal direction="up" duration={650}>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 sm:pb-14 border-b border-graphite/10 mb-8 sm:mb-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 sm:pb-8 border-b border-graphite/10 mb-6 sm:mb-8">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-mono font-semibold uppercase tracking-wider mb-3">
                 <Sparkles className="w-3.5 h-3.5 text-accent shrink-0" />

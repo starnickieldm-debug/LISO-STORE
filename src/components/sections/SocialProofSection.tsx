@@ -21,14 +21,14 @@ export const SocialProofSection: React.FC = () => {
   return (
     <section 
       id="prueba-real"
-      className="py-14 sm:py-20 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
-      style={{ backgroundColor: '#FAF8F5' }}
+      className="py-10 sm:py-14 lg:py-14 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
+      style={{ backgroundColor: '#F2EDE4' }}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Clean, concise header */}
         <Reveal direction="up" duration={600}>
-          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
+          <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-6 space-y-1.5">
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-graphite leading-[1.2] pb-1">
               No te lo contamos. Te lo mostramos.
             </h2>

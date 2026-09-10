@@ -49,6 +49,14 @@ const trustTickerItems = [
   { text: "EMPAQUE PROTEGIDO LISTO PARA USAR DESDE EL MINUTO CERO", badge: "CALIDAD" }
 ];
 
+const lifestyleTickerItems = [
+  { text: "CERO TIEMPO PERDIDO: ALISA DIRECTO EN EL GANCHO", badge: "EFICACIA" },
+  { text: "CUIDA SEDA, LINO, MEZCLILLA Y PRENDAS DELICADAS", badge: "CUIDADO" },
+  { text: "CALIENTA EN SEGUNDOS PARA RETOQUES RÁPIDOS", badge: "VELOCIDAD" },
+  { text: "FORMATO COMPACTO: CABE EN CUALQUIER MALETA", badge: "PORTABILIDAD" },
+  { text: "DESODORIZA Y REFRESCA TEJIDOS AL CONTACTO", badge: "HIGIENE" }
+];
+
 const HomePage: React.FC = () => (
   <main className="flex-grow">
     <HeroSection />
@@ -56,8 +64,19 @@ const HomePage: React.FC = () => (
     <BenefitEvidenceSection />
     <MovingTickerBar items={technicalTickerItems} theme="dark" speedSeconds={32} />
     <EngineeringSection />
+    
+    {/* Puente de Degradado Continuo Suave: Carbón Cálido (#211F1D) a Arena Suave (#EFEBE2) */}
+    <div 
+      className="h-20 sm:h-28 lg:h-32 w-full -my-px pointer-events-none"
+      style={{
+        background: 'linear-gradient(180deg, #211F1D 0%, #35302B 22%, #5A5047 48%, #9E9283 75%, #EFEBE2 100%)'
+      }}
+      aria-hidden="true"
+    />
+    
     <HonestyLabelSection />
     <ComparisonSection />
+    <MovingTickerBar items={lifestyleTickerItems} theme="light" speedSeconds={34} />
     <LifestyleScenesSection />
     <BoxContentsSection />
     <MovingTickerBar items={trustTickerItems} theme="light" speedSeconds={36} />

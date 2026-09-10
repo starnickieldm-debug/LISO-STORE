@@ -35,9 +35,23 @@ export const LifestyleScenesSection: React.FC = () => {
 
   return (
     <section 
-      className="py-20 sm:py-28 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
-      style={{ backgroundColor: '#F5F1EA' }}
+      className="py-12 sm:py-16 lg:py-18 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
+      style={{ backgroundColor: '#F4EFE6' }}
     >
+      {/* Background Texture: Architectural Waves (Horizontal Landscape) */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none"
+        aria-hidden="true"
+      >
+        <img 
+          src="/images/textures/texture-architectural-waves.webp" 
+          alt="" 
+          className="w-full h-full object-cover object-center opacity-20 mix-blend-multiply filter contrast-125"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F4EFE6]/50 via-transparent to-[#F4EFE6]/60 pointer-events-none" />
+      </div>
+
       {/* Ghost ambiental MAÑANA */}
       <div 
         className="select-none pointer-events-none absolute -right-6 top-10 font-sans font-medium text-[15vw] tracking-tighter leading-none text-graphite/[0.04] hidden md:block" 
@@ -52,6 +66,7 @@ export const LifestyleScenesSection: React.FC = () => {
         <SectionHeader
           title="Hay días en los que sacar la tabla no tiene sentido."
           subtitle="Una camisa antes de una reunión, una prenda delicada o la ropa que salió arrugada de la maleta. LISO está hecha para esos pequeños rescates del día a día."
+          className="mb-8 sm:mb-10"
         />
 
         {/* =========================================================================

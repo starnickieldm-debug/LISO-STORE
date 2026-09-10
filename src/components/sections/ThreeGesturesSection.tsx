@@ -57,7 +57,7 @@ export const ThreeGesturesSection: React.FC = () => {
   return (
     <section 
       id="como-funciona" 
-      className="py-16 sm:py-20 lg:py-24 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
+      className="py-10 sm:py-14 lg:py-16 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#FAF8F5' }}
     >
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
@@ -65,7 +65,7 @@ export const ThreeGesturesSection: React.FC = () => {
         {/* =========================================================================
             ASYMMETRIC EDITORIAL HEADER (Reference Formula: Problem + 3 Frictions + Solution)
             ========================================================================= */}
-        <div className="max-w-3xl mb-10 sm:mb-12 lg:mb-16">
+        <div className="max-w-3xl mb-8 sm:mb-10 lg:mb-12">
           {/* Main Problem Heading */}
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.18]">
             Planchar da pereza por 3 razones:

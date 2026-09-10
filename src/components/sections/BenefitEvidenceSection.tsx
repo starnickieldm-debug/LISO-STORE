@@ -30,8 +30,8 @@ export const BenefitEvidenceSection: React.FC = () => {
   return (
     <section 
       id="beneficios"
-      className="py-20 sm:py-24 lg:py-28 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
-      style={{ backgroundColor: '#F5F1EA' }}
+      className="py-12 sm:py-16 lg:py-18 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
+      style={{ backgroundColor: '#F0ECE3' }}
     >
       {/* Background Texture: Flowing Satin (Horizontal Landscape) */}
       <div 
@@ -41,16 +41,16 @@ export const BenefitEvidenceSection: React.FC = () => {
         <img 
           src="/images/textures/texture-flowing-satin.webp" 
           alt="" 
-          className="w-full h-full object-cover object-center opacity-25 mix-blend-multiply filter contrast-125"
+          className="w-full h-full object-cover object-center opacity-28 mix-blend-multiply filter contrast-125"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F5F1EA]/50 via-transparent to-[#F5F1EA]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F0ECE3]/50 via-transparent to-[#F0ECE3]/60 pointer-events-none" />
       </div>
 
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header: Direct, clean and free of redundant pills */}
-        <div className="max-w-3xl mb-10 sm:mb-14 lg:mb-16 space-y-2.5">
+        <div className="max-w-3xl mb-8 sm:mb-10 lg:mb-12 space-y-2.5">
           <h2 className="font-display text-2xl sm:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.15]">
             Menos vueltas para tener tu ropa lista.
           </h2>

@@ -14,7 +14,7 @@ export const HonestyLabelSection: React.FC = () => {
   return (
     <section 
       id="etiqueta" 
-      className="py-20 sm:py-28 bg-bone border-b border-graphite/10 scroll-mt-16 sm:scroll-mt-20"
+      className="py-12 sm:py-16 lg:py-18 bg-bone border-b border-graphite/10 scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#EFEBE2', color: '#262320' }}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12">
@@ -24,6 +24,7 @@ export const HonestyLabelSection: React.FC = () => {
           title="Te contamos la verdad sobre LISO."
           subtitle="Lo que hace increíblemente bien, y lo que simplemente no está hecha para hacer."
           align="center"
+          className="mb-8 sm:mb-10"
         />
 
         {/* Nutritional-Style Technical Label Card with Thermal Print Effect */}

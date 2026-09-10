@@ -11,21 +11,21 @@ export const BoxContentsSection: React.FC = () => {
 
   return (
     <section 
-      className="py-14 sm:py-28 bg-bone border-b border-graphite/10 relative overflow-hidden"
-      style={{ backgroundColor: '#F5F1EA', color: '#262320' }}
+      className="py-10 sm:py-14 lg:py-16 bg-bone border-b border-graphite/10 relative overflow-hidden"
+      style={{ backgroundColor: '#FAF8F5', color: '#262320' }}
     >
-      {/* Background Texture: Architectural Waves (Horizontal Landscape) */}
+      {/* Background Texture: Precision Grid (Horizontal Landscape) */}
       <div 
         className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none"
         aria-hidden="true"
       >
         <img 
-          src="/images/textures/texture-architectural-waves.webp" 
+          src="/images/textures/texture-grid-horizontal.webp" 
           alt="" 
-          className="w-full h-full object-cover object-center opacity-25 mix-blend-multiply filter contrast-125"
+          className="w-full h-full object-cover object-center opacity-15 mix-blend-multiply filter contrast-125"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F5F1EA]/50 via-transparent to-[#F5F1EA]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/50 via-transparent to-[#FAF8F5]/60 pointer-events-none" />
       </div>
 
       <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
@@ -34,6 +34,7 @@ export const BoxContentsSection: React.FC = () => {
         <SectionHeader
           title="Dentro de la caja."
           subtitle="Todo lo que necesitas para dejar tu ropa lista desde el primer minuto. Sin accesorios inútiles."
+          className="mb-6 sm:mb-8"
         />
 
         {/* Flat-lay Main Visual + Item breakdown */}

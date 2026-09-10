@@ -452,7 +452,7 @@ export const EngineeringSection: React.FC = () => {
     <section 
       id="ingenieria" 
       ref={sectionRef}
-      className="py-20 sm:py-28 bg-night-950 text-bone border-b border-white/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20 select-none"
+      className="py-12 sm:py-16 lg:py-18 bg-night-950 text-bone relative overflow-hidden scroll-mt-16 sm:scroll-mt-20 select-none"
       style={{ backgroundColor: '#211F1D' }}
     >
       {/* Background Texture: Grid Architecture from User Reference (Rotated Horizontal) */}
@@ -463,7 +463,7 @@ export const EngineeringSection: React.FC = () => {
         <img 
           src="/images/textures/texture-grid-inverted.webp" 
           alt="" 
-          className="w-full h-full object-cover object-center opacity-15 mix-blend-screen"
+          className="w-full h-full object-cover object-center opacity-20 mix-blend-screen"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#211F1D]/50 via-transparent to-[#211F1D]/75 pointer-events-none" />
@@ -480,7 +480,7 @@ export const EngineeringSection: React.FC = () => {
         {/* =========================================================================
             HEADER: Centered Title + Subtitle + Floating Top-Right Rotating Seal
             ========================================================================= */}
-        <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center max-w-3xl mx-auto">
+        <div className="relative mb-8 sm:mb-10 lg:mb-12 text-center max-w-3xl mx-auto">
           {/* Title */}
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em] text-bone leading-[1.2]">
             Ingeniería <span className="italic font-normal">visible.</span>

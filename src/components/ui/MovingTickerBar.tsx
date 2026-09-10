@@ -12,13 +12,15 @@ interface MovingTickerBarProps {
   theme?: 'dark' | 'light';
   speedSeconds?: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export const MovingTickerBar: React.FC<MovingTickerBarProps> = ({
   items,
   theme = 'light',
   speedSeconds = 34,
-  className = ''
+  className = '',
+  style
 }) => {
   const prefersReduced = useReducedMotion();
   const isDark = theme === 'dark';
@@ -58,7 +60,8 @@ export const MovingTickerBar: React.FC<MovingTickerBarProps> = ({
           : 'bg-[#EFEAE0] border-graphite/10 text-graphite'
       } ${className}`}
       style={{
-        backgroundColor: isDark ? '#262320' : '#EFEAE0'
+        backgroundColor: isDark ? '#262320' : '#EFEAE0',
+        ...style
       }}
     >
       <div className="marquee-container">
