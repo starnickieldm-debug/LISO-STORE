@@ -1,7 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { lifestyleScenes } from '../../config/siteContent';
 import { SectionHeader } from '../ui/SectionHeader';
 import { Reveal } from '../ui/Reveal';
+import { useInView } from '../../hooks/useInView';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const sceneImages = [
   { webp: "/images/escena-01-camisa.webp", jpg: "/images/escena-01-camisa.jpg", alt: "Camisa de oficina colgada siendo alisada a vapor con LISO" },
@@ -12,32 +14,81 @@ const sceneImages = [
 ];
 
 export const LifestyleScenesSection: React.FC = () => {
+  const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.1, rootMargin: '0px 0px -50px 0px', triggerOnce: true });
+  const prefersReduced = useReducedMotion();
   const [activeScene, setActiveScene] = useState<number>(0);
+  const [isInteracting, setIsInteracting] = useState<boolean>(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const interactionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const onUserInteraction = () => {
+    setIsInteracting(true);
+    if (interactionTimerRef.current) {
+      clearTimeout(interactionTimerRef.current);
+    }
+    interactionTimerRef.current = setTimeout(() => {
+      setIsInteracting(false);
+    }, 7000);
+  };
+
+  // Auto-scroll sincronizado cada 4s
+  useEffect(() => {
+    if (prefersReduced || isInteracting || !inView) return;
+
+    const timer = setInterval(() => {
+      setActiveScene((prev) => {
+        const next = (prev + 1) % lifestyleScenes.length;
+        if (carouselRef.current) {
+          const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
+          if (items[next]) {
+            (items[next] as HTMLElement).scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest',
+              inline: 'center'
+            });
+          }
+        }
+        return next;
+      });
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [prefersReduced, isInteracting, inView]);
 
   const handleCarouselScroll = () => {
     if (!carouselRef.current) return;
     const { scrollLeft, clientWidth } = carouselRef.current;
     if (clientWidth === 0) return;
-    const index = Math.round(scrollLeft / (clientWidth * 0.85));
-    const clamped = Math.max(0, Math.min(lifestyleScenes.length - 1, index));
-    setActiveScene(clamped);
+    const itemWidth = clientWidth * 0.76;
+    if (itemWidth > 0) {
+      const index = Math.round(scrollLeft / itemWidth);
+      const clamped = Math.max(0, Math.min(lifestyleScenes.length - 1, index));
+      setActiveScene(clamped);
+    }
   };
 
   const scrollToScene = (index: number) => {
-    if (!carouselRef.current) return;
-    const targetChild = carouselRef.current.children[index] as HTMLElement | undefined;
-    if (targetChild) {
-      targetChild.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
+    onUserInteraction();
     setActiveScene(index);
+    if (carouselRef.current) {
+      const items = carouselRef.current.querySelectorAll('.mobile-snap-item');
+      if (items[index]) {
+        (items[index] as HTMLElement).scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
   };
 
   return (
     <section 
-      className="py-12 sm:py-16 lg:py-18 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
+      ref={ref}
+      className="py-12 sm:py-16 lg:py-18 pb-20 sm:pb-24 lg:pb-20 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
       style={{ backgroundColor: '#F4EFE6' }}
     >
+
       {/* Background Texture: Architectural Waves (Horizontal Landscape) */}
       <div 
         className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none"
@@ -206,8 +257,19 @@ export const LifestyleScenesSection: React.FC = () => {
             ========================================================================= */}
         <div className="block md:hidden">
           
+          {/* Subtle scroll invitation cue */}
+          <div className="flex items-center justify-between px-1 mb-2">
+            <span className="text-[10px] font-sans font-bold tracking-widest text-graphite/50 uppercase">
+              ESCENAS COTIDIANAS
+            </span>
+            <span className="inline-flex items-center gap-1 text-[11px] font-sans text-accent font-semibold">
+              <span>Desliza para explorar</span>
+              <span className="text-xs animate-pulse">→</span>
+            </span>
+          </div>
+
           {/* Situation Pills Switcher */}
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2 mb-3 px-1 -mx-1">
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2.5 mb-3 px-1 -mx-1">
             {lifestyleScenes.map((scene, idx) => {
               const isActive = activeScene === idx;
               return (
@@ -215,7 +277,7 @@ export const LifestyleScenesSection: React.FC = () => {
                   key={scene.id}
                   type="button"
                   onClick={() => scrollToScene(idx)}
-                  className={`flex-shrink-0 px-3 py-1.5 rounded-full font-sans text-[10px] font-bold tracking-wider uppercase transition-all ${
+                  className={`flex-shrink-0 px-3 py-1.5 rounded-full font-sans text-[10.5px] font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
                     isActive 
                       ? 'bg-accent text-white shadow-sm ring-1 ring-accent' 
                       : 'bg-graphite/[0.04] border border-graphite/10 text-graphite/60 hover:text-graphite active:bg-graphite/10'
@@ -231,26 +293,28 @@ export const LifestyleScenesSection: React.FC = () => {
           <div 
             ref={carouselRef}
             onScroll={handleCarouselScroll}
-            className="mobile-snap-track gap-3.5 px-4 -mx-4 pb-3 pt-0.5"
+            onTouchStart={onUserInteraction}
+            onPointerDown={onUserInteraction}
+            className="mobile-snap-track gap-3.5 px-4 -mx-4 pb-4 pt-0.5"
           >
             {lifestyleScenes.map((scene, idx) => (
               <div
                 key={scene.id}
-                className="mobile-snap-item w-[85vw] max-w-[340px] bg-white p-4.5 rounded-2xl sm:rounded-3xl shadow-premium flex flex-col justify-between"
+                className="mobile-snap-item w-[76vw] max-w-[300px] bg-white p-4.5 rounded-2xl sm:rounded-3xl shadow-premium flex flex-col justify-between"
               >
                 <div>
                   {/* Slide Top Metadata */}
-                  <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-graphite/10">
-                    <span className="font-sans text-[11px] font-bold tracking-wider text-accent uppercase">
-                      ESCENA {scene.number} · {scene.title}
+                  <div className="flex items-center justify-between pb-2 mb-2.5 border-b border-graphite/10 gap-2">
+                    <span className="font-sans text-[10.5px] font-bold tracking-wider text-accent uppercase truncate">
+                      {scene.number} · {scene.title}
                     </span>
-                    <span className="font-sans text-[11px] font-semibold text-graphite/50 bg-graphite/[0.04] border border-graphite/10 px-2 py-0.5 rounded-full">
+                    <span className="font-sans text-[10px] font-semibold text-graphite/50 bg-graphite/[0.04] border border-graphite/10 px-2 py-0.5 rounded-full shrink-0">
                       {idx + 1} / {lifestyleScenes.length}
                     </span>
                   </div>
 
                   {/* High Quality Photograph */}
-                  <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-night-950 mb-3 shadow-premium-image">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-night-950 mb-3 shadow-premium-image">
                     <picture>
                       <source srcSet={sceneImages[idx].webp} type="image/webp" />
                       <img 
@@ -263,30 +327,27 @@ export const LifestyleScenesSection: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                   </div>
 
-                  {/* Caption & Context */}
-                  <div className="space-y-1">
-                    <h3 className="font-display text-base font-bold text-graphite leading-snug">
+                  {/* Caption & Context with word wrap & overflow prevention */}
+                  <div className="space-y-1 overflow-hidden">
+                    <h3 className="font-display text-[15px] font-bold text-graphite leading-snug break-words">
                       {scene.caption}
                     </h3>
-                    <p className="text-xs text-graphite/70 leading-relaxed font-normal">
+                    <p className="text-xs text-graphite/70 leading-relaxed font-normal break-words">
                       {scene.context}
                     </p>
                   </div>
                 </div>
 
-                {/* Micro Swipe Cue on first slide */}
-                {idx === 0 && (
-                  <div className="mt-3 pt-2 border-t border-graphite/10 flex items-center justify-between text-[10px] font-sans font-medium text-graphite/50">
-                    <span>DESLIZA PARA VER MÁS ESCENAS</span>
-                    <span>→</span>
-                  </div>
-                )}
+                <div className="pt-2.5 mt-2 border-t border-graphite/10 flex items-center justify-between text-[10px] font-sans font-medium text-graphite/45">
+                  <span>LISO CARE</span>
+                  <span>Retoque en 3 min</span>
+                </div>
               </div>
             ))}
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex items-center justify-center gap-1.5 mt-3">
+          <div className="flex items-center justify-center gap-1.5 mt-2.5 pb-2">
             {lifestyleScenes.map((_, idx) => (
               <button
                 key={idx}

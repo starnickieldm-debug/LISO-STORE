@@ -165,38 +165,51 @@ export const HonestyLabelSection: React.FC = () => {
             </div>
 
             {/* =========================================================================
-                MOBILE SEGMENTED CONTROL (< 768px)
+                MOBILE HEROIC PRODUCT STAGE & SEGMENTED CONTROL (< 768px)
+                Replicating Liquid+ reference (Image 3): Large Hero Product + Capsule Switcher + Detail Card
                 ========================================================================= */}
             <div className="block md:hidden pb-6 border-b border-graphite/10">
               
-              {/* Mobile Visual Header Card */}
-              <div className="bg-white rounded-2xl p-4 mb-4 text-center shadow-premium-image">
-                <div className="flex items-center justify-between text-[9.5px] font-sans text-graphite/60 uppercase tracking-wider mb-2">
-                  <span>MUESTRA VERIFICADA</span>
-                  <span className="text-accent font-bold">SERIE 01 · 1200 W</span>
+              {/* 1. Large Heroic Product Showcase (Hero Size, Visible & Impactful) */}
+              <div className="relative w-full max-w-[320px] mx-auto mb-4 flex flex-col items-center">
+                {/* Background radial steam/magenta glow */}
+                <div 
+                  className="pointer-events-none absolute inset-0 -m-4 bg-[radial-gradient(ellipse_at_center,rgba(180,36,124,0.14)_0%,rgba(255,195,130,0.08)_45%,transparent_70%)] blur-2xl z-0" 
+                  aria-hidden="true" 
+                />
+
+                {/* Floating Specs Pill */}
+                <div className="relative z-10 mb-2">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-graphite/[0.04] border border-graphite/12 text-graphite/80 text-[10px] font-sans font-bold uppercase tracking-wider rounded-full shadow-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    SERIE 01 · 1200 W DIRECTA · 150 °C
+                  </span>
                 </div>
-                <div className="w-24 h-24 mx-auto flex items-center justify-center my-1">
+
+                {/* Large Product Cutout */}
+                <div className="relative w-full h-52 sm:h-56 flex items-center justify-center z-10">
                   <img 
                     src="/images/liso-pure-cutout.webp" 
-                    alt="LISO" 
-                    className="w-full h-full object-contain drop-shadow-sm" 
+                    alt="Plancha a vapor portátil LISO - Inspección técnica" 
+                    className="w-full h-full object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.16)] transform scale-105" 
                     loading="lazy" 
                   />
                 </div>
-                <p className="text-[11px] font-sans text-graphite/70 mt-1">
-                  Placa giratoria 90° · Pantalla LED 150 °C · 100 ml
+
+                <p className="text-[11px] font-sans text-graphite/60 mt-1 font-medium text-center">
+                  Placa giratoria 90° · Pantalla LED en vivo · Depósito 100 ml
                 </p>
               </div>
 
-              {/* Segmented Tab Switcher */}
-              <div className="flex items-center gap-1.5 p-1 bg-graphite/[0.04] rounded-xl mb-4">
+              {/* 2. Capsule Segmented Tab Switcher (Liquid+ Style) */}
+              <div className="flex items-center p-1 bg-graphite/[0.05] border border-graphite/15 rounded-full mb-4 max-w-[340px] mx-auto shadow-inner">
                 <button
                   type="button"
                   onClick={() => setMobileTab('does')}
-                  className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all ${
+                  className={`flex-1 py-2.5 px-3 text-center rounded-full font-sans text-xs font-bold tracking-wide transition-all duration-200 cursor-pointer ${
                     mobileTab === 'does'
-                      ? 'bg-graphite text-white shadow-sm'
-                      : 'text-graphite/60 hover:text-graphite active:bg-graphite/10'
+                      ? 'bg-graphite text-white shadow-md'
+                      : 'text-graphite/65 hover:text-graphite active:bg-graphite/10'
                   }`}
                 >
                   Lo que hace mejor ({honestyLabelData.does.length})
@@ -204,42 +217,60 @@ export const HonestyLabelSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setMobileTab('doesNot')}
-                  className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all ${
+                  className={`flex-1 py-2.5 px-3 text-center rounded-full font-sans text-xs font-bold tracking-wide transition-all duration-200 cursor-pointer ${
                     mobileTab === 'doesNot'
-                      ? 'bg-graphite text-white shadow-sm'
-                      : 'text-graphite/60 hover:text-graphite active:bg-graphite/10'
+                      ? 'bg-graphite text-white shadow-md'
+                      : 'text-graphite/65 hover:text-graphite active:bg-graphite/10'
                   }`}
                 >
                   Para lo que no es ({honestyLabelData.doesNot.length})
                 </button>
               </div>
 
-              {/* Active Tab List */}
-              {mobileTab === 'does' ? (
-                <ul className="space-y-3 pt-1 animate-fadeIn">
-                  {honestyLabelData.does.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-graphite leading-relaxed">
-                      <Check className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5 stroke-[2.5]" />
-                      <div className="space-y-0.5">
-                        <p className="font-bold text-graphite leading-snug">{item.title}</p>
-                        <p className="text-graphite/75 text-[11px] sm:text-xs leading-relaxed">{item.desc}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <ul className="space-y-3 pt-1 animate-fadeIn">
-                  {honestyLabelData.doesNot.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-graphite leading-relaxed">
-                      <X className="w-4 h-4 text-accent flex-shrink-0 mt-0.5 stroke-[2.5]" />
-                      <div className="space-y-0.5">
-                        <p className="font-bold text-graphite leading-snug">{item.title}</p>
-                        <p className="text-graphite/75 text-[11px] sm:text-xs leading-relaxed">{item.desc}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              {/* 3. Detail Content Card */}
+              <div className="bg-[#FAF8F5] border border-graphite/12 rounded-2xl p-4.5 sm:p-5 shadow-sm">
+                <div className="pb-3 mb-3 border-b border-graphite/10 flex items-center justify-between">
+                  <h4 className="font-display font-bold text-sm sm:text-base text-graphite tracking-tight">
+                    {mobileTab === 'does' ? 'Donde LISO realmente brilla:' : 'Para lo que no está hecha:'}
+                  </h4>
+                  <span className={`text-[10px] font-sans font-bold uppercase px-2 py-0.5 rounded-full ${
+                    mobileTab === 'does' ? 'bg-emerald-100 text-emerald-800' : 'bg-accent/15 text-accent'
+                  }`}>
+                    {mobileTab === 'does' ? '5 Puntos Fuertes' : '3 Limitaciones'}
+                  </span>
+                </div>
+
+                {/* Active Tab List */}
+                {mobileTab === 'does' ? (
+                  <ul className="space-y-3.5 pt-1 animate-fadeIn">
+                    {honestyLabelData.does.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-graphite leading-relaxed">
+                        <span className="w-5 h-5 rounded-full bg-emerald-700 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                          <Check className="w-3.5 h-3.5 stroke-[3]" />
+                        </span>
+                        <div className="space-y-0.5">
+                          <p className="font-bold text-graphite leading-snug">{item.title}</p>
+                          <p className="text-graphite/75 text-[11.5px] leading-relaxed">{item.desc}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <ul className="space-y-3.5 pt-1 animate-fadeIn">
+                    {honestyLabelData.doesNot.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-graphite leading-relaxed">
+                        <span className="w-5 h-5 rounded-full bg-accent text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                          <X className="w-3.5 h-3.5 stroke-[3]" />
+                        </span>
+                        <div className="space-y-0.5">
+                          <p className="font-bold text-graphite leading-snug">{item.title}</p>
+                          <p className="text-graphite/75 text-[11.5px] leading-relaxed">{item.desc}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
 
             </div>
 

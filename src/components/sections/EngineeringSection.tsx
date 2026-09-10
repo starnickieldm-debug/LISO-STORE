@@ -505,35 +505,61 @@ export const EngineeringSection: React.FC = () => {
 
         {/* =========================================================================
             MOBILE COMPONENT INSPECTOR (< 1024px) — Touch-First Interactive Stage
+            (No horizontal swipe: Explicit tap-to-inspect on badges to generate curiosity)
             ========================================================================= */}
-        <div 
-          className="block lg:hidden pb-8"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          {/* 1. Horizontal Component Pills Bar with smooth scrolling */}
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2.5 mb-3 px-0.5 -mx-0.5">
+        <div className="block lg:hidden pb-8">
+          {/* Interactive Tap Prompt (Generates curiosity and invites tapping) */}
+          <div className="flex items-center justify-between px-1 mb-2">
+            <span className="text-[10px] font-sans font-bold tracking-widest text-accent uppercase flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-accent animate-ping inline-block" />
+              <span>DISECCIÓN TÉCNICA</span>
+            </span>
+            <span className="text-[11px] font-sans text-bone/70 font-semibold flex items-center gap-1">
+              <span>Toca un componente</span>
+              <span className="text-accent animate-bounce">↓</span>
+            </span>
+          </div>
+
+          {/* 1. Horizontal Component Pills Bar with enhanced tap affordance */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2.5 mb-3 px-1 -mx-1">
             {pieces.map((p, idx) => {
               const isActive = idx === activeIndex;
+              const shortNames = [
+                'PLACA 90°',
+                'CÁMARA VAPOR',
+                'PANTALLA LED',
+                'CABLE 1200W',
+                'MANGO SEGURO',
+                'CLAVIJA 110V'
+              ];
               return (
                 <button
                   key={p.id}
                   type="button"
                   onClick={() => selectPiece(idx)}
-                  className={`flex-shrink-0 px-3 py-1.5 rounded-xl font-sans text-[10.5px] font-bold tracking-wider uppercase transition-all active:scale-95 ${
+                  className={`flex-shrink-0 px-3.5 py-2 rounded-xl font-sans text-[11px] font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer active:scale-95 flex items-center gap-1.5 ${
                     isActive 
-                      ? 'bg-accent text-white shadow-sm ring-1 ring-accent' 
-                      : 'bg-white/[0.04] border border-white/10 text-bone/60 hover:text-bone active:bg-white/10'
+                      ? 'bg-accent text-white shadow-[0_0_18px_rgba(180,36,124,0.45)] ring-1 ring-accent scale-[1.03]' 
+                      : 'bg-white/[0.06] border border-white/15 text-bone/70 hover:text-white hover:bg-white/10 active:bg-white/15'
                   }`}
+                  aria-pressed={isActive}
                 >
-                  {p.num} · {p.name.split(' ')[0]}
+                  <span className={`w-4 h-4 rounded-full text-[9.5px] flex items-center justify-center font-bold ${
+                    isActive ? 'bg-white text-accent' : 'bg-white/15 text-bone/70'
+                  }`}>
+                    {p.num}
+                  </span>
+                  <span>{shortNames[idx]}</span>
                 </button>
               );
             })}
           </div>
 
           {/* 2. Unified Mobile Inspection Card */}
-          <div className="bg-night-900/95 border border-white/15 rounded-3xl p-5 shadow-2xl space-y-4">
+          <div 
+            key={activePiece.id} 
+            className="bg-night-900/95 border border-white/15 rounded-3xl p-5 shadow-2xl space-y-4 animate-fadeIn"
+          >
             {/* Header: Category + Counter + Component Name + Phrase */}
             <div className="pb-3 border-b border-white/10 space-y-1">
               <div className="flex items-center justify-between">
@@ -548,6 +574,7 @@ export const EngineeringSection: React.FC = () => {
                 {activePiece.name}
               </h3>
               <p className="text-xs sm:text-sm font-sans text-bone/80 leading-relaxed pt-1">
+
                 {activePiece.phrase}
               </p>
             </div>
