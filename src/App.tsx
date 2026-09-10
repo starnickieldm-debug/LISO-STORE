@@ -46,7 +46,7 @@ const trustTickerItems = [
   { text: "GARANTÍA LEGAL DE 30 DÍAS CALENDARIO", badge: "RESPALDO" },
   { text: "GUÍA DE RASTREO EN LÍNEA DESDE EL DESPACHO", badge: "TRANSPARENCIA" },
   { text: "ATENCIÓN Y SOPORTE OFICIAL EN ESPAÑOL", badge: "SERVICIO" },
-  { text: "EMPAQUE PROTEGIDO LISTO PARA USAR DESDE EL MINUTO CERO", badge: "CALIDAD" }
+  { text: "EMPAQUE PROTEGIDO · LISTA PARA USAR DESDE EL MINUTO CERO", badge: "CALIDAD" }
 ];
 
 const lifestyleTickerItems = [

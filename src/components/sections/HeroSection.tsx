@@ -147,7 +147,7 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              Plancha directo en el gancho y sin armar la tabla. Listo para usar en segundos.
+              Plancha directo en el gancho y sin armar la tabla. Lista para usar en segundos.
             </p>
 
             {/* 4. Streamlined High-Impact Conversion Block (Open, Clean, Friction-Free) */}
@@ -178,7 +178,7 @@ export const HeroSection: React.FC = () => {
                   size="large" 
                   className="w-full sm:w-auto min-w-[300px] shadow-[0_8px_28px_rgba(180,36,124,0.32)] hover:shadow-[0_12px_36px_rgba(180,36,124,0.48)] text-[15px] sm:text-base font-semibold tracking-wide py-3.5 sm:py-4 transition-all active:scale-[0.99]"
                 >
-                  Pide el tuyo – $189.900
+                  Pide la tuya – $189.900
                 </CTAButton>
               </div>
 
@@ -303,7 +303,7 @@ export const HeroSection: React.FC = () => {
               size="large" 
               className="w-full shadow-[0_6px_24px_rgba(180,36,124,0.32)] active:scale-[0.98] py-3.5 text-[15px] font-semibold tracking-wide"
             >
-              Pide el tuyo – $189.900
+              Pide la tuya – $189.900
             </CTAButton>
 
             {/* Trust Points */}

@@ -100,8 +100,8 @@ export const Navbar: React.FC = () => {
               isScrolled ? 'inline-flex' : 'hidden sm:inline-flex'
             }`}
           >
-            <span className="hidden sm:inline">Pide el tuyo – {currentMarket.formattedPrice}</span>
-            <span className="sm:hidden">Pide el tuyo</span>
+            <span className="hidden sm:inline">Pide la tuya – {currentMarket.formattedPrice}</span>
+            <span className="sm:hidden">Pide la tuya</span>
           </a>
 
           {/* Mobile Menu Toggle */}

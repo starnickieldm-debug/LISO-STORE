@@ -245,7 +245,7 @@ export const ComparisonSection: React.FC = () => {
                   size="large" 
                   className="w-full py-3.5 sm:py-4 shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/35 text-xs sm:text-[13px] font-bold tracking-wide"
                 >
-                  Pide el tuyo – {currentMarket.formattedPrice}
+                  Pide la tuya – {currentMarket.formattedPrice}
                 </CTAButton>
               </div>
               <div aria-hidden="true" />
@@ -384,7 +384,7 @@ export const ComparisonSection: React.FC = () => {
               size="large" 
               className="w-full shadow-lg shadow-accent/25 py-3.5 text-xs font-bold tracking-wide"
             >
-              Pide el tuyo – {currentMarket.formattedPrice}
+              Pide la tuya – {currentMarket.formattedPrice}
             </CTAButton>
           </div>
 
