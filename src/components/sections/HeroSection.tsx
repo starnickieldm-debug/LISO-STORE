@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { brandConfig, productSpecs } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { CTAButton } from '../ui/CTAButton';
 import { DataStrip } from '../ui/DataStrip';
-import { ArrowDown, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
   const { currentMarket } = useMarket();
@@ -119,9 +118,9 @@ export const HeroSection: React.FC = () => {
               </span>
             </h1>
 
-            {/* 3. Subheadline: Compact secondary explanatory paragraph */}
+            {/* 3. Subheadline: Direct, high-converting value proposition */}
             <p 
-              className="text-sm sm:text-[15px] lg:text-base text-graphite/75 leading-relaxed font-normal mt-4 lg:mt-5"
+              className="text-base sm:text-lg text-graphite/80 leading-relaxed font-normal mt-3.5 lg:mt-4 max-w-lg"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 14px, 0)',
@@ -129,12 +128,12 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y calienta en pocos segundos. Alisa directamente en el gancho, sin sacar la tabla, gracias a su <strong className="font-semibold text-graphite">placa giratoria</strong> y temperatura real en pantalla.
+              Alisa directo en el gancho y sin sacar la tabla. Vapor continuo a 150 °C listo en segundos.
             </p>
 
-            {/* 4. Price & Primary Conversion Card */}
+            {/* 4. Streamlined High-Impact Conversion Block (Open, Clean, Friction-Free) */}
             <div 
-              className="hero-glass-card p-5 lg:p-6 space-y-3.5 rounded-xl mt-6"
+              className="mt-6 lg:mt-7 space-y-4 max-w-md"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
@@ -142,55 +141,39 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              {/* Nivel 2: Precio */}
-              <div className="flex items-baseline gap-2.5 pb-0.5">
-                <span className="text-3xl sm:text-[2.2rem] font-display font-bold text-graphite tracking-tight">
+              {/* Pricing & Free Shipping Incentive */}
+              <div className="flex items-center gap-3">
+                <span className="text-3xl sm:text-[2.25rem] font-display font-bold text-graphite tracking-tight leading-none">
                   {currentMarket.formattedPrice}
                 </span>
-                <span className="text-[11px] sm:text-xs font-sans uppercase tracking-wider text-accent font-semibold">
-                  {currentMarket.shippingLabel}
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-accent/10 border border-accent/25 text-accent text-[11px] font-sans font-bold uppercase tracking-wider rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                  Envío gratis incluido
                 </span>
               </div>
 
-              {/* Nivel 2: CTA Principal + Acción Secundaria Textual */}
-              <div className="flex items-center gap-3 pt-0.5">
+              {/* Primary High-Conversion CTA Button */}
+              <div>
                 <CTAButton 
                   href="#oferta" 
                   size="large" 
-                  className="flex-1 shadow-[0_4px_24px_rgba(180,36,124,0.35)] hover:shadow-[0_6px_30px_rgba(180,36,124,0.5)] text-[15px] font-semibold tracking-wide"
+                  className="w-full sm:w-auto min-w-[300px] shadow-[0_8px_28px_rgba(180,36,124,0.32)] hover:shadow-[0_12px_36px_rgba(180,36,124,0.48)] text-[15px] sm:text-base font-semibold tracking-wide py-3.5 sm:py-4 transition-all active:scale-[0.99]"
                 >
                   Pedir LISO — {currentMarket.formattedPrice}
                 </CTAButton>
-
-                {/* Acción secundaria: Enlace textual discreto con menor peso y contraste */}
-                <a 
-                  href="#como-funciona" 
-                  className="inline-flex items-center justify-start gap-1.5 py-2 px-1 text-xs font-sans font-medium text-graphite/70 hover:text-graphite transition-colors group shrink-0"
-                  aria-label="Ver cómo funciona LISO"
-                >
-                  <span className="border-b border-graphite/25 group-hover:border-graphite/60 transition-colors pb-0.5">
-                    Ver cómo funciona
-                  </span>
-                  <ArrowDown className="w-3.5 h-3.5 text-graphite/50 group-hover:text-graphite group-hover:translate-y-0.5 transition-all" />
-                </a>
               </div>
 
-              {/* Nivel 3: Beneficios de confianza (Compacto, sin repetición innecesaria) */}
-              <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 text-xs text-graphite/70 pt-1 font-sans font-medium border-t border-graphite/10">
+              {/* Core Frictionless Trust Strip */}
+              <div className="flex items-center gap-3 text-xs text-graphite/70 font-sans font-medium pt-0.5">
                 <span className="inline-flex items-center gap-1 text-graphite font-semibold">
                   <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                  <span>Envío gratis</span>
+                  <span>Entrega garantizada</span>
                 </span>
-                <span className="text-graphite/20">·</span>
-                <span>Pago seguro (PSE / Tarjetas)</span>
-                <span className="text-graphite/20">·</span>
-                <span>Garantía 30 días</span>
+                <span className="text-graphite/25">·</span>
+                <span>PSE y tarjetas</span>
+                <span className="text-graphite/25">·</span>
+                <span>Garantía de 30 días</span>
               </div>
-
-              {/* Nota de laboratorio discreta */}
-              <p className="text-[10px] font-sans text-graphite/55 italic pt-0.5">
-                {brandConfig.labClaimNote}
-              </p>
             </div>
 
           </div>
@@ -215,8 +198,8 @@ export const HeroSection: React.FC = () => {
           </h1>
 
           {/* 2. Micro-bajada: 1 single punchy line of value proposition */}
-          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/70 leading-snug max-w-[320px] mx-auto mb-2">
-            Alisa directo en el gancho y sin sacar la tabla. Placa giratoria y vapor continuo.
+          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[320px] mx-auto mb-2">
+            Alisa directo en el gancho y sin sacar la tabla. Vapor continuo a 150 °C listo en segundos.
           </p>
 
           {/* 3. Mobile Focal Hero Product Stage (Editorial Dark Luxury Anchor) */}
@@ -244,13 +227,14 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* 4. Streamlined Conversion Section (Thumb-Zone Optimized) */}
-          <div className="pt-1.5 space-y-2">
+          <div className="pt-1.5 space-y-2.5">
             {/* Price & Shipping badge */}
-            <div className="flex items-baseline justify-center gap-2">
-              <span className="text-[1.75rem] xs:text-[1.95rem] font-display font-bold text-graphite tracking-tight leading-none">
+            <div className="flex items-center justify-center gap-2.5">
+              <span className="text-[1.85rem] xs:text-[2rem] font-display font-bold text-graphite tracking-tight leading-none">
                 {currentMarket.formattedPrice}
               </span>
-              <span className="text-[10px] font-sans uppercase tracking-wider text-accent font-semibold bg-accent/10 border border-accent/25 px-2 py-0.5 rounded">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-accent/10 border border-accent/25 text-accent text-[10.5px] font-sans font-bold uppercase tracking-wider rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 {currentMarket.shippingLabel}
               </span>
             </div>
@@ -259,34 +243,21 @@ export const HeroSection: React.FC = () => {
             <CTAButton 
               href="#oferta" 
               size="large" 
-              className="w-full shadow-[0_4px_24px_rgba(180,36,124,0.3)] active:scale-[0.98] py-3 text-[15px] font-semibold tracking-wide"
+              className="w-full shadow-[0_6px_24px_rgba(180,36,124,0.32)] active:scale-[0.98] py-3.5 text-[15px] font-semibold tracking-wide"
             >
               Pedir LISO — {currentMarket.formattedPrice}
             </CTAButton>
 
             {/* Trust Points: Compact single row */}
-            <div className="flex items-center justify-between text-[10.5px] xs:text-[11px] text-graphite/70 pt-0.5 font-sans px-1">
-              <span className="inline-flex items-center gap-1 text-graphite font-medium">
+            <div className="flex items-center justify-center gap-2.5 text-[11px] text-graphite/70 font-sans font-medium pt-0.5">
+              <span className="inline-flex items-center gap-1 text-graphite font-semibold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>PSE / Tarjetas</span>
+                <span>Envío gratis</span>
               </span>
-              <span className="text-graphite/20">·</span>
-              <span>Garantía legal 30 días</span>
-              <span className="text-graphite/20">·</span>
-              <span>Rastreo en línea</span>
-            </div>
-
-            {/* Secondary navigation & micro footnote */}
-            <div className="flex items-center justify-between pt-0.5 text-[10px] font-sans text-graphite/55 px-1">
-              <a 
-                href="#como-funciona" 
-                className="inline-flex items-center gap-1 text-graphite/70 hover:text-graphite transition-colors"
-                aria-label="Ver cómo funciona LISO"
-              >
-                <span>Ver cómo funciona</span>
-                <ArrowDown className="w-3 h-3 text-graphite/40" />
-              </a>
-              <span className="italic">{brandConfig.labClaimNote}</span>
+              <span className="text-graphite/25">·</span>
+              <span>PSE y tarjetas</span>
+              <span className="text-graphite/25">·</span>
+              <span>Garantía 30 días</span>
             </div>
           </div>
 
