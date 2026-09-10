@@ -6,13 +6,17 @@ interface RotatingGuaranteeStampProps {
   size?: number;
   circularText?: string;
   centerText?: string;
+  textColor?: string;
+  customIcon?: React.ReactNode;
 }
 
 export const RotatingGuaranteeStamp: React.FC<RotatingGuaranteeStampProps> = ({
   className = '',
   size = 110,
   circularText = '★ GARANTÍA LEGAL ★ COMPRA PROTEGIDA',
-  centerText = '30 DÍAS'
+  centerText = '30 DÍAS',
+  textColor = 'text-bone',
+  customIcon
 }) => {
   return (
     <div 
@@ -46,10 +50,14 @@ export const RotatingGuaranteeStamp: React.FC<RotatingGuaranteeStampProps> = ({
         </text>
       </svg>
 
-      {/* Static center shield icon */}
+      {/* Static center shield or custom icon */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-        <ShieldCheck className="w-5 h-5 text-accent stroke-[2.2] drop-shadow-[0_0_8px_rgba(180,36,124,0.5)]" />
-        <span className="text-[8.5px] font-sans font-bold text-bone tracking-wider uppercase mt-0.5">
+        {customIcon ? (
+          customIcon
+        ) : (
+          <ShieldCheck className="w-5 h-5 text-accent stroke-[2.2] drop-shadow-[0_0_8px_rgba(180,36,124,0.5)]" />
+        )}
+        <span className={`text-[8.5px] font-sans font-bold ${textColor} tracking-wider uppercase mt-0.5`}>
           {centerText}
         </span>
       </div>

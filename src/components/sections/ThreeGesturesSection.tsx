@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { threeGestures, brandConfig } from '../../config/siteContent';
-import { SectionHeader } from '../ui/SectionHeader';
 import { useInView } from '../../hooks/useInView';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { Droplet, Power, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
+import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
 
 export const ThreeGesturesSection: React.FC = () => {
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.1, rootMargin: '0px 0px -50px 0px', triggerOnce: true });
@@ -28,19 +28,13 @@ export const ThreeGesturesSection: React.FC = () => {
   const handleCarouselScroll = () => {
     if (!carouselRef.current) return;
     const scrollLeft = carouselRef.current.scrollLeft;
-    const itemWidth = carouselRef.current.clientWidth * 0.85;
+    const itemWidth = carouselRef.current.clientWidth * 0.82;
     if (itemWidth > 0) {
       const currentIdx = Math.round(scrollLeft / itemWidth);
       const clamped = Math.max(0, Math.min(currentIdx, 2));
       setActiveStep(clamped);
     }
   };
-
-  const icons = [
-    <Droplet className="w-4 h-4 text-graphite/70 group-hover:text-accent transition-colors" />,
-    <Power className="w-4 h-4 text-accent" />,
-    <Sparkles className="w-4 h-4 text-graphite/70 group-hover:text-accent transition-colors" />
-  ];
 
   const stepImages = [
     {
@@ -63,93 +57,88 @@ export const ThreeGesturesSection: React.FC = () => {
   return (
     <section 
       id="como-funciona" 
-      className="py-20 sm:py-24 lg:py-28 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
+      className="py-16 sm:py-20 lg:py-24 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#F5F1EA' }}
     >
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
-        {/* Centered Editorial Section Header with authoritative scale and tight spacing */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-14 space-y-2.5">
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.15]">
-            Solo 3 pasos para usarla
+        {/* =========================================================================
+            ASYMMETRIC EDITORIAL HEADER (Reference Formula: Problem + 3 Frictions + Pill)
+            ========================================================================= */}
+        <div className="max-w-3xl mb-10 sm:mb-12 lg:mb-16">
+          {/* Overline step counter */}
+          <div className="flex items-center gap-2 mb-2.5 font-mono text-xs uppercase tracking-widest text-accent font-semibold">
+            <span>[02]</span>
+            <span>GESTOS SENCILLOS</span>
+          </div>
+
+          {/* Main Problem Heading */}
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.18]">
+            Planchar da pereza por 3 razones:
           </h2>
-          <p className="text-base sm:text-lg text-graphite/70 max-w-xl mx-auto font-normal leading-relaxed">
-            Olvídate de armar la tabla y de la plancha pesada.
-          </p>
+
+          {/* Subheading Frictions + Inline Solution Pill */}
+          <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-center gap-x-3 gap-y-2.5 text-base sm:text-lg md:text-xl lg:text-2xl text-graphite/70 font-normal">
+            <span>Armar la tabla, esperar que caliente, el peso.*</span>
+            <span className="inline-flex items-center px-3.5 py-1 rounded-full border border-graphite/30 bg-white/90 backdrop-blur-sm text-graphite text-xs sm:text-sm font-bold tracking-wide shadow-sm align-middle">
+              LISO resolvió las 3
+            </span>
+          </div>
         </div>
 
         {/* =========================================================================
-            DESKTOP PROCESS GRID (>= 768px) — 100% Unchanged 3-Col Layout
+            DESKTOP PROCESS GRID (>= 768px) — Vertical 4:5 Cards + Decoupled Captions
             ========================================================================= */}
         <div ref={ref} className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 relative items-stretch">
           {threeGestures.map((item, idx) => (
-            <React.Fragment key={item.step}>
-              <div
-                className="relative bg-white/90 backdrop-blur-md border border-graphite/10 hover:border-accent/40 p-5 sm:p-6 lg:p-7 flex flex-col justify-between group transition-all duration-300 ease-mech-s shadow-card rounded-xl hover-lift"
-                style={prefersReduced ? undefined : {
-                  opacity: inView ? 1 : 0,
-                  transform: inView ? 'translate3d(0, 0, 0)' : 'translate3d(0, 24px, 0)',
-                  transition: `opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) ${idx * 140}ms, transform 750ms cubic-bezier(0.16, 1, 0.3, 1) ${idx * 140}ms`,
-                  willChange: inView ? 'auto' : 'opacity, transform'
-                }}
-              >
-                <div>
-                  {/* Step Identifier Header */}
-                  <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-graphite/10">
-                    <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase">
-                      PASO {item.step}
-                    </span>
-                    <div className="w-8 h-8 rounded-full bg-graphite/[0.04] border border-graphite/10 flex items-center justify-center">
-                      {icons[idx]}
-                    </div>
-                  </div>
-
-                  {/* Prominent Real Demonstration Photograph in Dark Luxury Visor Frame */}
-                  <div className="relative aspect-[16/11] sm:aspect-[4/3] w-full overflow-hidden rounded-lg bg-night-950 border border-graphite/15 group-hover:border-graphite/30 transition-colors shadow-md">
-                    <picture>
-                      <source srcSet={stepImages[idx].webp} type="image/webp" />
-                      <img 
-                        src={stepImages[idx].jpg} 
-                        alt={stepImages[idx].alt}
-                        className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500 ease-mech-s"
-                        loading="lazy"
-                      />
-                    </picture>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                  </div>
-
-                  {/* Content Block */}
-                  <div className="pt-4 sm:pt-5 space-y-1.5">
-                    <h3 className="font-display text-xl sm:text-2xl font-bold text-graphite group-hover:text-accent transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm sm:text-[15px] font-medium text-graphite/90 leading-snug">
-                      {item.description}
-                    </p>
-                    <p className="text-xs sm:text-sm text-graphite/60 leading-relaxed font-normal pt-0.5">
-                      {item.detail}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Subtle Editorial Horizontal Arrow Connector (Desktop only, between cards 01-02 and 02-03) */}
-                {idx < 2 && (
-                  <div 
-                    className="hidden md:flex items-center justify-center absolute -right-3.5 lg:-right-4.5 xl:-right-5.5 top-[28%] -translate-y-1/2 z-20 pointer-events-none"
-                    aria-hidden="true"
-                  >
-                    <div className="w-7 lg:w-9 xl:w-11 h-[1px] bg-gradient-to-r from-accent/70 via-accent to-graphite/30 relative">
-                      <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-0.5 border-solid border-t-transparent border-b-transparent border-l-accent border-t-[3.5px] border-b-[3.5px] border-l-[6px]" />
-                    </div>
-                  </div>
-                )}
+            <div
+              key={item.step}
+              className="group flex flex-col justify-between"
+              style={prefersReduced ? undefined : {
+                opacity: inView ? 1 : 0,
+                transform: inView ? 'translate3d(0, 0, 0)' : 'translate3d(0, 24px, 0)',
+                transition: `opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) ${idx * 140}ms, transform 750ms cubic-bezier(0.16, 1, 0.3, 1) ${idx * 140}ms`,
+                willChange: inView ? 'auto' : 'opacity, transform'
+              }}
+            >
+              {/* Full-Bleed Portrait Photo Card (4:5 Ratio) */}
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl sm:rounded-[28px] border border-graphite/15 bg-night-950 shadow-card group-hover:shadow-xl group-hover:border-graphite/30 transition-all duration-500 ease-mech-s">
+                <picture>
+                  <source srcSet={stepImages[idx].webp} type="image/webp" />
+                  <img 
+                    src={stepImages[idx].jpg} 
+                    alt={stepImages[idx].alt}
+                    className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-mech-s"
+                    loading="lazy"
+                  />
+                </picture>
+                {/* Subtle depth vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-graphite/30 via-transparent to-black/10 pointer-events-none" />
               </div>
-            </React.Fragment>
+
+              {/* Decoupled Caption Row Underneath */}
+              <div className="mt-5 sm:mt-6 flex items-start gap-3.5">
+                <div className="w-7 h-7 rounded-full bg-graphite text-white font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm group-hover:bg-accent transition-colors duration-300">
+                  {idx + 1}
+                </div>
+                <div className="space-y-1.5 flex-1 min-w-0">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-graphite tracking-tight group-hover:text-accent transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm sm:text-[15px] font-medium text-graphite/90 leading-snug">
+                    {item.description}
+                  </p>
+                  <p className="text-xs sm:text-sm text-graphite/60 leading-relaxed font-normal">
+                    {item.detail}
+                  </p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
         {/* =========================================================================
-            MOBILE PROCESS CAROUSEL (< 768px) — 100% Native Mobile-First Snap Stage
+            MOBILE PROCESS CAROUSEL (< 768px) — Native Mobile Snap-Stage
             ========================================================================= */}
         <div className="block md:hidden">
           
@@ -178,55 +167,43 @@ export const ThreeGesturesSection: React.FC = () => {
           <div 
             ref={carouselRef}
             onScroll={handleCarouselScroll}
-            className="mobile-snap-track gap-3.5 px-4 -mx-4 pb-3 pt-0.5"
+            className="mobile-snap-track gap-4 px-4 -mx-4 pb-3 pt-1"
           >
             {threeGestures.map((item, idx) => (
               <div
                 key={item.step}
-                className="mobile-snap-item w-[85vw] max-w-[340px] bg-white border border-graphite/15 p-5 rounded-2xl shadow-card flex flex-col justify-between"
+                className="mobile-snap-item w-[82vw] max-w-[310px] flex flex-col"
               >
-                <div>
-                  {/* Step Header */}
-                  <div className="flex items-center justify-between pb-3 mb-3 border-b border-graphite/10">
-                    <span className="font-sans text-xs font-bold tracking-widest text-accent uppercase">
-                      PASO {item.step} DE 03
-                    </span>
-                    <div className="w-7 h-7 rounded-full bg-graphite/[0.04] border border-graphite/10 flex items-center justify-center">
-                      {icons[idx]}
-                    </div>
-                  </div>
+                {/* Full-Bleed Portrait Photo Card (4:5 Ratio) */}
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-graphite/15 bg-night-950 shadow-card">
+                  <picture>
+                    <source srcSet={stepImages[idx].webp} type="image/webp" />
+                    <img 
+                      src={stepImages[idx].jpg} 
+                      alt={stepImages[idx].alt}
+                      className="w-full h-full object-cover object-center"
+                      loading="lazy"
+                    />
+                  </picture>
+                  <div className="absolute inset-0 bg-gradient-to-t from-graphite/30 via-transparent to-black/10 pointer-events-none" />
+                </div>
 
-                  {/* Photo */}
-                  <div className="relative aspect-[16/11] w-full overflow-hidden rounded-xl bg-night-950 border border-graphite/10 mb-3.5 shadow-md">
-                    <picture>
-                      <source srcSet={stepImages[idx].webp} type="image/webp" />
-                      <img 
-                        src={stepImages[idx].jpg} 
-                        alt={stepImages[idx].alt}
-                        className="w-full h-full object-cover object-center"
-                        loading="lazy"
-                      />
-                    </picture>
+                {/* Decoupled Caption Underneath */}
+                <div className="mt-4 flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-graphite text-white font-mono text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                    {idx + 1}
                   </div>
-
-                  {/* Copy */}
-                  <div className="space-y-1">
-                    <h3 className="font-display text-xl font-bold text-graphite">
+                  <div className="space-y-1 flex-1 min-w-0">
+                    <h3 className="font-display text-base font-bold text-graphite">
                       {item.title}
                     </h3>
-                    <p className="text-sm font-medium text-graphite/90 leading-snug">
+                    <p className="text-xs sm:text-[13px] font-medium text-graphite/90 leading-snug">
                       {item.description}
                     </p>
-                    <p className="text-xs text-graphite/60 leading-relaxed pt-0.5">
+                    <p className="text-[11px] sm:text-xs text-graphite/60 leading-relaxed font-normal">
                       {item.detail}
                     </p>
                   </div>
-                </div>
-
-                {/* Mini Footer Pill */}
-                <div className="mt-4 pt-2.5 border-t border-graphite/10 flex items-center justify-between text-[10px] font-sans uppercase tracking-wider font-semibold text-graphite/50">
-                  <span>DESLIZA PARA CONTINUAR</span>
-                  <span className="text-accent font-bold">0{idx + 1} / 03</span>
                 </div>
               </div>
             ))}
@@ -249,26 +226,36 @@ export const ThreeGesturesSection: React.FC = () => {
 
         </div>
 
-        {/* Bottom Process Conclusion (El Resultado del Proceso) */}
-        <div className="mt-8 sm:mt-16 text-center max-w-xl mx-auto">
-          <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-graphite/[0.04] border border-graphite/10 mb-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-[0.2em] text-accent font-semibold">
-              EL RESULTADO
-            </span>
+        {/* =========================================================================
+            ASYMMETRIC BOTTOM FOOTER (Footnote + Laboratory Proof + Rotating Seal)
+            ========================================================================= */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-graphite/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          {/* Left: Laboratory Note & Result Claim */}
+          <div className="space-y-1.5 max-w-xl">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-accent font-semibold">
+                RESULTADO COMPROBADO EN LABORATORIO
+              </span>
+            </div>
+            <p className="font-display text-base sm:text-lg font-bold text-graphite">
+              Entre 2 y 3 minutos por prenda. Sin tabla ni accesorios extra.
+            </p>
+            <p className="text-xs text-graphite/50 font-normal">
+              *{brandConfig.labClaimNote}
+            </p>
           </div>
 
-          <p className="font-display text-lg sm:text-2xl font-bold text-graphite tracking-tight">
-            Entre 2 y 3 minutos por prenda.
-          </p>
-
-          <p className="text-xs sm:text-sm font-sans text-graphite/60 uppercase tracking-widest font-medium mt-1">
-            Sin tabla de planchar · Sin accesorios extra
-          </p>
-
-          <p className="text-[10px] font-sans text-graphite/40 italic pt-1.5">
-            *{brandConfig.labClaimNote}
-          </p>
+          {/* Right: Rotating Seal Stamp */}
+          <div className="shrink-0 self-end sm:self-center">
+            <RotatingGuaranteeStamp 
+              size={92}
+              circularText="★ 2 A 3 MIN POR PRENDA ★ CERO TABLA ★"
+              centerText="1200 W"
+              textColor="text-graphite"
+              customIcon={<Sparkles className="w-4 h-4 text-accent stroke-[2.2]" />}
+            />
+          </div>
         </div>
 
       </div>
