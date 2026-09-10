@@ -24,8 +24,8 @@ export const LEGAL_COMMERCIAL = {
   shippingCost: 'Envío gratuito incluido en el precio',
   voltage: '110 V (clavija estándar para Colombia)',
   power: '1200 W',
-  warrantyTerm: '3 meses',
-  warrantyBasis: 'Garantía legal por defectos de calidad, idoneidad o funcionamiento conforme a la Ley 1480 de 2011',
+  warrantyTerm: '30 días calendario',
+  warrantyBasis: 'Garantía legal por defectos de calidad, idoneidad o funcionamiento conforme a la Ley 1480 de 2011 (30 días calendario contados desde la entrega)',
   retractTermDays: 5, // días hábiles (art. 47 Ley 1480/2011)
   retractRefundDays: 15, // días calendario para devolución del dinero
   reversionTermDays: 5, // días hábiles (art. 51 Ley 1480/2011 y Decreto 587/2016)

@@ -151,9 +151,9 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                 Garantía y Asistencia
               </h3>
               <div className="space-y-2">
-                <h4 className="font-semibold text-bone">Garantía Legal de 3 Meses</h4>
+                <h4 className="font-semibold text-bone">Garantía Legal de 30 Días Calendario</h4>
                 <p>
-                  El producto cuenta con una garantía legal de tres (3) meses a partir de su entrega física, que cubre fallas de fabricación, calidad e idoneidad a 110 V.
+                  Los productos LISO cuentan con una garantía legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor, que cubre fallas de calidad, idoneidad o funcionamiento atribuibles al producto a 110 V.
                 </p>
                 <p>
                   Si recibes un producto defectuoso, con daños de transporte o diferente al solicitado, contáctanos a atencion@lisostore.co con tu número de pedido y fotografías o un video que muestre la situación.

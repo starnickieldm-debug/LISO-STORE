@@ -239,7 +239,7 @@ export const PQRPage: React.FC = () => {
                 >
                   <option value="Petición / Consulta General">Petición / Consulta General de Información</option>
                   <option value="Queja por Servicio">Queja por Servicio o Inconformidad</option>
-                  <option value="Reclamo por Calidad o Garantía (3 meses)">Reclamo por Calidad o Garantía Legal (3 meses)</option>
+                  <option value="Reclamo por Calidad o Garantía (30 días)">Reclamo por Calidad o Garantía Legal (30 días calendario)</option>
                   <option value="Ejercicio del Derecho de Retracto (5 días)">Ejercicio del Derecho de Retracto (5 días hábiles)</option>
                   <option value="Solicitud de Reversión del Pago (Dec. 587/2016)">Solicitud de Reversión del Pago (Decreto 587 de 2016)</option>
                   <option value="Novedad sobre Envío o Entrega">Novedad o Consulta sobre Envío y Entrega</option>

@@ -98,7 +98,7 @@ export const ReversionPagoPage: React.FC = () => {
         </p>
         <ul className="list-disc pl-5 space-y-1 text-bone/75 text-xs sm:text-sm">
           <li><strong>Derecho de Retracto:</strong> Arrepentimiento voluntario de la compra dentro de los primeros 5 días hábiles, sin necesidad de justificar fallas (el flete lo cubre el consumidor).</li>
-          <li><strong>Garantía Legal:</strong> Amparo por fallas de calidad o funcionamiento durante los 3 meses de vigencia (el flete y reparación corren por cuenta de LISO).</li>
+          <li><strong>Garantía Legal:</strong> Amparo por fallas de calidad o funcionamiento durante los 30 días calendario de vigencia (el flete y reparación corren por cuenta de LISO).</li>
           <li><strong>Reversión del Pago:</strong> Reintegro bancario forzoso ante fraude, no entrega, producto defectuoso o no solicitado mediante notificación conjunta a la tienda y al banco.</li>
         </ul>
       </section>

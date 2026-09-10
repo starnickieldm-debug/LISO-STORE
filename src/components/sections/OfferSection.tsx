@@ -227,7 +227,7 @@ export const OfferSection: React.FC = () => {
                   {', '}
                   <Link to="/politica-de-privacidad" className="underline hover:text-bone text-bone/80">Privacidad</Link>
                   {', '}
-                  <Link to="/garantia" className="underline hover:text-bone text-bone/80">Garantía Legal (3 meses)</Link>
+                  <Link to="/garantia" className="underline hover:text-bone text-bone/80">Garantía Legal (30 días)</Link>
                   {', '}
                   <Link to="/retracto-y-devoluciones" className="underline hover:text-bone text-bone/80">Retracto (5 días)</Link>
                   {' y '}
@@ -245,7 +245,7 @@ export const OfferSection: React.FC = () => {
                   </span>
                   <span>·</span>
                   <span className="inline-flex items-center gap-1">
-                    <span className="text-accent font-bold">✓</span> Garantía 3 meses
+                    <span className="text-accent font-bold">✓</span> Garantía 30 días
                   </span>
                 </div>
 
@@ -331,7 +331,7 @@ export const OfferSection: React.FC = () => {
                   </div>
                   <div>
                     <h5 className="font-semibold text-accent uppercase text-[10px] tracking-wider">Garantía y Devolución</h5>
-                    <p className="text-[11px] mt-0.5">Cuenta con 3 meses de garantía legal por defectos de fabricación y 5 días hábiles para ejercer el derecho de retracto conforme al Estatuto del Consumidor en Colombia.</p>
+                    <p className="text-[11px] mt-0.5">Cuenta con 30 días calendario de garantía legal por defectos de fabricación y 5 días hábiles para ejercer el derecho de retracto conforme al Estatuto del Consumidor en Colombia.</p>
                   </div>
                 </div>
               )}
@@ -577,7 +577,7 @@ export const OfferSection: React.FC = () => {
                   {' y '}
                   <Link to="/politica-de-privacidad" className="underline hover:text-bone text-bone/80">Política de Privacidad</Link>.
                   {' '}Tu compra cuenta con{' '}
-                  <Link to="/garantia" className="underline hover:text-bone text-bone/80">3 meses de garantía legal</Link>
+                  <Link to="/garantia" className="underline hover:text-bone text-bone/80">garantía legal (30 días calendario)</Link>
                   {', '}
                   <Link to="/retracto-y-devoluciones" className="underline hover:text-bone text-bone/80">derecho de retracto (5 días hábiles)</Link>
                   {' y '}
@@ -593,7 +593,7 @@ export const OfferSection: React.FC = () => {
                     <span className="text-accent font-bold">✓</span> Pago 100% seguro
                   </span>
                   <span className="inline-flex items-center gap-1">
-                    <span className="text-accent font-bold">✓</span> 3 meses de garantía legal
+                    <span className="text-accent font-bold">✓</span> Garantía legal 30 días
                   </span>
                   <span className="inline-flex items-center gap-1">
                     <span className="text-accent font-bold">✓</span> Seguimiento en línea
@@ -624,7 +624,7 @@ export const OfferSection: React.FC = () => {
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5">
                   <ShieldCheck className="w-4 h-4 mx-auto mb-1 text-bone/70" />
                   <p className="font-semibold text-bone">Garantía</p>
-                  <p className="text-bone/60 text-[10px]">3 meses legal</p>
+                  <p className="text-bone/60 text-[10px]">30 días legal</p>
                 </div>
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5">
                   <RotateCcw className="w-4 h-4 mx-auto mb-1 text-bone/70" />
@@ -673,10 +673,10 @@ export const OfferSection: React.FC = () => {
                       {/* Garantía Legal */}
                       <div className="space-y-1">
                         <h4 className="font-semibold text-bone uppercase tracking-wider text-[11px] text-accent">
-                          Garantía Legal (3 meses)
+                          Garantía Legal (30 días)
                         </h4>
                         <p>
-                          Tu compra cuenta con 3 meses de garantía legal amparada por la Ley 1480 de 2011 por defectos de fábrica o funcionamiento técnico. Si requieres hacer efectiva la garantía, escríbenos a <a href="mailto:atencion@lisostore.co" className="text-accent underline">atencion@lisostore.co</a> o radica tu solicitud en <Link to="/pqr" className="text-accent underline">PQR</Link>. Los fletes válidos por garantía son asumidos por LISO.
+                          Los productos LISO cuentan con una garantía legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor, amparada por la Ley 1480 de 2011 por defectos de calidad, idoneidad o funcionamiento técnico atribuibles al producto. Si requieres hacer efectiva la garantía, escríbenos a <a href="mailto:atencion@lisostore.co" className="text-accent underline">atencion@lisostore.co</a> o radica tu solicitud en <Link to="/pqr" className="text-accent underline">PQR</Link>. Los fletes válidos por garantía son asumidos por LISO.
                         </p>
                       </div>
 

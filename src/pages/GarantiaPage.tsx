@@ -40,7 +40,7 @@ export const GarantiaPage: React.FC = () => {
           <span className="text-accent text-sm">01.</span> Fundamento y Término de la Garantía
         </h2>
         <p>
-          En cumplimiento del artículo 7 y siguientes de la <strong>Ley 1480 de 2011 (Estatuto del Consumidor)</strong>, el producto <strong>Plancha de vapor portátil LISO</strong> cuenta con una <strong>Garantía Legal de tres (3) meses</strong> contados a partir de la fecha efectiva de entrega física del bien al consumidor.
+          En cumplimiento del artículo 7 y siguientes de la <strong>Ley 1480 de 2011 (Estatuto del Consumidor)</strong>, los productos LISO cuentan con una <strong>Garantía Legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor</strong>.
         </p>
         <p className="text-xs text-bone/70">
           Este es el término de garantía anunciado por el proveedor para el territorio colombiano y se encuentra sujeto a las normas imperativas y de orden público colombianas. En ningún caso las presentes estipulaciones pretenden limitar o menoscabar derechos irrenunciables reconocidos por la ley.

@@ -146,7 +146,7 @@ export const TerminosCondicionesPage: React.FC = () => {
           <span className="text-accent text-sm">09.</span> Garantía Legal
         </h2>
         <p>
-          El producto cuenta con una <strong>Garantía Legal de tres (3) meses</strong> contados a partir de la entrega física del bien, que ampara defectos de calidad, idoneidad técnica o fabricación que impidan su funcionamiento normal bajo condiciones de uso recomendadas a 110 V. La garantía no cubre averías ocasionadas por uso indebido, manipulación contraria al manual o fluctuaciones eléctricas imputables a la red del usuario.
+          Los productos LISO cuentan con una <strong>Garantía Legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor</strong>, que ampara defectos de calidad, idoneidad técnica o fabricación atribuibles al producto que impidan su funcionamiento normal bajo condiciones de uso recomendadas a 110 V. La garantía no cubre averías ocasionadas por uso indebido, manipulación contraria al manual o fluctuaciones eléctricas imputables a la red del usuario.
         </p>
       </section>
 
