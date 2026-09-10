@@ -1,22 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { brandConfig } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { Menu, X } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { currentMarket } = useMarket();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isInHero, setIsInHero] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 24);
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 24);
+
+      const heroEl = document.getElementById('hero');
+      if (heroEl) {
+        const rect = heroEl.getBoundingClientRect();
+        // While hero is present and visible under navbar, stay integrated with hero color
+        setIsInHero(rect.bottom > 70);
+      } else {
+        // Fallback for non-homepage routes
+        setIsInHero(false);
+      }
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const navLinks = [
     { label: "Cómo funciona", href: "/#como-funciona" },
@@ -28,34 +42,50 @@ export const Navbar: React.FC = () => {
 
   return (
     <header 
-      className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-200 ${
+      className={`sticky top-0 z-50 backdrop-blur-md transition-all duration-300 ${
         isScrolled 
-          ? 'border-b border-white/15 shadow-lg shadow-black/30 py-2 sm:py-2.5' 
-          : 'border-b border-white/10 py-3 sm:py-4'
+          ? 'py-2 sm:py-2.5' 
+          : 'py-3 sm:py-3.5'
+      } ${
+        isInHero
+          ? 'border-b border-graphite/10 shadow-sm'
+          : 'border-b border-white/15 shadow-lg shadow-black/30'
       }`}
-      style={{ backgroundColor: 'rgba(33, 31, 29, 0.88)' }}
+      style={{ 
+        backgroundColor: isInHero 
+          ? (isScrolled ? 'rgba(245, 241, 234, 0.92)' : '#F5F1EA') 
+          : 'rgba(33, 31, 29, 0.92)'
+      }}
     >
       <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
         
         {/* Brand Logo / Typography in Playfair Display Italic */}
         <div className="flex items-center space-x-3">
           <Link to="/" className="flex items-center space-x-2 group">
-            <span className="font-display italic font-semibold text-2xl sm:text-2xl tracking-tighter text-bone group-hover:text-accent transition-colors">
+            <span className={`font-display italic font-semibold text-2xl sm:text-2xl tracking-tighter transition-colors ${
+              isInHero ? 'text-graphite group-hover:text-accent' : 'text-bone group-hover:text-accent'
+            }`}>
               {brandConfig.name}
             </span>
-            <span className="text-[10px] font-sans font-medium tracking-widest text-bone/60 border border-white/20 px-1.5 py-0.5 rounded-none uppercase hidden xs:inline-block">
+            <span className={`text-[10px] font-sans font-medium tracking-widest px-1.5 py-0.5 rounded-none uppercase hidden xs:inline-block border transition-colors ${
+              isInHero ? 'text-graphite/70 border-graphite/25' : 'text-bone/60 border-white/20'
+            }`}>
               CARE
             </span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8 text-[13px] font-medium tracking-wide uppercase text-bone/70">
+        <nav className={`hidden md:flex items-center space-x-8 text-[13px] font-medium tracking-wide uppercase transition-colors ${
+          isInHero ? 'text-graphite/75' : 'text-bone/70'
+        }`}>
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-white transition-colors hover:underline underline-offset-8 decoration-accent decoration-2"
+              className={`transition-colors hover:underline underline-offset-8 decoration-accent decoration-2 ${
+                isInHero ? 'hover:text-graphite' : 'hover:text-white'
+              }`}
             >
               {link.label}
             </a>
@@ -78,7 +108,9 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 text-bone hover:text-accent focus:outline-none"
+            className={`md:hidden p-1.5 focus:outline-none transition-colors ${
+              isInHero ? 'text-graphite hover:text-accent' : 'text-bone hover:text-accent'
+            }`}
             aria-label="Abrir menú"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -88,17 +120,25 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#111216]/98 backdrop-blur-xl border-b border-white/15 px-4 pt-3 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] shadow-2xl animate-fadeIn">
+        <div className={`md:hidden backdrop-blur-xl border-b px-4 pt-3 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] shadow-2xl animate-fadeIn ${
+          isInHero 
+            ? 'bg-[#F5F1EA]/98 border-graphite/15 text-graphite' 
+            : 'bg-[#111216]/98 border-white/15 text-bone'
+        }`}>
           <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-bone/85 active:text-accent active:bg-white/5 py-2.5 px-2 rounded border-b border-white/10 transition-colors flex items-center justify-between"
+                className={`text-base font-medium py-2.5 px-2 rounded border-b transition-colors flex items-center justify-between ${
+                  isInHero 
+                    ? 'text-graphite/90 border-graphite/10 active:text-accent active:bg-graphite/5' 
+                    : 'text-bone/85 border-white/10 active:text-accent active:bg-white/5'
+                }`}
               >
                 <span>{link.label}</span>
-                <span className="text-bone/40 text-xs font-sans">→</span>
+                <span className={`text-xs font-sans ${isInHero ? 'text-graphite/40' : 'text-bone/40'}`}>→</span>
               </a>
             ))}
 
