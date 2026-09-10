@@ -66,7 +66,7 @@ export const ComparisonSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F1EA]/50 via-transparent to-[#F5F1EA]/60 pointer-events-none" />
       </div>
 
-      <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1680px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 relative z-10">
         
         {/* =========================================================================
             ASYMMETRICAL 2-COLUMN HEADER (Liquid+ DTC Reference Logic)
@@ -74,7 +74,7 @@ export const ComparisonSection: React.FC = () => {
             ========================================================================= */}
         <Reveal direction="up" duration={650}>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 sm:pb-14 border-b border-graphite/10 mb-8 sm:mb-10">
-            <div className="max-w-xl">
+            <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-mono font-semibold uppercase tracking-wider mb-3">
                 <Sparkles className="w-3.5 h-3.5 text-accent shrink-0" />
                 <span>Comparativa de Rendimiento Diario</span>
@@ -86,7 +86,7 @@ export const ComparisonSection: React.FC = () => {
               </h2>
             </div>
 
-            <div className="max-w-md lg:text-right">
+            <div className="max-w-lg lg:text-right">
               <p className="text-sm sm:text-[15px] font-sans text-graphite/75 leading-relaxed">
                 Depende de lo que quieras hacer. Para una pila de ropa de toda la semana, hay herramientas mejores. Para arreglarte rápido en 5 minutos antes de salir, <strong className="font-semibold text-graphite">LISO juega en otra liga</strong>.
               </p>
@@ -100,18 +100,18 @@ export const ComparisonSection: React.FC = () => {
             Visual product avatars on header, direct column-anchored CTA button
             ========================================================================= */}
         <Reveal direction="up" duration={700} className="hidden md:block">
-          <div className="space-y-3 sm:space-y-3.5">
+          <div className="space-y-3.5 sm:space-y-4">
             
             {/* 1. Header Row (Col 1: Metric, Col 2: LISO Hero, Col 3: Plancha, Col 4: Vaporizador) */}
-            <div className="grid grid-cols-[1.1fr_1.35fr_1.15fr_1.15fr] gap-3 sm:gap-3.5 items-end">
+            <div className="grid grid-cols-[1.05fr_1.45fr_1.2fr_1.2fr] gap-3.5 sm:gap-4 lg:gap-4.5 items-end">
               {/* Col 1 Label */}
-              <div className="h-16 rounded-2xl bg-white/40 border border-graphite/10 px-4 sm:px-5 flex items-center justify-start text-xs font-mono font-bold tracking-wider text-graphite/50 uppercase">
+              <div className="h-16 rounded-2xl bg-white/40 border border-graphite/10 px-5 sm:px-6 flex items-center justify-start text-xs font-mono font-bold tracking-wider text-graphite/50 uppercase">
                 CRITERIO
               </div>
 
               {/* Col 2: LISO Header Card (Hero) */}
-              <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-3 sm:p-3.5 shadow-sm flex items-center justify-between">
-                <div className="flex items-center gap-3">
+              <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-3.5 sm:p-4 px-5 sm:px-6 shadow-sm flex items-center justify-between">
+                <div className="flex items-center gap-3.5">
                   <div className="relative w-11 h-11 rounded-full p-0.5 bg-gradient-to-br from-accent to-graphite/40 shadow-sm overflow-hidden shrink-0">
                     <img 
                       src="/images/liso-main.webp" 
@@ -169,50 +169,50 @@ export const ComparisonSection: React.FC = () => {
             {comparisonRows.map((row, idx) => (
               <div 
                 key={row.feature} 
-                className="grid grid-cols-[1.1fr_1.35fr_1.15fr_1.15fr] gap-3 sm:gap-3.5 items-stretch"
+                className="grid grid-cols-[1.05fr_1.45fr_1.2fr_1.2fr] gap-3.5 sm:gap-4 lg:gap-4.5 items-stretch"
               >
                 {/* Col 1: Criterio */}
-                <div className="rounded-2xl bg-white/90 border border-graphite/12 p-3.5 sm:p-4 flex items-center gap-2.5 shadow-xs transition-colors hover:bg-white">
+                <div className="rounded-2xl bg-white/90 border border-graphite/12 p-4 sm:p-4.5 px-5 sm:px-6 flex items-center gap-3 shadow-xs transition-colors hover:bg-white">
                   <span className="text-[11px] font-mono text-graphite/40 font-bold shrink-0">
                     0{idx + 1}
                   </span>
-                  <span className="font-sans font-bold text-graphite text-xs sm:text-[13px] leading-snug">
+                  <span className="font-sans font-bold text-graphite text-xs sm:text-[13.5px] leading-snug">
                     {row.feature}
                   </span>
                 </div>
 
                 {/* Col 2: LISO (Hero Columna Destacada con tinte rosa/porcelana) */}
-                <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-3.5 sm:p-4 flex flex-col justify-center shadow-xs transition-all hover:border-accent/60 hover:shadow-sm">
+                <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-4 sm:p-4.5 px-5 sm:px-6 flex flex-col justify-center shadow-xs transition-all hover:border-accent/60 hover:shadow-sm">
                   <div className="flex items-center gap-2">
                     {renderLisoIcon(row.lisoVerdict)}
-                    <span className="font-bold text-graphite text-xs sm:text-[13.5px] tracking-tight">
+                    <span className="font-bold text-graphite text-xs sm:text-[14px] tracking-tight">
                       {row.lisoHighlight}
                     </span>
                   </div>
-                  <p className="text-graphite/75 text-[11px] sm:text-[11.5px] font-normal leading-snug mt-1 pl-7">
+                  <p className="text-graphite/75 text-[11.5px] sm:text-xs font-normal leading-snug mt-1 pl-7">
                     {row.liso}
                   </p>
                 </div>
 
                 {/* Col 3: Plancha + Tabla */}
-                <div className="rounded-2xl bg-white/80 border border-graphite/12 p-3.5 sm:p-4 flex flex-col justify-center shadow-xs transition-colors hover:bg-white">
+                <div className="rounded-2xl bg-white/80 border border-graphite/12 p-4 sm:p-4.5 px-5 sm:px-6 flex flex-col justify-center shadow-xs transition-colors hover:bg-white">
                   <div className="flex items-center gap-2">
                     {renderCompetitorIcon(row.traditionalVerdict)}
-                    <span className="font-semibold text-graphite/85 text-xs sm:text-[13px] tracking-tight">
+                    <span className="font-semibold text-graphite/85 text-xs sm:text-[13.5px] tracking-tight">
                       {row.traditionalHighlight}
                     </span>
                   </div>
-                  <p className="text-graphite/55 text-[11px] sm:text-[11.5px] font-normal leading-snug mt-1 pl-7">
+                  <p className="text-graphite/55 text-[11.5px] sm:text-xs font-normal leading-snug mt-1 pl-7">
                     {row.traditionalIron}
                   </p>
                 </div>
 
                 {/* Col 4: Vaporizador Barato */}
-                <div className="rounded-2xl bg-white/80 border border-graphite/12 p-3.5 sm:p-4 flex flex-col justify-center shadow-xs transition-colors hover:bg-white">
+                <div className="rounded-2xl bg-white/80 border border-graphite/12 p-4 sm:p-4.5 px-5 sm:px-6 flex flex-col justify-center shadow-xs transition-colors hover:bg-white">
                   <div className="flex items-center gap-2">
                     {renderCompetitorIcon(row.steamerVerdict)}
                     <div className="flex items-center gap-1">
-                      <span className="font-semibold text-graphite/85 text-xs sm:text-[13px] tracking-tight">
+                      <span className="font-semibold text-graphite/85 text-xs sm:text-[13.5px] tracking-tight">
                         {row.steamerHighlight}
                       </span>
                       {row.steamerVerdict === 'bad' && (
@@ -220,7 +220,7 @@ export const ComparisonSection: React.FC = () => {
                       )}
                     </div>
                   </div>
-                  <p className="text-graphite/55 text-[11px] sm:text-[11.5px] font-normal leading-snug mt-1 pl-7">
+                  <p className="text-graphite/55 text-[11.5px] sm:text-xs font-normal leading-snug mt-1 pl-7">
                     {row.cheapSteamer}
                   </p>
                 </div>
@@ -228,7 +228,7 @@ export const ComparisonSection: React.FC = () => {
             ))}
 
             {/* 3. Column Anchor CTA Button directly beneath LISO column (Liquid+ Formula) */}
-            <div className="grid grid-cols-[1.1fr_1.35fr_1.15fr_1.15fr] gap-3 sm:gap-3.5 pt-2 items-center">
+            <div className="grid grid-cols-[1.05fr_1.45fr_1.2fr_1.2fr] gap-3.5 sm:gap-4 lg:gap-4.5 pt-2 items-center">
               <div /> {/* Col 1 spacer */}
               <div>
                 <CTAButton 
@@ -364,7 +364,7 @@ export const ComparisonSection: React.FC = () => {
 
         {/* Honest concluding statement */}
         <Reveal direction="up" delay={150} duration={650}>
-          <div className="mt-12 sm:mt-16 text-center max-w-2xl mx-auto space-y-3 p-6 sm:p-8 rounded-3xl bg-white/70 border border-graphite/12 shadow-xs backdrop-blur-xs">
+          <div className="mt-12 sm:mt-16 text-center max-w-3xl mx-auto space-y-3 p-6 sm:p-8 rounded-3xl bg-white/70 border border-graphite/12 shadow-xs backdrop-blur-xs">
             <p className="text-base sm:text-lg font-display font-medium text-graphite leading-relaxed">
               Para una pila de ropa, usa una plancha. Para una prenda que necesitas lista en cinco minutos, usa LISO.
             </p>
