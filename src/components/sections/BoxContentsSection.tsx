@@ -12,7 +12,7 @@ export const BoxContentsSection: React.FC = () => {
   return (
     <section 
       className="py-14 sm:py-28 bg-bone border-b border-graphite/10 relative overflow-hidden"
-      style={{ backgroundColor: '#F5F1EA', color: '#17181C' }}
+      style={{ backgroundColor: '#F5F1EA', color: '#262320' }}
     >
       {/* Background Texture: Architectural Waves (Horizontal Landscape) */}
       <div 

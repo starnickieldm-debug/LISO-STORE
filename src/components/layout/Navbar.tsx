@@ -33,7 +33,7 @@ export const Navbar: React.FC = () => {
           ? 'border-b border-white/15 shadow-lg shadow-black/30 py-2 sm:py-2.5' 
           : 'border-b border-white/10 py-3 sm:py-4'
       }`}
-      style={{ backgroundColor: 'rgba(17, 18, 22, 0.88)' }}
+      style={{ backgroundColor: 'rgba(33, 31, 29, 0.88)' }}
     >
       <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
         

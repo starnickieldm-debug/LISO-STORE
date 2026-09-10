@@ -13,7 +13,7 @@
 
   html, body, #root {
     background-color: #F5F1EA !important;
-    color: #17181C !important;
+    color: #262320 !important;
     font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
   }
 
@@ -36,15 +36,15 @@
 .bg-bone { background-color: #F5F1EA !important; }
 .bg-bone-50 { background-color: #FAF8F5 !important; }
 .bg-bone-100 { background-color: #F5F1EA !important; }
-.text-graphite { color: #17181C !important; }
-.border-graphite-10 { border-color: rgba(23, 24, 28, 0.10) !important; }
+.text-graphite { color: #262320 !important; }
+.border-graphite-10 { border-color: rgba(38, 35, 32, 0.10) !important; }
 
 /* Dark luxury accents (S4, S10, Footer, TrustBar, StickyBuyBar) */
-.bg-night-950 { background-color: #0B0C0F !important; }
-.bg-night-900 { background-color: #121318 !important; }
-.bg-night-800 { background-color: #181A20 !important; }
-.bg-night-700 { background-color: #232630 !important; }
-.border-night-700 { border-color: #232630 !important; }
+.bg-night-950 { background-color: #211F1D !important; }
+.bg-night-900 { background-color: #2B2825 !important; }
+.bg-night-800 { background-color: #383430 !important; }
+.bg-night-700 { background-color: #49443E !important; }
+.border-night-700 { border-color: #49443E !important; }
 .text-bone { color: #F6F4EF !important; }
 
 /* Scroll Animation & Motion Tokens (Hardware Accelerated 60fps) */

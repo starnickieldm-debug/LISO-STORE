@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   return (
     <footer 
       className="bg-night-950 text-bone/70 text-sm border-t border-white/10 pt-12 pb-28 md:py-14"
-      style={{ backgroundColor: '#14151A' }}
+      style={{ backgroundColor: '#211F1D' }}
     >
       <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12">
         

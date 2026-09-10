@@ -210,7 +210,7 @@ export const EngineeringSection: React.FC = () => {
       case 0:
         return (
           <div className="space-y-3.5">
-            <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden rounded-xl">
+            <div className="relative aspect-[4/3] bg-[#181615]/70 border border-white/15 overflow-hidden rounded-xl">
               <img 
                 src="/images/liso-placa-0.webp" 
                 alt="Placa giratoria LISO ángulo 0 grados vertical" 
@@ -242,7 +242,7 @@ export const EngineeringSection: React.FC = () => {
                 } ${plateAngle === 90 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
               />
 
-              <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 bg-black/80 border border-white/20 text-[10px] font-mono text-accent font-bold rounded">
+              <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 bg-[#181615]/90 border border-white/20 text-[10px] font-mono text-accent font-bold rounded">
                 {plateAngle}° ACTIVO
               </div>
             </div>
@@ -318,7 +318,7 @@ export const EngineeringSection: React.FC = () => {
       case 2:
         return (
           <div className="space-y-3.5">
-            <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden rounded-xl">
+            <div className="relative aspect-[4/3] bg-[#181615]/70 border border-white/15 overflow-hidden rounded-xl">
               <img 
                 src="/images/liso-pantalla.webp" 
                 alt="Pantalla digital LED de la plancha LISO con lectura térmica en tiempo real" 
@@ -328,7 +328,7 @@ export const EngineeringSection: React.FC = () => {
                 className="w-full h-full object-cover"
               />
               
-              <div className="absolute bottom-2.5 inset-x-2.5 p-2.5 bg-black/85 backdrop-blur-xs border border-white/20 flex items-center justify-between font-sans text-xs rounded-lg">
+              <div className="absolute bottom-2.5 inset-x-2.5 p-2.5 bg-[#181615]/90 backdrop-blur-xs border border-white/20 flex items-center justify-between font-sans text-xs rounded-lg">
                 <span className="text-bone/70 uppercase font-medium">LECTURA TÉRMICA:</span>
                 <span className="text-accent font-mono font-bold tracking-wider">{tempCounter} °C</span>
               </div>
@@ -343,7 +343,7 @@ export const EngineeringSection: React.FC = () => {
       case 3:
         return (
           <div className="space-y-3.5">
-            <div className="relative aspect-[16/9] bg-black/50 border border-white/15 overflow-hidden rounded-xl">
+            <div className="relative aspect-[16/9] bg-[#181615]/70 border border-white/15 overflow-hidden rounded-xl">
               <img 
                 src="/images/liso-cable.webp" 
                 alt="Detalle del cable de alimentación directa de alta potencia" 
@@ -384,7 +384,7 @@ export const EngineeringSection: React.FC = () => {
       case 4:
         return (
           <div className="space-y-3.5">
-            <div className="relative aspect-[16/9] bg-black/50 border border-white/15 overflow-hidden rounded-xl">
+            <div className="relative aspect-[16/9] bg-[#181615]/70 border border-white/15 overflow-hidden rounded-xl">
               <img 
                 src="/images/liso-mango.webp" 
                 alt="Textura estriada del mango térmico de agarre ergonómico" 
@@ -417,7 +417,7 @@ export const EngineeringSection: React.FC = () => {
       case 5:
         return (
           <div className="space-y-3.5">
-            <div className="relative aspect-[4/3] bg-black/50 border border-white/15 overflow-hidden rounded-xl">
+            <div className="relative aspect-[4/3] bg-[#181615]/70 border border-white/15 overflow-hidden rounded-xl">
               <img 
                 src="/images/liso-plug-us.webp" 
                 alt="Clavija eléctrica plana estándar Tipo A/B (110 V)" 
@@ -427,7 +427,7 @@ export const EngineeringSection: React.FC = () => {
                 className="w-full h-full object-cover"
               />
 
-              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-black/85 border border-white/20 text-[10px] font-mono text-bone font-bold rounded">
+              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-[#181615]/90 border border-white/20 text-[10px] font-mono text-bone font-bold rounded">
                 110 V · MULTIVOLTAJE 110–240 V
               </div>
             </div>
@@ -452,9 +452,23 @@ export const EngineeringSection: React.FC = () => {
     <section 
       id="ingenieria" 
       ref={sectionRef}
-      className="py-20 sm:py-28 bg-night-950 text-bone border-b border-white/10 relative overflow-hidden technical-grid scroll-mt-16 sm:scroll-mt-20 select-none"
-      style={{ backgroundColor: '#0B0C0F' }}
+      className="py-20 sm:py-28 bg-night-950 text-bone border-b border-white/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20 select-none"
+      style={{ backgroundColor: '#211F1D' }}
     >
+      {/* Background Texture: Grid Architecture from User Reference (Rotated Horizontal) */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none"
+        aria-hidden="true"
+      >
+        <img 
+          src="/images/textures/texture-grid-inverted.webp" 
+          alt="" 
+          className="w-full h-full object-cover object-center opacity-15 mix-blend-screen"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#211F1D]/50 via-transparent to-[#211F1D]/75 pointer-events-none" />
+      </div>
+
       {/* Subtle warm ambient lighting in top-left */}
       <div 
         className="pointer-events-none absolute -top-32 -left-32 w-[550px] h-[550px] bg-[radial-gradient(ellipse_at_top_left,rgba(255,195,130,0.06)_0%,transparent_70%)] blur-3xl"
@@ -467,12 +481,6 @@ export const EngineeringSection: React.FC = () => {
             HEADER: Centered Title + Subtitle + Floating Top-Right Rotating Seal
             ========================================================================= */}
         <div className="relative mb-12 sm:mb-16 lg:mb-20 text-center max-w-3xl mx-auto">
-          {/* Overline */}
-          <div className="inline-flex items-center gap-2 mb-3 font-mono text-xs uppercase tracking-widest text-accent font-semibold">
-            <span>[04]</span>
-            <span>ARQUITECTURA TÉCNICA</span>
-          </div>
-
           {/* Title */}
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em] text-bone leading-[1.2]">
             Ingeniería <span className="italic font-normal">visible.</span>

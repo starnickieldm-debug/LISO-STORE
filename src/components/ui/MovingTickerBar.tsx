@@ -58,7 +58,7 @@ export const MovingTickerBar: React.FC<MovingTickerBarProps> = ({
           : 'bg-[#EFEAE0] border-graphite/10 text-graphite'
       } ${className}`}
       style={{
-        backgroundColor: isDark ? '#14151A' : '#EFEAE0'
+        backgroundColor: isDark ? '#262320' : '#EFEAE0'
       }}
     >
       <div className="marquee-container">

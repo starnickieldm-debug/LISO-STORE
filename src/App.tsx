@@ -74,7 +74,7 @@ export function App() {
       <ScrollToTop />
       <div 
         className="min-h-screen flex flex-col bg-bone text-graphite antialiased font-sans relative selection:bg-accent selection:text-white"
-        style={{ backgroundColor: '#F5F1EA', color: '#17181C' }}
+        style={{ backgroundColor: '#F5F1EA', color: '#262320' }}
       >
         <ScrollProgress />
         <div className="paper-grain-overlay" aria-hidden="true" />

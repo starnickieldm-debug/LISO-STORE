@@ -15,7 +15,7 @@ export const HonestyLabelSection: React.FC = () => {
     <section 
       id="etiqueta" 
       className="py-20 sm:py-28 bg-bone border-b border-graphite/10 scroll-mt-16 sm:scroll-mt-20"
-      style={{ backgroundColor: '#EFEBE2', color: '#17181C' }}
+      style={{ backgroundColor: '#EFEBE2', color: '#262320' }}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12">
         
