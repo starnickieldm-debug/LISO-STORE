@@ -104,7 +104,7 @@ export const HeroSection: React.FC = () => {
             
             {/* H1 Headline: Impactful 2-block composition with intentional line breaks */}
             <h1 
-              className="font-display text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-bold text-graphite tracking-[-0.025em] leading-[1.1]"
+              className="font-display text-4xl md:text-5xl lg:text-[3.15rem] xl:text-[3.5rem] font-bold text-graphite tracking-[-0.025em] leading-[1.1]"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
@@ -112,9 +112,9 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              <span className="block">Olvídate de la plancha pesada.</span>
+              <span className="block">Dile adiós a la plancha tradicional.</span>
               <span className="block text-graphite/90 mt-1.5 font-normal">
-                Tu ropa <span className="italic font-display font-medium text-accent">impecable</span> en segundos.
+                Tu ropa <span className="italic font-display font-medium text-accent">sin arrugas</span> en segundos.
               </span>
             </h1>
 
@@ -128,12 +128,12 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              Alisa directo en el gancho y sin sacar la tabla. Vapor continuo a 150 °C listo en segundos.
+              Plancha directo en el gancho y sin armar la tabla. Listo para usar en segundos.
             </p>
 
             {/* 4. Streamlined High-Impact Conversion Block (Open, Clean, Friction-Free) */}
             <div 
-              className="mt-6 lg:mt-7 space-y-4 max-w-md"
+              className="mt-6 lg:mt-7 space-y-4 max-w-lg"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
@@ -159,19 +159,19 @@ export const HeroSection: React.FC = () => {
                   size="large" 
                   className="w-full sm:w-auto min-w-[300px] shadow-[0_8px_28px_rgba(180,36,124,0.32)] hover:shadow-[0_12px_36px_rgba(180,36,124,0.48)] text-[15px] sm:text-base font-semibold tracking-wide py-3.5 sm:py-4 transition-all active:scale-[0.99]"
                 >
-                  Pedir LISO — {currentMarket.formattedPrice}
+                  Pide el tuyo – $189.900
                 </CTAButton>
               </div>
 
               {/* Core Frictionless Trust Strip */}
-              <div className="flex items-center gap-3 text-xs text-graphite/70 font-sans font-medium pt-0.5">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs text-graphite/70 font-sans font-medium pt-0.5">
                 <span className="inline-flex items-center gap-1 text-graphite font-semibold">
                   <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                  <span>Entrega garantizada</span>
+                  <span>Envío gratis a toda Colombia</span>
                 </span>
-                <span className="text-graphite/25">·</span>
-                <span>PSE y tarjetas</span>
-                <span className="text-graphite/25">·</span>
+                <span className="text-graphite/30">|</span>
+                <span>Paga contra entrega o con PSE / Tarjeta</span>
+                <span className="text-graphite/30">|</span>
                 <span>Garantía de 30 días</span>
               </div>
             </div>
@@ -191,15 +191,15 @@ export const HeroSection: React.FC = () => {
           
           {/* 1. Mobile H1: Compact, high-impact headline */}
           <h1 className="text-center font-display text-[1.65rem] xs:text-[1.85rem] font-bold text-graphite tracking-tight leading-[1.12] mb-1">
-            <span>Olvídate de la plancha pesada.</span>
+            <span>Dile adiós a la plancha tradicional.</span>
             <span className="block text-graphite/90 mt-0.5 font-normal text-[1.3rem] xs:text-[1.45rem]">
-              Tu ropa <span className="italic font-display font-medium text-accent">impecable</span> en segundos.
+              Tu ropa <span className="italic font-display font-medium text-accent">sin arrugas</span> en segundos.
             </span>
           </h1>
 
           {/* 2. Micro-bajada: 1 single punchy line of value proposition */}
           <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[320px] mx-auto mb-2">
-            Alisa directo en el gancho y sin sacar la tabla. Vapor continuo a 150 °C listo en segundos.
+            Plancha directo en el gancho y sin armar la tabla. Listo para usar en segundos.
           </p>
 
           {/* 3. Mobile Focal Hero Product Stage (Editorial Dark Luxury Anchor) */}
@@ -245,19 +245,19 @@ export const HeroSection: React.FC = () => {
               size="large" 
               className="w-full shadow-[0_6px_24px_rgba(180,36,124,0.32)] active:scale-[0.98] py-3.5 text-[15px] font-semibold tracking-wide"
             >
-              Pedir LISO — {currentMarket.formattedPrice}
+              Pide el tuyo – $189.900
             </CTAButton>
 
-            {/* Trust Points: Compact single row */}
-            <div className="flex items-center justify-center gap-2.5 text-[11px] text-graphite/70 font-sans font-medium pt-0.5">
+            {/* Trust Points: Clean formatted trust line */}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 text-[11px] text-graphite/70 font-sans font-medium pt-0.5 text-center leading-normal max-w-[340px] mx-auto">
               <span className="inline-flex items-center gap-1 text-graphite font-semibold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Envío gratis</span>
+                <span>Envío gratis a toda Colombia</span>
               </span>
-              <span className="text-graphite/25">·</span>
-              <span>PSE y tarjetas</span>
-              <span className="text-graphite/25">·</span>
-              <span>Garantía 30 días</span>
+              <span className="text-graphite/30">|</span>
+              <span>Paga contra entrega o con PSE / Tarjeta</span>
+              <span className="text-graphite/30">|</span>
+              <span>Garantía de 30 días</span>
             </div>
           </div>
 

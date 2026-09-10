@@ -34,7 +34,7 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: "Cómo funciona", href: "/#como-funciona" },
-    { label: "Ingeniería", href: "/#ingenieria" },
+    { label: "Características", href: "/#ingenieria" },
     { label: "Etiqueta", href: "/#etiqueta" },
     { label: "Comparativa", href: "/#comparativa" },
     { label: "FAQ", href: "/#faq" }
@@ -100,8 +100,8 @@ export const Navbar: React.FC = () => {
               isScrolled ? 'inline-flex' : 'hidden sm:inline-flex'
             }`}
           >
-            <span className="hidden sm:inline">Pedir LISO — {currentMarket.formattedPrice}</span>
-            <span className="sm:hidden">Pedir LISO</span>
+            <span className="hidden sm:inline">Pide el tuyo – {currentMarket.formattedPrice}</span>
+            <span className="sm:hidden">Pide el tuyo</span>
           </a>
 
           {/* Mobile Menu Toggle */}
