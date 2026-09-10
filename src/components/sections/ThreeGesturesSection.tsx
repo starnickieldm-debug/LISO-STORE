@@ -221,29 +221,29 @@ export const ThreeGesturesSection: React.FC = () => {
         </div>
 
         {/* =========================================================================
-            ASYMMETRIC BOTTOM FOOTER (Footnote + Laboratory Proof + Rotating Seal)
+            LABORATORY VERIFICATION HIGHLIGHT CARD (Result Claim + Official Seal)
             ========================================================================= */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-graphite/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          {/* Left: Laboratory Note & Result Claim */}
-          <div className="space-y-1.5 max-w-xl">
+        <div className="mt-8 sm:mt-10 bg-white border border-graphite/15 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:py-6 lg:px-8 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-5 sm:gap-6 relative overflow-hidden group">
+          {/* Left: Laboratory Note & Result Claim (Expanded Horizontally) */}
+          <div className="space-y-2 flex-1 min-w-0">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              <span className="text-[11px] sm:text-xs font-sans uppercase tracking-[0.14em] text-accent font-bold">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[11px] sm:text-xs font-sans uppercase tracking-[0.14em] text-accent font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                 RESULTADO COMPROBADO EN LABORATORIO
               </span>
             </div>
-            <p className="font-display text-base sm:text-lg font-bold text-graphite">
+            <p className="font-display text-lg sm:text-xl md:text-2xl lg:text-[1.5rem] font-bold text-graphite tracking-tight leading-snug">
               Entre 2 y 3 minutos por prenda. Sin tabla ni accesorios extra.
             </p>
-            <p className="text-xs text-graphite/50 font-normal">
+            <p className="text-xs sm:text-[12.5px] text-graphite/60 font-normal">
               *{brandConfig.labClaimNote}
             </p>
           </div>
 
-          {/* Right: Rotating Seal Stamp (Enlarged) */}
-          <div className="shrink-0 self-end sm:self-center">
+          {/* Right: Rotating Seal Stamp (Official Verification Seal) */}
+          <div className="shrink-0 self-center">
             <RotatingGuaranteeStamp 
-              size={120}
+              size={115}
               circularText="★ 2 A 3 MIN POR PRENDA ★ CERO TABLA ★"
               centerText="1200 W"
               textColor="text-graphite"
