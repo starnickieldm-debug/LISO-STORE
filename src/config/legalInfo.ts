@@ -8,7 +8,7 @@ export const LEGAL_SELLER = {
   type: 'Persona natural',
   city: 'Ibagué, Tolima, Colombia',
   notificationAddress: 'Conjunto Las Palmeras, Agrupación B, Bloque 3, Apto 101, Ibagué, Tolima, Colombia',
-  contactEmail: 'atencion@lisostore.co',
+  contactEmail: 'atencion.lisostore@gmail.com',
   rut: '141276147685',
   sicUrl: 'https://www.sic.gov.co',
   sicLabel: 'Superintendencia de Industria y Comercio (SIC)',

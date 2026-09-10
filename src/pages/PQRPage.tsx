@@ -141,7 +141,7 @@ export const PQRPage: React.FC = () => {
                   className="px-4 py-2 bg-accent hover:bg-accent-hover text-white font-sans font-semibold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2 rounded"
                 >
                   <Mail className="w-4 h-4" />
-                  <span>Enviar copia por Correo a atencion@lisostore.co</span>
+                  <span>Enviar copia por correo a {LEGAL_SELLER.contactEmail}</span>
                 </a>
                 <button
                   type="button"

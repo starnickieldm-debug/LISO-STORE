@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { X, Truck, RotateCcw, Shield, FileText, Lock } from 'lucide-react';
 import { useMarket } from '../../context/MarketContext';
+import { LEGAL_SELLER } from '../../config/legalInfo';
 
 export type PolicyTab = 'shipping' | 'returns' | 'warranty' | 'terms' | 'privacy';
 
@@ -139,7 +140,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
               <div className="p-3 bg-white/5 border border-white/10 text-xs text-bone/70">
                 <p className="font-semibold text-bone mb-1">Canal de atención</p>
                 <p>
-                  Escríbenos a atencion@lisostore.co con tu número de pedido y los datos de tu compra para recibir asistencia rápida y personalizada.
+                  Escríbenos a {LEGAL_SELLER.contactEmail} con tu número de pedido y los datos de tu compra para recibir asistencia rápida y personalizada.
                 </p>
               </div>
             </div>
@@ -156,7 +157,7 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({
                   Los productos LISO cuentan con una garantía legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor, que cubre fallas de calidad, idoneidad o funcionamiento atribuibles al producto a 110 V.
                 </p>
                 <p>
-                  Si recibes un producto defectuoso, con daños de transporte o diferente al solicitado, contáctanos a atencion@lisostore.co con tu número de pedido y fotografías o un video que muestre la situación.
+                  Si recibes un producto defectuoso, con daños de transporte o diferente al solicitado, contáctanos a {LEGAL_SELLER.contactEmail} con tu número de pedido y fotografías o un video que muestre la situación.
                 </p>
               </div>
               <div className="p-3 bg-white/5 border border-white/10 text-xs text-bone/70">

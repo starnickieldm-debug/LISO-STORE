@@ -7,6 +7,7 @@ import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
 import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2 } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { useShopifyCheckout } from '../../hooks/useShopifyCheckout';
+import { LEGAL_SELLER } from '../../config/legalInfo';
 
 const COLOR_CONFIG: Record<string, { swatchBg: string; border: string; label: string }> = {
   negro: { swatchBg: '#17181C', border: 'border-white/30', label: 'Negro' },
@@ -676,7 +677,7 @@ export const OfferSection: React.FC = () => {
                           Garantía Legal (30 días)
                         </h4>
                         <p>
-                          Los productos LISO cuentan con una garantía legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor, amparada por la Ley 1480 de 2011 por defectos de calidad, idoneidad o funcionamiento técnico atribuibles al producto. Si requieres hacer efectiva la garantía, escríbenos a <a href="mailto:atencion@lisostore.co" className="text-accent underline">atencion@lisostore.co</a> o radica tu solicitud en <Link to="/pqr" className="text-accent underline">PQR</Link>. Los fletes válidos por garantía son asumidos por LISO.
+                          Los productos LISO cuentan con una garantía legal de treinta (30) días calendario contados a partir de la entrega del producto al consumidor, amparada por la Ley 1480 de 2011 por defectos de calidad, idoneidad o funcionamiento técnico atribuibles al producto. Si requieres hacer efectiva la garantía, escríbenos a <a href={`mailto:${LEGAL_SELLER.contactEmail}`} className="text-accent underline">{LEGAL_SELLER.contactEmail}</a> o radica tu solicitud en <Link to="/pqr" className="text-accent underline">PQR</Link>. Los fletes válidos por garantía son asumidos por LISO.
                         </p>
                       </div>
 
