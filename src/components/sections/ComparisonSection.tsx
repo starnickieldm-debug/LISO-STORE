@@ -3,7 +3,7 @@ import { comparisonRows, brandConfig } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { CTAButton } from '../ui/CTAButton';
 import { Reveal } from '../ui/Reveal';
-import { Check, X, Minus, Sparkles, Flame, Wind, CheckCircle2 } from 'lucide-react';
+import { Check, X, Minus } from 'lucide-react';
 
 export const ComparisonSection: React.FC = () => {
   const { currentMarket } = useMarket();
@@ -75,10 +75,6 @@ export const ComparisonSection: React.FC = () => {
         <Reveal direction="up" duration={650}>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 sm:pb-8 border-b border-graphite/10 mb-6 sm:mb-8">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-mono font-semibold uppercase tracking-wider mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Comparativa de Rendimiento Diario</span>
-              </div>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.85rem] font-bold text-graphite tracking-tight leading-[1.12]">
                 LISO<sup className="text-accent text-lg sm:text-xl font-sans">®</sup>{' '}
                 <span className="italic font-normal font-display text-accent">vs.</span>{' '}
@@ -103,62 +99,94 @@ export const ComparisonSection: React.FC = () => {
           <div className="space-y-3.5 sm:space-y-4">
             
             {/* 1. Header Row (Col 1: Metric, Col 2: LISO Hero, Col 3: Plancha, Col 4: Vaporizador) */}
-            <div className="grid grid-cols-[1.05fr_1.45fr_1.2fr_1.2fr] gap-3.5 sm:gap-4 lg:gap-4.5 items-end">
+            <div className="grid grid-cols-[1.05fr_1.45fr_1.2fr_1.2fr] gap-3.5 sm:gap-4 lg:gap-4.5 items-stretch">
               {/* Col 1 Label */}
-              <div className="h-16 rounded-2xl bg-white/40 border border-graphite/10 px-5 sm:px-6 flex items-center justify-start text-xs font-mono font-bold tracking-wider text-graphite/50 uppercase">
+              <div className="rounded-2xl bg-white/40 border border-graphite/10 px-5 sm:px-6 flex flex-col justify-end pb-5 text-xs font-mono font-bold tracking-wider text-graphite/50 uppercase">
                 CRITERIO
               </div>
 
               {/* Col 2: LISO Header Card (Hero) */}
-              <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-3.5 sm:p-4 px-5 sm:px-6 shadow-sm flex items-center justify-between">
-                <div className="flex items-center gap-3.5">
-                  <div className="relative w-11 h-11 rounded-full p-0.5 bg-gradient-to-br from-accent to-graphite/40 shadow-sm overflow-hidden shrink-0">
-                    <img 
-                      src="/images/liso-main.webp" 
-                      alt="LISO Steamer" 
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-display italic font-bold text-base text-graphite tracking-tight">
-                        {brandConfig.name}
-                      </span>
-                      <span className="text-[10px] font-mono text-accent font-semibold">CARE</span>
-                    </div>
-                    <span className="text-[10.5px] font-sans text-graphite/60 block">Placa giratoria + vapor</span>
-                  </div>
+              <div className="rounded-2xl bg-[#FAF0F5] border-2 border-accent/40 p-4 sm:p-5 shadow-sm flex flex-col items-center justify-between text-center relative overflow-hidden group">
+                <div className="w-full flex justify-between items-center mb-1">
+                  <span className="text-[10px] font-mono text-accent font-bold tracking-wider uppercase">
+                    OPCIÓN ÓPTIMA
+                  </span>
+                  <span className="text-[10px] bg-accent text-white font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
+                    RECOMENDADO
+                  </span>
                 </div>
-                <span className="text-[10px] bg-accent text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
-                  RECOMENDADO
-                </span>
+                
+                {/* Large Product Photo */}
+                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl bg-white/90 border border-accent/20 p-2 flex items-center justify-center my-2 shadow-xs group-hover:scale-103 transition-transform duration-300">
+                  <img 
+                    src="/images/liso-pure-cutout.webp" 
+                    alt="Plancha de vapor portátil LISO" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                <div className="mt-1">
+                  <div className="flex items-center justify-center gap-1.5">
+                    <span className="font-display italic font-bold text-base sm:text-lg text-graphite tracking-tight">
+                      {brandConfig.name}
+                    </span>
+                    <span className="text-[11px] font-mono text-accent font-bold">CARE</span>
+                  </div>
+                  <span className="text-xs font-sans text-graphite/65 block mt-0.5 font-medium">
+                    Placa giratoria + vapor
+                  </span>
+                </div>
               </div>
 
               {/* Col 3: Plancha + Tabla Header Card */}
-              <div className="h-16 rounded-2xl bg-white/80 border border-graphite/12 px-4 sm:px-4.5 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-graphite/[0.05] border border-graphite/12 flex items-center justify-center text-graphite/55 shrink-0">
-                  <Flame className="w-5 h-5 stroke-[1.75]" />
+              <div className="rounded-2xl bg-white/85 border border-graphite/12 p-4 sm:p-5 shadow-xs flex flex-col items-center justify-between text-center relative overflow-hidden group">
+                <div className="w-full flex justify-start items-center mb-1">
+                  <span className="text-[10px] font-mono text-graphite/40 font-semibold tracking-wider uppercase">
+                    TRADICIONAL
+                  </span>
                 </div>
-                <div className="min-w-0">
-                  <span className="font-sans font-bold text-xs sm:text-[13px] text-graphite block truncate">
+                
+                {/* Large Product Photo */}
+                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl bg-graphite/[0.02] border border-graphite/10 p-2 flex items-center justify-center my-2 shadow-xs group-hover:scale-103 transition-transform duration-300">
+                  <img 
+                    src="/images/comp-iron-board.webp" 
+                    alt="Plancha pesada tradicional con tabla de planchar" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                <div className="mt-1">
+                  <span className="font-sans font-bold text-sm sm:text-[15px] text-graphite block">
                     Plancha + Tabla
                   </span>
-                  <span className="text-[10.5px] font-sans text-graphite/50 block truncate">
+                  <span className="text-xs font-sans text-graphite/55 block mt-0.5">
                     Pesada y tradicional
                   </span>
                 </div>
               </div>
 
-              {/* Col 4: Vaporizador Barato Header Card */}
-              <div className="h-16 rounded-2xl bg-white/80 border border-graphite/12 px-4 sm:px-4.5 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-graphite/[0.05] border border-graphite/12 flex items-center justify-center text-graphite/55 shrink-0">
-                  <Wind className="w-5 h-5 stroke-[1.75]" />
+              {/* Col 4: Vaporizador Común Header Card */}
+              <div className="rounded-2xl bg-white/85 border border-graphite/12 p-4 sm:p-5 shadow-xs flex flex-col items-center justify-between text-center relative overflow-hidden group">
+                <div className="w-full flex justify-start items-center mb-1">
+                  <span className="text-[10px] font-mono text-graphite/40 font-semibold tracking-wider uppercase">
+                    GENÉRICO
+                  </span>
                 </div>
-                <div className="min-w-0">
-                  <span className="font-sans font-bold text-xs sm:text-[13px] text-graphite block truncate">
+                
+                {/* Large Product Photo */}
+                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-2xl bg-graphite/[0.02] border border-graphite/10 p-2 flex items-center justify-center my-2 shadow-xs group-hover:scale-103 transition-transform duration-300">
+                  <img 
+                    src="/images/comp-common-steamer.webp" 
+                    alt="Vaporizador vertical común de plástico" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                <div className="mt-1">
+                  <span className="font-sans font-bold text-sm sm:text-[15px] text-graphite block">
                     Vaporizador común
                   </span>
-                  <span className="text-[10.5px] font-sans text-graphite/50 block truncate">
+                  <span className="text-xs font-sans text-graphite/55 block mt-0.5">
                     Vertical de plástico
                   </span>
                 </div>
@@ -259,7 +287,7 @@ export const ComparisonSection: React.FC = () => {
         <div className="block md:hidden">
           
           {/* Competitor Selector Pills */}
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-3">
             <span className="font-sans text-[10.5px] uppercase tracking-widest text-graphite/55 font-bold block text-center">
               COMPARAR LISO CONTRA:
             </span>
@@ -286,6 +314,45 @@ export const ComparisonSection: React.FC = () => {
               >
                 Vaporizador Común
               </button>
+            </div>
+          </div>
+
+          {/* Visual Dual Product Preview for Mobile with Large Photos */}
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            {/* LISO Card */}
+            <div className="p-3 bg-[#FAF0F5] border-2 border-accent/40 rounded-2xl flex flex-col items-center text-center shadow-xs">
+              <span className="text-[9px] bg-accent text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider mb-1.5">
+                RECOMENDADO
+              </span>
+              <div className="w-20 h-20 rounded-xl bg-white/90 p-1.5 flex items-center justify-center mb-1.5 border border-accent/20">
+                <img 
+                  src="/images/liso-pure-cutout.webp" 
+                  alt="LISO" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className="font-display italic font-bold text-xs text-graphite">LISO CARE</span>
+              <span className="text-[10px] text-graphite/60">Placa giratoria + vapor</span>
+            </div>
+
+            {/* Competitor Card */}
+            <div className="p-3 bg-white border border-graphite/15 rounded-2xl flex flex-col items-center text-center shadow-xs">
+              <span className="text-[9px] text-graphite/50 font-mono font-bold uppercase tracking-wider mb-1.5">
+                {compareTarget === 'traditional' ? 'TRADICIONAL' : 'GENÉRICO'}
+              </span>
+              <div className="w-20 h-20 rounded-xl bg-graphite/[0.03] p-1.5 flex items-center justify-center mb-1.5 border border-graphite/10">
+                <img 
+                  src={compareTarget === 'traditional' ? '/images/comp-iron-board.webp' : '/images/comp-common-steamer.webp'} 
+                  alt={compareTarget === 'traditional' ? 'Plancha + Tabla' : 'Vaporizador'} 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className="font-sans font-bold text-xs text-graphite">
+                {compareTarget === 'traditional' ? 'Plancha + Tabla' : 'Vaporizador'}
+              </span>
+              <span className="text-[10px] text-graphite/50">
+                {compareTarget === 'traditional' ? 'Pesada y voluminosa' : 'Vertical de plástico'}
+              </span>
             </div>
           </div>
 
@@ -362,13 +429,13 @@ export const ComparisonSection: React.FC = () => {
 
         </div>
 
-        {/* Honest concluding statement */}
-        <Reveal direction="up" delay={150} duration={650}>
-          <div className="mt-12 sm:mt-16 text-center max-w-3xl mx-auto space-y-3 p-6 sm:p-8 rounded-3xl bg-white/70 border border-graphite/12 shadow-xs backdrop-blur-xs">
-            <p className="text-base sm:text-lg font-display font-medium text-graphite leading-relaxed">
-              Para una pila de ropa, usa una plancha. Para una prenda que necesitas lista en cinco minutos, usa LISO.
+        {/* Honest concluding statement - Compact Editorial Ribbon */}
+        <Reveal direction="up" delay={100} duration={600}>
+          <div className="mt-5 sm:mt-7 text-center max-w-2xl mx-auto py-3 px-4 sm:py-3.5 sm:px-6 rounded-2xl bg-white/80 border border-graphite/10 shadow-xs backdrop-blur-xs">
+            <p className="text-xs sm:text-[13.5px] font-display font-medium text-graphite leading-snug">
+              Para una pila de ropa, usa una plancha. Para una prenda que necesitas lista en cinco minutos, usa <strong className="text-accent font-semibold">LISO</strong>.
             </p>
-            <p className="text-xs sm:text-sm font-sans text-graphite/70">
+            <p className="text-[11px] sm:text-xs font-sans text-graphite/60 mt-0.5">
               LISO está hecha exactamente para esos momentos.
             </p>
           </div>
