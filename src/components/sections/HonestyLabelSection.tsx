@@ -243,33 +243,8 @@ export const HonestyLabelSection: React.FC = () => {
 
             </div>
 
-            {/* Cable Design Rationale Subcard with Real Photo */}
-            <div className="mt-8 pt-4 bg-bone-50/80 border border-graphite/15 p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-graphite/20 bg-night-950 flex-shrink-0 shadow-xs">
-                <img 
-                  src="/images/liso-cable.webp" 
-                  alt="Cable reforzado de 1.8 metros con clavija estándar" 
-                  className="w-full h-full object-cover" 
-                  loading="lazy"
-                />
-              </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-sans uppercase tracking-wider font-bold text-accent px-2 py-0.5 rounded bg-accent/10 border border-accent/20">
-                    DISEÑO CON CABLE
-                  </span>
-                  <h5 className="font-display font-bold text-base sm:text-lg text-graphite">
-                    {honestyLabelData.cordRationale.title}
-                  </h5>
-                </div>
-                <p className="text-xs sm:text-sm text-graphite/80 leading-relaxed">
-                  {honestyLabelData.cordRationale.description}
-                </p>
-              </div>
-            </div>
-
             {/* Label Footer Note */}
-            <div className="mt-6 pt-3 border-t border-graphite/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] font-sans font-medium text-graphite/60">
+            <div className="mt-8 pt-4 border-t border-graphite/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] font-sans font-medium text-graphite/60">
               <span>COMPROMISO DE TRANSPARENCIA LISO</span>
               <span>{brandConfig.labClaimNote}</span>
             </div>

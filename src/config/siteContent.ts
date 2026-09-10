@@ -148,10 +148,6 @@ export const honestyLabelData: HonestyLabelItem = {
     {
       title: "Su depósito es compacto",
       desc: "Los 100 ml alcanzan para aproximadamente 2–3 prendas por carga, dependiendo del uso."
-    },
-    {
-      title: "Necesita estar conectada",
-      desc: "El cable permite mantener el calor estable y la potencia del vapor durante el uso."
     }
   ],
   cordRationale: {
