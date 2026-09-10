@@ -8,6 +8,7 @@ import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2 } from
 import { Reveal } from '../ui/Reveal';
 import { useShopifyCheckout } from '../../hooks/useShopifyCheckout';
 import { LEGAL_SELLER } from '../../config/legalInfo';
+import { ProductGallery } from '../ui/ProductGallery';
 
 const COLOR_CONFIG: Record<string, { swatchBg: string; border: string; label: string }> = {
   negro: { swatchBg: '#17181C', border: 'border-white/30', label: 'Negro' },
@@ -60,26 +61,8 @@ export const OfferSection: React.FC = () => {
               ========================================================================= */}
           <div className="block lg:hidden space-y-5">
             
-            {/* 1. Mobile Product Visual with Floating Badges */}
-            <div className="relative aspect-[4/3] w-full max-w-md mx-auto overflow-hidden rounded-2xl border border-white/15 bg-night-950 shadow-2xl">
-              <picture className="w-full h-full">
-                <source srcSet="/images/liso-oferta.webp" type="image/webp" />
-                <img 
-                  src="/images/liso-oferta.jpg" 
-                  alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital" 
-                  className="w-full h-full object-cover object-center"
-                  loading="lazy"
-                />
-              </picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-              
-              <div className="absolute top-2.5 left-2.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-sans text-accent font-bold tracking-wider uppercase">
-                KIT COMPLETO
-              </div>
-              <div className="absolute top-2.5 right-2.5 px-2.5 py-1 bg-black/75 backdrop-blur-md border border-white/15 rounded-full text-[10px] font-sans text-bone/80 font-semibold tracking-wider uppercase">
-                110–240 V DUAL
-              </div>
-            </div>
+            {/* 1. Mobile Product Interactive Gallery with Carousel & Thumbnails */}
+            <ProductGallery selectedColor={selectedColor} className="max-w-md mx-auto" />
 
             {/* 2. Title, Pricing & Plug Match */}
             <div className="space-y-3 bg-night-950/80 border border-white/10 p-4 rounded-xl">
@@ -344,23 +327,12 @@ export const OfferSection: React.FC = () => {
               DESKTOP CONVERSION CONTAINER (>= 1024px) — 100% Unchanged Layout
               ========================================================================= */}
           <div className="hidden lg:block bg-night-900/90 border border-night-700 p-8 sm:p-10 lg:p-12 shadow-studio-hard-dark">
-            <div className="grid grid-cols-12 gap-8 lg:gap-14 items-center">
+            <div className="grid grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left: Product Visual */}
-            <div className="lg:col-span-5 space-y-3 sm:space-y-4">
-              <div className="relative aspect-square sm:aspect-[3/4] w-full max-w-[420px] mx-auto lg:mx-0 overflow-hidden border border-white/15 bg-night-950 shadow-rim-warm group">
-                <picture className="w-full h-full">
-                  <source srcSet="/images/liso-oferta.webp" type="image/webp" />
-                  <img 
-                    src="/images/liso-oferta.jpg" 
-                    alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital"
-                    className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500 ease-mech-s"
-                    loading="lazy"
-                  />
-                </picture>
-              </div>
-              <div className="p-2.5 sm:p-3 bg-white/5 border border-white/10 text-[10px] sm:text-[11px] font-sans text-bone/60 text-center tracking-wider uppercase font-medium">
-                <span>VOLTAJE COMPATIBLE: 110–240 V DUAL</span>
+            {/* Left: Product Visual Interactive Gallery */}
+            <div className="lg:col-span-5">
+              <div className="sticky top-24">
+                <ProductGallery selectedColor={selectedColor} />
               </div>
             </div>
 
