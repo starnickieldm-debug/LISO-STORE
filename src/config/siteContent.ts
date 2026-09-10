@@ -162,58 +162,76 @@ export const honestyLabelData: HonestyLabelItem = {
 
 export const comparisonRows: ComparisonRow[] = [
   {
-    feature: "Tiempo hasta empezar",
-    traditionalIron: "5–10 min entre sacar, montar y calentar",
-    cheapSteamer: "1–2 min, según el modelo",
-    liso: "Pocos segundos. Enchufas y empiezas."
+    feature: "Tiempo para empezar",
+    traditionalHighlight: "5–10 minutos",
+    traditionalIron: "Entre sacar la tabla, armarla y calentar",
+    traditionalVerdict: "bad",
+    steamerHighlight: "1–2 minutos",
+    cheapSteamer: "Variable según potencia",
+    steamerVerdict: "neutral",
+    lisoHighlight: "Pocos segundos",
+    liso: "Enchufas y alisas directo en el gancho",
+    lisoVerdict: "good"
   },
   {
-    feature: "Espacio que ocupa",
-    traditionalIron: "Necesitas espacio para guardar la tabla",
-    cheapSteamer: "Ocupa poco, pero necesitas dónde guardarlo",
-    liso: "Entra en un rincón del clóset o sobre la mesa de noche."
+    feature: "¿Requiere tabla de planchar?",
+    traditionalHighlight: "Obligatoria",
+    traditionalIron: "Sin tabla no se puede usar",
+    traditionalVerdict: "bad",
+    steamerHighlight: "Solo en vertical",
+    cheapSteamer: "Difícil apoyo en horizontal",
+    steamerVerdict: "neutral",
+    lisoHighlight: "Cero tabla",
+    liso: "Directo en el gancho o sobre la cama (placa 90°)",
+    lisoVerdict: "good"
   },
   {
-    feature: "Usarla directamente en el gancho",
-    traditionalIron: "Incómodo y poco práctico",
-    cheapSteamer: "Sí, pero depende del resultado que busques",
-    liso: "Sí. Vapor + placa caliente para dejar la prenda lisa."
+    feature: "Firmeza en cuellos y detalles",
+    traditionalHighlight: "Muy buena",
+    traditionalIron: "Peso y calor directo sobre la tabla",
+    traditionalVerdict: "good",
+    steamerHighlight: "Insuficiente",
+    cheapSteamer: "Solo vapor; arrugas marcadas persisten",
+    steamerVerdict: "bad",
+    lisoHighlight: "Placa caliente 150 °C",
+    liso: "Alisa y prensa cuellos con precisión",
+    lisoVerdict: "good"
   },
   {
-    feature: "Usarla en horizontal",
-    traditionalIron: "Es donde mejor funciona.",
-    cheapSteamer: "Puede gotear al inclinarla",
-    liso: "Sí. Giras la placa y trabajas sin que gotee."
+    feature: "Seguridad contra goteo",
+    traditionalHighlight: "Riesgo de manchas",
+    traditionalIron: "Puede botar gotas de agua caliente",
+    traditionalVerdict: "neutral",
+    steamerHighlight: "Gotea al inclinarlo",
+    cheapSteamer: "Condensa y moja la prenda",
+    steamerVerdict: "bad",
+    lisoHighlight: "Cero goteo",
+    liso: "Vapor seco continuo en cualquier ángulo",
+    lisoVerdict: "good"
   },
   {
-    feature: "Cuellos, puños y detalles",
-    traditionalIron: "Funciona, pero tienes que trabajar sobre la tabla",
-    cheapSteamer: "El vapor ayuda, pero puede quedarse corto en arrugas marcadas",
-    liso: "La placa caliente ayuda a marcar y alisar estos detalles."
+    feature: "Espacio y guardado",
+    traditionalHighlight: "Ocupa un clóset",
+    traditionalIron: "Tabla pesada y plancha grande",
+    traditionalVerdict: "bad",
+    steamerHighlight: "Ocupa espacio medio",
+    cheapSteamer: "Cuerpo voluminoso",
+    steamerVerdict: "neutral",
+    lisoHighlight: "Mínimo espacio",
+    liso: "Cabe en tu mesa de noche o gaveta",
+    lisoVerdict: "good"
   },
   {
-    feature: "Retoques antes de salir",
-    traditionalIron: "Sacar la tabla por una sola prenda da pereza",
-    cheapSteamer: "Buena opción",
-    liso: "Para eso está hecha."
-  },
-  {
-    feature: "Llevarla en la maleta",
-    traditionalIron: "Demasiado grande",
-    cheapSteamer: "Depende del modelo",
-    liso: "Ligera, compacta y con bolsa. 110–240 V."
-  },
-  {
-    feature: "Cuando terminas",
-    traditionalIron: "Esperar, guardar y volver a armar todo",
-    cheapSteamer: "Esperar y guardar",
-    liso: "La dejas en su base y sigues con tu día."
-  },
-  {
-    feature: "Planchar 10+ prendas de una vez",
-    traditionalIron: "Sí, es la herramienta adecuada.",
-    cheapSteamer: "No es lo ideal.",
-    liso: "No. Está pensada para 2–3 prendas por carga."
+    feature: "Planchar 10+ prendas seguidas",
+    traditionalHighlight: "Sí, es la ideal",
+    traditionalIron: "Diseñada para grandes tandas de ropa",
+    traditionalVerdict: "good",
+    steamerHighlight: "No recomendado",
+    cheapSteamer: "Se recalienta y cansa la mano",
+    steamerVerdict: "bad",
+    lisoHighlight: "No (hecha para 2–3)",
+    liso: "Pensada para el retoque rápido diario",
+    lisoVerdict: "neutral"
   }
 ];
 

@@ -53,6 +53,12 @@ export interface ComparisonRow {
   traditionalIron: string;
   cheapSteamer: string;
   liso: string;
+  traditionalVerdict?: 'bad' | 'neutral' | 'good';
+  steamerVerdict?: 'bad' | 'neutral' | 'good';
+  lisoVerdict?: 'bad' | 'neutral' | 'good';
+  traditionalHighlight?: string;
+  steamerHighlight?: string;
+  lisoHighlight?: string;
 }
 
 export interface LifestyleScene {

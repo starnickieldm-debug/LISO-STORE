@@ -5,11 +5,49 @@ import { SectionHeader } from '../ui/SectionHeader';
 import { CTAButton } from '../ui/CTAButton';
 import { useInView } from '../../hooks/useInView';
 import { Reveal } from '../ui/Reveal';
+import { Check, X, Minus, Sparkles } from 'lucide-react';
 
 export const ComparisonSection: React.FC = () => {
   const { currentMarket } = useMarket();
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.2 });
   const [compareTarget, setCompareTarget] = useState<'traditional' | 'steamer'>('traditional');
+
+  const renderCompetitorIcon = (verdict?: 'bad' | 'neutral' | 'good') => {
+    if (verdict === 'good') {
+      return (
+        <span className="w-5 h-5 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0">
+          <Check className="w-3 h-3 text-emerald-400 stroke-[3]" />
+        </span>
+      );
+    }
+    if (verdict === 'bad') {
+      return (
+        <span className="w-5 h-5 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0">
+          <X className="w-3 h-3 text-red-400/80 stroke-[2.5]" />
+        </span>
+      );
+    }
+    return (
+      <span className="w-5 h-5 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+        <Minus className="w-3 h-3 text-bone/40 stroke-[2.5]" />
+      </span>
+    );
+  };
+
+  const renderLisoIcon = (verdict?: 'bad' | 'neutral' | 'good') => {
+    if (verdict === 'good') {
+      return (
+        <span className="w-5 h-5 rounded-full bg-accent/25 border border-accent/40 flex items-center justify-center shrink-0 shadow-[0_0_8px_rgba(180,36,124,0.3)]">
+          <Check className="w-3 h-3 text-accent stroke-[3]" />
+        </span>
+      );
+    }
+    return (
+      <span className="w-5 h-5 rounded-full bg-white/10 border border-white/15 flex items-center justify-center shrink-0">
+        <Minus className="w-3 h-3 text-bone/60 stroke-[2.5]" />
+      </span>
+    );
+  };
 
   return (
     <section 
@@ -17,7 +55,7 @@ export const ComparisonSection: React.FC = () => {
       className="py-20 sm:py-28 bg-night-900 text-bone border-b border-night-700 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#121318' }}
     >
-      {/* Ambient Layer (a): Radial cálido arriba-izquierda al 8% */}
+      {/* Ambient Warm Glow */}
       <div 
         className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-[radial-gradient(ellipse_at_top_left,rgba(255,195,130,0.08)_0%,transparent_65%)] blur-2xl" 
         aria-hidden="true" 
@@ -33,37 +71,40 @@ export const ComparisonSection: React.FC = () => {
         />
 
         {/* =========================================================================
-            DESKTOP TABLE (>= 768px) — 100% Unchanged Full 4-Column Table
+            DESKTOP HIGH-SCAN COMPARISON TABLE (>= 768px)
             ========================================================================= */}
         <Reveal direction="up" duration={700} className="hidden md:block">
-          <div ref={ref} className="relative border border-night-700 bg-night-950/80 shadow-studio-hard-dark overflow-hidden">
+          <div ref={ref} className="relative rounded-2xl border border-white/10 bg-night-950/90 shadow-2xl overflow-hidden">
             
             <div className="overflow-x-auto horizontal-scroll-touch overscroll-x-contain">
-              <table className="w-full text-left border-collapse min-w-[580px] sm:min-w-[640px]">
+              <table className="w-full text-left border-collapse min-w-[700px]">
                 
                 {/* Table Header */}
                 <thead>
-                  <tr className="border-b border-night-700 bg-night-900/90">
-                    <th className="sticky left-0 bg-night-900 z-20 py-3 sm:py-4 px-3 sm:px-6 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-[125px] min-w-[125px] sm:w-1/4 sm:min-w-none border-r border-night-700 shadow-[3px_0_12px_rgba(0,0,0,0.7)]">
+                  <tr className="border-b border-white/10 bg-night-900/95">
+                    <th className="py-4 px-6 text-xs font-sans font-bold uppercase tracking-wider text-bone/60 w-[24%]">
                       CRITERIO
                     </th>
-                    <th className="py-3 sm:py-4 px-3.5 sm:px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-1/4 border-r border-night-700">
+                    <th className="py-4 px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-[24%] border-l border-white/5">
                       PLANCHA + TABLA
                     </th>
-                    <th className="py-3 sm:py-4 px-3.5 sm:px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-1/4 border-r border-night-700">
-                      VAPORIZADOR DE MANO
+                    <th className="py-4 px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone/60 w-[24%] border-l border-white/5">
+                      VAPORIZADOR BARATO
                     </th>
-                    <th className="relative py-3 sm:py-4 px-3.5 sm:px-5 text-xs font-sans font-semibold uppercase tracking-wider text-bone bg-night-800/80 w-1/4 overflow-hidden border-r border-night-700">
+                    <th className="relative py-4 px-6 text-xs font-sans uppercase tracking-wider text-bone w-[28%] bg-accent/[0.08] border-l border-accent/25 overflow-hidden">
                       {/* Animated hairline drawing rule */}
                       <div 
                         className={`absolute top-0 left-0 right-0 h-[3px] bg-accent transition-transform duration-600 ease-vapor-m origin-left ${
                           inView ? 'scale-x-100' : 'scale-x-0'
                         }`} 
                       />
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold text-sm text-bone">{brandConfig.name}</span>
-                        <span className="text-[10px] bg-accent px-1.5 py-0.5 text-white font-semibold uppercase">
-                          RETOQUE DIARIO
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5 text-accent" />
+                          <span className="font-bold text-sm text-white tracking-wide">{brandConfig.name}</span>
+                        </div>
+                        <span className="text-[10px] bg-accent text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                          RECOMENDADO
                         </span>
                       </div>
                     </th>
@@ -71,30 +112,63 @@ export const ComparisonSection: React.FC = () => {
                 </thead>
 
                 {/* Table Body */}
-                <tbody className="divide-y divide-night-700/70 text-xs sm:text-sm">
+                <tbody className="divide-y divide-white/5 text-xs sm:text-sm">
                   {comparisonRows.map((row, idx) => {
                     const isLast = idx === comparisonRows.length - 1;
 
                     return (
-                      <tr key={row.feature} className={`hover:bg-white/[0.03] transition-colors ${idx % 2 === 1 ? 'bg-white/[0.015]' : ''}`}>
-                        {/* Sticky 1st column */}
-                        <td className="sticky left-0 bg-night-950 z-10 py-3 px-3 sm:py-3.5 sm:px-6 font-medium text-bone border-r border-night-700 shadow-[3px_0_12px_rgba(0,0,0,0.7)] text-xs sm:text-sm">
-                          {row.feature}
+                      <tr key={row.feature} className="hover:bg-white/[0.02] transition-colors">
+                        {/* 1. Criterio */}
+                        <td className="py-4 px-6 font-medium text-bone">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[11px] font-mono text-bone/40 font-semibold">0{idx + 1}</span>
+                            <span className="font-sans font-semibold text-bone/90">{row.feature}</span>
+                          </div>
                         </td>
                         
-                        {/* Plancha Tradicional */}
-                        <td className="py-3 px-3.5 sm:py-3.5 sm:px-5 text-bone/70 border-r border-night-700/60 text-xs sm:text-sm">
-                          {row.traditionalIron}
+                        {/* 2. Plancha Tradicional */}
+                        <td className="py-4 px-5 border-l border-white/5">
+                          <div className="flex items-start gap-2.5">
+                            {renderCompetitorIcon(row.traditionalVerdict)}
+                            <div className="space-y-0.5">
+                              <span className="font-semibold text-bone/85 text-xs sm:text-[13px] block">
+                                {row.traditionalHighlight}
+                              </span>
+                              <span className="text-bone/50 text-[11.5px] block leading-tight">
+                                {row.traditionalIron}
+                              </span>
+                            </div>
+                          </div>
                         </td>
 
-                        {/* Vaporizador barato */}
-                        <td className="py-3 px-3.5 sm:py-3.5 sm:px-5 text-bone/70 border-r border-night-700/60 text-xs sm:text-sm">
-                          {row.cheapSteamer}
+                        {/* 3. Vaporizador Barato */}
+                        <td className="py-4 px-5 border-l border-white/5">
+                          <div className="flex items-start gap-2.5">
+                            {renderCompetitorIcon(row.steamerVerdict)}
+                            <div className="space-y-0.5">
+                              <span className="font-semibold text-bone/85 text-xs sm:text-[13px] block">
+                                {row.steamerHighlight}
+                              </span>
+                              <span className="text-bone/50 text-[11.5px] block leading-tight">
+                                {row.cheapSteamer}
+                              </span>
+                            </div>
+                          </div>
                         </td>
 
-                        {/* LISO */}
-                        <td className={`py-3 px-3.5 sm:py-3.5 sm:px-5 font-semibold text-bone bg-accent/10 border-r border-night-700/60 text-xs sm:text-sm ${isLast ? 'text-bone/60 font-normal italic' : 'text-bone'}`}>
-                          {row.liso}
+                        {/* 4. LISO (Destacada) */}
+                        <td className={`py-4 px-6 bg-accent/[0.08] border-l border-accent/25 ${isLast ? 'bg-accent/[0.05]' : ''}`}>
+                          <div className="flex items-start gap-2.5">
+                            {renderLisoIcon(row.lisoVerdict)}
+                            <div className="space-y-0.5">
+                              <span className="font-bold text-white text-xs sm:text-[13.5px] block tracking-tight">
+                                {row.lisoHighlight}
+                              </span>
+                              <span className="text-bone/80 text-[11.5px] block leading-snug">
+                                {row.liso}
+                              </span>
+                            </div>
+                          </div>
                         </td>
                       </tr>
                     );
@@ -105,29 +179,29 @@ export const ComparisonSection: React.FC = () => {
             </div>
 
             {/* Table Footer Note */}
-            <div className="p-3 bg-night-900/90 border-t border-night-700 text-[11px] font-sans font-medium text-bone/50 flex items-center justify-between">
-              <span>*Comparativa basada en especificaciones estándar de mercado</span>
-              <span className="font-sans text-[10px] font-medium">{brandConfig.labClaimNote}</span>
+            <div className="p-3.5 bg-night-900/95 border-t border-white/10 text-[11px] font-sans text-bone/50 flex flex-col sm:flex-row items-center justify-between gap-2">
+              <span>*Comparativa basada en especificaciones estándar de mercado para Colombia</span>
+              <span className="font-sans text-[10.5px] italic text-bone/45">{brandConfig.labClaimNote}</span>
             </div>
 
           </div>
         </Reveal>
 
         {/* =========================================================================
-            MOBILE FACE-TO-FACE COMPARISON (< 768px) — 100% Native Mobile Experience
+            MOBILE HIGH-SCAN CARDS (< 768px)
             ========================================================================= */}
         <div className="block md:hidden">
           
           {/* Competitor Selector Pills */}
           <div className="space-y-2 mb-4">
             <span className="font-sans text-[10px] uppercase tracking-widest text-bone/50 font-bold block text-center">
-              COMPARA DIRECTAMENTE CONTRA:
+              COMPARAR LISO CONTRA:
             </span>
             <div className="flex items-center gap-1.5 p-1 bg-white/[0.04] border border-white/10 rounded-xl">
               <button
                 type="button"
                 onClick={() => setCompareTarget('traditional')}
-                className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all ${
+                className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all cursor-pointer ${
                   compareTarget === 'traditional'
                     ? 'bg-accent text-white shadow-sm'
                     : 'text-bone/60 hover:text-bone active:bg-white/5'
@@ -138,7 +212,7 @@ export const ComparisonSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setCompareTarget('steamer')}
-                className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all ${
+                className={`flex-1 py-2 px-2 text-center rounded-lg font-sans text-xs font-bold tracking-wide transition-all cursor-pointer ${
                   compareTarget === 'steamer'
                     ? 'bg-accent text-white shadow-sm'
                     : 'text-bone/60 hover:text-bone active:bg-white/5'
@@ -154,7 +228,7 @@ export const ComparisonSection: React.FC = () => {
             {comparisonRows.map((row, idx) => (
               <div 
                 key={row.feature}
-                className="p-3.5 bg-night-950/90 rounded-xl border border-white/10 shadow-md space-y-2.5"
+                className="p-3.5 bg-night-950/90 rounded-2xl border border-white/10 shadow-lg space-y-2.5"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-sans text-[11px] uppercase tracking-wider text-accent font-bold">
@@ -164,22 +238,31 @@ export const ComparisonSection: React.FC = () => {
 
                 <div className="grid grid-cols-2 gap-2 text-xs font-sans">
                   {/* LISO Column */}
-                  <div className="bg-accent/15 border border-accent/30 p-2.5 rounded-lg space-y-1">
-                    <div className="flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                      <span className="font-bold text-bone text-[11px] tracking-wide">LISO</span>
+                  <div className="bg-accent/15 border border-accent/35 p-3 rounded-xl space-y-1.5 shadow-sm">
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-white text-[11.5px] tracking-wide">LISO</span>
+                      {renderLisoIcon(row.lisoVerdict)}
                     </div>
-                    <p className="text-bone font-medium text-[12px] leading-snug">
+                    <span className="font-bold text-white text-[12.5px] block leading-tight">
+                      {row.lisoHighlight}
+                    </span>
+                    <p className="text-bone/80 text-[11px] leading-snug">
                       {row.liso}
                     </p>
                   </div>
 
                   {/* Competitor Column */}
-                  <div className="bg-white/[0.03] border border-white/[0.08] p-2.5 rounded-lg space-y-1">
-                    <span className="text-bone/50 text-[10px] font-semibold uppercase tracking-wider block truncate">
-                      {compareTarget === 'traditional' ? 'Plancha tradicional' : 'Vaporizador'}
+                  <div className="bg-white/[0.03] border border-white/10 p-3 rounded-xl space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-bone/50 text-[10.5px] font-semibold uppercase tracking-wider block truncate">
+                        {compareTarget === 'traditional' ? 'Plancha + Tabla' : 'Vaporizador'}
+                      </span>
+                      {renderCompetitorIcon(compareTarget === 'traditional' ? row.traditionalVerdict : row.steamerVerdict)}
+                    </div>
+                    <span className="font-semibold text-bone/80 text-[12px] block leading-tight">
+                      {compareTarget === 'traditional' ? row.traditionalHighlight : row.steamerHighlight}
                     </span>
-                    <p className="text-bone/65 text-[12px] leading-snug">
+                    <p className="text-bone/60 text-[11px] leading-snug">
                       {compareTarget === 'traditional' ? row.traditionalIron : row.cheapSteamer}
                     </p>
                   </div>
@@ -196,7 +279,7 @@ export const ComparisonSection: React.FC = () => {
 
         {/* Honest concluding statement & CTA */}
         <Reveal direction="up" delay={150} duration={650}>
-          <div className="mt-10 sm:mt-12 text-center max-w-2xl mx-auto space-y-6">
+          <div className="mt-10 sm:mt-14 text-center max-w-2xl mx-auto space-y-6">
             <div className="space-y-2">
               <p className="text-base sm:text-lg font-display font-medium text-bone leading-relaxed">
                 Para una pila de ropa, usa una plancha. Para una prenda que necesitas lista en cinco minutos, usa LISO.
@@ -207,8 +290,8 @@ export const ComparisonSection: React.FC = () => {
             </div>
             
             <div>
-              <CTAButton href="#oferta" size="default">
-                Quiero LISO — {currentMarket.formattedPrice}
+              <CTAButton href="#oferta" size="large" className="shadow-lg shadow-accent/25 py-3.5 px-8">
+                Pedir LISO — {currentMarket.formattedPrice}
               </CTAButton>
             </div>
           </div>
