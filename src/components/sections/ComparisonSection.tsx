@@ -73,7 +73,7 @@ export const ComparisonSection: React.FC = () => {
             Left: Brand vs. The Rest Title + Tag | Right: Editorial Thesis Paragraph
             ========================================================================= */}
         <Reveal direction="up" duration={650}>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 sm:pb-8 border-b border-graphite/10 mb-6 sm:mb-8">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-6 sm:mb-8">
             <div className="max-w-2xl">
               <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.85rem] font-bold text-graphite tracking-tight leading-[1.12]">
                 LISO<sup className="text-accent text-lg sm:text-xl font-sans">®</sup>{' '}
