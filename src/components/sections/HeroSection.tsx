@@ -276,16 +276,6 @@ export const HeroSection: React.FC = () => {
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0B0C0F] via-transparent to-transparent" />
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/70 via-transparent to-transparent" />
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0B0C0F]/40 via-transparent to-[#0B0C0F]/40" />
-
-              {/* Floating micro-spec pills over the visual */}
-              <div className="absolute bottom-2 left-2 z-20 px-2 py-0.5 bg-black/70 backdrop-blur-md border border-white/15 text-[10px] font-sans font-medium text-bone/90 rounded-sm flex items-center gap-1 shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                <span>1200 W Potencia</span>
-              </div>
-              <div className="absolute bottom-2 right-2 z-20 px-2 py-0.5 bg-black/70 backdrop-blur-md border border-white/15 text-[10px] font-sans font-medium text-bone/90 rounded-sm flex items-center gap-1 shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
-                <span>150 °C Digital</span>
-              </div>
             </div>
           </div>
 
