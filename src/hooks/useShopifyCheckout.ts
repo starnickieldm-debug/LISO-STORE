@@ -1,13 +1,16 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { ShopifyProduct, ShopifyVariant } from '../types/shopify';
-import { getLisoProduct, resolveVariantForPlug, createShopifyCart } from '../services/shopify';
+import { getLisoProduct, getColorOptions, resolveVariantForColor, createShopifyCart } from '../services/shopify';
 
 export interface UseShopifyCheckoutResult {
   product: ShopifyProduct | null;
   isLoadingProduct: boolean;
   isCheckingOut: boolean;
   error: string | null;
-  initiateCheckout: (plugType: string, countryCode?: string) => Promise<void>;
+  colorOptions: string[];
+  selectedColor: string;
+  setSelectedColor: (color: string) => void;
+  initiateCheckout: (colorToBuy?: string, countryCode?: string) => Promise<void>;
   clearError: () => void;
 }
 
@@ -16,6 +19,8 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
   const [isLoadingProduct, setIsLoadingProduct] = useState<boolean>(true);
   const [isCheckingOut, setIsCheckingOut] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [colorOptions, setColorOptions] = useState<string[]>(['Negro', 'Gris']);
+  const [selectedColor, setSelectedColor] = useState<string>('Negro');
   const productRef = useRef<ShopifyProduct | null>(null);
 
   useEffect(() => {
@@ -26,13 +31,25 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
         setIsLoadingProduct(true);
         const fetchedProduct = await getLisoProduct();
         if (isMounted) {
-          setProduct(fetchedProduct);
-          productRef.current = fetchedProduct;
+          if (fetchedProduct) {
+            setProduct(fetchedProduct);
+            productRef.current = fetchedProduct;
+
+            // Extraer opciones de color reales de Shopify
+            const availableColors = getColorOptions(fetchedProduct);
+            if (availableColors && availableColors.length > 0) {
+              setColorOptions(availableColors);
+              setSelectedColor(prev => 
+                availableColors.some(c => c.toLowerCase() === prev.toLowerCase())
+                  ? prev
+                  : availableColors[0]
+              );
+            }
+          }
         }
       } catch (err: any) {
         if (isMounted) {
           console.warn('Advertencia al consultar producto LISO en Shopify:', err.message);
-          // No bloqueamos la UI inicial, se reintentará al hacer checkout
         }
       } finally {
         if (isMounted) {
@@ -53,9 +70,11 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
   }, []);
 
   const initiateCheckout = useCallback(
-    async (plugType: string, countryCode?: string) => {
+    async (colorToBuy?: string, countryCode: string = 'CO') => {
       setError(null);
       setIsCheckingOut(true);
+
+      const targetColor = colorToBuy || selectedColor;
 
       try {
         // Obtener el producto si aún no está en memoria
@@ -69,20 +88,20 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
         }
 
         if (!currentProduct) {
-          throw new Error('No se encontró el producto LISO en tu tienda de Shopify.');
+          throw new Error('No se encontró el producto LISO en Shopify.');
         }
 
-        // Resolver dinámicamente la variante que corresponde al enchufe del país
-        const targetVariant: ShopifyVariant | undefined = resolveVariantForPlug(currentProduct, plugType);
+        // Resolver variante según el color seleccionado por el cliente
+        const targetVariant: ShopifyVariant | undefined = resolveVariantForColor(currentProduct, targetColor);
 
         if (!targetVariant) {
           const available = currentProduct.variants.map(v => v.title).join(', ');
           throw new Error(
-            `No se encontró una variante para el enchufe "${plugType}" en Shopify. Variantes disponibles: ${available}`
+            `No se encontró la variante para el color "${targetColor}" en Shopify. Variantes disponibles: ${available}`
           );
         }
 
-        // Crear carrito moderno con Storefront Cart API 2026-07
+        // Crear carrito moderno con Storefront Cart API 2026-07 (exclusivo para Colombia CO)
         const { checkoutUrl } = await createShopifyCart(targetVariant.id, countryCode);
 
         // Redirigir al checkout oficial de Shopify
@@ -93,7 +112,7 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
         setIsCheckingOut(false);
       }
     },
-    [product]
+    [product, selectedColor]
   );
 
   return {
@@ -101,6 +120,9 @@ export function useShopifyCheckout(): UseShopifyCheckoutResult {
     isLoadingProduct,
     isCheckingOut,
     error,
+    colorOptions,
+    selectedColor,
+    setSelectedColor,
     initiateCheckout,
     clearError,
   };

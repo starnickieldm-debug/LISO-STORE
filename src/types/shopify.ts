@@ -8,12 +8,22 @@ export interface ShopifySelectedOption {
   value: string;
 }
 
+export interface ShopifyOption {
+  id: string;
+  name: string;
+  values: string[];
+}
+
 export interface ShopifyVariant {
   id: string;
   title: string;
   availableForSale: boolean;
   price: ShopifyMoney;
   selectedOptions: ShopifySelectedOption[];
+  image?: {
+    url: string;
+    altText: string | null;
+  } | null;
 }
 
 export interface ShopifyProduct {
@@ -21,6 +31,7 @@ export interface ShopifyProduct {
   title: string;
   handle: string;
   availableForSale: boolean;
+  options?: ShopifyOption[];
   variants: ShopifyVariant[];
 }
 

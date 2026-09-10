@@ -7,10 +7,23 @@ import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2 } from
 import { Reveal } from '../ui/Reveal';
 import { useShopifyCheckout } from '../../hooks/useShopifyCheckout';
 
+const COLOR_CONFIG: Record<string, { swatchBg: string; border: string; label: string }> = {
+  negro: { swatchBg: '#17181C', border: 'border-white/30', label: 'Negro' },
+  gris: { swatchBg: '#5A5E6B', border: 'border-white/40', label: 'Gris' },
+};
+
 export const OfferSection: React.FC = () => {
   const { currentMarket } = useMarket();
   const [policyAccordionOpen, setPolicyAccordionOpen] = useState<boolean>(false);
-  const { isCheckingOut, error: checkoutError, initiateCheckout, clearError } = useShopifyCheckout();
+  const {
+    isCheckingOut,
+    error: checkoutError,
+    colorOptions,
+    selectedColor,
+    setSelectedColor,
+    initiateCheckout,
+    clearError,
+  } = useShopifyCheckout();
 
   return (
     <section 
@@ -98,6 +111,60 @@ export const OfferSection: React.FC = () => {
                 </div>
               </div>
 
+              {/* Selector de Color (Mobile) */}
+              <div className="space-y-2 pt-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold">
+                    COLOR: <span className="text-white font-bold">{selectedColor}</span>
+                  </span>
+                  <span className="text-[11px] font-sans text-accent font-medium">
+                    110 V · Colombia
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {colorOptions.map((color) => {
+                    const isSelected = selectedColor.toLowerCase() === color.toLowerCase();
+                    const config = COLOR_CONFIG[color.toLowerCase()] || {
+                      swatchBg: '#3A3D45',
+                      border: 'border-white/30',
+                      label: color,
+                    };
+
+                    return (
+                      <button
+                        key={color}
+                        type="button"
+                        onClick={() => setSelectedColor(color)}
+                        className={`relative p-2.5 flex items-center justify-between transition-all duration-200 cursor-pointer border rounded-lg ${
+                          isSelected
+                            ? 'bg-white/10 border-accent shadow-[0_0_12px_rgba(180,36,124,0.3)] ring-1 ring-accent'
+                            : 'bg-night-950/70 border-white/15 hover:border-white/30 hover:bg-white/[0.04]'
+                        }`}
+                        aria-pressed={isSelected}
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <span
+                            className={`w-5 h-5 rounded-full border shadow-inner flex-shrink-0 flex items-center justify-center ${config.border}`}
+                            style={{ backgroundColor: config.swatchBg }}
+                          >
+                            {isSelected && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-sm" />
+                            )}
+                          </span>
+                          <span className={`text-xs font-sans font-bold ${isSelected ? 'text-white' : 'text-bone/80'}`}>
+                            {color}
+                          </span>
+                        </div>
+                        {isSelected && (
+                          <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
               {/* Enchufe Estándar Colombia Card */}
               <div className="p-2.5 bg-white/[0.04] border border-white/10 rounded-lg flex items-center justify-between gap-3 text-xs">
                 <div className="flex items-center gap-2.5">
@@ -115,7 +182,7 @@ export const OfferSection: React.FC = () => {
                   </div>
                 </div>
                 <span className="text-[10px] font-sans text-bone/50 font-bold uppercase tracking-wider bg-white/5 border border-white/10 px-2 py-0.5 rounded">
-                  110–240 V
+                  110 V
                 </span>
               </div>
 
@@ -125,7 +192,7 @@ export const OfferSection: React.FC = () => {
                   size="large"
                   fullWidth
                   disabled={isCheckingOut}
-                  onClick={() => initiateCheckout(currentMarket.plugType, currentMarket.countryCode)}
+                  onClick={() => initiateCheckout(selectedColor, 'CO')}
                   className="shadow-lg shadow-accent/25 py-3.5 text-base font-semibold"
                 >
                   {isCheckingOut ? (
@@ -134,7 +201,7 @@ export const OfferSection: React.FC = () => {
                       <span>Preparando pedido...</span>
                     </span>
                   ) : (
-                    `Quiero LISO — ${currentMarket.formattedPrice}`
+                    `Quiero LISO en ${selectedColor} — ${currentMarket.formattedPrice}`
                   )}
                 </CTAButton>
 
@@ -338,17 +405,70 @@ export const OfferSection: React.FC = () => {
                 </ul>
               </div>
 
-              {/* Enchufe Compatible para Colombia */}
+              {/* Selector de Color (Desktop) */}
               <div className="space-y-2 pt-2">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <div className="flex items-center justify-between">
                   <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold">
-                    ENCHUFE COMPATIBLE
+                    ELIGE TU COLOR: <span className="text-white font-bold">{selectedColor}</span>
                   </span>
-                  <span className="text-[11px] font-sans text-bone/50 font-medium">
-                    Clavija estándar para Colombia incluida de fábrica con tu pedido.
+                  <span className="text-[11px] font-sans text-accent font-medium">
+                    Ambas opciones con clavija estándar 110 V
                   </span>
                 </div>
-                
+
+                <div className="grid grid-cols-2 gap-3">
+                  {colorOptions.map((color) => {
+                    const isSelected = selectedColor.toLowerCase() === color.toLowerCase();
+                    const config = COLOR_CONFIG[color.toLowerCase()] || {
+                      swatchBg: '#3A3D45',
+                      border: 'border-white/30',
+                      label: color,
+                    };
+
+                    return (
+                      <button
+                        key={color}
+                        type="button"
+                        onClick={() => setSelectedColor(color)}
+                        className={`relative p-3.5 flex items-center justify-between transition-all duration-200 cursor-pointer border text-left rounded-lg ${
+                          isSelected
+                            ? 'bg-white/10 border-accent shadow-[0_0_15px_rgba(180,36,124,0.25)] ring-1 ring-accent'
+                            : 'bg-night-950/80 border-white/15 hover:border-white/30 hover:bg-white/[0.04]'
+                        }`}
+                        aria-pressed={isSelected}
+                      >
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`w-6 h-6 rounded-full border shadow-inner flex-shrink-0 flex items-center justify-center ${config.border}`}
+                            style={{ backgroundColor: config.swatchBg }}
+                          >
+                            {isSelected && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-sm" />
+                            )}
+                          </span>
+                          <div className="flex flex-col">
+                            <span className={`text-sm font-sans font-bold ${isSelected ? 'text-white' : 'text-bone/80'}`}>
+                              {color}
+                            </span>
+                            <span className="text-[11px] font-sans text-bone/50">
+                              Disponibilidad inmediata
+                            </span>
+                          </div>
+                        </div>
+
+                        {isSelected && (
+                          <div className="w-5 h-5 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0">
+                            <Check className="w-3 h-3 stroke-[3]" />
+                          </div>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Enchufe Compatible para Colombia */}
+              <div className="space-y-2 pt-1">
                 <div className="p-3 sm:p-3.5 bg-night-950/80 border border-night-700 flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 border border-accent bg-accent/15 text-accent font-sans font-bold text-sm flex items-center justify-center flex-shrink-0">
@@ -358,7 +478,7 @@ export const OfferSection: React.FC = () => {
                       <div className="flex items-center gap-1.5 text-sm font-sans font-semibold text-bone">
                         <span className="text-base" role="img" aria-label="Colombia">🇨🇴</span>
                         <span>Colombia</span>
-                        <span className="text-xs font-normal text-bone/60 hidden sm:inline">· Enchufe estándar de clavija plana (Tipo A/B, 110 V)</span>
+                        <span className="text-xs font-normal text-bone/60 hidden sm:inline">· Enchufe estándar de clavija plana (110 V)</span>
                       </div>
                       <p className="text-xs text-accent font-medium flex items-center gap-1.5">
                         <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
@@ -368,7 +488,7 @@ export const OfferSection: React.FC = () => {
                   </div>
                   <div className="hidden sm:block text-right flex-shrink-0">
                     <span className="text-[10px] font-sans font-semibold text-bone/50 uppercase tracking-wider bg-white/5 border border-white/10 px-2 py-1">
-                      110–240 V DUAL
+                      110 V ESTÁNDAR
                     </span>
                   </div>
                 </div>
@@ -401,7 +521,7 @@ export const OfferSection: React.FC = () => {
                   size="large"
                   fullWidth
                   disabled={isCheckingOut}
-                  onClick={() => initiateCheckout(currentMarket.plugType, currentMarket.countryCode)}
+                  onClick={() => initiateCheckout(selectedColor, 'CO')}
                 >
                   {isCheckingOut ? (
                     <span className="flex items-center gap-2">
@@ -409,7 +529,7 @@ export const OfferSection: React.FC = () => {
                       <span>Preparando pedido...</span>
                     </span>
                   ) : (
-                    `Quiero LISO — ${currentMarket.formattedPrice}`
+                    `Quiero LISO en ${selectedColor} — ${currentMarket.formattedPrice}`
                   )}
                 </CTAButton>
 

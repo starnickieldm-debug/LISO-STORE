@@ -3,7 +3,7 @@ import { ShopifyProduct, ShopifyVariant, CartCreatePayload } from '../types/shop
 const STORE_DOMAIN = import.meta.env.VITE_SHOPIFY_STORE_DOMAIN?.replace(/^https?:\/\//, '').replace(/\/$/, '');
 const ACCESS_TOKEN = import.meta.env.VITE_SHOPIFY_STOREFRONT_ACCESS_TOKEN;
 const API_VERSION = import.meta.env.VITE_SHOPIFY_API_VERSION || '2026-07';
-const PRODUCT_HANDLE = import.meta.env.VITE_SHOPIFY_PRODUCT_HANDLE || 'plancha-de-vapor-portatil-liso';
+const PRODUCT_HANDLE = import.meta.env.VITE_SHOPIFY_PRODUCT_HANDLE || 'liso-plancha-vaporizadora-de-ropa-port-til';
 
 /**
  * Cliente HTTP para Shopify Storefront API (GraphQL)
@@ -40,7 +40,7 @@ export async function fetchShopify<T>(query: string, variables: Record<string, a
 }
 
 /**
- * Query para obtener el producto LISO y sus variantes
+ * Query para obtener el producto LISO y sus variantes con opciones de color
  */
 const GET_PRODUCT_QUERY = `
 query getProductByHandle($handle: String!) {
@@ -49,7 +49,12 @@ query getProductByHandle($handle: String!) {
     title
     handle
     availableForSale
-    variants(first: 10) {
+    options {
+      id
+      name
+      values
+    }
+    variants(first: 20) {
       edges {
         node {
           id
@@ -62,6 +67,10 @@ query getProductByHandle($handle: String!) {
           selectedOptions {
             name
             value
+          }
+          image {
+            url
+            altText
           }
         }
       }
@@ -80,6 +89,11 @@ export async function getLisoProduct(handle: string = PRODUCT_HANDLE): Promise<S
       title: string;
       handle: string;
       availableForSale: boolean;
+      options?: Array<{
+        id: string;
+        name: string;
+        values: string[];
+      }>;
       variants: {
         edges: Array<{
           node: ShopifyVariant;
@@ -99,27 +113,78 @@ export async function getLisoProduct(handle: string = PRODUCT_HANDLE): Promise<S
     title: data.product.title,
     handle: data.product.handle,
     availableForSale: data.product.availableForSale,
+    options: data.product.options || [],
     variants: data.product.variants.edges.map(edge => edge.node),
   };
 }
 
 /**
- * Resuelve dinámicamente la variante que coincide con el enchufe (US, EU, AU)
+ * Extrae las opciones reales de color disponibles para el producto desde Shopify
  */
-export function resolveVariantForPlug(
-  product: ShopifyProduct,
-  plugType: string
-): ShopifyVariant | undefined {
-  const target = plugType.trim().toUpperCase();
+export function getColorOptions(product: ShopifyProduct): string[] {
+  // 1. Buscar en options del producto la opción llamada "Color"
+  const colorOption = product.options?.find(
+    opt => opt.name.trim().toLowerCase() === 'color'
+  );
+  if (colorOption && colorOption.values && colorOption.values.length > 0) {
+    return colorOption.values;
+  }
 
-  return product.variants.find(variant => {
-    // Coincidencia por título directo
-    if (variant.title.trim().toUpperCase() === target) {
-      return true;
+  // 2. Extraer de selectedOptions en las variantes
+  const colors = new Set<string>();
+  product.variants.forEach(variant => {
+    const opt = variant.selectedOptions?.find(
+      o => o.name.trim().toLowerCase() === 'color'
+    );
+    if (opt && opt.value) {
+      colors.add(opt.value);
     }
-    // Coincidencia por cualquiera de las opciones seleccionadas (ej. Enchufe = US)
-    return variant.selectedOptions.some(opt => opt.value.trim().toUpperCase() === target);
   });
+
+  if (colors.size > 0) {
+    return Array.from(colors);
+  }
+
+  // 3. Fallback: extraer prefijo del título de variantes (ej. "Negro / 110v" -> "Negro")
+  product.variants.forEach(variant => {
+    const parts = variant.title.split('/');
+    if (parts.length > 0) {
+      colors.add(parts[0].trim());
+    }
+  });
+
+  return Array.from(colors);
+}
+
+/**
+ * Resuelve dinámicamente la variante exacta de Shopify que coincide con el color seleccionado
+ */
+export function resolveVariantForColor(
+  product: ShopifyProduct,
+  color: string
+): ShopifyVariant | undefined {
+  if (!color) return undefined;
+  const target = color.trim().toLowerCase();
+
+  // 1. Coincidencia directa en selectedOptions con name = 'Color'
+  const matchByOption = product.variants.find(variant =>
+    variant.selectedOptions?.some(
+      opt => opt.name.trim().toLowerCase() === 'color' && opt.value.trim().toLowerCase() === target
+    )
+  );
+  if (matchByOption) return matchByOption;
+
+  // 2. Coincidencia en título de variante (ej. "Negro / 110v" contiene "negro")
+  const matchByTitle = product.variants.find(variant => {
+    const parts = variant.title.toLowerCase().split('/').map(s => s.trim());
+    return parts.includes(target) || variant.title.toLowerCase().startsWith(target);
+  });
+  if (matchByTitle) return matchByTitle;
+
+  // 3. Coincidencia en cualquier valor de selectedOptions
+  return product.variants.find(variant =>
+    variant.selectedOptions?.some(opt => opt.value.trim().toLowerCase() === target)
+  );
 }
 
 /**
