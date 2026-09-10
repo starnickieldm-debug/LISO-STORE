@@ -307,12 +307,6 @@ export const ThreeGesturesSection: React.FC = () => {
 
           {/* Right: Laboratory Note & Result Claim (Expanded Horizontally) */}
           <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[9.5px] sm:text-xs font-sans uppercase tracking-[0.14em] text-accent font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                RESULTADO COMPROBADO
-              </span>
-            </div>
             <p className="font-display text-sm sm:text-lg md:text-xl lg:text-[1.5rem] font-bold text-graphite tracking-tight leading-snug">
               Entre 2 y 3 minutos por prenda. Sin tabla ni accesorios extra.
             </p>
