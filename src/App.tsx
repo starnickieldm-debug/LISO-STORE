@@ -76,12 +76,12 @@ const HomePage: React.FC = () => (
     
     <OfferSection />
     <HonestyLabelSection />
+    <SocialProofSection />
     <ComparisonSection />
     <MovingTickerBar items={lifestyleTickerItems} theme="light" speedSeconds={34} />
     <LifestyleScenesSection />
     <BoxContentsSection />
     <MovingTickerBar items={trustTickerItems} theme="light" speedSeconds={36} />
-    <SocialProofSection />
     <FAQSection />
     <FinalCTASection />
   </main>
