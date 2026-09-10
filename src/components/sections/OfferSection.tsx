@@ -288,7 +288,7 @@ export const OfferSection: React.FC = () => {
               </ul>
             </div>
 
-            {/* 5. Direct Support & Guarantee Highlight */}
+            {/* 5. Legal Guarantee Highlight */}
             <div className="p-4 bg-night-950/60 border border-white/10 rounded-xl flex items-center gap-4">
               <div className="flex-shrink-0">
                 <RotatingGuaranteeStamp size={80} />
@@ -297,11 +297,11 @@ export const OfferSection: React.FC = () => {
                 <div className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-accent stroke-[2.5]" />
                   <h4 className="font-display font-bold text-xs uppercase tracking-wider text-bone">
-                    SOPORTE DIRECTO LISO
+                    GARANTÍA LEGAL DE 30 DÍAS
                   </h4>
                 </div>
                 <p className="text-[11px] text-bone/80 leading-relaxed">
-                  Te atendemos directamente sin intermediarios para resolver cualquier duda sobre uso, envío o garantía.
+                  Cuentas con 30 días calendario de garantía legal desde la entrega física. Solución directa por defectos o fallas de fábrica con fletes cubiertos por LISO.
                 </p>
               </div>
             </div>
@@ -517,7 +517,7 @@ export const OfferSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Reassurance Highlight Card */}
+              {/* Legal Guarantee Highlight Card */}
               <div className="p-4 sm:p-5 bg-night-950 border border-night-700 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                 <div className="flex-shrink-0">
                   <RotatingGuaranteeStamp size={100} />
@@ -526,14 +526,14 @@ export const OfferSection: React.FC = () => {
                   <div className="flex items-center justify-center sm:justify-start gap-2">
                     <ShieldCheck className="w-4 h-4 text-accent stroke-[2.5]" />
                     <h4 className="font-display font-bold text-sm sm:text-base uppercase tracking-wider text-bone">
-                      ATENCIÓN Y SOPORTE DIRECTO
+                      GARANTÍA LEGAL DE 30 DÍAS
                     </h4>
                   </div>
                   <p className="text-xs sm:text-sm text-bone/80 leading-relaxed font-medium">
-                    Cuentas con nuestro respaldo antes y después de tu compra. Si tienes cualquier consulta sobre el uso, el envío o tu paquete, te atendemos directamente sin intermediarios.
+                    Cuentas con 30 días calendario de garantía legal desde la entrega de tu producto. Si presenta cualquier falla de fábrica o funcionamiento, te brindamos solución directa con reparación, cambio o devolución sin intermediarios.
                   </p>
                   <p className="text-[10px] font-sans text-bone/50 italic">
-                    Soporte personalizado en tu idioma y seguimiento continuo de tu pedido.
+                    Garantía amparada por la Ley 1480 de 2011 · Fletes de garantía asumidos en su totalidad por LISO.
                   </p>
                 </div>
               </div>
