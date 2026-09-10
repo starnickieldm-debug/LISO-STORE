@@ -46,6 +46,23 @@ export const HeroSection: React.FC = () => {
       {/* Upper Hero Stage: Flex-1 vertically centers content in remaining viewport space */}
       <div className="relative flex-1 flex items-center w-full overflow-hidden py-4 sm:py-6 lg:py-4">
         
+        {/* Layer 1: Horizontal Ceramic Grid Texture (Strictly masked away from product image) */}
+        <div 
+          className="pointer-events-none absolute inset-y-0 left-0 w-full lg:w-[58%] z-0 overflow-hidden select-none"
+          style={{
+            maskImage: 'linear-gradient(to right, black 0%, black 50%, transparent 95%)',
+            WebkitMaskImage: 'linear-gradient(to right, black 0%, black 50%, transparent 95%)',
+          }}
+          aria-hidden="true" 
+        >
+          <img 
+            src="/images/textures/texture-hero-grid-enhanced.webp" 
+            alt="" 
+            className="w-full h-full object-cover object-left-top opacity-50 mix-blend-multiply filter contrast-125"
+            loading="eager"
+          />
+        </div>
+
         {/* Layer 2: Giant structural branding word 'LISO' (solid graphite watermark, strictly BEHIND the product) */}
         <div 
           className="select-none pointer-events-none absolute right-0 -top-4 sm:-top-8 lg:-top-6 font-giant-structural font-bold uppercase text-[15vw] sm:text-[13vw] lg:text-[11vw] tracking-tighter leading-none whitespace-nowrap z-0 overflow-hidden pr-2 sm:pr-6" 
