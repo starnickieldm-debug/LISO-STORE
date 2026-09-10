@@ -46,8 +46,8 @@ export const DataStrip: React.FC = () => {
         <div className={`flex items-center gap-2 transition-all duration-250 ease-mech-s delay-[180ms] ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
           <span className="w-1.5 h-1.5 rounded-full bg-accent/70 shrink-0" />
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 min-w-0">
-            <span className="font-sans font-bold text-bone text-xs sm:text-[13px]">≈ 3 s*</span>
-            <span className="text-bone/45 text-[9px] sm:text-[11px] tracking-widest font-normal uppercase">PARA CALENTARSE</span>
+            <span className="font-sans font-bold text-bone text-xs sm:text-[13px]">{productSpecs.heatUpTime}</span>
+            <span className="text-bone/45 text-[9px] sm:text-[11px] tracking-widest font-normal uppercase">CALENTAMIENTO</span>
           </div>
         </div>
 

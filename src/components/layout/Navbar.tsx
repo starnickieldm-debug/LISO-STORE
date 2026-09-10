@@ -62,14 +62,16 @@ export const Navbar: React.FC = () => {
           ))}
         </nav>
 
-        {/* Header Action CTA (Visible in desktop AND mobile sticky nav) */}
+        {/* Header Action CTA (Visible in desktop; in mobile appears when scrolling) */}
         <div className="flex items-center space-x-2 sm:space-x-3">
           <a
             href="/#oferta"
-            className="inline-flex items-center justify-center px-3.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-sans font-semibold tracking-wider uppercase bg-accent hover:bg-accent-hover text-white transition-all rounded-none"
+            className={`items-center justify-center px-3.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-sans font-semibold tracking-wider uppercase bg-accent hover:bg-accent-hover text-white transition-all rounded-none ${
+              isScrolled ? 'inline-flex' : 'hidden sm:inline-flex'
+            }`}
           >
-            <span className="hidden sm:inline">Lo quiero — {currentMarket.formattedPrice}</span>
-            <span className="sm:hidden">Lo quiero</span>
+            <span className="hidden sm:inline">Pedir LISO — {currentMarket.formattedPrice}</span>
+            <span className="sm:hidden">Pedir LISO</span>
           </a>
 
           {/* Mobile Menu Toggle */}
@@ -105,7 +107,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
               className="mt-4 flex items-center justify-center min-h-[50px] text-sm font-semibold tracking-wide uppercase bg-accent active:scale-[0.98] text-white transition-transform shadow-lg shadow-accent/20"
             >
-              Lo quiero — {currentMarket.formattedPrice}
+              Pedir LISO — {currentMarket.formattedPrice}
             </a>
           </nav>
         </div>

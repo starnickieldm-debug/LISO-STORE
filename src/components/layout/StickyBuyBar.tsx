@@ -48,7 +48,7 @@ export const StickyBuyBar: React.FC = () => {
           href="#oferta"
           className="h-[48px] xs:h-[52px] px-5 sm:px-6 bg-accent hover:bg-accent-hover active:scale-[0.98] text-white font-semibold text-sm tracking-wide uppercase flex items-center justify-center transition-all flex-shrink-0 shadow-lg shadow-accent/20"
         >
-          Lo quiero
+          Pedir LISO
         </a>
       </div>
     </aside>

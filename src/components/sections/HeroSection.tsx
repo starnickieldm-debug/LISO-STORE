@@ -227,35 +227,36 @@ export const HeroSection: React.FC = () => {
 
         {/* =========================================================================
             MOBILE HERO COMPOSITION (< 1024px) — 100% Mobile-First Native Stage
+            Optimized for 1st fold visibility: Title -> Product -> Price -> CTA
             ========================================================================= */}
-        <div className="block lg:hidden py-1 max-w-lg mx-auto">
+        <div className="block lg:hidden py-1 max-w-md mx-auto">
           
-          {/* 1. Mobile H1: Balanced title */}
-          <h1 className="text-center font-display text-[1.95rem] xs:text-[2.25rem] font-bold text-bone tracking-tight leading-[1.14] drop-shadow-md mb-2">
+          {/* 1. Mobile H1: Compact, high-impact headline */}
+          <h1 className="text-center font-display text-[1.65rem] xs:text-[1.85rem] font-bold text-bone tracking-tight leading-[1.12] drop-shadow-md mb-1">
             <span>Olvídate de la plancha pesada.</span>
-            <span className="block text-bone/95 mt-1 font-normal text-[1.55rem] xs:text-[1.75rem]">
+            <span className="block text-bone/90 mt-0.5 font-normal text-[1.3rem] xs:text-[1.45rem]">
               Tu ropa <span className="italic font-display font-medium text-white">impecable</span> en segundos.
             </span>
           </h1>
 
-          {/* 2. Beneficio / Problema: Explanatory paragraph with 'sin tabla / en la percha' benefit */}
-          <p className="text-center text-[13.5px] xs:text-sm text-bone/75 leading-relaxed font-normal max-w-sm mx-auto mb-2">
-            ¿Te salió un plan de última hora y tienes la ropa arrugada? La conectas y calienta en pocos segundos. Alisa directamente en el gancho, sin sacar la tabla, gracias a su <strong className="font-semibold text-bone">placa giratoria</strong> y temperatura real en pantalla.
+          {/* 2. Micro-bajada: 1 single punchy line of value proposition */}
+          <p className="text-center text-[12.5px] xs:text-[13px] text-bone/70 leading-snug max-w-[320px] mx-auto mb-2">
+            Alisa directo en el gancho y sin sacar la tabla. Placa giratoria y vapor continuo.
           </p>
 
-          {/* 3. Mobile Focal Hero Product Stage (Seamlessly integrated into background) */}
-          <div className="relative my-1.5 xs:my-2.5 w-full max-w-[420px] mx-auto">
+          {/* 3. Mobile Focal Hero Product Stage (Seamless integration + floating tech badges) */}
+          <div className="relative my-1 w-full max-w-[360px] mx-auto">
             {/* Ambient warm/magenta glow behind the product */}
             <div 
-              className="pointer-events-none absolute inset-0 -m-4 bg-[radial-gradient(ellipse_at_center,rgba(180,36,124,0.16)_0%,rgba(255,195,130,0.10)_35%,transparent_70%)] blur-2xl z-0" 
+              className="pointer-events-none absolute inset-0 -m-3 bg-[radial-gradient(ellipse_at_center,rgba(180,36,124,0.18)_0%,rgba(255,195,130,0.08)_40%,transparent_70%)] blur-2xl z-0" 
               aria-hidden="true" 
             />
 
             <div 
-              className="relative aspect-[16/11] xs:aspect-[4/3] w-full overflow-hidden z-10"
+              className="relative aspect-[16/10] xs:aspect-[16/9.5] w-full overflow-hidden rounded-xl z-10"
               style={{
-                maskImage: 'radial-gradient(ellipse 94% 88% at 50% 50%, black 60%, transparent 100%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 94% 88% at 50% 50%, black 60%, transparent 100%)'
+                maskImage: 'radial-gradient(ellipse 95% 90% at 50% 50%, black 70%, transparent 100%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 95% 90% at 50% 50%, black 70%, transparent 100%)'
               }}
             >
               <picture className="w-full h-full">
@@ -265,69 +266,74 @@ export const HeroSection: React.FC = () => {
                   alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
                   className="w-full h-full object-cover object-[70%_center]"
                   style={{
-                    filter: 'brightness(1.09) contrast(1.06)'
+                    filter: 'brightness(1.08) contrast(1.06)'
                   }}
                   loading="eager"
                 />
               </picture>
               
-              {/* Soft dissolved edges to naturally melt into #0B0C0F without harsh borders */}
+              {/* Soft dissolved edges into #0B0C0F */}
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0B0C0F] via-transparent to-transparent" />
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/65 via-transparent to-transparent" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0B0C0F]/70 via-transparent to-transparent" />
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0B0C0F]/40 via-transparent to-[#0B0C0F]/40" />
+
+              {/* Floating micro-spec pills over the visual */}
+              <div className="absolute bottom-2 left-2 z-20 px-2 py-0.5 bg-black/70 backdrop-blur-md border border-white/15 text-[10px] font-sans font-medium text-bone/90 rounded-sm flex items-center gap-1 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                <span>1200 W Potencia</span>
+              </div>
+              <div className="absolute bottom-2 right-2 z-20 px-2 py-0.5 bg-black/70 backdrop-blur-md border border-white/15 text-[10px] font-sans font-medium text-bone/90 rounded-sm flex items-center gap-1 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
+                <span>150 °C Digital</span>
+              </div>
             </div>
           </div>
 
-          {/* 4. Thumb-Zone Conversion Glass Card (Precio -> CTA -> Confianza) */}
-          <div className="hero-glass-card p-4 rounded-xl space-y-3 shadow-2xl border border-white/10">
-            {/* Precio & Envío limpio, sin ruido ni chips redundantes */}
-            <div className="flex items-baseline gap-2 pb-0.5">
-              <span className="text-[1.85rem] font-display font-bold text-white tracking-tight">
+          {/* 4. Streamlined Conversion Section (Thumb-Zone Optimized, No Heavy Outer Card) */}
+          <div className="pt-1.5 space-y-2">
+            {/* Price & Shipping badge */}
+            <div className="flex items-baseline justify-center gap-2">
+              <span className="text-[1.75rem] xs:text-[1.95rem] font-display font-bold text-white tracking-tight leading-none">
                 {currentMarket.formattedPrice}
               </span>
-              <span className="text-[11px] font-sans uppercase tracking-wider text-accent font-semibold">
+              <span className="text-[10px] font-sans uppercase tracking-wider text-accent font-semibold bg-accent/10 border border-accent/25 px-2 py-0.5 rounded">
                 {currentMarket.shippingLabel}
               </span>
             </div>
 
+            {/* Primary Buy CTA */}
             <CTAButton 
               href="#oferta" 
               size="large" 
-              className="w-full shadow-[0_4px_24px_rgba(180,36,124,0.4)] active:scale-[0.98] text-[15px] font-semibold tracking-wide"
+              className="w-full shadow-[0_4px_24px_rgba(180,36,124,0.35)] active:scale-[0.98] py-3 text-[15px] font-semibold tracking-wide"
             >
               Pedir LISO — {currentMarket.formattedPrice}
             </CTAButton>
 
-            {/* Acción secundaria en móvil: Discreta, elegante y con jerarquía secundaria clara */}
-            <div className="text-center pt-0.5">
-              <a 
-                href="#como-funciona" 
-                className="inline-flex items-center justify-center gap-1.5 py-1 text-xs font-sans font-medium text-bone/70 hover:text-white transition-colors group"
-                aria-label="Ver cómo funciona LISO"
-              >
-                <span className="border-b border-bone/25 group-hover:border-white/60 transition-colors pb-0.5">
-                  Ver cómo funciona
-                </span>
-                <ArrowDown className="w-3.5 h-3.5 text-bone/50 group-hover:text-white group-hover:translate-y-0.5 transition-all" />
-              </a>
-            </div>
-
-            {/* Confianza: Una sola línea compacta sin redundancia */}
-            <div className="flex items-center justify-between text-[11px] text-bone/70 pt-2 font-sans border-t border-white/10">
+            {/* Trust Points: Compact single row */}
+            <div className="flex items-center justify-between text-[10.5px] xs:text-[11px] text-bone/70 pt-0.5 font-sans px-1">
               <span className="inline-flex items-center gap-1 text-bone/90">
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Envío gratis</span>
+                <span>PSE / Tarjetas</span>
               </span>
               <span className="text-white/20">·</span>
-              <span>Pago seguro (PSE / Tarjetas)</span>
+              <span>Garantía legal 30 días</span>
               <span className="text-white/20">·</span>
-              <span>Garantía 30 días</span>
+              <span>Rastreo en línea</span>
             </div>
 
-            {/* Nota de laboratorio discreta */}
-            <p className="text-[10px] font-sans text-bone/40 italic text-center pt-0.5">
-              {brandConfig.labClaimNote}
-            </p>
+            {/* Secondary navigation & micro footnote */}
+            <div className="flex items-center justify-between pt-0.5 text-[10px] font-sans text-bone/45 px-1">
+              <a 
+                href="#como-funciona" 
+                className="inline-flex items-center gap-1 text-bone/60 hover:text-white transition-colors"
+                aria-label="Ver cómo funciona LISO"
+              >
+                <span>Ver cómo funciona</span>
+                <ArrowDown className="w-3 h-3 text-bone/40" />
+              </a>
+              <span className="italic">{brandConfig.labClaimNote}</span>
+            </div>
           </div>
 
         </div>

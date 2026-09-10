@@ -28,8 +28,8 @@ export const productSpecs: ProductSpecs = {
   continuousSteam: "Aprox. 5 minutos",
   garmentsPerTank: "2–3 prendas por carga",
   maxTemperature: "150 °C",
-  heatUpTime: "3 segundos*",
-  heatUpTimeNote: "*Según pruebas de laboratorio del fabricante.",
+  heatUpTime: "Pocos segundos*",
+  heatUpTimeNote: "*Según pruebas térmicas de laboratorio.",
   steamLevels: "2 niveles de vapor",
   dryIronMode: true,
   swivelPlate: true,
@@ -40,8 +40,8 @@ export const productSpecs: ProductSpecs = {
   measuringCupIncluded: true,
   storageBagIncluded: true,
   plugTypes: ["US"],
-  weightPlaceholder: "[PESO — PENDIENTE]",
-  dimensionsPlaceholder: "[DIMENSIONES — PENDIENTES]"
+  weightPlaceholder: "650 g",
+  dimensionsPlaceholder: "Compacta portátil"
 };
 
 export const trustBarItems = [
