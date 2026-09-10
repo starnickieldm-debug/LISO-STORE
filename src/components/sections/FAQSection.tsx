@@ -40,10 +40,6 @@ export const FAQSection: React.FC = () => {
           <div className="lg:col-span-7">
             {/* Editorial Header */}
             <div className="mb-6 sm:mb-8 space-y-2">
-              <div className="flex items-center gap-2 font-sans text-xs uppercase tracking-widest text-accent font-semibold">
-                <span>[09]</span>
-                <span>DUDAS FRECUENTES</span>
-              </div>
               <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.18]">
                 Preguntas frecuentes.
               </h2>
