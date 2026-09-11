@@ -84,13 +84,9 @@ export const HeroSection: React.FC = () => {
           aria-hidden="true" 
         />
 
-        {/* Layer 3: Seamless Product Image Stage (Dedicated right-side visual stage in front of LISO watermark) */}
+        {/* Layer 3: Clean Vertical Cut Product Image Stage */}
         <div 
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[65%] xl:w-[62%] 2xl:w-[59%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
-          style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 6%, rgba(0,0,0,0.4) 16%, black 28%, black 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 6%, rgba(0,0,0,0.4) 16%, black 28%, black 100%)',
-          }}
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[54%] xl:w-[52%] 2xl:w-[50%] z-10 hidden lg:flex items-center justify-end overflow-hidden border-l border-graphite/10 shadow-[-10px_0_30px_rgba(0,0,0,0.08)]"
         >
           <picture className="w-full h-full">
             <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
