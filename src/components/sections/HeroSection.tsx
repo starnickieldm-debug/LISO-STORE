@@ -3,7 +3,7 @@ import { useMarket } from '../../context/MarketContext';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { CTAButton } from '../ui/CTAButton';
 import { DataStrip } from '../ui/DataStrip';
-import { Star, Sparkles, Zap, Feather, ShieldCheck, Truck, Lock } from 'lucide-react';
+import { Star, Sparkles, ShieldCheck, Truck, Lock } from 'lucide-react';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
 
 export const HeroSection: React.FC = () => {
@@ -136,9 +136,9 @@ export const HeroSection: React.FC = () => {
               </span>
             </div>
 
-            {/* H1 Headline: Impactful 2-block composition with intentional line breaks */}
+            {/* H1 Headline: Single powerful line */}
             <h1 
-              className="font-display text-4xl md:text-5xl lg:text-[3.15rem] xl:text-[3.5rem] font-bold text-graphite tracking-[-0.025em] leading-[1.1]"
+              className="font-display text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-bold text-graphite tracking-[-0.025em] leading-[1.12]"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
@@ -146,15 +146,12 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              <span className="block">Impecable antes de salir.</span>
-              <span className="block text-graphite/90 mt-1.5 font-normal">
-                La ropa que te vas a poner hoy, <span className="italic font-display font-medium text-accent">lista en minutos</span>.
-              </span>
+              Tu ropa impecable <span className="italic font-display font-medium text-accent">antes de salir</span>.
             </h1>
 
-            {/* 3. Subheadline: Direct, high-converting value proposition */}
+            {/* 3. Subheadline: Direct, objection-killing, low-density */}
             <p 
-              className="text-base sm:text-lg text-graphite/80 leading-relaxed font-normal mt-3.5 lg:mt-4 max-w-lg"
+              className="text-base sm:text-lg text-graphite/80 leading-relaxed font-normal mt-3 lg:mt-3.5 max-w-lg"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 14px, 0)',
@@ -162,31 +159,8 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              Arregla directamente en el gancho la camisa, vestido o pantalón que te vas a poner hoy. LISO combina 1200 W de potencia con una placa cerámica a 150 °C para alisar de verdad, con solo 15 segundos de calentamiento.
+              Alisa directamente en el gancho con calor cerámico a 150 °C. Lista en 15 segundos, sin armar la tabla y 100% libre de manchas de agua.
             </p>
-
-            {/* Badges de Beneficios Rápidos */}
-            <div 
-              className="flex flex-wrap items-center gap-2 sm:gap-2.5 mt-3.5 mb-1"
-              style={!prefersReduced ? {
-                opacity: loaded ? 1 : 0,
-                transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 14px, 0)',
-                transition: 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1) 180ms, transform 800ms cubic-bezier(0.16, 1, 0.3, 1) 180ms'
-              } : undefined}
-            >
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-graphite/10 shadow-xs text-xs sm:text-[12.5px] font-sans font-semibold text-graphite">
-                <Zap className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Calentamiento en 15s</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-graphite/10 shadow-xs text-xs sm:text-[12.5px] font-sans font-semibold text-graphite">
-                <Feather className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Portátil y liviana</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-graphite/10 shadow-xs text-xs sm:text-[12.5px] font-sans font-semibold text-graphite">
-                <Sparkles className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Sin tabla de planchar</span>
-              </div>
-            </div>
 
             {/* 4. Streamlined High-Impact Conversion Block (Open, Clean, Friction-Free) */}
             <div 
@@ -299,44 +273,25 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* 3. Mobile H1: Impactful headline with highlighted oval phrase (Liquid+ formula) */}
-          <h1 className="text-center font-display text-[1.75rem] xs:text-[1.95rem] font-bold text-graphite tracking-tight leading-[1.14] my-2">
-            <span>Impecable antes de salir.</span>
-            <span className="block text-graphite/90 mt-1 font-normal text-[1.3rem] xs:text-[1.45rem]">
-              La ropa que te pones hoy,{' '}
-              <span className="relative inline-block px-2.5 py-0.5 mx-0.5 text-accent italic font-medium">
-                <span className="relative z-10">lista en minutos</span>
-                <svg 
-                  className="absolute inset-0 w-full h-full text-accent/35 -rotate-1 pointer-events-none" 
-                  viewBox="0 0 120 40" 
-                  fill="none" 
-                  preserveAspectRatio="none"
-                >
-                  <ellipse cx="60" cy="20" rx="58" ry="18" stroke="currentColor" strokeWidth="2.2" strokeDasharray="3 1" />
-                </svg>
-              </span>
+          <h1 className="text-center font-display text-[1.8rem] xs:text-[2rem] font-bold text-graphite tracking-tight leading-[1.14] my-2">
+            Tu ropa impecable{' '}
+            <span className="relative inline-block px-2.5 py-0.5 mx-0.5 text-accent italic font-medium">
+              <span className="relative z-10">antes de salir</span>
+              <svg 
+                className="absolute inset-0 w-full h-full text-accent/35 -rotate-1 pointer-events-none" 
+                viewBox="0 0 120 40" 
+                fill="none" 
+                preserveAspectRatio="none"
+              >
+                <ellipse cx="60" cy="20" rx="58" ry="18" stroke="currentColor" strokeWidth="2.2" strokeDasharray="3 1" />
+              </svg>
             </span>
           </h1>
 
-          {/* 4. Micro-bajada: Concise 2-line value proposition */}
-          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[325px] mx-auto mb-2.5">
-            Arregla directamente en el gancho la prenda que te vas a poner hoy. Placa cerámica a 150 °C y 1200 W en 15 segundos.
+          {/* 4. Micro-bajada: Concise objection-killing value proposition */}
+          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[325px] mx-auto mb-3">
+            Alisa directamente en el gancho con calor cerámico a 150 °C. Lista en 15 segundos, sin armar la tabla y sin manchas de agua.
           </p>
-
-          {/* 2. Badges de Beneficios Rápidos (Mobile) */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-2.5">
-            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/80 border border-graphite/10 shadow-xs text-[11px] font-sans font-semibold text-graphite">
-              <Zap className="w-3 h-3 text-accent shrink-0" />
-              <span>Calentamiento en 15s</span>
-            </div>
-            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/80 border border-graphite/10 shadow-xs text-[11px] font-sans font-semibold text-graphite">
-              <Feather className="w-3 h-3 text-accent shrink-0" />
-              <span>Portátil y liviana</span>
-            </div>
-            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/80 border border-graphite/10 shadow-xs text-[11px] font-sans font-semibold text-graphite">
-              <Sparkles className="w-3 h-3 text-accent shrink-0" />
-              <span>Sin tabla de planchar</span>
-            </div>
-          </div>
 
           {/* 5. Streamlined Conversion Section (Thumb-Zone Optimized) */}
           <div className="pt-1 space-y-2.5">
