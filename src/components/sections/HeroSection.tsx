@@ -80,44 +80,45 @@ export const HeroSection: React.FC = () => {
 
         {/* Ambient Layer: 20% Graphite Orbit Hairline behind product */}
         <div 
-          className="pointer-events-none absolute right-8 lg:right-24 xl:right-32 top-1/2 -translate-y-1/2 w-[360px] sm:w-[480px] lg:w-[560px] h-[360px] sm:h-[480px] lg:h-[560px] rounded-full orbit-hairline z-5 hidden sm:block"
+          className="pointer-events-none absolute right-4 lg:right-16 top-1/2 -translate-y-1/2 w-[360px] sm:w-[480px] lg:w-[560px] h-[360px] sm:h-[480px] lg:h-[560px] rounded-full orbit-hairline z-5 hidden sm:block"
           aria-hidden="true" 
         />
 
-        {/* Layer 3: Product Image Stage with clean left fade and solid extended studio background on the right */}
+        {/* Layer 3: Product Image Stage with soft integrated fade */}
         <div 
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[60%] xl:w-[56%] 2xl:w-[53%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[57.5%] xl:w-[54.5%] 2xl:w-[51.5%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
           style={{
             maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, black 28%)',
             WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, black 28%)',
           }}
         >
-          <picture className="w-full h-full block transform scale-[1.05] origin-[70%_45%]">
+          <picture className="w-full h-full">
             <source 
-              srcSet="/images/hero-steamer-editorial.webp 2508w, /images/hero-steamer-editorial-1024.webp 1254w" 
-              sizes="(max-width: 1023px) 100vw, 56vw"
+              srcSet="/images/hero-steamer-editorial.webp 2048w, /images/hero-steamer-editorial-1024.webp 1024w" 
+              sizes="(max-width: 1023px) 100vw, 55vw"
               type="image/webp" 
             />
             <img 
               src="/images/hero-steamer-editorial.jpg" 
-              srcSet="/images/hero-steamer-editorial.jpg 2508w, /images/hero-steamer-editorial-1024.jpg 1254w"
-              sizes="(max-width: 1023px) 100vw, 56vw"
+              srcSet="/images/hero-steamer-editorial.jpg 2048w, /images/hero-steamer-editorial-1024.jpg 1024w"
+              sizes="(max-width: 1023px) 100vw, 55vw"
               alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
-              className="w-full h-full object-cover object-[98%_center] transition-opacity duration-1000 ease-mech-s"
+              className="w-full h-full object-cover object-[92%_center] transform origin-[85%_center] transition-all duration-1000 ease-mech-s"
               style={{
                 filter: 'brightness(1.01) contrast(1.01)',
                 ...(!prefersReduced ? {
                   opacity: loaded ? 1 : 0,
-                  willChange: loaded ? 'auto' : 'opacity'
+                  transform: loaded ? 'scale(1.03)' : 'scale(1.06)',
+                  willChange: loaded ? 'auto' : 'opacity, transform'
                 } : undefined)
               }}
               loading="eager"
             />
           </picture>
 
-          {/* Gentle left feathering gradient overlay blending seamlessly into hero background */}
+          {/* Gentle feathering gradient overlay blending into hero background */}
           <div 
-            className="absolute inset-y-0 left-0 w-40 xl:w-52 bg-gradient-to-r from-[#F5F1EA] via-[#F5F1EA]/50 to-transparent pointer-events-none z-20" 
+            className="absolute inset-y-0 left-0 w-36 xl:w-48 bg-gradient-to-r from-[#F5F1EA] via-[#F5F1EA]/50 to-transparent pointer-events-none z-20" 
             aria-hidden="true"
           />
         </div>
@@ -271,16 +272,16 @@ export const HeroSection: React.FC = () => {
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F5F1EA]">
               <picture className="w-full h-full">
                 <source 
-                  srcSet="/images/hero-steamer-editorial.webp 2508w, /images/hero-steamer-editorial-1024.webp 1254w" 
+                  srcSet="/images/hero-steamer-editorial.webp 2048w, /images/hero-steamer-editorial-1024.webp 1024w" 
                   sizes="100vw"
                   type="image/webp" 
                 />
                 <img 
                   src="/images/hero-steamer-editorial.jpg" 
-                  srcSet="/images/hero-steamer-editorial.jpg 2508w, /images/hero-steamer-editorial-1024.jpg 1254w"
+                  srcSet="/images/hero-steamer-editorial.jpg 2048w, /images/hero-steamer-editorial-1024.jpg 1024w"
                   sizes="100vw"
                   alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
-                  className="w-full h-full object-cover object-[82%_center]"
+                  className="w-full h-full object-cover object-[95%_center]"
                   style={{
                     filter: 'brightness(1.01) contrast(1.01)'
                   }}
