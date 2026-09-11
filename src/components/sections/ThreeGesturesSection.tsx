@@ -112,18 +112,15 @@ export const ThreeGesturesSection: React.FC = () => {
             ASYMMETRIC EDITORIAL HEADER (Reference Formula: Problem + 3 Frictions + Solution)
             ========================================================================= */}
         <div className="max-w-3xl mb-8 sm:mb-10 lg:mb-12">
-          {/* Main Problem Heading */}
+          {/* Main Editorial Heading */}
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.18]">
-            Planchar da pereza por 3 razones:
+            Dejar tu ropa lista es así de simple.
           </h2>
 
-          {/* Subheading Frictions + Floating Solution Text */}
-          <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-baseline gap-x-3 gap-y-1.5 text-base sm:text-lg md:text-xl lg:text-2xl text-graphite/70 font-normal">
-            <span>Armar la tabla, esperar que caliente, y el peso de la plancha.</span>
-            <span className="font-sans font-bold text-lg sm:text-xl md:text-2xl lg:text-[1.65rem] text-graphite tracking-tight">
-              LISO resolvió las 3
-            </span>
-          </div>
+          {/* Subheading: Solución práctica de uso inmediato */}
+          <p className="mt-2.5 sm:mt-3.5 text-base sm:text-lg md:text-xl text-graphite/70 font-normal max-w-2xl leading-relaxed">
+            Sin armar la tabla ni montar todo un ritual. Tres gestos rápidos directo en el gancho para salir impecable con la prenda de hoy.
+          </p>
         </div>
 
         {/* =========================================================================
@@ -208,7 +205,7 @@ export const ThreeGesturesSection: React.FC = () => {
                       : 'text-graphite/60 hover:text-graphite active:bg-graphite/5'
                   }`}
                 >
-                  {item.step} · {idx === 0 ? 'LLENA' : idx === 1 ? 'ENCIENDE' : 'PLANCHA'}
+                  {item.step} · {idx === 0 ? 'LLENA' : idx === 1 ? 'ENCIENDE' : 'ALISA'}
                 </button>
               );
             })}

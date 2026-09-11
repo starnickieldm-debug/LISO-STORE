@@ -135,7 +135,7 @@ export const BenefitEvidenceSection: React.FC = () => {
             No necesitas una sesión de planchado.
           </h2>
           <p className="text-sm sm:text-lg text-graphite/70 font-normal leading-relaxed max-w-2xl">
-            Solo necesitas arreglar la ropa que te vas a poner. Sin armar la tabla, sin esperar 15 minutos y sin pereza.
+            Solo necesitas arreglar la ropa que te vas a poner. Sin armar la tabla ni perder tiempo esperando.
           </p>
         </div>
 
