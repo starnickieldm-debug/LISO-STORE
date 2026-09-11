@@ -46,7 +46,7 @@ export const HeroSection: React.FC = () => {
       }}
     >
       {/* Upper Hero Stage: Flex-1 vertically centers content in remaining viewport space */}
-      <div className="relative flex-1 flex items-center w-full overflow-hidden py-4 sm:py-6 lg:py-4">
+      <div className="relative flex-1 flex items-center w-full overflow-hidden pt-0 pb-4 sm:pb-6 lg:py-4">
         
         {/* Layer 1: Horizontal Ceramic Grid Texture (Strictly masked away from product image) */}
         <div 
@@ -254,23 +254,17 @@ export const HeroSection: React.FC = () => {
             MOBILE HERO COMPOSITION (< 1024px) — Visual-First (Liquid+ Reference Layout)
             Order: Visual Stage + Badge -> Social Proof Stars -> H1 -> Subheadline -> Price/CTA
             ========================================================================= */}
-        <div className="block lg:hidden py-1 max-w-md mx-auto">
+        <div className="block lg:hidden w-full">
           
-          {/* 1. Mobile Visual Stage First (High-Impact Hero Visual with Floating Stamp) */}
-          <div className="relative mb-3 w-full max-w-[390px] mx-auto px-1">
-            {/* Ambient warm/magenta glow behind the product */}
-            <div 
-              className="pointer-events-none absolute inset-0 -m-3 bg-[radial-gradient(ellipse_at_center,rgba(180,36,124,0.18)_0%,rgba(255,195,130,0.08)_40%,transparent_70%)] blur-2xl z-0" 
-              aria-hidden="true" 
-            />
-
-            <div className="relative aspect-[16/11] xs:aspect-[16/10] w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-premium-image z-10 bg-night-950">
+          {/* 1. Mobile Visual Stage First (Edge-to-Edge Full Bleed Header Image like Liquid+) */}
+          <div className="relative -mx-4 sm:-mx-8 w-[calc(100%+2rem)] sm:w-[calc(100%+4rem)] mb-4">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-night-950">
               <picture className="w-full h-full">
                 <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
                 <img 
                   src="/images/hero-steamer-editorial.jpg" 
                   alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
-                  className="w-full h-full object-cover object-[65%_center]"
+                  className="w-full h-full object-cover object-[94%_center]"
                   style={{
                     filter: 'brightness(1.04) contrast(1.04)'
                   }}
@@ -280,10 +274,10 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Floating Circular Badge in bottom-right (Liquid+ Style) */}
-            <div className="absolute -bottom-3 -right-1 z-20">
-              <div className="w-[82px] h-[82px] rounded-full bg-[#FAF8F5] border-2 border-accent/40 shadow-xl p-1 flex items-center justify-center">
+            <div className="absolute -bottom-5 right-3.5 sm:right-6 z-20">
+              <div className="w-[78px] h-[78px] rounded-full bg-[#FAF8F5] border-2 border-accent/40 shadow-xl p-1 flex items-center justify-center">
                 <RotatingGuaranteeStamp 
-                  size={74}
+                  size={70}
                   circularText="★ VAPOR A 150 °C ★ CERO TABLA ★"
                   centerText="1200 W"
                   textColor="text-graphite"
@@ -292,6 +286,9 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Mobile Commercial Content Block */}
+          <div className="max-w-md mx-auto pt-1">
 
           {/* 1. Prueba Social (Top Header) */}
           <div className="flex items-center justify-center gap-1.5 pt-2 pb-0.5 text-xs font-sans text-graphite/85">
@@ -388,6 +385,8 @@ export const HeroSection: React.FC = () => {
           </div>
 
         </div>
+
+      </div>
 
       </div>
 
