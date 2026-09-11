@@ -9,6 +9,7 @@ interface DissectionPiece {
   id: string;
   num: string;
   name: string;
+  shortName: string;
   category: string;
   phrase: string;
   hotspot: { x: number; y: number }; // Percentage position on liso-main.webp
@@ -20,6 +21,7 @@ const pieces: DissectionPiece[] = [
     id: "plate",
     num: "01",
     name: "PLACA GIRATORIA 90°",
+    shortName: "PLACA 90°",
     category: "CABEZAL ERGONÓMICO",
     phrase: "Plancha en el gancho, en la tabla y en cuellos: el ángulo te sigue a ti.",
     hotspot: { x: 67, y: 37 }
@@ -28,6 +30,7 @@ const pieces: DissectionPiece[] = [
     id: "chamber",
     num: "02",
     name: "CÁMARA TÉRMICA DE ALUMINIO",
+    shortName: "CÁMARA TÉRMICA",
     category: "SISTEMA TÉRMICO INTERNO",
     phrase: "El aluminio calienta en pocos segundos: vapor listo antes de que cuelgues la camisa.",
     hotspot: { x: 53, y: 25 }
@@ -36,6 +39,7 @@ const pieces: DissectionPiece[] = [
     id: "display",
     num: "03",
     name: "PANTALLA DIGITAL LED",
+    shortName: "PANTALLA LED",
     category: "CONTROL TÉRMICO EN VIVO",
     phrase: "Ves la temperatura real: no adivinas si ya está lista.",
     hotspot: { x: 45, y: 42 }
@@ -44,6 +48,7 @@ const pieces: DissectionPiece[] = [
     id: "cable",
     num: "04",
     name: "ALIMENTACIÓN DIRECTA 1200 W",
+    shortName: "POTENCIA 1200 W",
     category: "POTENCIA CONTINUA",
     phrase: "Potencia constante por cable: sin batería que pierda fuerza con los meses.",
     hotspot: { x: 23, y: 88 }
@@ -52,6 +57,7 @@ const pieces: DissectionPiece[] = [
     id: "handle",
     num: "05",
     name: "CARCASA BICAPA CON AGARRE",
+    shortName: "CARCASA BICAPA",
     category: "AISLAMIENTO TÉRMICO",
     phrase: "Aislamiento bicapa: 150 °C en la placa térmica; mango frío y seguro al tacto.",
     hotspot: { x: 35, y: 64 }
@@ -60,6 +66,7 @@ const pieces: DissectionPiece[] = [
     id: "voltage",
     num: "06",
     name: "CLAVIJA ESTÁNDAR + 110–240 V",
+    shortName: "CLAVIJA 110–240 V",
     category: "CONEXIÓN Y VOLTAJE",
     phrase: "Clavija plana estándar (110 V) para cualquier toma y multivoltaje para viajes.",
     hotspot: { x: 16, y: 92 }
@@ -87,6 +94,7 @@ export const EngineeringSection: React.FC = () => {
 
   const hotspotButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
   const indexButtonsRef = useRef<(HTMLButtonElement | null)[]>([]);
+  const capsuleRailRef = useRef<HTMLDivElement | null>(null);
   const touchStartX = useRef<number | null>(null);
 
   const activePiece = pieces[activeIndex];
@@ -161,10 +169,26 @@ export const EngineeringSection: React.FC = () => {
     };
   }, [activeIndex, prefersReduced]);
 
-  // Select piece & mark initial hint as dismissed
+  // Select piece, mark initial hint as dismissed, and auto-scroll capsule into center
   const selectPiece = (index: number) => {
     setActiveIndex(index);
     if (!hasInteracted) setHasInteracted(true);
+    indexButtonsRef.current[index]?.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'center',
+      block: 'nearest'
+    });
+  };
+
+  // Mouse wheel horizontal scroll support for desktop/trackpads
+  const handleCapsuleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (capsuleRailRef.current) {
+      if (capsuleRailRef.current.scrollWidth > capsuleRailRef.current.clientWidth) {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          capsuleRailRef.current.scrollLeft += e.deltaY;
+        }
+      }
+    }
   };
 
   // Keyboard navigation across hotspots & index items
@@ -505,34 +529,43 @@ export const EngineeringSection: React.FC = () => {
 
         {/* =========================================================================
             1. SLEEK FLOATING CAPSULE COMPONENT SWITCHER (Desktop & Mobile)
+            Calibrated compact size & auto-centering to prevent any edge clipping
             ========================================================================= */}
-        <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 lg:mb-12 px-1 -mx-1">
-          {pieces.map((piece, idx) => {
-            const isActive = idx === activeIndex;
-            return (
-              <button
-                key={piece.id}
-                ref={(el) => (indexButtonsRef.current[idx] = el)}
-                type="button"
-                onClick={() => selectPiece(idx)}
-                onKeyDown={(e) => handleKeyNav(e, idx)}
-                className={`flex-shrink-0 px-4 xl:px-5 py-2.5 rounded-full font-sans text-xs sm:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer ${
-                  isActive 
-                    ? 'bg-accent text-white shadow-[0_0_24px_rgba(180,36,124,0.55)] scale-105 ring-1 ring-accent/60' 
-                    : 'bg-white/[0.04] border border-white/12 text-bone/70 hover:text-white hover:bg-white/[0.08] hover:border-white/25 active:scale-95'
-                }`}
-                aria-label={`Ver pieza ${piece.num}: ${piece.name}`}
-                aria-pressed={isActive}
-              >
-                <span className={`w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold ${
-                  isActive ? 'bg-white text-accent' : 'bg-white/10 text-bone/60'
-                }`}>
-                  {piece.num}
-                </span>
-                <span>{piece.name}</span>
-              </button>
-            );
-          })}
+        <div 
+          ref={capsuleRailRef}
+          onWheel={handleCapsuleWheel}
+          className="w-full overflow-x-auto no-scrollbar scroll-smooth py-1 pb-2 mb-8 lg:mb-12"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 min-w-max mx-auto px-2">
+            {pieces.map((piece, idx) => {
+              const isActive = idx === activeIndex;
+              return (
+                <button
+                  key={piece.id}
+                  ref={(el) => (indexButtonsRef.current[idx] = el)}
+                  type="button"
+                  onClick={() => selectPiece(idx)}
+                  onKeyDown={(e) => handleKeyNav(e, idx)}
+                  title={piece.name}
+                  className={`flex-shrink-0 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full font-sans text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-1.5 sm:gap-2 cursor-pointer select-none ${
+                    isActive 
+                      ? 'bg-accent text-white shadow-[0_0_20px_rgba(180,36,124,0.55)] scale-105 ring-1 ring-accent/60' 
+                      : 'bg-white/[0.04] border border-white/12 text-bone/70 hover:text-white hover:bg-white/[0.08] hover:border-white/25 active:scale-95'
+                  }`}
+                  aria-label={`Ver pieza ${piece.num}: ${piece.name}`}
+                  aria-pressed={isActive}
+                >
+                  <span className={`w-4 h-4 rounded-full text-[9px] sm:text-[10px] flex items-center justify-center font-bold ${
+                    isActive ? 'bg-white text-accent' : 'bg-white/10 text-bone/60'
+                  }`}>
+                    {piece.num}
+                  </span>
+                  <span>{piece.shortName}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* =========================================================================
