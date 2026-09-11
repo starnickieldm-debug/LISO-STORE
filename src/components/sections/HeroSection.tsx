@@ -80,36 +80,35 @@ export const HeroSection: React.FC = () => {
 
         {/* Ambient Layer: 20% Graphite Orbit Hairline behind product */}
         <div 
-          className="pointer-events-none absolute right-4 lg:right-16 top-1/2 -translate-y-1/2 w-[360px] sm:w-[480px] lg:w-[560px] h-[360px] sm:h-[480px] lg:h-[560px] rounded-full orbit-hairline z-5 hidden sm:block"
+          className="pointer-events-none absolute right-8 lg:right-24 xl:right-32 top-1/2 -translate-y-1/2 w-[360px] sm:w-[480px] lg:w-[560px] h-[360px] sm:h-[480px] lg:h-[560px] rounded-full orbit-hairline z-5 hidden sm:block"
           aria-hidden="true" 
         />
 
-        {/* Layer 3: Product Image Stage with soft integrated fade */}
+        {/* Layer 3: Product Image Stage with soft integrated fade moved to the left */}
         <div 
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[56%] xl:w-[53%] 2xl:w-[50%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[61%] xl:w-[57%] 2xl:w-[54%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
           style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, black 28%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, black 28%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 10%, black 25%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 10%, black 25%)',
           }}
         >
-          <picture className="w-full h-full">
+          <picture className="w-full h-full block transform scale-[1.06] -translate-x-5 lg:-translate-x-8 xl:-translate-x-12 2xl:-translate-x-16 origin-[82%_45%]">
             <source 
               srcSet="/images/hero-steamer-editorial.webp 2048w, /images/hero-steamer-editorial-1024.webp 1024w" 
-              sizes="(max-width: 1023px) 100vw, 54vw"
+              sizes="(max-width: 1023px) 100vw, 58vw"
               type="image/webp" 
             />
             <img 
               src="/images/hero-steamer-editorial.jpg" 
               srcSet="/images/hero-steamer-editorial.jpg 2048w, /images/hero-steamer-editorial-1024.jpg 1024w"
-              sizes="(max-width: 1023px) 100vw, 54vw"
+              sizes="(max-width: 1023px) 100vw, 58vw"
               alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
-              className="w-full h-full object-cover object-[90%_center] transform origin-center transition-all duration-1000 ease-mech-s"
+              className="w-full h-full object-cover object-[92%_center] transition-opacity duration-1000 ease-mech-s"
               style={{
                 filter: 'brightness(1.01) contrast(1.01)',
                 ...(!prefersReduced ? {
                   opacity: loaded ? 1 : 0,
-                  transform: loaded ? 'scale(1)' : 'scale(1.03)',
-                  willChange: loaded ? 'auto' : 'opacity, transform'
+                  willChange: loaded ? 'auto' : 'opacity'
                 } : undefined)
               }}
               loading="eager"
@@ -118,7 +117,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Gentle feathering gradient overlay blending into hero background */}
           <div 
-            className="absolute inset-y-0 left-0 w-36 xl:w-48 bg-gradient-to-r from-[#F5F1EA] via-[#F5F1EA]/50 to-transparent pointer-events-none z-20" 
+            className="absolute inset-y-0 left-0 w-44 xl:w-56 bg-gradient-to-r from-[#F5F1EA] via-[#F5F1EA]/60 to-transparent pointer-events-none z-20" 
             aria-hidden="true"
           />
         </div>
