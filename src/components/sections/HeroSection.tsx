@@ -3,7 +3,7 @@ import { useMarket } from '../../context/MarketContext';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { CTAButton } from '../ui/CTAButton';
 import { DataStrip } from '../ui/DataStrip';
-import { Star, Sparkles, Zap, Feather, Banknote, ShieldCheck, Truck, Lock } from 'lucide-react';
+import { Star, Sparkles, Zap, Feather, ShieldCheck, Truck, Lock } from 'lucide-react';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
 
 export const HeroSection: React.FC = () => {
@@ -187,8 +187,8 @@ export const HeroSection: React.FC = () => {
                 <span>Portátil y liviana</span>
               </div>
               <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-graphite/10 shadow-xs text-xs sm:text-[12.5px] font-sans font-semibold text-graphite">
-                <Banknote className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Pago Contra Entrega</span>
+                <Sparkles className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Sin tabla de planchar</span>
               </div>
             </div>
 
@@ -341,8 +341,8 @@ export const HeroSection: React.FC = () => {
               <span>Portátil y liviana</span>
             </div>
             <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/80 border border-graphite/10 shadow-xs text-[11px] font-sans font-semibold text-graphite">
-              <Banknote className="w-3 h-3 text-accent shrink-0" />
-              <span>Pago Contra Entrega</span>
+              <Sparkles className="w-3 h-3 text-accent shrink-0" />
+              <span>Sin tabla de planchar</span>
             </div>
           </div>
 
