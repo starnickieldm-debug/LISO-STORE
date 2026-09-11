@@ -84,15 +84,15 @@ export const HeroSection: React.FC = () => {
           aria-hidden="true" 
         />
 
-        {/* Layer 3: Product Image Stage with soft integrated fade moved to the left */}
+        {/* Layer 3: Product Image Stage with soft integrated bilateral fade */}
         <div 
           className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[61%] xl:w-[57%] 2xl:w-[54%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
           style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 10%, black 25%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 10%, black 25%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 8%, black 22%, black 86%, rgba(0,0,0,0.4) 96%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 8%, black 22%, black 86%, rgba(0,0,0,0.4) 96%, transparent 100%)',
           }}
         >
-          <picture className="w-full h-full block transform scale-[1.06] -translate-x-5 lg:-translate-x-8 xl:-translate-x-12 2xl:-translate-x-16 origin-[82%_45%]">
+          <picture className="w-[calc(100%+6rem)] lg:w-[calc(100%+8rem)] xl:w-[calc(100%+10rem)] 2xl:w-[calc(100%+12rem)] h-full block transform scale-[1.06] -translate-x-5 lg:-translate-x-8 xl:-translate-x-12 2xl:-translate-x-16 origin-[82%_45%]">
             <source 
               srcSet="/images/hero-steamer-editorial.webp 2048w, /images/hero-steamer-editorial-1024.webp 1024w" 
               sizes="(max-width: 1023px) 100vw, 58vw"
@@ -115,9 +115,15 @@ export const HeroSection: React.FC = () => {
             />
           </picture>
 
-          {/* Gentle feathering gradient overlay blending into hero background */}
+          {/* Gentle left feathering gradient overlay blending into hero background */}
           <div 
             className="absolute inset-y-0 left-0 w-44 xl:w-56 bg-gradient-to-r from-[#F5F1EA] via-[#F5F1EA]/60 to-transparent pointer-events-none z-20" 
+            aria-hidden="true"
+          />
+
+          {/* Gentle right feathering gradient overlay seamlessly dissolving right edge into hero background */}
+          <div 
+            className="absolute inset-y-0 right-0 w-28 xl:w-40 bg-gradient-to-l from-[#F5F1EA] via-[#F5F1EA]/60 to-transparent pointer-events-none z-20" 
             aria-hidden="true"
           />
         </div>
