@@ -3,7 +3,7 @@ import { useMarket } from '../../context/MarketContext';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { CTAButton } from '../ui/CTAButton';
 import { DataStrip } from '../ui/DataStrip';
-import { CheckCircle2, Star, Sparkles } from 'lucide-react';
+import { Star, Sparkles, Zap, Feather, Banknote, ShieldCheck, Truck, Lock } from 'lucide-react';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
 
 export const HeroSection: React.FC = () => {
@@ -121,6 +121,25 @@ export const HeroSection: React.FC = () => {
           {/* LEFT COLUMN: Controlled width commercial content with strict hierarchy */}
           <div className="col-span-7 xl:col-span-6 max-w-xl xl:max-w-[560px] pt-2">
             
+            {/* 1. Prueba Social (Top Header) */}
+            <div 
+              className="flex items-center gap-1.5 mb-3 text-xs sm:text-[13px] font-sans text-graphite/85"
+              style={!prefersReduced ? {
+                opacity: loaded ? 1 : 0,
+                transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 10px, 0)',
+                transition: 'opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) 30ms, transform 750ms cubic-bezier(0.16, 1, 0.3, 1) 30ms'
+              } : undefined}
+            >
+              <div className="flex items-center gap-0.5 text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <span className="font-semibold text-graphite">
+                4.9 ★★★★★ (1,200+ clientes satisfechos en Colombia)
+              </span>
+            </div>
+
             {/* H1 Headline: Impactful 2-block composition with intentional line breaks */}
             <h1 
               className="font-display text-4xl md:text-5xl lg:text-[3.15rem] xl:text-[3.5rem] font-bold text-graphite tracking-[-0.025em] leading-[1.1]"
@@ -150,9 +169,32 @@ export const HeroSection: React.FC = () => {
               Plancha directo en el gancho y sin armar la tabla. Lista para usar en segundos.
             </p>
 
+            {/* Badges de Beneficios Rápidos */}
+            <div 
+              className="flex flex-wrap items-center gap-2 sm:gap-2.5 mt-3.5 mb-1"
+              style={!prefersReduced ? {
+                opacity: loaded ? 1 : 0,
+                transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 14px, 0)',
+                transition: 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1) 180ms, transform 800ms cubic-bezier(0.16, 1, 0.3, 1) 180ms'
+              } : undefined}
+            >
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-graphite/10 shadow-xs text-xs sm:text-[12.5px] font-sans font-semibold text-graphite">
+                <Zap className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Calentamiento en 15s</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-graphite/10 shadow-xs text-xs sm:text-[12.5px] font-sans font-semibold text-graphite">
+                <Feather className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Portátil y liviana</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-graphite/10 shadow-xs text-xs sm:text-[12.5px] font-sans font-semibold text-graphite">
+                <Banknote className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Pago Contra Entrega</span>
+              </div>
+            </div>
+
             {/* 4. Streamlined High-Impact Conversion Block (Open, Clean, Friction-Free) */}
             <div 
-              className="mt-6 lg:mt-7 space-y-4 max-w-lg"
+              className="mt-5 lg:mt-6 space-y-3.5 max-w-lg"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
@@ -182,16 +224,22 @@ export const HeroSection: React.FC = () => {
                 </CTAButton>
               </div>
 
-              {/* Core Frictionless Trust Strip */}
-              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs text-graphite/70 font-sans font-medium pt-0.5">
-                <span className="inline-flex items-center gap-1 text-graphite font-semibold">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                  <span>Envío gratis a toda Colombia</span>
+              {/* Reorganización de Garantía y Confianza */}
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-graphite/75 font-sans pt-0.5">
+                <span className="inline-flex items-center gap-1.5 font-semibold text-graphite">
+                  <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
+                  <span>Garantía de 30 días</span>
                 </span>
-                <span className="text-graphite/30">|</span>
-                <span>Paga contra entrega o con PSE / Tarjeta</span>
-                <span className="text-graphite/30">|</span>
-                <span>Garantía de 30 días</span>
+                <span className="text-graphite/30">•</span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-graphite/85">
+                  <Truck className="w-4 h-4 text-accent shrink-0" />
+                  <span>Envío gratis</span>
+                </span>
+                <span className="text-graphite/30">•</span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-graphite/85">
+                  <Lock className="w-3.5 h-3.5 text-accent shrink-0" />
+                  <span>Pago seguro</span>
+                </span>
               </div>
             </div>
 
@@ -245,18 +293,16 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* 2. Social Proof Rating Strip (Liquid+ formula: Stars • Reviews • Key Benefit) */}
-          <div className="flex items-center justify-center gap-1.5 pt-2.5 pb-1 text-xs font-sans text-graphite/80">
-            <div className="flex items-center gap-0.5 text-amber-500">
+          {/* 1. Prueba Social (Top Header) */}
+          <div className="flex items-center justify-center gap-1.5 pt-2 pb-0.5 text-xs font-sans text-graphite/85">
+            <div className="flex items-center gap-0.5 text-amber-400">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <span className="font-bold text-graphite text-[12px]">4.9</span>
-            <span className="text-graphite/40">•</span>
-            <span className="text-graphite/75 text-[11.5px] font-medium">+3.800 clientes</span>
-            <span className="text-graphite/40">•</span>
-            <span className="text-accent font-semibold text-[11.5px]">Envío gratis</span>
+            <span className="font-semibold text-graphite text-[11.5px] xs:text-xs">
+              4.9 ★★★★★ (1,200+ clientes satisfechos en Colombia)
+            </span>
           </div>
 
           {/* 3. Mobile H1: Impactful headline with highlighted oval phrase (Liquid+ formula) */}
@@ -280,9 +326,25 @@ export const HeroSection: React.FC = () => {
           </h1>
 
           {/* 4. Micro-bajada: Concise 2-line value proposition */}
-          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[320px] mx-auto mb-3">
+          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[320px] mx-auto mb-2.5">
             Plancha directo en el gancho y sin armar la tabla. Vapor continuo a 150 °C listo en segundos.
           </p>
+
+          {/* 2. Badges de Beneficios Rápidos (Mobile) */}
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-2.5">
+            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/80 border border-graphite/10 shadow-xs text-[11px] font-sans font-semibold text-graphite">
+              <Zap className="w-3 h-3 text-accent shrink-0" />
+              <span>Calentamiento en 15s</span>
+            </div>
+            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/80 border border-graphite/10 shadow-xs text-[11px] font-sans font-semibold text-graphite">
+              <Feather className="w-3 h-3 text-accent shrink-0" />
+              <span>Portátil y liviana</span>
+            </div>
+            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/80 border border-graphite/10 shadow-xs text-[11px] font-sans font-semibold text-graphite">
+              <Banknote className="w-3 h-3 text-accent shrink-0" />
+              <span>Pago Contra Entrega</span>
+            </div>
+          </div>
 
           {/* 5. Streamlined Conversion Section (Thumb-Zone Optimized) */}
           <div className="pt-1 space-y-2.5">
@@ -306,16 +368,22 @@ export const HeroSection: React.FC = () => {
               Pide la tuya – $189.900
             </CTAButton>
 
-            {/* Trust Points */}
-            <div className="flex flex-wrap items-center justify-center gap-1.5 text-[11px] text-graphite/70 font-sans font-medium pt-0.5 text-center leading-normal max-w-[340px] mx-auto">
-              <span className="inline-flex items-center gap-1 text-graphite font-semibold">
-                <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Envío gratis a toda Colombia</span>
+            {/* 3. Reorganización de Garantía y Confianza (Mobile) */}
+            <div className="flex flex-wrap items-center justify-center gap-2 text-[11px] text-graphite/75 font-sans pt-1 text-center">
+              <span className="inline-flex items-center gap-1 font-semibold text-graphite">
+                <ShieldCheck className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Garantía de 30 días</span>
               </span>
-              <span className="text-graphite/30">|</span>
-              <span>Paga contra entrega o con PSE / Tarjeta</span>
-              <span className="text-graphite/30">|</span>
-              <span>Garantía de 30 días</span>
+              <span className="text-graphite/30">•</span>
+              <span className="inline-flex items-center gap-1 font-medium text-graphite/85">
+                <Truck className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Envío gratis</span>
+              </span>
+              <span className="text-graphite/30">•</span>
+              <span className="inline-flex items-center gap-1 font-medium text-graphite/85">
+                <Lock className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Pago seguro</span>
+              </span>
             </div>
           </div>
 
