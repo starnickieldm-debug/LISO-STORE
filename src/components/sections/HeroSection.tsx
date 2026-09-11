@@ -89,13 +89,19 @@ export const HeroSection: React.FC = () => {
           className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[54%] xl:w-[52%] 2xl:w-[50%] z-10 hidden lg:flex items-center justify-end overflow-hidden border-l border-graphite/10 shadow-[-10px_0_30px_rgba(0,0,0,0.08)]"
         >
           <picture className="w-full h-full">
-            <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
+            <source 
+              srcSet="/images/hero-steamer-editorial.webp 2048w, /images/hero-steamer-editorial-1024.webp 1024w" 
+              sizes="(max-width: 1023px) 100vw, 54vw"
+              type="image/webp" 
+            />
             <img 
               src="/images/hero-steamer-editorial.jpg" 
+              srcSet="/images/hero-steamer-editorial.jpg 2048w, /images/hero-steamer-editorial-1024.jpg 1024w"
+              sizes="(max-width: 1023px) 100vw, 54vw"
               alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
-              className="w-full h-full object-cover object-[93%_center] transform origin-center transition-all duration-1000 ease-mech-s"
+              className="w-full h-full object-cover object-[90%_center] transform origin-center transition-all duration-1000 ease-mech-s"
               style={{
-                filter: 'brightness(1.04) contrast(1.04)',
+                filter: 'brightness(1.02) contrast(1.02)',
                 ...(!prefersReduced ? {
                   opacity: loaded ? 1 : 0,
                   transform: loaded ? 'scale(1)' : 'scale(1.03)',
@@ -230,13 +236,19 @@ export const HeroSection: React.FC = () => {
           <div className="relative -mx-4 sm:-mx-8 w-[calc(100%+2rem)] sm:w-[calc(100%+4rem)] mb-4">
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-night-950">
               <picture className="w-full h-full">
-                <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
+                <source 
+                  srcSet="/images/hero-steamer-editorial.webp 2048w, /images/hero-steamer-editorial-1024.webp 1024w" 
+                  sizes="100vw"
+                  type="image/webp" 
+                />
                 <img 
                   src="/images/hero-steamer-editorial.jpg" 
+                  srcSet="/images/hero-steamer-editorial.jpg 2048w, /images/hero-steamer-editorial-1024.jpg 1024w"
+                  sizes="100vw"
                   alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
-                  className="w-full h-full object-cover object-[94%_center]"
+                  className="w-full h-full object-cover object-[95%_center]"
                   style={{
-                    filter: 'brightness(1.04) contrast(1.04)'
+                    filter: 'brightness(1.02) contrast(1.02)'
                   }}
                   loading="eager"
                 />
