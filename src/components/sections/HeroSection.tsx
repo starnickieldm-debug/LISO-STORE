@@ -123,7 +123,7 @@ export const HeroSection: React.FC = () => {
           />
         </div>
 
-        <div className="max-w-[1480px] w-full mx-auto px-4 sm:px-8 lg:px-12 relative z-30 my-auto">
+        <div className="max-w-[1440px] xl:max-w-[1460px] w-full mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 relative z-30 my-auto">
         
         {/* =========================================================================
             DESKTOP HERO COMPOSITION (>= 1024px)
@@ -131,7 +131,7 @@ export const HeroSection: React.FC = () => {
         <div className="hidden lg:grid grid-cols-12 gap-12 xl:gap-16 items-center">
           
           {/* LEFT COLUMN: Controlled width commercial content with strict hierarchy */}
-          <div className="col-span-7 xl:col-span-6 max-w-xl xl:max-w-[560px] pt-2">
+          <div className="col-span-7 xl:col-span-6 max-w-xl xl:max-w-[580px] pt-2">
             
             {/* 1. Prueba Social (Top Header) */}
             <div 
@@ -152,9 +152,9 @@ export const HeroSection: React.FC = () => {
               </span>
             </div>
 
-            {/* H1 Headline: Single powerful line */}
+            {/* H1 Headline: Larger scale with airy line separation */}
             <h1 
-              className="font-display text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-bold text-graphite tracking-[-0.025em] leading-[1.12]"
+              className="font-display text-4xl sm:text-5xl lg:text-[3.55rem] xl:text-[4.1rem] 2xl:text-[4.35rem] font-bold text-graphite tracking-[-0.03em] leading-[1.18] xl:leading-[1.2]"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
@@ -162,12 +162,37 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              Tu ropa impecable <span className="italic font-display font-medium text-accent">antes de salir</span>.
+              <span className="block">Tu ropa impecable</span>
+              <span className="block italic font-display font-medium text-accent mt-1 sm:mt-1.5">
+                antes de salir.
+              </span>
             </h1>
+
+            {/* 2. Subtítulo Resaltado Estilo Marcador / Highlighter */}
+            <div 
+              className="mt-3.5 sm:mt-4 mb-2.5 sm:mb-3"
+              style={!prefersReduced ? {
+                opacity: loaded ? 1 : 0,
+                transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 12px, 0)',
+                transition: 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1) 100ms, transform 800ms cubic-bezier(0.16, 1, 0.3, 1) 100ms',
+                willChange: loaded ? 'auto' : 'opacity, transform'
+              } : undefined}
+            >
+              <span className="relative inline-block px-2.5 py-1">
+                <span className="relative z-10 font-sans text-sm sm:text-[15px] lg:text-base font-semibold text-graphite tracking-tight">
+                  Porque verte bien no debería tomar tanto tiempo
+                </span>
+                {/* Trazo de resaltador estético con identidad de marca (plum/berry wash) */}
+                <span 
+                  className="absolute inset-x-0 inset-y-0.5 bg-gradient-to-r from-accent/25 via-accent/20 to-accent/14 rounded-[3px] -rotate-[0.4deg] -skew-x-2 -z-0 pointer-events-none shadow-[inset_0_0_0_1px_rgba(180,36,124,0.12)]"
+                  aria-hidden="true" 
+                />
+              </span>
+            </div>
 
             {/* 3. Subheadline: Direct, objection-killing, low-density */}
             <p 
-              className="text-base sm:text-lg text-graphite/80 leading-relaxed font-normal mt-3 lg:mt-3.5 max-w-lg"
+              className="text-base sm:text-lg text-graphite/80 leading-relaxed font-normal mt-1 max-w-lg"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 14px, 0)',
@@ -301,9 +326,9 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* 3. Mobile H1: Impactful headline with highlighted oval phrase (Liquid+ formula) */}
-          <h1 className="text-center font-display text-[1.8rem] xs:text-[2rem] font-bold text-graphite tracking-tight leading-[1.14] my-2">
-            Tu ropa impecable{' '}
-            <span className="relative inline-block px-2.5 py-0.5 mx-0.5 text-accent italic font-medium">
+          <h1 className="text-center font-display text-[1.95rem] xs:text-[2.15rem] font-bold text-graphite tracking-tight leading-[1.18] my-2">
+            <span className="block">Tu ropa impecable</span>
+            <span className="relative inline-block px-2.5 py-0.5 mx-0.5 text-accent italic font-medium mt-0.5">
               <span className="relative z-10">antes de salir</span>
               <svg 
                 className="absolute inset-0 w-full h-full text-accent/35 -rotate-1 pointer-events-none" 
@@ -315,6 +340,19 @@ export const HeroSection: React.FC = () => {
               </svg>
             </span>
           </h1>
+
+          {/* Subtítulo resaltado estilo marcador / highlighter (Mobile) */}
+          <div className="my-2 flex justify-center">
+            <span className="relative inline-block px-2.5 py-0.5 text-center">
+              <span className="relative z-10 font-sans text-[12.5px] xs:text-[13px] font-semibold text-graphite tracking-tight">
+                Porque verte bien no debería tomar tanto tiempo
+              </span>
+              <span 
+                className="absolute inset-x-0 inset-y-0.5 bg-gradient-to-r from-accent/25 via-accent/20 to-accent/14 rounded-[3px] -rotate-[0.4deg] -skew-x-2 -z-0 pointer-events-none shadow-[inset_0_0_0_1px_rgba(180,36,124,0.12)]"
+                aria-hidden="true" 
+              />
+            </span>
+          </div>
 
           {/* 4. Micro-bajada: Concise objection-killing value proposition */}
           <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[325px] mx-auto mb-3">
