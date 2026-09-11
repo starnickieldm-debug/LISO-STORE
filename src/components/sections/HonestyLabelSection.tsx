@@ -62,15 +62,9 @@ export const HonestyLabelSection: React.FC = () => {
             <div className="hidden md:grid grid-cols-12 gap-8 lg:gap-10 xl:gap-12 pb-10 border-b border-graphite/10 items-stretch">
               
               {/* COLUMNA 1 (4 COLS): Escenario Flotante Heroico de Producto (Sin caja ni badge cerrado) */}
-              <div className="col-span-12 lg:col-span-4 flex flex-col items-center justify-between relative group py-2">
-                {/* Floating Inspection Pill */}
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-graphite/[0.04] border border-graphite/10 text-graphite/75 text-[10px] font-sans font-bold uppercase tracking-widest shadow-2xs backdrop-blur-xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                  <span>DISPOSITIVO ANALIZADO · SERIE 01</span>
-                </div>
-
+              <div className="col-span-12 lg:col-span-4 flex flex-col items-center justify-center relative group py-2">
                 {/* Floating Product Stage with Atmospheric Steam Glow & Multi-Layer Elevation */}
-                <div className="relative w-full max-w-[320px] xl:max-w-[340px] aspect-[3/4] my-4 flex items-center justify-center">
+                <div className="relative w-full max-w-[320px] xl:max-w-[340px] aspect-[3/4] my-2 flex items-center justify-center">
                   {/* Multi-layer atmospheric ambient steam glow */}
                   <div 
                     className="absolute inset-0 -m-4 bg-[radial-gradient(circle_at_center,rgba(180,36,124,0.16)_0%,rgba(245,175,120,0.10)_45%,transparent_72%)] blur-2xl pointer-events-none scale-110" 
