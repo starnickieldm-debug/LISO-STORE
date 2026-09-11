@@ -71,6 +71,16 @@ export const OfferSection: React.FC = () => {
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
+        {/* Mobile Product Header (Centered above gallery on mobile) */}
+        <div className="block md:hidden text-center mb-6">
+          <span className="text-xs font-sans font-bold tracking-widest uppercase text-accent block mb-1.5">
+            KIT COMPLETO
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-graphite tracking-tight leading-tight">
+            Plancha de vapor portátil LISO
+          </h2>
+        </div>
+
         {/* =========================================================================
             PDP NATIVE CONTAINER — Sticky High-Impact Visual + Scrolling Buy Flow
             ========================================================================= */}
@@ -84,14 +94,14 @@ export const OfferSection: React.FC = () => {
           {/* RIGHT COLUMN: Scrolling Details & Buy Actions */}
           <div className="md:col-span-6 lg:col-span-6 xl:col-span-5 space-y-6 lg:space-y-7">
               
-              {/* Product Title & Model */}
-              <div>
-                <span className="text-xs font-sans font-semibold tracking-wider uppercase text-graphite/60">
+              {/* Product Title & Model (Desktop Only, High-Impact Scale) */}
+              <div className="hidden md:block">
+                <span className="text-xs sm:text-sm font-sans font-bold tracking-widest uppercase text-accent block mb-1.5">
                   KIT COMPLETO
                 </span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-graphite mt-1">
+                <h2 className="font-display text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-graphite tracking-tight leading-[1.12]">
                   Plancha de vapor portátil LISO
-                </h3>
+                </h2>
               </div>
 
               {/* Price Presentation: Antes / Ahora */}
