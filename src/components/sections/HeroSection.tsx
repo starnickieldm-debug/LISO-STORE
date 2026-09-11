@@ -96,10 +96,10 @@ export const HeroSection: React.FC = () => {
             <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
             <img 
               src="/images/hero-steamer-editorial.jpg" 
-              alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
-              className="w-full h-full object-cover object-[70%_center] transform origin-center transition-all duration-1000 ease-mech-s"
+              alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
+              className="w-full h-full object-cover object-[65%_center] transform origin-center transition-all duration-1000 ease-mech-s"
               style={{
-                filter: 'brightness(1.06) contrast(1.06)',
+                filter: 'brightness(1.04) contrast(1.04)',
                 ...(!prefersReduced ? {
                   opacity: loaded ? 1 : 0,
                   transform: loaded ? 'scale(1)' : 'scale(1.03)',
@@ -221,10 +221,10 @@ export const HeroSection: React.FC = () => {
                 <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
                 <img 
                   src="/images/hero-steamer-editorial.jpg" 
-                  alt="Plancha de vapor portátil LISO con placa giratoria y pantalla digital sobre prenda de seda" 
-                  className="w-full h-full object-cover object-[70%_center]"
+                  alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
+                  className="w-full h-full object-cover object-[65%_center]"
                   style={{
-                    filter: 'brightness(1.06) contrast(1.06)'
+                    filter: 'brightness(1.04) contrast(1.04)'
                   }}
                   loading="eager"
                 />
