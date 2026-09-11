@@ -146,9 +146,9 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              <span className="block">Dile adiós a la plancha tradicional.</span>
+              <span className="block">Impecable antes de salir.</span>
               <span className="block text-graphite/90 mt-1.5 font-normal">
-                Tu ropa <span className="italic font-display font-medium text-accent">sin arrugas</span> en segundos.
+                La ropa que te vas a poner hoy, <span className="italic font-display font-medium text-accent">lista en minutos</span>.
               </span>
             </h1>
 
@@ -162,7 +162,7 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              Plancha directo en el gancho y sin armar la tabla. Lista para usar en segundos.
+              Arregla directamente en el gancho la camisa, vestido o pantalón que te vas a poner hoy. LISO combina 1200 W de potencia con una placa cerámica a 150 °C para alisar de verdad, con solo 15 segundos de calentamiento.
             </p>
 
             {/* Badges de Beneficios Rápidos */}
@@ -300,11 +300,11 @@ export const HeroSection: React.FC = () => {
 
           {/* 3. Mobile H1: Impactful headline with highlighted oval phrase (Liquid+ formula) */}
           <h1 className="text-center font-display text-[1.75rem] xs:text-[1.95rem] font-bold text-graphite tracking-tight leading-[1.14] my-2">
-            <span>Dile adiós a la plancha tradicional.</span>
-            <span className="block text-graphite/90 mt-1 font-normal text-[1.35rem] xs:text-[1.5rem]">
-              Tu ropa{' '}
+            <span>Impecable antes de salir.</span>
+            <span className="block text-graphite/90 mt-1 font-normal text-[1.3rem] xs:text-[1.45rem]">
+              La ropa que te pones hoy,{' '}
               <span className="relative inline-block px-2.5 py-0.5 mx-0.5 text-accent italic font-medium">
-                <span className="relative z-10">sin arrugas</span>
+                <span className="relative z-10">lista en minutos</span>
                 <svg 
                   className="absolute inset-0 w-full h-full text-accent/35 -rotate-1 pointer-events-none" 
                   viewBox="0 0 120 40" 
@@ -313,14 +313,13 @@ export const HeroSection: React.FC = () => {
                 >
                   <ellipse cx="60" cy="20" rx="58" ry="18" stroke="currentColor" strokeWidth="2.2" strokeDasharray="3 1" />
                 </svg>
-              </span>{' '}
-              en segundos.
+              </span>
             </span>
           </h1>
 
           {/* 4. Micro-bajada: Concise 2-line value proposition */}
-          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[320px] mx-auto mb-2.5">
-            Plancha directo en el gancho y sin armar la tabla. Vapor continuo a 150 °C listo en segundos.
+          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[325px] mx-auto mb-2.5">
+            Arregla directamente en el gancho la prenda que te vas a poner hoy. Placa cerámica a 150 °C y 1200 W en 15 segundos.
           </p>
 
           {/* 2. Badges de Beneficios Rápidos (Mobile) */}

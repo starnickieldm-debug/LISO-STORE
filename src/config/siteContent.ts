@@ -10,15 +10,15 @@ import {
 
 export const brandConfig: BrandConfig = {
   name: "LISO",
-  tagline: "El planchado que sí vas a usar.",
-  creativeConcept: "La verdad plancha mejor.",
-  targetTransformation: "Olvídate de la plancha pesada y la tabla: tu ropa lista e impecable en minutos.",
-  pricePlaceholder: "[PRECIO]",
-  shippingPlaceholder: "[ENVÍO 24–72 H — CONFIRMAR]",
-  guaranteeLegalPlaceholder: "[LEGAL SEGÚN MERCADO]",
-  countryPlaceholder: "[PAÍS]",
-  factoryWarranty: "Garantía oficial y soporte directo",
-  labClaimNote: "*Según pruebas de laboratorio del fabricante."
+  tagline: "Impecable antes de salir.",
+  creativeConcept: "No necesitas una sesión de planchado. Solo necesitas arreglar la ropa que te vas a poner.",
+  targetTransformation: "Arregla directamente en el gancho la ropa que te vas a poner hoy, lista en minutos.",
+  pricePlaceholder: "$189.900",
+  shippingPlaceholder: "Envío gratis a toda Colombia",
+  guaranteeLegalPlaceholder: "Garantía de 30 días",
+  countryPlaceholder: "Colombia",
+  factoryWarranty: "Garantía oficial y soporte directo en Colombia",
+  labClaimNote: "*Según pruebas térmicas de laboratorio del fabricante."
 };
 
 export const productSpecs: ProductSpecs = {
@@ -28,7 +28,7 @@ export const productSpecs: ProductSpecs = {
   continuousSteam: "Aprox. 5 minutos",
   garmentsPerTank: "2–3 prendas por carga",
   maxTemperature: "150 °C",
-  heatUpTime: "Pocos segundos*",
+  heatUpTime: "15 segundos*",
   heatUpTimeNote: "*Según pruebas térmicas de laboratorio.",
   steamLevels: "2 niveles de vapor",
   dryIronMode: true,
@@ -55,21 +55,21 @@ export const threeGestures = [
     step: "01",
     title: "Llena",
     description: "100 ml con el vaso dosificador incluido.",
-    detail: "Es la medida exacta del depósito. No se riega el agua y no tienes que calcular nada.",
+    detail: "La medida exacta para dejar listas 2 o 3 prendas sin cargar peso muerto en la mano.",
     footnote: null
   },
   {
     step: "02",
     title: "Enciende",
-    description: "La pantalla marca hasta 150 °C.",
-    detail: "Ves la temperatura subir al instante. Lista en pocos segundos para empezar.",
+    description: "Lista en 15 segundos hasta 150 °C.",
+    detail: "Pantalla digital LED que te muestra la temperatura en tiempo real.",
     footnote: null
   },
   {
     step: "03",
-    title: "Pasa y listo",
-    description: "Vapor potente + placa giratoria.",
-    detail: "Directo en el gancho o sobre la cama. La placa se acomoda al ángulo que necesites.",
+    title: "Alisa y sal",
+    description: "En el gancho y en minutos.",
+    detail: "Vapor continuo y placa cerámica caliente para salir impecable sin armar la tabla.",
     footnote: null
   }
 ];
@@ -77,24 +77,24 @@ export const threeGestures = [
 export const benefitBlocks = [
   {
     number: "01",
-    title: "La conectas y empiezas en segundos.",
-    description: "Con LISO puedes alisar directamente en el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.",
+    title: "Enciende en 15 segundos y alisa directo en el gancho.",
+    description: "Sin sacar la tabla pesada ni esperar una eternidad. Arregla la prenda de hoy en 2 o 3 minutos antes de salir de casa.",
     footnote: null,
     visualTag: "Macro de pantalla digital LED",
-    meta: "1200 W · Calentamiento rápido · 150 °C"
+    meta: "1200 W · Calentamiento en 15s · 150 °C"
   },
   {
     number: "02",
-    title: "Tienes la temperatura a la vista y el vapor bajo control.",
-    description: "Elige la temperatura que necesitas y ajusta el vapor según la prenda que estés tratando. Así sabes exactamente cómo la estás cuidando.",
+    title: "1200 W de potencia y placa cerámica que sí alisan.",
+    description: "A diferencia de los vaporizadores comunes que solo echan vapor tibio, la placa cerámica a 150 °C fija cuellos, puños y pliegues rebeldes.",
     footnote: null,
     visualTag: "Indicador térmico en pantalla",
     meta: "2 niveles vapor + modo seco"
   },
   {
     number: "03",
-    title: "La dejas a mano y está lista cuando la vuelves a necesitar.",
-    description: "Su base de apoyo te permite guardarla fácilmente después de usarla, sin tener que desmontar nada ni buscarle un lugar especial.",
+    title: "Bomba presurizada 100% antigoteo y base de descanso.",
+    description: "Cero manchas de agua hirviendo en tu ropa antes de salir. Déjala reposar con seguridad en su base térmica mientras terminas de alistarte.",
     footnote: null,
     visualTag: "Escala real junto a taza de café y maleta",
     meta: "100 ml ≈ 5 min ≈ 2–3 prendas"
@@ -116,43 +116,43 @@ export const engineeringCallouts = [
 export const honestyLabelData: HonestyLabelItem = {
   does: [
     {
-      title: "Deja tu ropa lista en minutos",
-      desc: "Directamente en el gancho, sin sacar la tabla de planchar."
+      title: "Deja lista la ropa que te vas a poner hoy",
+      desc: "Directamente en el gancho en 2 a 3 minutos, sin sacar la tabla de planchar."
     },
     {
-      title: "Cuellos y puños sin complicarte",
-      desc: "Su placa giratoria llega justo donde una plancha convencional puede resultar incómoda."
+      title: "Cuellos, solapas y puños firmes",
+      desc: "Su placa de cerámica a 150 °C alisa con precisión donde los vaporizadores normales no dan abasto."
     },
     {
-      title: "Refresca prendas entre lavadas",
-      desc: "Ayuda a quitar arrugas y a neutralizar olores de uso."
+      title: "Refresca y desodoriza entre puestas",
+      desc: "El calor continuo a 150 °C relaja la fibra, neutraliza olores y deja la tela suave al instante."
     },
     {
-      title: "Perfecta para retoques rápidos",
-      desc: "Una camisa antes de salir, una prenda que se arrugó en la maleta o esa ropa que quieres volver a ponerte."
+      title: "Salva tu ropa al desempacar la maleta",
+      desc: "Llega al hotel o destino de viaje, cuelga la prenda y quita las arrugas del viaje en minutos."
     },
     {
-      title: "También puedes usarla en prendas delicadas",
-      desc: "Empieza en el nivel 1 y prueba primero en una zona poco visible."
+      title: "Apta para telas finas y delicadas",
+      desc: "Seda, satén, lino o mezclas delicadas con control térmico real sin riesgo de quemadura."
     }
   ],
   doesNot: [
     {
-      title: "No reemplaza una plancha tradicional",
-      desc: "Si necesitas planchar una montaña de ropa de una sola vez, una plancha convencional es más adecuada."
+      title: "No reemplaza la plancha para tandas del fin de semana",
+      desc: "Si vas a planchar 30 sábanas y toallas juntas, la plancha pesada tradicional sigue siendo la indicada."
     },
     {
-      title: "No está pensada para sesiones largas",
-      desc: "LISO está hecha para resolver esos retoques rápidos, no para estar 30 minutos seguidos planchando."
+      title: "No está pensada para sesiones largas de 1 hora",
+      desc: "LISO está diseñada para resolver la prenda del momento antes de salir, no para maratones de lavandería."
     },
     {
-      title: "Su depósito es compacto",
-      desc: "Los 100 ml alcanzan para aproximadamente 2–3 prendas por carga, dependiendo del uso."
+      title: "El depósito es para 2 a 3 prendas por carga",
+      desc: "Carga 100 ml para mantenerse liviana y ágil en la mano. Si necesitas más, se rellena en segundos con el vaso dosificador."
     }
   ],
   cordRationale: {
     title: "¿Por qué tiene cable?",
-    description: "Para calentar rápido y mantener una temperatura constante de hasta 150 °C sin caídas de fuerza, LISO necesita corriente directa. Una batería con esa potencia la haría pesada, aparatosa y perdería rendimiento con los meses."
+    description: "Para entregar 1200 W de potencia real y mantener 150 °C constantes sin caídas de vapor, LISO necesita corriente directa. Una batería con esa fuerza pesaría más de 1 kg y perdería rendimiento a los pocos meses."
   }
 };
 
@@ -187,10 +187,10 @@ export const comparisonRows: ComparisonRow[] = [
     traditionalIron: "Peso y calor directo sobre la tabla",
     traditionalVerdict: "good",
     steamerHighlight: "Insuficiente",
-    cheapSteamer: "Solo vapor; arrugas marcadas persisten",
+    cheapSteamer: "Solo vapor tibio; pliegues persisten",
     steamerVerdict: "bad",
     lisoHighlight: "Acabado perfecto 150 °C",
-    liso: "Acabado perfecto a 150 °C",
+    liso: "Acabado perfecto a 150 °C con placa cerámica",
     lisoVerdict: "good"
   },
   {
@@ -202,7 +202,7 @@ export const comparisonRows: ComparisonRow[] = [
     cheapSteamer: "Condensa y moja la prenda",
     steamerVerdict: "bad",
     lisoHighlight: "100% Antigoteo",
-    liso: "100% Antigoteo (Cero manchas)",
+    liso: "Bomba presurizada 100% antigoteo (Cero manchas)",
     lisoVerdict: "good"
   },
   {
@@ -218,15 +218,15 @@ export const comparisonRows: ComparisonRow[] = [
     lisoVerdict: "good"
   },
   {
-    feature: "Planchar 10+ prendas seguidas",
-    traditionalHighlight: "Sí, es la ideal",
-    traditionalIron: "Diseñada para grandes tandas de ropa",
+    feature: "Uso ideal",
+    traditionalHighlight: "Tandas grandes",
+    traditionalIron: "Ideal para 20+ prendas los domingos",
     traditionalVerdict: "good",
-    steamerHighlight: "No recomendado",
-    cheapSteamer: "Se recalienta y cansa la mano",
+    steamerHighlight: "Arrugas leves",
+    cheapSteamer: "Vapor débil, se recalienta rápido",
     steamerVerdict: "bad",
-    lisoHighlight: "3 minutos",
-    liso: "Listos en 3 minutos antes de salir",
+    lisoHighlight: "Impecable antes de salir",
+    liso: "La prenda de hoy lista en 2 a 3 minutos",
     lisoVerdict: "good"
   }
 ];
@@ -235,45 +235,45 @@ export const lifestyleScenes: LifestyleScene[] = [
   {
     id: "scene-1",
     number: "01",
-    title: "Camisa de oficina",
-    caption: "La camisa que necesitas, lista en minutos.",
-    context: "La cuelgas en el gancho, pasas LISO y sales sin haber sacado la tabla de planchar.",
+    title: "La camisa de la mañana",
+    caption: "La camisa de hoy, impecable en minutos.",
+    context: "La cuelgas en el gancho, pasas LISO y sales directo a tu día sin haber sacado la tabla de planchar.",
     imagePlaceholderText: "FOTOGRAFÍA REAL: Camisa colgada en gancho de madera, luz natural de mañana, cuello y solapa impecables.",
     aspectRatio: "4/5"
   },
   {
     id: "scene-2",
     number: "02",
-    title: "Vestido delicado",
-    caption: "Si tienes poco tiempo antes de salir, una arruga no debería complicarte el día.",
-    context: "Vapor para las zonas más difíciles y placa caliente para dejar la prenda realmente lisa.",
+    title: "Vestidos y telas delicadas",
+    caption: "Seda, satén o lino sin temor a quemarlos.",
+    context: "La placa cerámica a 150 °C y el vapor continuo relajan las arrugas más difíciles cuidando las telas más finas.",
     imagePlaceholderText: "FOTOGRAFÍA REAL: Vestido de tela ligera colgado en gancho, textura suave sin marcas de calor.",
     aspectRatio: "4/5"
   },
   {
     id: "scene-3",
     number: "03",
-    title: "Cortinas y telas colgadas",
-    caption: "Cuando planchar sobre una mesa no es una opción.",
-    context: "Úsala directamente en el gancho para refrescar prendas, cortinas y telas difíciles de llevar a la tabla.",
+    title: "Cortinas y espacios del hogar",
+    caption: "Alisa en vertical sin tener que descolgar.",
+    context: "Vaporiza cortinas, manteles o cobijas colgadas, refrescando la tela y eliminando arrugas al instante.",
     imagePlaceholderText: "FOTOGRAFÍA REAL: Cortina de lino en sala iluminada, alisando pliegues directamente colgada.",
     aspectRatio: "16/10"
   },
   {
     id: "scene-4",
     number: "04",
-    title: "Hotel y maleta",
-    caption: "Cuando llegas de viaje, tu ropa no siempre llega igual de bien.",
-    context: "LISO cabe en la maleta, funciona a 110–240 V y está lista para devolverle el aspecto a tu ropa.",
+    title: "Directo de la maleta",
+    caption: "Desempaca en el hotel y sal listo a tu evento.",
+    context: "Compacta para tu maleta de mano y lista a 110 V para dejarte impecable en cualquier viaje de trabajo o descanso.",
     imagePlaceholderText: "FOTOGRAFÍA REAL: Habitación de hotel, maleta abierta y LISO sobre la mesa lista para usar.",
     aspectRatio: "4/5"
   },
   {
     id: "scene-5",
     number: "05",
-    title: "En su base de apoyo",
-    caption: "La dejas a mano porque sabes que vas a volver a usarla.",
-    context: "Diseño compacto, base segura y todo en su sitio para el próximo retoque.",
+    title: "Base de descanso seguro",
+    caption: "Pósala con tranquilidad mientras te vistes.",
+    context: "Su base de apoyo térmico te permite dejarla caliente sobre cualquier tocador o mesa de noche sin riesgo de daño.",
     imagePlaceholderText: "FOTOGRAFÍA REAL: LISO descansando en su base de apoyo sobre superficie de madera clara.",
     aspectRatio: "16/10"
   }
@@ -320,74 +320,74 @@ export const boxItems: BoxItem[] = [
 export const faqItems: FAQItem[] = [
   {
     id: "faq-1",
-    question: "¿Cuánto dura el tanque de agua?",
-    answer: "El depósito de 100 ml da para unos 5 minutos de vapor continuo a máxima fuerza. Está pensado así para que la plancha sea liviana y no te canse la mano mientras la usas.",
+    question: "¿Reemplaza mi plancha tradicional grande?",
+    answer: "No pretendemos reemplazarla para el domingo de lavandería cuando tienes 30 prendas amontonadas. LISO está pensada para el día a día: para la ropa que te vas a poner hoy antes de salir, directamente en el gancho y en 3 minutos sin armar la tabla.",
     verified: true
   },
   {
     id: "faq-2",
-    question: "¿Cuántas prendas puedo dejar listas con una sola carga?",
-    answer: "Entre 2 y 3 prendas. Por ejemplo, dos camisas para salir a trabajar o un vestido y una blusa. Es perfecta para el retoque del día a día; si necesitas más, solo rellenas con el vaso dosificador y sigues.",
+    question: "¿Por qué cuesta $189.900 si hay vaporizadores de $60.000?",
+    answer: "Los vaporizadores económicos de $60.000 tienen resistencias plásticas de 600 W que solo hierven agua, escupen gotas calientes y no alisan arrugas de verdad. LISO entrega 1200 W reales con placa cerámica a 150 °C, bomba presurizada 100% antigoteo y pantalla digital con materiales de alta durabilidad.",
     verified: true
   },
   {
     id: "faq-3",
     question: "¿Gotea o moja la ropa al usarla?",
-    answer: "No gotea ni moja tus prendas. Su cámara interna calienta a 150 °C y vaporiza el agua por completo antes de expulsarla por las boquillas, evitando manchas de agua o humedad en la tela.",
+    answer: "No gotea ni moja tus prendas. Su bomba electrónica presurizada y la cámara térmica a 150 °C convierten el agua en vapor seco continuo, evitando salpicaduras y manchas de agua antes de salir.",
     verified: true
   },
   {
     id: "faq-4",
-    question: "¿Qué telas puedo planchar?",
-    answer: "Algodón, lino, mezclas de poliéster, lana y sedas quedan impecables. Para prendas muy delicadas o tejidos especiales, recomendamos usar el Nivel 1 de vapor y hacer una pequeña prueba en una costura interior o dobladillo que no se vea.",
+    question: "¿Cuántas prendas puedo dejar listas con una sola carga?",
+    answer: "Entre 2 y 3 prendas. Por ejemplo, la camisa y el pantalón para salir hoy. Es perfecta para dejarte impecable en el momento; si necesitas más, solo rellenas en segundos con el vaso dosificador incluido y sigues.",
     verified: true
   },
   {
     id: "faq-5",
-    question: "¿Se puede usar tanto en vertical como en horizontal?",
-    answer: "Sí. Para eso tiene la placa giratoria: en vertical planchas la ropa colgada en el gancho, y en horizontal puedes apoyarte sobre la cama o una mesa sin sacar ninguna tabla.",
+    question: "¿Cuánto dura el tanque de agua?",
+    answer: "El depósito de 100 ml da para unos 5 minutos de vapor continuo a máxima potencia. Está calibrado a esa medida para que la plancha sea liviana (650 g) y no te canse la muñeca mientras la pasas.",
     verified: true
   },
   {
     id: "faq-6",
-    question: "¿Qué tipo de enchufe me envían?",
-    answer: "Te enviamos la versión con clavija plana estándar (Tipo A/B americano, 110 V), el estándar en los hogares colombianos. Se conecta directo a cualquier enchufe de la casa, sin necesidad de adaptadores.",
+    question: "¿Qué telas puedo planchar?",
+    answer: "Algodón, lino, lana, satén, sedas y telas sintéticas quedan impecables. Para tejidos especialmente delicados recomendamos empezar en el nivel 1 de vapor y hacer una pasada suave.",
     verified: true
   },
   {
     id: "faq-7",
-    question: "¿Funciona en otros países con 110–240 V?",
-    answer: "Sí. Es multivoltaje (110 a 240 V). Funciona directo en Colombia a 110 V y además puedes llevarla en tu maleta a cualquier parte del mundo sin miedo a que se queme.",
+    question: "¿Se puede usar tanto en vertical como en horizontal?",
+    answer: "Sí. Su cabezal giratorio de 90° te permite alisar en vertical directo en el gancho, o girarlo para apoyarte horizontalmente sobre la cama o una mesa cuando quieras fijar cuellos, solapas o puños.",
     verified: true
   },
   {
     id: "faq-8",
-    question: "¿Pesa mucho al usarla?",
-    answer: "Es compacta y liviana (aprox. 650 gramos vacía). El depósito de 100 ml está ubicado estratégicamente para que el centro de gravedad quede pegado a la mano y no te canse la muñeca ni el brazo mientras la pasas.",
+    question: "¿Qué tipo de enchufe tiene en Colombia?",
+    answer: "Viene con clavija estándar para Colombia (Tipo A/B americano, 110 V). Se conecta directo a cualquier tomacorriente de pared en tu casa u hotel sin necesidad de adaptadores.",
     verified: true
   },
   {
     id: "faq-9",
-    question: "¿Cómo se cuida y se guarda?",
-    answer: "Recomendamos usar agua potable o filtrada y vaciar el agua sobrante al terminar de usarla para evitar la formación de sedimentos minerales en el aluminio. Déjala enfriar en su base de apoyo y luego guárdala cómodamente en su bolsa de viaje incluida.",
+    question: "¿Puedo llevarla en la maleta de viaje?",
+    answer: "Sí. Es compacta, liviana y multivoltaje (110–240 V). Cabe perfectamente en cualquier maleta de mano y viene con su bolsa de viaje incluida para llevarla protegida.",
     verified: true
   },
   {
     id: "faq-10",
-    question: "¿Qué pasa si llega con algún daño o falla?",
-    answer: "Si recibes un producto defectuoso, dañado o con algún problema, contáctanos con tu número de pedido y fotografías o un video que muestre el caso. Revisaremos tu situación y te indicaremos la solución correspondiente con atención y soporte directo para tu compra.",
+    question: "¿Por qué tiene cable en lugar de batería?",
+    answer: "Porque para darte 1200 W continuos y calentar a 150 °C en 15 segundos sin perder fuerza, necesita conexión a la pared. Una batería con esa fuerza pesaría más de 1 kg y perdería rendimiento rápidamente.",
     verified: true
   },
   {
     id: "faq-11",
-    question: "¿Por qué no es inalámbrica?",
-    answer: "Porque para darte 1200 W continuos, calentar en pocos segundos y dejar la ropa impecable sin perder fuerza, necesita conexión a la pared. Una batería con esa potencia la haría pesada, aparatosa y al año no retendría carga.",
+    question: "¿Cómo se cuida y se guarda?",
+    answer: "Recomendamos usar agua potable o filtrada y vaciar el agua sobrante al terminar. Déjala reposar en su base de apoyo térmica y guárdala cómodamente en su bolsa de viaje cuando esté fría.",
     verified: true
   },
   {
     id: "faq-12",
-    question: "¿Por qué comprarla aquí y no en una plataforma genérica?",
-    answer: "Porque te respaldamos nosotros con envío nacional, atención personalizada de personas reales y un equipo que responde ante cualquier duda o problema con tu pedido.",
+    question: "¿Qué garantía tengo en Colombia?",
+    answer: "Cuentas con 30 días de garantía por defectos de fábrica y soporte directo por WhatsApp. Si tu producto presenta algún fallo, te respondemos de inmediato con atención humana en Colombia.",
     verified: true
   }
 ];

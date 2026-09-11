@@ -132,10 +132,10 @@ export const BenefitEvidenceSection: React.FC = () => {
         {/* Section Header: Direct, clean and free of redundant pills */}
         <div className="max-w-3xl mb-8 sm:mb-10 lg:mb-12 space-y-2.5">
           <h2 className="font-display text-2xl sm:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.15]">
-            Menos vueltas para tener tu ropa lista.
+            No necesitas una sesión de planchado.
           </h2>
           <p className="text-sm sm:text-lg text-graphite/70 font-normal leading-relaxed max-w-2xl">
-            Olvídate de sacar la tabla cada vez que una prenda necesita un retoque. LISO está pensada para resolverlo en minutos.
+            Solo necesitas arreglar la ropa que te vas a poner. Sin armar la tabla, sin esperar 15 minutos y sin pereza.
           </p>
         </div>
 
@@ -147,7 +147,7 @@ export const BenefitEvidenceSection: React.FC = () => {
           <div className="space-y-6 lg:space-y-8">
             
             {/* =========================================================================
-                TARJETA HERO PANORÁMICA: 01 · CONECTAR (12 Columnas, Split Horizontal)
+                TARJETA HERO PANORÁMICA: 01 · INMEDIATEZ (12 Columnas, Split Horizontal)
                 ========================================================================= */}
             <div className="bg-white rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-10 shadow-premium hover:shadow-premium-hover relative group transition-all duration-300">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
@@ -155,15 +155,15 @@ export const BenefitEvidenceSection: React.FC = () => {
                 {/* Columna Izquierda: Información y Pilares (5 Cols) */}
                 <div className="lg:col-span-5 space-y-4">
                   <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase block">
-                    01 · CONECTAR
+                    01 · INMEDIATEZ
                   </span>
 
                   <h3 className="font-display text-2xl sm:text-3xl lg:text-[2.1rem] font-bold text-graphite leading-[1.18] tracking-tight">
-                    La conectas y alisas directo en el gancho.
+                    Enciende en 15 segundos y alisa directo en el gancho.
                   </h3>
 
                   <p className="text-sm sm:text-base text-graphite/70 leading-relaxed font-normal">
-                    Olvídate de sacar la tabla pesada y de esperar que caliente. Su placa giratoria de 90° y vapor continuo de 1200 W eliminan arrugas en minutos.
+                    No tienes que sacar la tabla pesada ni esperar una eternidad a que caliente. La prendes, le das una pasada a la prenda de hoy y sales listo.
                   </p>
 
                   {/* Micro proof badges */}
@@ -172,10 +172,10 @@ export const BenefitEvidenceSection: React.FC = () => {
                       ✓ Cero tabla de planchar
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-graphite/[0.03] border border-graphite/10 text-graphite/80 text-xs font-medium">
-                      ✓ Placa giratoria 90°
+                      ✓ Lista en 15 segundos
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-graphite/[0.03] border border-graphite/10 text-graphite/80 text-xs font-medium">
-                      ✓ Ideal camisas y lino
+                      ✓ Placa giratoria 90°
                     </span>
                   </div>
 
@@ -202,19 +202,19 @@ export const BenefitEvidenceSection: React.FC = () => {
                 ========================================================================= */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               
-              {/* TARJETA 02: CONTROLAR (Temperatura en Vivo) */}
+              {/* TARJETA 02: POTENCIA REAL (Temperatura en Vivo) */}
               <div className="bg-white rounded-3xl p-6 sm:p-7 lg:p-8 shadow-premium hover:shadow-premium-hover flex flex-col justify-between relative group transition-all duration-300">
                 <div>
                   <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
-                    02 · CONTROLAR
+                    02 · POTENCIA REAL
                   </span>
 
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-graphite leading-tight tracking-tight">
-                    Temperatura visible y vapor bajo control.
+                    1200 W y calor a 150 °C que sí alisan.
                   </h3>
 
                   <p className="text-xs sm:text-sm text-graphite/70 leading-relaxed mt-1.5">
-                    Ajusta los grados según el tejido para cuidar tus prendas sensibles sin riesgo de quemadura.
+                    Los vaporizadores comunes solo echan vapor tibio y humedecen la tela. LISO combina vapor a presión con calor cerámico para fijar cuellos y pliegues rebeldes.
                   </p>
 
                   {/* Clean Mode Selector Tabs */}
@@ -255,28 +255,28 @@ export const BenefitEvidenceSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* TARJETA 03: GUARDAR (Base Térmica de Apoyo) */}
+              {/* TARJETA 03: SEGURIDAD (Bomba Antigoteo & Base Térmica) */}
               <div className="bg-white rounded-3xl p-6 sm:p-7 lg:p-8 shadow-premium hover:shadow-premium-hover flex flex-col justify-between relative group transition-all duration-300">
                 <div>
                   <span className="font-sans text-xs font-bold tracking-[0.16em] text-accent uppercase block mb-1.5">
-                    03 · GUARDAR
+                    03 · SEGURIDAD
                   </span>
 
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-graphite leading-tight tracking-tight">
-                    Pósala caliente entre prenda y prenda.
+                    Bomba 100% antigoteo y base de apoyo térmico.
                   </h3>
 
                   <p className="text-xs sm:text-sm text-graphite/70 leading-relaxed mt-1.5">
-                    Su base de apoyo aislante te permite posarla caliente sobre cualquier mesa sin riesgo y tenerla siempre a mano en tu clóset.
+                    Cero manchas de agua hirviendo en tu ropa antes de salir. Su base de apoyo te permite posarla caliente sobre cualquier mesa con total tranquilidad.
                   </p>
 
                   {/* Supporting Trust Pills */}
                   <div className="flex flex-wrap gap-2 my-4">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-graphite/[0.03] border border-graphite/10 text-graphite/80 text-xs font-medium">
-                      ✓ Base resistente al calor
+                      ✓ Bomba 100% antigoteo
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-graphite/[0.03] border border-graphite/10 text-graphite/80 text-xs font-medium">
-                      ✓ Mango seguro ≤42 °C
+                      ✓ Base resistente al calor
                     </span>
                   </div>
                 </div>
@@ -317,9 +317,9 @@ export const BenefitEvidenceSection: React.FC = () => {
           {/* Segmented Controller Tab Bar */}
           <div className="flex items-center gap-1.5 p-1 bg-graphite/[0.04] border border-graphite/10 rounded-xl mb-3.5">
             {([
-              { idx: 0, label: '01 · CONECTAR' },
-              { idx: 1, label: '02 · CONTROLAR' },
-              { idx: 2, label: '03 · GUARDAR' }
+              { idx: 0, label: '01 · AL GANCHO' },
+              { idx: 1, label: '02 · POTENCIA' },
+              { idx: 2, label: '03 · SEGURIDAD' }
             ]).map((moment) => (
               <button
                 key={moment.idx}
@@ -344,19 +344,19 @@ export const BenefitEvidenceSection: React.FC = () => {
             onPointerDown={onUserInteraction}
             className="mobile-snap-track gap-4 px-4 -mx-4 pb-3 pt-1"
           >
-            {/* Moment 01: Conectar */}
+            {/* Moment 01: Al Gancho */}
             <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-5 sm:p-6 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
               <div className="space-y-3">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
-                  01 · CONECTAR
+                  01 · AL GANCHO
                 </span>
 
                 <div className="space-y-1">
                   <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight break-words">
-                    La conectas y alisas directo en el gancho.
+                    Enciende en 15 segundos y alisa directo en el gancho.
                   </h3>
                   <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed break-words">
-                    Con LISO puedes alisar directamente en el gancho, sin montar la tabla ni preparar todo lo que normalmente implica planchar.
+                    Sin sacar la tabla pesada ni esperar una eternidad. Le das una pasada rápida a la prenda de hoy y sales listo.
                   </p>
                 </div>
 
@@ -374,19 +374,19 @@ export const BenefitEvidenceSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Moment 02: Controlar */}
+            {/* Moment 02: Potencia */}
             <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-5 sm:p-6 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
               <div className="space-y-2.5">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
-                  02 · CONTROLAR
+                  02 · POTENCIA
                 </span>
 
                 <div className="space-y-1">
                   <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight break-words">
-                    Temperatura visible y vapor bajo control.
+                    1200 W y calor a 150 °C que sí alisan.
                   </h3>
                   <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed break-words">
-                    Elige la temperatura que necesitas y ajusta el vapor según la prenda para cuidar tus tejidos sensibles.
+                    A diferencia del vapor tibio que solo humedece la ropa, la placa cerámica a 150 °C fija cuellos, solapas y puños.
                   </p>
                 </div>
 
@@ -435,19 +435,19 @@ export const BenefitEvidenceSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Moment 03: Guardar */}
+            {/* Moment 03: Seguridad */}
             <div className="mobile-snap-item w-[calc(100vw-2rem)] max-w-[390px] bg-white p-5 sm:p-6 rounded-2xl shadow-premium flex flex-col justify-between text-graphite overflow-hidden snap-center">
               <div className="space-y-2.5">
                 <span className="text-accent font-bold font-sans text-[11px] uppercase tracking-wider block">
-                  03 · GUARDAR
+                  03 · SEGURIDAD
                 </span>
 
                 <div className="space-y-1">
                   <h3 className="font-display text-lg sm:text-xl font-bold text-graphite leading-tight break-words">
-                    Pósala caliente entre prenda y prenda.
+                    Bomba 100% antigoteo y descanso seguro.
                   </h3>
                   <p className="text-xs sm:text-[12.5px] text-graphite/70 leading-relaxed break-words">
-                    Su base de apoyo aislante te permite guardarla fácilmente después de usarla sin esperar a que enfríe.
+                    Cero manchas de agua hirviendo. Pósala caliente en su base de apoyo sobre cualquier mesa con total tranquilidad.
                   </p>
                 </div>
 
@@ -463,9 +463,9 @@ export const BenefitEvidenceSection: React.FC = () => {
               </div>
 
               <div className="flex items-center justify-center gap-2 pt-2.5 text-[10.5px] font-sans text-accent font-medium">
-                <span>✓ Base térmica aislante</span>
+                <span>✓ 100% Antigoteo</span>
                 <span className="text-graphite/30">•</span>
-                <span>✓ Lista para guardar</span>
+                <span>✓ Base térmica segura</span>
               </div>
             </div>
           </div>

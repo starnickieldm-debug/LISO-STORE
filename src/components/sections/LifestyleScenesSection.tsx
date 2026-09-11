@@ -121,8 +121,8 @@ export const LifestyleScenesSection: React.FC = () => {
         
         {/* Section Header */}
         <SectionHeader
-          title="Hay días en los que sacar la tabla no tiene sentido."
-          subtitle="Una camisa antes de una reunión, una prenda delicada o la ropa que salió arrugada de la maleta. LISO está hecha para esos pequeños rescates del día a día."
+          title="Para la ropa que necesitas hoy, no para perder la tarde planchando."
+          subtitle="La camisa de la mañana, un vestido delicado o la ropa que se arrugó en la maleta. LISO resuelve en 3 minutos directo en el gancho."
           className="mb-8 sm:mb-10"
         />
 

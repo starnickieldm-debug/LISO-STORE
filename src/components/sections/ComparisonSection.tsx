@@ -56,10 +56,10 @@ export const liquidComparisonRows: LiquidComparisonRow[] = [
   },
   {
     feature: "Uso ideal",
-    liso: "Listos en 3 minutos antes de salir",
-    traditional: "Tandas grandes",
+    liso: "La prenda de hoy en 2-3 min",
+    traditional: "Tandas grandes de ropa",
     traditionalAlert: false,
-    steamer: "No recomendado",
+    steamer: "Solo arrugas muy leves",
     steamerAlert: true,
   },
 ];
@@ -123,7 +123,7 @@ export const ComparisonSection: React.FC = () => {
 
             <div className="max-w-lg lg:text-right">
               <p className="text-sm sm:text-[15px] font-sans text-graphite/75 leading-relaxed">
-                Olvídate de perder tiempo planchando. <strong className="font-semibold text-graphite">LISO®</strong> está lista para usar en segundos y dejarte impecable antes de salir.
+                El punto exacto entre dos extremos. La plancha pesada es para tandas grandes de sábanas; los vaporizadores baratos escupen agua y calientan poco. <strong className="font-semibold text-graphite">LISO®</strong> está hecha para dejarte impecable en 3 minutos.
               </p>
             </div>
           </div>
