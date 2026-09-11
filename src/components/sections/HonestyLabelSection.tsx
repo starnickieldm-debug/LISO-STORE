@@ -10,8 +10,8 @@ export const HonestyLabelSection: React.FC = () => {
   return (
     <section 
       id="etiqueta" 
-      className="py-12 sm:py-16 lg:py-18 bg-bone border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
-      style={{ backgroundColor: '#EFEBE2', color: '#262320' }}
+      className="py-12 sm:py-16 lg:py-20 bg-bone border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
+      style={{ backgroundColor: '#FAF8F5', color: '#262320' }}
     >
       {/* Background Texture: Subtle Architecture Grid (Horizontal Landscape) */}
       <div 
@@ -21,13 +21,13 @@ export const HonestyLabelSection: React.FC = () => {
         <img 
           src="/images/textures/texture-grid-horizontal.webp" 
           alt="" 
-          className="w-full h-full object-cover object-center opacity-10 mix-blend-multiply"
+          className="w-full h-full object-cover object-center opacity-5 mix-blend-multiply"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#EFEBE2]/50 via-transparent to-[#EFEBE2]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/50 via-transparent to-[#FAF8F5]/60 pointer-events-none" />
       </div>
 
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Section Header */}
         <SectionHeader
@@ -37,22 +37,27 @@ export const HonestyLabelSection: React.FC = () => {
           className="mb-8 sm:mb-10"
         />
 
-        {/* Nutritional-Style Technical Label Card with Thermal Print Effect */}
+        {/* Nutritional-Style Technical Matrix (Native Full-Width Layout) */}
         <Reveal direction="up" duration={700}>
-          <div className="bg-white rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 shadow-premium-lg relative overflow-hidden">
+          <div className="relative">
             
-            {/* Label Header */}
-            <div className="border-b border-graphite/10 pb-5 mb-8">
+            {/* Label Sub-Header Bar */}
+            <div className="border-y border-graphite/10 py-3.5 mb-8 lg:mb-10">
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                 <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-tight text-graphite">
                   LO QUE PUEDES ESPERAR DE LISO
                 </h3>
-                <div className="text-left sm:text-right">
-                  <span className="font-sans text-xs font-bold uppercase tracking-wider text-accent block">
+                <div className="flex items-center gap-3 text-xs font-sans">
+                  <span className="font-bold uppercase tracking-wider text-accent">
                     LISO · PLANCHA A VAPOR
                   </span>
-                  <span className="text-xs font-sans text-graphite/70 font-medium block">
+                  <span className="text-graphite/40">·</span>
+                  <span className="text-graphite/70 font-medium">
                     Depósito: 100 ml
+                  </span>
+                  <span className="text-graphite/40">·</span>
+                  <span className="text-graphite/70 font-medium">
+                    1200 W directa
                   </span>
                 </div>
               </div>
@@ -63,21 +68,21 @@ export const HonestyLabelSection: React.FC = () => {
                 Col 1 (4 cols): Product Inspection Stage (Visual Anchor with specs)
                 Col 2 (8 cols): 2-Column Honesty Matrix (Brilla vs. No está hecha)
                 ========================================================================= */}
-            <div className="hidden md:grid grid-cols-12 gap-6 lg:gap-8 pb-8 border-b border-graphite/10 items-stretch">
+            <div className="hidden md:grid grid-cols-12 gap-8 lg:gap-10 xl:gap-12 pb-10 border-b border-graphite/10 items-stretch">
               
               {/* COLUMNA 1 (4 COLS): Panel de Inspección Técnica de Producto */}
-              <div className="col-span-12 lg:col-span-4 bg-white rounded-2xl sm:rounded-[24px] p-5 lg:p-6 flex flex-col justify-between relative overflow-hidden shadow-premium-image group">
+              <div className="col-span-12 lg:col-span-4 bg-white border border-graphite/10 rounded-2xl p-6 flex flex-col justify-between relative shadow-xs group">
                 {/* Header Tag */}
                 <div className="w-full flex items-center justify-between text-[10px] font-sans uppercase tracking-wider text-graphite/60 font-semibold border-b border-graphite/10 pb-2.5">
                   <span>DISPOSITIVO ANALIZADO</span>
-                  <span className="text-accent font-bold px-1.5 py-0.5 rounded bg-accent/10 border border-accent/20">
+                  <span className="text-accent font-bold px-2 py-0.5 rounded bg-accent/10 border border-accent/20">
                     SERIE 01
                   </span>
                 </div>
 
                 {/* Product Photo Stage with subtle radial aura */}
-                <div className="relative w-full aspect-[3/4] max-w-[220px] mx-auto flex items-center justify-center my-3">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(180,36,124,0.08)_0%,transparent_70%)] blur-xl pointer-events-none" />
+                <div className="relative w-full aspect-[3/4] max-w-[240px] mx-auto flex items-center justify-center my-4">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(180,36,124,0.06)_0%,transparent_70%)] blur-xl pointer-events-none" />
                   <img 
                     src="/images/liso-pure-cutout.webp" 
                     alt="Plancha a vapor LISO - Vista técnica completa" 
@@ -87,7 +92,7 @@ export const HonestyLabelSection: React.FC = () => {
                 </div>
 
                 {/* Technical Verification Badges */}
-                <div className="w-full space-y-2 pt-3 border-t border-graphite/10 font-sans text-xs">
+                <div className="w-full space-y-2.5 pt-3.5 border-t border-graphite/10 font-sans text-xs">
                   <div className="flex items-center justify-between">
                     <span className="text-graphite/65">Potencia nominal</span>
                     <span className="font-sans font-bold text-graphite">1200 W directa</span>
@@ -104,7 +109,7 @@ export const HonestyLabelSection: React.FC = () => {
               </div>
 
               {/* COLUMNA 2 (8 COLS): Matriz Bicolor de Honestidad (2 subcolumnas) */}
-              <div className="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+              <div className="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
                 
                 {/* SUBCOL A: DONDE REALMENTE BRILLA */}
                 <div className="space-y-4">
@@ -228,7 +233,7 @@ export const HonestyLabelSection: React.FC = () => {
               </div>
 
               {/* 3. Detail Content Card */}
-              <div className="bg-[#FAF8F5] border border-graphite/12 rounded-2xl p-5 sm:p-6 shadow-sm">
+              <div className="bg-white border border-graphite/10 rounded-2xl p-5 sm:p-6 shadow-xs">
                 <div className="pb-3 mb-3 border-b border-graphite/10 flex items-center justify-between">
                   <h4 className="font-display font-bold text-sm sm:text-base text-graphite tracking-tight">
                     {mobileTab === 'does' ? 'Donde LISO realmente brilla:' : 'Para lo que no está hecha:'}
