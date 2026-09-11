@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Universal scrollbar removal for horizontal tracks (Windows Chrome, Edge, Firefox, Safari) */
+.scrollbar-none::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  -webkit-appearance: none !important;
+}
+
+.scrollbar-none,
+.no-scrollbar {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+
 @layer base {
   html {
     color-scheme: light;

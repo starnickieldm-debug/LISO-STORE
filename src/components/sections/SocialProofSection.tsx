@@ -268,8 +268,12 @@ export const SocialProofSection: React.FC = () => {
           <div 
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex gap-3.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none scroll-smooth px-3 sm:px-6 py-2"
-            style={{ WebkitOverflowScrolling: 'touch' }}
+            className="flex gap-3.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar scroll-smooth px-3 sm:px-6 py-2"
+            style={{ 
+              WebkitOverflowScrolling: 'touch',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
           >
             {ugcItems.map((item) => {
               const isAudioActive = activeAudioId === item.id;
@@ -344,8 +348,8 @@ export const SocialProofSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Minimal pagination dot indicators */}
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-5" aria-hidden="true">
+        {/* Minimal pagination dot indicators (Mobile/Tablet only, hidden on Desktop) */}
+        <div className="lg:hidden flex items-center justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-5" aria-hidden="true">
           {ugcItems.map((item, index) => (
             <button
               key={item.id}
