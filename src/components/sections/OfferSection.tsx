@@ -66,23 +66,11 @@ export const OfferSection: React.FC = () => {
   return (
     <section 
       id="oferta" 
-      className="py-12 sm:py-16 lg:py-20 bg-white text-graphite border-y border-graphite/10 relative overflow-visible scroll-mt-16 sm:scroll-mt-20"
+      className="py-8 sm:py-12 lg:py-16 bg-white text-graphite border-y border-graphite/10 relative overflow-visible scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#FFFFFF' }}
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
-        {/* Editorial Section Intro */}
-        <Reveal direction="up" duration={600}>
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-14">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-graphite tracking-tight">
-              Tu LISO, lista para usar.
-            </h2>
-            <p className="text-base sm:text-lg text-graphite/70 mt-2">
-              Todo lo que necesitas viene en la caja. La conectas y empiezas.
-            </p>
-          </div>
-        </Reveal>
-
         {/* =========================================================================
             PDP NATIVE CONTAINER — Sticky High-Impact Visual + Scrolling Buy Flow
             ========================================================================= */}
