@@ -116,11 +116,6 @@ export const ThreeGesturesSection: React.FC = () => {
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.18]">
             Dejar tu ropa lista es así de simple.
           </h2>
-
-          {/* Subheading: Solución práctica de uso inmediato */}
-          <p className="mt-2.5 sm:mt-3.5 text-base sm:text-lg md:text-xl text-graphite/70 font-normal max-w-2xl leading-relaxed">
-            Sin armar la tabla ni montar todo un ritual. Tres gestos rápidos directo en el gancho para salir impecable con la prenda de hoy.
-          </p>
         </div>
 
         {/* =========================================================================

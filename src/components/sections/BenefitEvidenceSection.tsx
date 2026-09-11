@@ -130,13 +130,10 @@ export const BenefitEvidenceSection: React.FC = () => {
       <div className="max-w-[1600px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 relative z-10">
         
         {/* Section Header: Direct, clean and free of redundant pills */}
-        <div className="max-w-3xl mb-8 sm:mb-10 lg:mb-12 space-y-2.5">
+        <div className="max-w-3xl mb-8 sm:mb-10 lg:mb-12">
           <h2 className="font-display text-2xl sm:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.15]">
             No necesitas una sesión de planchado.
           </h2>
-          <p className="text-sm sm:text-lg text-graphite/70 font-normal leading-relaxed max-w-2xl">
-            Solo necesitas arreglar la ropa que te vas a poner. Sin armar la tabla ni perder tiempo esperando.
-          </p>
         </div>
 
         {/* =========================================================================
