@@ -200,7 +200,7 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              Alisa directamente en el gancho con calor cerámico a 150 °C. Lista en 15 segundos, sin armar la tabla y 100% libre de manchas de agua.
+              Alisa directamente en el gancho y olvídate de la tabla. Lista en solo 15 segundos.
             </p>
 
             {/* 4. Streamlined High-Impact Conversion Block (Open, Clean, Friction-Free) */}
@@ -356,7 +356,7 @@ export const HeroSection: React.FC = () => {
 
           {/* 4. Micro-bajada: Concise objection-killing value proposition */}
           <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[325px] mx-auto mb-3">
-            Alisa directamente en el gancho con calor cerámico a 150 °C. Lista en 15 segundos, sin armar la tabla y sin manchas de agua.
+            Alisa directamente en el gancho y olvídate de la tabla. Lista en solo 15 segundos.
           </p>
 
           {/* 5. Streamlined Conversion Section (Thumb-Zone Optimized) */}
