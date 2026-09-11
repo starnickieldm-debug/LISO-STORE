@@ -50,10 +50,10 @@ export const HeroSection: React.FC = () => {
         
         {/* Layer 1: Horizontal Ceramic Grid Texture (Strictly masked away from product image) */}
         <div 
-          className="pointer-events-none absolute inset-y-0 left-0 w-full lg:w-[58%] z-0 overflow-hidden select-none"
+          className="pointer-events-none absolute inset-y-0 left-0 w-full lg:w-[54%] z-0 overflow-hidden select-none"
           style={{
-            maskImage: 'linear-gradient(to right, black 0%, black 50%, transparent 95%)',
-            WebkitMaskImage: 'linear-gradient(to right, black 0%, black 50%, transparent 95%)',
+            maskImage: 'linear-gradient(to right, black 0%, black 35%, transparent 75%)',
+            WebkitMaskImage: 'linear-gradient(to right, black 0%, black 35%, transparent 75%)',
           }}
           aria-hidden="true" 
         >
@@ -84,9 +84,13 @@ export const HeroSection: React.FC = () => {
           aria-hidden="true" 
         />
 
-        {/* Layer 3: Clean Vertical Cut Product Image Stage */}
+        {/* Layer 3: Product Image Stage with soft integrated fade */}
         <div 
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[54%] xl:w-[52%] 2xl:w-[50%] z-10 hidden lg:flex items-center justify-end overflow-hidden border-l border-graphite/10 shadow-[-10px_0_30px_rgba(0,0,0,0.08)]"
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[56%] xl:w-[53%] 2xl:w-[50%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, black 28%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 12%, black 28%)',
+          }}
         >
           <picture className="w-full h-full">
             <source 
@@ -101,7 +105,7 @@ export const HeroSection: React.FC = () => {
               alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
               className="w-full h-full object-cover object-[90%_center] transform origin-center transition-all duration-1000 ease-mech-s"
               style={{
-                filter: 'brightness(1.02) contrast(1.02)',
+                filter: 'brightness(1.01) contrast(1.01)',
                 ...(!prefersReduced ? {
                   opacity: loaded ? 1 : 0,
                   transform: loaded ? 'scale(1)' : 'scale(1.03)',
@@ -111,6 +115,12 @@ export const HeroSection: React.FC = () => {
               loading="eager"
             />
           </picture>
+
+          {/* Gentle feathering gradient overlay blending into hero background */}
+          <div 
+            className="absolute inset-y-0 left-0 w-36 xl:w-48 bg-gradient-to-r from-[#F5F1EA] via-[#F5F1EA]/50 to-transparent pointer-events-none z-20" 
+            aria-hidden="true"
+          />
         </div>
 
         <div className="max-w-[1480px] w-full mx-auto px-4 sm:px-8 lg:px-12 relative z-30 my-auto">
@@ -234,7 +244,7 @@ export const HeroSection: React.FC = () => {
           
           {/* 1. Mobile Visual Stage First (Edge-to-Edge Full Bleed Header Image like Liquid+) */}
           <div className="relative -mx-4 sm:-mx-8 w-[calc(100%+2rem)] sm:w-[calc(100%+4rem)] mb-4">
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-night-950">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F5F1EA]">
               <picture className="w-full h-full">
                 <source 
                   srcSet="/images/hero-steamer-editorial.webp 2048w, /images/hero-steamer-editorial-1024.webp 1024w" 
@@ -248,11 +258,17 @@ export const HeroSection: React.FC = () => {
                   alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
                   className="w-full h-full object-cover object-[95%_center]"
                   style={{
-                    filter: 'brightness(1.02) contrast(1.02)'
+                    filter: 'brightness(1.01) contrast(1.01)'
                   }}
                   loading="eager"
                 />
               </picture>
+
+              {/* Soft bottom blend gradient into hero background on mobile */}
+              <div 
+                className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#F5F1EA] via-[#F5F1EA]/50 to-transparent pointer-events-none z-10" 
+                aria-hidden="true"
+              />
             </div>
 
             {/* Floating Circular Badge in bottom-right (Liquid+ Style) */}
