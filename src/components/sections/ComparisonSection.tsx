@@ -110,63 +110,63 @@ export const ComparisonSection: React.FC = () => {
         <Reveal direction="up" duration={700} className="hidden md:block">
           <div className="space-y-3.5 sm:space-y-4">
             
-            {/* 1. Header Row (Col 1: Metric Spacer, Col 2: LISO Hero, Col 3: Plancha, Col 4: Vaporizador) */}
-            <div className="grid grid-cols-[1.05fr_1.35fr_1.2fr_1.2fr] gap-3 sm:gap-4 lg:gap-5 items-center pb-3">
+            {/* 1. Header Row (Col 1: Metric Spacer, Col 2: LISO Hero, Col 3: Plancha, Col 4: Vaporizador) - Liquid+ Vertical Layout */}
+            <div className="grid grid-cols-[1.05fr_1.35fr_1.2fr_1.2fr] gap-3 sm:gap-4 lg:gap-5 items-end pb-3">
               {/* Col 1 Empty Spacer */}
               <div aria-hidden="true" />
 
-              {/* Col 2: LISO Floating Cutout + Title (No box container) */}
-              <div className="flex items-center justify-center gap-3.5 sm:gap-4 py-1 group">
-                <div className="w-18 h-18 sm:w-22 sm:h-22 lg:w-26 lg:h-26 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              {/* Col 2: LISO Floating Cutout + Title */}
+              <div className="flex flex-col items-center justify-end text-center gap-1.5 sm:gap-2 py-1 group">
+                <div className="h-14 sm:h-16 w-16 sm:w-20 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="/images/liso-pure-cutout.webp" 
                     alt="Plancha de vapor portátil LISO" 
-                    className="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(180,36,124,0.22)]"
+                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_6px_14px_rgba(180,36,124,0.18)]"
                   />
                 </div>
-                <div className="text-left">
-                  <span className="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-graphite block tracking-tight leading-tight">
-                    {brandConfig.name}<sup className="text-accent text-sm font-sans">®</sup>
+                <div className="text-center">
+                  <span className="font-display font-bold text-base sm:text-lg lg:text-xl text-graphite block tracking-tight leading-tight">
+                    {brandConfig.name}<sup className="text-accent text-xs font-sans">®</sup>
                   </span>
-                  <span className="text-xs sm:text-sm font-sans text-accent font-bold tracking-wider uppercase block mt-1">
+                  <span className="text-[11px] sm:text-xs font-sans text-accent font-bold tracking-wider uppercase block mt-0.5">
                     Plancha Portátil
                   </span>
                 </div>
               </div>
 
-              {/* Col 3: Plancha tradicional Floating Cutout + Title (No box container) */}
-              <div className="flex items-center justify-center gap-3.5 sm:gap-4 py-1 group">
-                <div className="w-18 h-18 sm:w-22 sm:h-22 lg:w-26 lg:h-26 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              {/* Col 3: Plancha tradicional Floating Cutout + Title */}
+              <div className="flex flex-col items-center justify-end text-center gap-1.5 sm:gap-2 py-1 group">
+                <div className="h-14 sm:h-16 w-16 sm:w-20 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="/images/comp-iron-board-cutout.webp" 
                     alt="Plancha tradicional con tabla de planchar" 
-                    className="w-full h-full object-contain filter drop-shadow-[0_6px_14px_rgba(0,0,0,0.08)]"
+                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
                   />
                 </div>
-                <div className="text-left">
-                  <span className="font-sans font-bold text-base sm:text-lg lg:text-xl text-graphite block leading-tight">
+                <div className="text-center">
+                  <span className="font-sans font-bold text-sm sm:text-base lg:text-[17px] text-graphite block leading-tight">
                     Plancha tradicional
                   </span>
-                  <span className="text-xs sm:text-[13px] font-sans text-graphite/55 block mt-1">
+                  <span className="text-[11px] sm:text-xs font-sans text-graphite/55 block mt-0.5">
                     Con tabla de planchar
                   </span>
                 </div>
               </div>
 
-              {/* Col 4: Vaporizador común Floating Cutout + Title (No box container) */}
-              <div className="flex items-center justify-center gap-3.5 sm:gap-4 py-1 group">
-                <div className="w-18 h-18 sm:w-22 sm:h-22 lg:w-26 lg:h-26 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              {/* Col 4: Vaporizador común Floating Cutout + Title */}
+              <div className="flex flex-col items-center justify-end text-center gap-1.5 sm:gap-2 py-1 group">
+                <div className="h-14 sm:h-16 w-16 sm:w-20 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="/images/comp-common-steamer-cutout.webp" 
                     alt="Vaporizador vertical común de plástico" 
-                    className="w-full h-full object-contain filter drop-shadow-[0_6px_14px_rgba(0,0,0,0.08)]"
+                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
                   />
                 </div>
-                <div className="text-left">
-                  <span className="font-sans font-bold text-base sm:text-lg lg:text-xl text-graphite block leading-tight">
+                <div className="text-center">
+                  <span className="font-sans font-bold text-sm sm:text-base lg:text-[17px] text-graphite block leading-tight">
                     Vaporizador común
                   </span>
-                  <span className="text-xs sm:text-[13px] font-sans text-graphite/55 block mt-1">
+                  <span className="text-[11px] sm:text-xs font-sans text-graphite/55 block mt-0.5">
                     Vertical de plástico
                   </span>
                 </div>
