@@ -10,7 +10,6 @@ import { ScrollToTop } from './components/common/ScrollToTop';
 
 import { HeroSection } from './components/sections/HeroSection';
 import { ThreeGesturesSection } from './components/sections/ThreeGesturesSection';
-import { BenefitEvidenceSection } from './components/sections/BenefitEvidenceSection';
 import { EngineeringSection } from './components/sections/EngineeringSection';
 import { HonestyLabelSection } from './components/sections/HonestyLabelSection';
 import { ComparisonSection } from './components/sections/ComparisonSection';
@@ -61,7 +60,6 @@ const HomePage: React.FC = () => (
   <main className="flex-grow">
     <HeroSection />
     <ThreeGesturesSection />
-    <BenefitEvidenceSection />
     <MovingTickerBar items={technicalTickerItems} theme="dark" speedSeconds={32} />
     <EngineeringSection />
     
