@@ -4,7 +4,7 @@ import { brandConfig, productSpecs } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { CTAButton } from '../ui/CTAButton';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
-import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2, Minus, Plus } from 'lucide-react';
+import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2, Minus, Plus, CreditCard } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { useShopifyCheckout } from '../../hooks/useShopifyCheckout';
 import { LEGAL_SELLER } from '../../config/legalInfo';
@@ -503,29 +503,62 @@ export const OfferSection: React.FC = () => {
                   {' '}Compra protegida con{' '}
                   <Link to="/garantia" className="underline hover:text-bone text-bone/80">garantía legal</Link>.
                 </p>
+
+                {/* Payment Methods Reassurance Strip */}
+                <div className="mt-4 p-3.5 bg-white/[0.04] border border-white/10 rounded-xl space-y-2 text-left">
+                  <div className="flex items-center justify-between text-[11px] font-sans text-bone/70">
+                    <span className="font-semibold uppercase tracking-wider text-[10.5px] text-bone/90 flex items-center gap-1.5">
+                      <CreditCard className="w-3.5 h-3.5 text-accent" />
+                      Medios de pago en Colombia
+                    </span>
+                    <span className="text-emerald-400 font-medium text-[10.5px] flex items-center gap-1">
+                      <Lock className="w-3 h-3" /> Conexión SSL 256-bit
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-0.5">
+                    <span className="px-2.5 py-1 rounded bg-white/10 text-[11px] font-bold text-white border border-white/15 shadow-xs">
+                      PSE
+                    </span>
+                    <span className="px-2.5 py-1 rounded bg-white/10 text-[11px] font-semibold text-white/90 border border-white/15 shadow-xs">
+                      Tarjetas Débito / Crédito
+                    </span>
+                    <span className="px-2.5 py-1 rounded bg-white/10 text-[11px] font-bold text-white border border-white/15 shadow-xs">
+                      Nequi
+                    </span>
+                    <span className="px-2.5 py-1 rounded bg-white/10 text-[11px] font-bold text-white border border-white/15 shadow-xs">
+                      Daviplata
+                    </span>
+                    <span className="px-2.5 py-1 rounded bg-accent/20 text-[11px] font-bold text-white border border-accent/40 shadow-xs">
+                      Addi
+                    </span>
+                  </div>
+                  <p className="text-[10px] font-sans text-bone/50 leading-relaxed">
+                    Pagos procesados directamente a través de la pasarela oficial y protegida de Shopify. Sin comisiones extra ni cobros ocultos.
+                  </p>
+                </div>
               </div>
 
               {/* Trust Badges */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4 border-t border-white/10 text-[11px] font-sans font-medium text-bone/70 text-center">
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5 rounded-lg">
-                  <Truck className="w-4 h-4 mx-auto mb-1 text-bone/70" />
-                  <p className="font-semibold text-bone">Envío</p>
-                  <p className="text-bone/60 text-[10px]">15–20 días hábiles</p>
+                  <Truck className="w-4 h-4 mx-auto mb-1 text-accent" />
+                  <p className="font-semibold text-bone">Envío gratis</p>
+                  <p className="text-bone/60 text-[10px]">Guía y rastreo nacional</p>
                 </div>
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5 rounded-lg">
-                  <Lock className="w-4 h-4 mx-auto mb-1 text-bone/70" />
-                  <p className="font-semibold text-bone">Pago seguro</p>
-                  <p className="text-bone/60 text-[10px]">Tus datos protegidos</p>
+                  <Lock className="w-4 h-4 mx-auto mb-1 text-accent" />
+                  <p className="font-semibold text-bone">Pago 100% seguro</p>
+                  <p className="text-bone/60 text-[10px]">PSE, Tarjetas, Nequi</p>
                 </div>
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5 rounded-lg">
-                  <ShieldCheck className="w-4 h-4 mx-auto mb-1 text-bone/70" />
-                  <p className="font-semibold text-bone">Garantía</p>
-                  <p className="text-bone/60 text-[10px]">30 días legal</p>
+                  <ShieldCheck className="w-4 h-4 mx-auto mb-1 text-accent" />
+                  <p className="font-semibold text-bone">Garantía legal</p>
+                  <p className="text-bone/60 text-[10px]">30 días directa LISO</p>
                 </div>
                 <div className="p-2.5 bg-white/5 border border-white/10 space-y-0.5 rounded-lg">
-                  <RotateCcw className="w-4 h-4 mx-auto mb-1 text-bone/70" />
-                  <p className="font-semibold text-bone">Retracto</p>
-                  <p className="text-bone/60 text-[10px]">5 días hábiles</p>
+                  <RotateCcw className="w-4 h-4 mx-auto mb-1 text-accent" />
+                  <p className="font-semibold text-bone">Retracto legal</p>
+                  <p className="text-bone/60 text-[10px]">Ley 1480 Estatuto</p>
                 </div>
               </div>
 

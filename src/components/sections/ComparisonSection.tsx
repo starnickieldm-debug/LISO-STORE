@@ -8,59 +8,45 @@ interface LiquidComparisonRow {
   feature: string;
   liso: string;
   traditional: string;
-  traditionalAlert?: boolean;
   steamer: string;
-  steamerAlert?: boolean;
 }
 
 export const liquidComparisonRows: LiquidComparisonRow[] = [
   {
-    feature: "Tiempo de inicio",
-    liso: "Lista en 15 segundos",
-    traditional: "5–10 minutos",
-    traditionalAlert: true,
+    feature: "Tiempo de calentamiento",
+    liso: "Lista en ~15 segundos",
+    traditional: "Demora varios minutos",
     steamer: "1–2 minutos",
-    steamerAlert: false,
   },
   {
     feature: "¿Requiere tabla?",
-    liso: "Sin tabla (Plancha en el gancho)",
-    traditional: "Obligatoria",
-    traditionalAlert: true,
-    steamer: "Solo en vertical",
-    steamerAlert: false,
+    liso: "Directo en gancho o superficie",
+    traditional: "Obligatoria (tabla voluminosa)",
+    steamer: "Solo uso vertical",
   },
   {
-    feature: "Cuellos y puños",
-    liso: "Acabado perfecto a 150 °C",
-    traditional: "Muy buena",
-    traditionalAlert: false,
-    steamer: "Insuficiente",
-    steamerAlert: true,
+    feature: "Placa y definición",
+    liso: "Suela cerámica a 150 °C (cuellos y puños)",
+    traditional: "Buena presión, pero pesada",
+    steamer: "Sin placa caliente (vapor difuso)",
   },
   {
     feature: "Control antigoteo",
-    liso: "100% Antigoteo (Cero manchas)",
-    traditional: "Riesgo de gotas",
-    traditionalAlert: false,
-    steamer: "Gotea al inclinar",
-    steamerAlert: true,
+    liso: "Cámara sellada (cero fugas)",
+    traditional: "Puede condensar con el uso",
+    steamer: "Gotea con frecuencia al inclinar",
   },
   {
-    feature: "Espacio y guardado",
-    liso: "Cabe en cualquier cajón o maleta",
-    traditional: "Ocupa un clóset",
-    traditionalAlert: true,
+    feature: "Espacio y portabilidad",
+    liso: "Compacta, cabe en maleta o cajón",
+    traditional: "Ocupa espacio de clóset",
     steamer: "Cuerpo voluminoso",
-    steamerAlert: false,
   },
   {
-    feature: "Uso ideal",
-    liso: "La prenda de hoy en 2-3 min",
-    traditional: "Tandas grandes de ropa",
-    traditionalAlert: false,
-    steamer: "Solo arrugas muy leves",
-    steamerAlert: true,
+    feature: "Caso de uso ideal",
+    liso: "Prendas del día a día en 2–3 min",
+    traditional: "Tandas grandes de ropa semanal",
+    steamer: "Prendas muy leves sin exigencia",
   },
 ];
 
@@ -68,21 +54,8 @@ export const ComparisonSection: React.FC = () => {
   const { currentMarket } = useMarket();
   const [compareTarget, setCompareTarget] = useState<'traditional' | 'steamer'>('traditional');
 
-  const renderCellValue = (text: string, isAlert?: boolean) => {
-    const hasExclamation = isAlert || text.includes('‼️') || text.includes('!!');
-    const cleanText = text.replace(/‼️|!!/g, '').trim();
-
-    if (hasExclamation) {
-      return (
-        <span className="inline-flex items-center justify-center gap-1">
-          <span>{cleanText}</span>
-          <span className="text-accent font-extrabold text-xs sm:text-sm tracking-tighter select-none" aria-label="Crítico">
-            ‼️
-          </span>
-        </span>
-      );
-    }
-    return <span>{text}</span>;
+  const renderCellValue = (text: string) => {
+    return <span>{text.replace(/‼️|!!/g, '').trim()}</span>;
   };
 
   return (
@@ -223,14 +196,14 @@ export const ComparisonSection: React.FC = () => {
                 {/* Col 3: Plancha tradicional */}
                 <div className="rounded-2xl bg-white/90 border border-graphite/10 p-3.5 sm:p-4 px-3 sm:px-4 flex items-center justify-center text-center shadow-xs transition-colors hover:bg-white">
                   <span className="font-sans font-semibold text-graphite/80 text-xs sm:text-[13.5px] leading-snug">
-                    {renderCellValue(row.traditional, row.traditionalAlert)}
+                    {renderCellValue(row.traditional)}
                   </span>
                 </div>
 
                 {/* Col 4: Vaporizador común */}
                 <div className="rounded-2xl bg-white/90 border border-graphite/10 p-3.5 sm:p-4 px-3 sm:px-4 flex items-center justify-center text-center shadow-xs transition-colors hover:bg-white">
                   <span className="font-sans font-semibold text-graphite/80 text-xs sm:text-[13.5px] leading-snug">
-                    {renderCellValue(row.steamer, row.steamerAlert)}
+                    {renderCellValue(row.steamer)}
                   </span>
                 </div>
               </div>
@@ -344,7 +317,6 @@ export const ComparisonSection: React.FC = () => {
           <div className="space-y-2.5">
             {liquidComparisonRows.map((row) => {
               const compValue = compareTarget === 'traditional' ? row.traditional : row.steamer;
-              const compAlert = compareTarget === 'traditional' ? row.traditionalAlert : row.steamerAlert;
 
               return (
                 <div key={row.feature} className="space-y-1">
@@ -368,7 +340,7 @@ export const ComparisonSection: React.FC = () => {
                     {/* Competitor */}
                     <div className="bg-white border border-graphite/10 p-3 rounded-xl flex items-center justify-center text-center shadow-xs min-h-[48px]">
                       <span className="font-semibold text-graphite/80 text-[12px] leading-snug">
-                        {renderCellValue(compValue, compAlert)}
+                        {renderCellValue(compValue)}
                       </span>
                     </div>
                   </div>

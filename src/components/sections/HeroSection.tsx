@@ -231,7 +231,7 @@ export const HeroSection: React.FC = () => {
                   size="large" 
                   className="w-full sm:w-auto min-w-[300px] shadow-[0_8px_28px_rgba(180,36,124,0.32)] hover:shadow-[0_12px_36px_rgba(180,36,124,0.48)] text-[15px] sm:text-base font-semibold tracking-wide py-3.5 sm:py-4 transition-all active:scale-[0.99]"
                 >
-                  Pide la tuya – $189.900
+                  Ver oferta — $189.900
                 </CTAButton>
               </div>
 
@@ -378,7 +378,7 @@ export const HeroSection: React.FC = () => {
               size="large" 
               className="w-full shadow-[0_6px_24px_rgba(180,36,124,0.32)] active:scale-[0.98] py-3.5 text-[15px] font-semibold tracking-wide"
             >
-              Pide la tuya – $189.900
+              Ver oferta — $189.900
             </CTAButton>
 
             {/* 3. Reorganización de Garantía y Confianza (Mobile) */}

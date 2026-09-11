@@ -33,10 +33,10 @@ export const Navbar: React.FC = () => {
   }, [location.pathname]);
 
   const navLinks = [
+    { label: "Demostración", href: "/#demostracion-visual" },
     { label: "Cómo funciona", href: "/#como-funciona" },
-    { label: "Características", href: "/#ingenieria" },
-    { label: "Etiqueta", href: "/#etiqueta" },
     { label: "Comparativa", href: "/#comparativa" },
+    { label: "Ingeniería", href: "/#ingenieria" },
     { label: "FAQ", href: "/#faq" }
   ];
 
