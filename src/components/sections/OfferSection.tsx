@@ -4,7 +4,7 @@ import { brandConfig, productSpecs } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { CTAButton } from '../ui/CTAButton';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
-import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2, Minus, Plus, CreditCard } from 'lucide-react';
+import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2, Minus, Plus, CreditCard, Sparkles } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { useShopifyCheckout } from '../../hooks/useShopifyCheckout';
 import { LEGAL_SELLER } from '../../config/legalInfo';
@@ -164,6 +164,36 @@ export const OfferSection: React.FC = () => {
                     <span>Manual de uso y guía rápida</span>
                   </li>
                 </ul>
+              </div>
+
+              {/* 3 Pilares de Ingeniería y Rendimiento LISO® (Opción C) */}
+              <div className="p-3.5 bg-[#FAF8F5] border border-graphite/12 rounded-2xl space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] sm:text-xs font-sans uppercase tracking-wider text-accent font-bold flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    INGENIERÍA Y RENDIMIENTO LISO®
+                  </span>
+                  <span className="text-[10px] font-sans uppercase tracking-wider text-graphite/50 font-semibold">
+                    110 V COLOMBIA
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-2 text-left">
+                  <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
+                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">1200 W</span>
+                    <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Potencia Directa</span>
+                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">Sin baterías débiles</span>
+                  </div>
+                  <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
+                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">90°</span>
+                    <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Giro Patentado</span>
+                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">Gancho o tabla en 1 clic</span>
+                  </div>
+                  <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
+                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">3 seg</span>
+                    <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Vapor Flash</span>
+                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">150 °C aluminio cerámico</span>
+                  </div>
+                </div>
               </div>
 
               {/* Selector de Cantidad */}

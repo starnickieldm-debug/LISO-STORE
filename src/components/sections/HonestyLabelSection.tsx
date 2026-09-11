@@ -44,7 +44,7 @@ export const HonestyLabelSection: React.FC = () => {
                   </span>
                   <span className="text-graphite/40">·</span>
                   <span className="text-graphite/70 font-medium">
-                    Depósito: 100 ml
+                    Cabezal 90°
                   </span>
                   <span className="text-graphite/40">·</span>
                   <span className="text-graphite/70 font-medium">
@@ -92,12 +92,12 @@ export const HonestyLabelSection: React.FC = () => {
                     <span className="block text-sm sm:text-base font-bold text-graphite mt-0.5">1200 W</span>
                   </div>
                   <div className="bg-white/80 backdrop-blur-sm border border-graphite/10 rounded-xl p-2.5 sm:p-3 text-center shadow-2xs hover:border-graphite/25 transition-colors">
-                    <span className="block text-[11px] sm:text-xs uppercase tracking-wider text-graphite/60 font-medium">Placa</span>
-                    <span className="block text-sm sm:text-base font-bold text-graphite mt-0.5">150 °C</span>
+                    <span className="block text-[11px] sm:text-xs uppercase tracking-wider text-graphite/60 font-medium">Cabezal</span>
+                    <span className="block text-sm sm:text-base font-bold text-graphite mt-0.5">Giro 90°</span>
                   </div>
                   <div className="bg-white/80 backdrop-blur-sm border border-graphite/10 rounded-xl p-2.5 sm:p-3 text-center shadow-2xs hover:border-graphite/25 transition-colors">
-                    <span className="block text-[11px] sm:text-xs uppercase tracking-wider text-graphite/60 font-medium">Depósito</span>
-                    <span className="block text-sm sm:text-base font-bold text-graphite mt-0.5">100 ml</span>
+                    <span className="block text-[11px] sm:text-xs uppercase tracking-wider text-graphite/60 font-medium">Placa</span>
+                    <span className="block text-sm sm:text-base font-bold text-graphite mt-0.5">150 °C</span>
                   </div>
                 </div>
               </div>
