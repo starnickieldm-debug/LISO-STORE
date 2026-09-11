@@ -279,29 +279,25 @@ export const ThreeGesturesSection: React.FC = () => {
             PARTE 2: RESULTADO VISIBLE (HERO ANTES/DESPUÉS) + 3 CARACTERÍSTICAS
             Inmediatamente después, integrado en la misma narrativa
             ========================================================================= */}
-        <div className="mt-8 sm:mt-10 lg:mt-12">
+        <div className="mt-8 sm:mt-10 lg:mt-12 max-w-[1120px] mx-auto">
           
-          <div className="max-w-3xl mb-4 sm:mb-6">
-            <h3 className="font-display text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-graphite tracking-tight leading-[1.18]">
+          <div className="mb-3.5 sm:mb-5">
+            <h3 className="font-display text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-graphite tracking-tight leading-[1.18]">
               No necesitas una sesión de planchado.
             </h3>
           </div>
 
-          {/* BLOQUE HERO VISUAL: ANTES / DESPUÉS */}
-          <div className="bg-white rounded-2xl sm:rounded-3xl lg:rounded-[32px] p-5 sm:p-7 lg:p-9 shadow-premium hover:shadow-premium-hover relative group transition-all duration-300">
+          {/* BLOQUE HERO VISUAL: ANTES / DESPUÉS (Tamaño compacto y calibrado) */}
+          <div className="bg-white rounded-2xl sm:rounded-3xl lg:rounded-[28px] p-4 sm:p-6 lg:p-7 shadow-premium hover:shadow-premium-hover relative group transition-all duration-300">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
               
-              {/* Columna Izquierda: Copy corto y directo */}
-              <div className="lg:col-span-5 space-y-2.5 sm:space-y-3.5">
-                <span className="font-sans text-[11px] sm:text-xs font-bold tracking-[0.16em] text-accent uppercase block">
-                  RESULTADO VISIBLE
-                </span>
-
+              {/* Columna Izquierda: Copy corto, directo y centrado */}
+              <div className="lg:col-span-5 space-y-2 sm:space-y-3 flex flex-col justify-center py-1 sm:py-2">
                 <h4 className="font-display text-xl sm:text-2xl lg:text-[1.85rem] font-bold text-graphite leading-[1.2] tracking-tight">
                   Enciende en 15 segundos y alisa directo en el gancho.
                 </h4>
 
-                <p className="text-xs sm:text-sm lg:text-base text-graphite/70 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm lg:text-[15px] text-graphite/70 leading-relaxed font-normal">
                   Calor cerámico a 150 °C para dejar tus prendas listas sin armar la tabla.
                 </p>
 
@@ -310,12 +306,13 @@ export const ThreeGesturesSection: React.FC = () => {
                 </p>
               </div>
 
-              {/* Columna Derecha: Slider Antes/Después Panorámico */}
+              {/* Columna Derecha: Slider Antes/Después Panorámico Compacto */}
               <div className="lg:col-span-7">
                 <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-premium-image bg-night-950">
                   <BeforeAfterSlider 
                     beforeImage="/images/before-wrinkled-shirt.jpg"
                     afterImage="/images/after-smooth-shirt.jpg"
+                    aspectRatio="aspect-[4/3] sm:aspect-[4/3] lg:aspect-[16/11]"
                   />
                 </div>
               </div>
@@ -324,11 +321,11 @@ export const ThreeGesturesSection: React.FC = () => {
           </div>
 
           {/* 3 BENEFICIOS TÉCNICOS ULTRA COMPACTOS Y ESCANEABLES */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 mt-3.5 sm:mt-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-3.5 sm:mt-4">
             {/* 150 °C · Calor cerámico */}
-            <div className="bg-white/85 border border-graphite/10 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 lg:p-5 flex items-center gap-3.5 shadow-xs hover:border-accent/40 transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
-                <Thermometer className="w-5 h-5 stroke-[2.2]" />
+            <div className="bg-white/85 border border-graphite/10 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 lg:p-4 flex items-center gap-3 shadow-xs hover:border-accent/40 transition-colors">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
+                <Thermometer className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
               </div>
               <div className="min-w-0">
                 <span className="font-display text-base sm:text-lg lg:text-xl font-bold text-graphite block leading-tight tracking-tight">
@@ -341,9 +338,9 @@ export const ThreeGesturesSection: React.FC = () => {
             </div>
 
             {/* 15 segundos · Lista para salir */}
-            <div className="bg-white/85 border border-graphite/10 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 lg:p-5 flex items-center gap-3.5 shadow-xs hover:border-accent/40 transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
-                <Zap className="w-5 h-5 stroke-[2.2]" />
+            <div className="bg-white/85 border border-graphite/10 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 lg:p-4 flex items-center gap-3 shadow-xs hover:border-accent/40 transition-colors">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
+                <Zap className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
               </div>
               <div className="min-w-0">
                 <span className="font-display text-base sm:text-lg lg:text-xl font-bold text-graphite block leading-tight tracking-tight">
@@ -356,9 +353,9 @@ export const ThreeGesturesSection: React.FC = () => {
             </div>
 
             {/* ANTIGOTEO · Sin manchas de agua */}
-            <div className="bg-white/85 border border-graphite/10 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 lg:p-5 flex items-center gap-3.5 shadow-xs hover:border-accent/40 transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
-                <Droplets className="w-5 h-5 stroke-[2.2]" />
+            <div className="bg-white/85 border border-graphite/10 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 lg:p-4 flex items-center gap-3 shadow-xs hover:border-accent/40 transition-colors">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
+                <Droplets className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
               </div>
               <div className="min-w-0">
                 <span className="font-display text-base sm:text-lg lg:text-xl font-bold text-graphite block leading-tight tracking-tight uppercase">

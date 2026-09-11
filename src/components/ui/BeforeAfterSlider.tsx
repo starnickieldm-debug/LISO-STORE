@@ -7,6 +7,7 @@ interface BeforeAfterSliderProps {
   afterImage?: string;
   beforeAlt?: string;
   afterAlt?: string;
+  aspectRatio?: string;
 }
 
 const DEFAULT_BEFORE_IMAGE = "/images/before-wrinkled-shirt.jpg";
@@ -17,7 +18,8 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
   beforeImage = DEFAULT_BEFORE_IMAGE,
   afterImage = DEFAULT_AFTER_IMAGE,
   beforeAlt = "Prenda con pliegues marcados y arrugas sacada del clóset",
-  afterAlt = "Prenda con fibra alisada en el gancho a vapor continuo de 150 °C"
+  afterAlt = "Prenda con fibra alisada en el gancho a vapor continuo de 150 °C",
+  aspectRatio = 'aspect-[4/3]'
 }) => {
   const [sliderPos, setSliderPos] = useState<number>(50); // percentage 0 to 100
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -63,7 +65,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
       {/* Interactive Drag Container - Pure clean image with functional divider */}
       <div
         ref={containerRef}
-        className="relative aspect-[4/3] bg-night-950 overflow-hidden select-none cursor-ew-resize group touch-none rounded-2xl"
+        className={`relative ${aspectRatio} bg-night-950 overflow-hidden select-none cursor-ew-resize group touch-none rounded-2xl`}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
