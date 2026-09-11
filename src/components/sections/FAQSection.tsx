@@ -20,10 +20,10 @@ export const FAQSection: React.FC = () => {
           <div className="lg:col-span-5 lg:sticky lg:top-24">
             <div className="relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] xl:aspect-[4/5] w-full overflow-hidden rounded-3xl lg:rounded-[32px] bg-night-950 shadow-premium-lg group">
               <picture>
-                <source srcSet="/images/hero-steamer-editorial.webp" type="image/webp" />
+                <source srcSet="/images/faq-steamer-editorial.webp" type="image/webp" />
                 <img 
-                  src="/images/hero-steamer-editorial.jpg" 
-                  alt="Plancha a vapor LISO en manos demostrando portabilidad y escala real"
+                  src="/images/faq-steamer-editorial.jpg" 
+                  alt="Plancha de vapor LISO reposando sobre camisa gris con vapor a 150 °C en pantalla digital"
                   className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-mech-s"
                   loading="lazy"
                 />
