@@ -21,9 +21,9 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   },
   {
     id: 'accion',
-    webp: '/images/hero-steamer-editorial.webp',
-    jpg: '/images/hero-steamer-editorial.jpg',
-    alt: 'LISO alisando directamente en el gancho con vapor continuo a 150 °C',
+    webp: '/images/liso-en-accion.webp',
+    jpg: '/images/liso-en-accion.jpg',
+    alt: 'Plancha de vapor LISO a 150 °C emitiendo vapor sobre camisa en base térmica',
     label: 'En acción',
     badge: 'VAPOR EN ACCIÓN'
   },
