@@ -86,7 +86,7 @@ export const OfferSection: React.FC = () => {
         {/* =========================================================================
             PDP CONVERSION CONTAINER — Sticky High-Impact Visual + Scrolling Buy Flow
             ========================================================================= */}
-        <div className="bg-night-950 border border-white/10 p-4 sm:p-7 md:p-8 lg:p-10 xl:p-12 shadow-2xl rounded-3xl text-bone relative">
+        <div className="bg-night-950 border border-white/10 p-3.5 xs:p-4 sm:p-7 md:p-8 lg:p-10 xl:p-12 shadow-2xl rounded-3xl text-bone relative">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-start relative">
             
             {/* LEFT COLUMN: Sticky Full-Viewport Product Gallery (Static during right-column scroll) */}
@@ -171,19 +171,20 @@ export const OfferSection: React.FC = () => {
 
               {/* Selector de Cantidad */}
               <div className="space-y-2 pt-1">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-2">
                   <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold">
                     CANTIDAD
                   </span>
-                  <span className="text-[11px] font-sans text-accent font-medium">
+                  <span className="text-[11px] font-sans text-accent font-medium shrink-0">
                     {quantity > 1 ? `${quantity} unidades seleccionadas` : '1 unidad'}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between p-3 bg-night-950/80 border border-white/15 rounded-xl">
-                  {/* Stepper Controls */}
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center border border-white/20 bg-white/5 rounded-lg overflow-hidden shadow-inner">
+                <div className="p-3 bg-night-950/80 border border-white/15 rounded-xl space-y-2.5 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-3">
+                  {/* Top Row on Mobile: Stepper Controls (Left) + Subtotal (Right) | Left & Middle on Desktop */}
+                  <div className="flex items-center justify-between sm:justify-start gap-3 min-w-0 sm:flex-1">
+                    {/* Stepper Controls */}
+                    <div className="flex items-center border border-white/20 bg-white/5 rounded-lg overflow-hidden shadow-inner shrink-0">
                       <button
                         type="button"
                         onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
@@ -209,7 +210,8 @@ export const OfferSection: React.FC = () => {
                       </button>
                     </div>
 
-                    <div className="flex flex-col min-w-0">
+                    {/* Product & Dispatch Label on Tablet/Desktop */}
+                    <div className="hidden sm:flex flex-col min-w-0 flex-1 px-1">
                       <span className="text-xs sm:text-sm font-sans font-bold text-white truncate">
                         {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
                       </span>
@@ -217,10 +219,32 @@ export const OfferSection: React.FC = () => {
                         {quantity > 1 ? `Colores: ${summaryString}` : 'Lista para despacho inmediato'}
                       </span>
                     </div>
+
+                    {/* Subtotal on Mobile (aligned right with stepper on top row) */}
+                    <div className="sm:hidden text-right shrink-0">
+                      {quantity > 1 && (
+                        <span className="block text-[11px] font-sans text-bone/50 line-through leading-tight">
+                          {formattedTotalCompareAt}
+                        </span>
+                      )}
+                      <span className="text-sm xs:text-base font-display font-bold text-bone leading-tight">
+                        {formattedTotalPrice}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Subtotal */}
-                  <div className="text-right pl-2 flex-shrink-0">
+                  {/* Mobile Sub-Row: Product & Dispatch status */}
+                  <div className="sm:hidden flex items-center justify-between text-[11.5px] font-sans border-t border-white/10 pt-2 text-bone/60 gap-2">
+                    <span className="font-semibold text-white truncate min-w-0">
+                      {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
+                    </span>
+                    <span className="text-accent font-medium text-[11px] shrink-0">
+                      {quantity > 1 ? `Colores: ${summaryString}` : '✓ Despacho inmediato'}
+                    </span>
+                  </div>
+
+                  {/* Subtotal on Tablet/Desktop (Right column) */}
+                  <div className="hidden sm:block text-right pl-2 shrink-0">
                     {quantity > 1 && (
                       <span className="block text-[11px] font-sans text-bone/50 line-through">
                         {formattedTotalCompareAt}
@@ -237,11 +261,11 @@ export const OfferSection: React.FC = () => {
               {quantity === 1 ? (
                 /* Modo 1 Unidad: Selector clásico de 2 columnas */
                 <div className="space-y-2 pt-1">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-sans uppercase tracking-wider text-bone/70 font-semibold truncate">
                       ELIGE TU COLOR: <span className="text-white font-bold">{selectedColor}</span>
                     </span>
-                    <span className="text-[11px] font-sans text-accent font-medium">
+                    <span className="text-[11px] font-sans text-accent font-medium shrink-0">
                       110 V · Colombia
                     </span>
                   </div>
@@ -260,35 +284,36 @@ export const OfferSection: React.FC = () => {
                           key={color}
                           type="button"
                           onClick={() => setSelectedColor(color)}
-                          className={`relative p-3 flex items-center justify-between transition-all duration-200 cursor-pointer border text-left rounded-lg ${
+                          className={`relative p-2.5 sm:p-3 flex items-center justify-between gap-1.5 transition-all duration-200 cursor-pointer border text-left rounded-lg overflow-hidden ${
                             isSelected
                               ? 'bg-white/10 border-accent shadow-[0_0_15px_rgba(180,36,124,0.25)] ring-1 ring-accent'
                               : 'bg-night-950/80 border-white/15 hover:border-white/30 hover:bg-white/[0.04]'
                           }`}
                           aria-pressed={isSelected}
                         >
-                          <div className="flex items-center gap-2.5">
+                          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                             <span
-                              className={`w-5 h-5 rounded-full border shadow-inner flex-shrink-0 flex items-center justify-center ${config.border}`}
+                              className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border shadow-inner shrink-0 flex items-center justify-center ${config.border}`}
                               style={{ backgroundColor: config.swatchBg }}
                             >
                               {isSelected && (
                                 <span className="w-1.5 h-1.5 rounded-full bg-white shadow-sm" />
                               )}
                             </span>
-                            <div className="flex flex-col min-w-0">
-                              <span className={`text-xs sm:text-sm font-sans font-bold ${isSelected ? 'text-white' : 'text-bone/80'}`}>
+                            <div className="flex flex-col min-w-0 flex-1">
+                              <span className={`text-xs sm:text-sm font-sans font-bold truncate ${isSelected ? 'text-white' : 'text-bone/80'}`}>
                                 {color}
                               </span>
-                              <span className="text-[10.5px] font-sans text-bone/50 truncate">
-                                Disponibilidad inmediata
+                              <span className="text-[10px] sm:text-[10.5px] font-sans text-bone/50 truncate">
+                                <span className="sm:hidden">Disponible</span>
+                                <span className="hidden sm:inline">Disponibilidad inmediata</span>
                               </span>
                             </div>
                           </div>
 
                           {isSelected && (
-                            <div className="w-4 h-4 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0">
-                              <Check className="w-3 h-3 stroke-[3]" />
+                            <div className="w-4 h-4 rounded-full bg-accent text-white flex items-center justify-center shrink-0">
+                              <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]" />
                             </div>
                           )}
                         </button>
@@ -330,24 +355,24 @@ export const OfferSection: React.FC = () => {
                     {unitColors.map((currentColor, idx) => (
                       <div
                         key={idx}
-                        className="p-2.5 sm:p-3 bg-white/[0.04] border border-white/10 rounded-xl flex items-center justify-between gap-3 transition-colors hover:border-white/20"
+                        className="p-2.5 sm:p-3 bg-white/[0.04] border border-white/10 rounded-xl flex items-center justify-between gap-2 sm:gap-3 transition-colors hover:border-white/20"
                       >
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          <span className="w-6 h-6 rounded-full bg-accent/20 border border-accent/40 text-accent font-sans font-bold text-xs flex items-center justify-center shrink-0">
+                        <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
+                          <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-accent/20 border border-accent/40 text-accent font-sans font-bold text-[11px] sm:text-xs flex items-center justify-center shrink-0">
                             {idx + 1}
                           </span>
-                          <div className="min-w-0">
+                          <div className="min-w-0 flex-1">
                             <span className="text-xs sm:text-sm font-sans font-bold text-white block truncate">
                               Plancha #{idx + 1}
                             </span>
-                            <span className="text-[10px] font-sans text-bone/50 block">
+                            <span className="text-[10px] font-sans text-bone/50 block truncate">
                               Color: <strong className="text-bone font-medium">{currentColor}</strong>
                             </span>
                           </div>
                         </div>
 
                         {/* Botones de color para esta unidad */}
-                        <div className="flex items-center gap-1.5 shrink-0">
+                        <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
                           {colorOptions.map((color) => {
                             const isSelected = currentColor.toLowerCase() === color.toLowerCase();
                             const config = COLOR_CONFIG[color.toLowerCase()] || {
@@ -361,7 +386,7 @@ export const OfferSection: React.FC = () => {
                                 key={color}
                                 type="button"
                                 onClick={() => setUnitColor(idx, color)}
-                                className={`px-2.5 py-1.5 rounded-lg border text-xs font-sans font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                                className={`px-2 sm:px-2.5 py-1.5 rounded-lg border text-[11px] sm:text-xs font-sans font-semibold flex items-center gap-1 sm:gap-1.5 transition-all cursor-pointer ${
                                   isSelected
                                     ? 'bg-accent/25 border-accent text-white shadow-xs ring-1 ring-accent'
                                     : 'bg-night-950/90 border-white/15 text-bone/70 hover:text-white hover:border-white/30'
@@ -385,9 +410,9 @@ export const OfferSection: React.FC = () => {
                   </div>
 
                   {/* Resumen dinámico de combinación */}
-                  <div className="p-2.5 px-3 rounded-xl bg-accent/10 border border-accent/25 text-xs font-sans flex items-center justify-between">
-                    <span className="text-bone/70 font-medium">Tu pedido incluye:</span>
-                    <span className="font-bold text-white tracking-wide">
+                  <div className="p-2.5 px-3 rounded-xl bg-accent/10 border border-accent/25 text-xs font-sans flex items-center justify-between gap-2">
+                    <span className="text-bone/70 font-medium shrink-0">Tu pedido incluye:</span>
+                    <span className="font-bold text-white tracking-wide truncate text-right">
                       {summaryString}
                     </span>
                   </div>
@@ -396,20 +421,20 @@ export const OfferSection: React.FC = () => {
 
               {/* Enchufe Compatible para Colombia */}
               <div className="space-y-2 pt-1">
-                <div className="p-3 bg-night-950/80 border border-white/10 flex items-center justify-between gap-4 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 border border-accent bg-accent/15 text-accent font-sans font-bold text-sm flex items-center justify-center flex-shrink-0">
+                <div className="p-3 bg-night-950/80 border border-white/10 flex items-center justify-between gap-3 sm:gap-4 rounded-xl">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 border border-accent bg-accent/15 text-accent font-sans font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 rounded-lg">
                       110 V
                     </div>
-                    <div className="space-y-0.5">
+                    <div className="space-y-0.5 min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 text-xs sm:text-sm font-sans font-semibold text-bone">
                         <span className="text-base" role="img" aria-label="Colombia">🇨🇴</span>
                         <span>Colombia</span>
                         <span className="text-xs font-normal text-bone/60 hidden sm:inline">· Enchufe estándar de clavija plana (110 V)</span>
                       </div>
-                      <p className="text-xs text-accent font-medium flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                        <span>Conexión directa a la pared sin adaptadores</span>
+                      <p className="text-[11px] sm:text-xs text-accent font-medium flex items-center gap-1.5">
+                        <Check className="w-3.5 h-3.5 text-accent stroke-[3] shrink-0" />
+                        <span className="truncate">Conexión directa a la pared sin adaptadores</span>
                       </p>
                     </div>
                   </div>
