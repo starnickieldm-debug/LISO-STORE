@@ -86,10 +86,10 @@ export const HeroSection: React.FC = () => {
 
         {/* Layer 3: Seamless Product Image Stage (Dedicated right-side visual stage in front of LISO watermark) */}
         <div 
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[51%] xl:w-[48%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-full lg:w-[65%] xl:w-[62%] 2xl:w-[59%] z-10 hidden lg:flex items-center justify-end overflow-hidden"
           style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 10%, black 26%, black 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.15) 10%, black 26%, black 100%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 6%, rgba(0,0,0,0.4) 16%, black 28%, black 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.06) 6%, rgba(0,0,0,0.4) 16%, black 28%, black 100%)',
           }}
         >
           <picture className="w-full h-full">
@@ -97,7 +97,7 @@ export const HeroSection: React.FC = () => {
             <img 
               src="/images/hero-steamer-editorial.jpg" 
               alt="Mujer alisando camisa en gancho con la plancha de vapor portátil LISO con vapor continuo a 150 °C" 
-              className="w-full h-full object-cover object-[65%_center] transform origin-center transition-all duration-1000 ease-mech-s"
+              className="w-full h-full object-cover object-[93%_center] transform origin-center transition-all duration-1000 ease-mech-s"
               style={{
                 filter: 'brightness(1.04) contrast(1.04)',
                 ...(!prefersReduced ? {
