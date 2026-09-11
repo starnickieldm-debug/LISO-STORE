@@ -66,36 +66,35 @@ export const OfferSection: React.FC = () => {
   return (
     <section 
       id="oferta" 
-      className="py-10 sm:py-14 lg:py-16 bg-bone text-graphite border-b border-graphite/10 relative overflow-visible scroll-mt-16 sm:scroll-mt-20"
-      style={{ backgroundColor: '#FAF8F5' }}
+      className="py-12 sm:py-16 lg:py-20 bg-white text-graphite border-y border-graphite/10 relative overflow-visible scroll-mt-16 sm:scroll-mt-20"
+      style={{ backgroundColor: '#FFFFFF' }}
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Editorial Section Intro */}
         <Reveal direction="up" duration={600}>
-          <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-graphite tracking-tight">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-14">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-graphite tracking-tight">
               Tu LISO, lista para usar.
             </h2>
-            <p className="text-base text-graphite/70 mt-2">
+            <p className="text-base sm:text-lg text-graphite/70 mt-2">
               Todo lo que necesitas viene en la caja. La conectas y empiezas.
             </p>
           </div>
         </Reveal>
 
         {/* =========================================================================
-            PDP CONVERSION CONTAINER — Sticky High-Impact Visual + Scrolling Buy Flow
+            PDP NATIVE CONTAINER — Sticky High-Impact Visual + Scrolling Buy Flow
             ========================================================================= */}
-        <div className="bg-white border border-graphite/10 p-3.5 xs:p-4 sm:p-7 md:p-8 lg:p-10 xl:p-12 shadow-xl rounded-3xl text-graphite relative">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-start relative">
-            
-            {/* LEFT COLUMN: Sticky Full-Viewport Product Gallery (Static during right-column scroll) */}
-            <div className="md:col-span-6 lg:col-span-6 xl:col-span-7 md:sticky md:top-20 lg:top-24 h-[55vh] md:h-[calc(100dvh-5.5rem)] md:min-h-[480px] flex flex-col">
-              <ProductGallery selectedColor={selectedColor} className="h-full flex-1" />
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start relative">
+          
+          {/* LEFT COLUMN: Sticky Full-Viewport Product Gallery (Static during right-column scroll) */}
+          <div className="md:col-span-6 lg:col-span-6 xl:col-span-7 md:sticky md:top-24 h-[55vh] md:h-[calc(100dvh-6.5rem)] md:min-h-[500px] flex flex-col">
+            <ProductGallery selectedColor={selectedColor} className="h-full flex-1" />
+          </div>
 
-            {/* RIGHT COLUMN: Scrolling Details & Buy Actions */}
-            <div className="md:col-span-6 lg:col-span-6 xl:col-span-5 space-y-6">
+          {/* RIGHT COLUMN: Scrolling Details & Buy Actions */}
+          <div className="md:col-span-6 lg:col-span-6 xl:col-span-5 space-y-6 lg:space-y-7">
               
               {/* Product Title & Model */}
               <div>
@@ -627,7 +626,6 @@ export const OfferSection: React.FC = () => {
             </div>
 
           </div>
-        </div>
 
       </div>
     </section>
