@@ -40,10 +40,10 @@ export const FAQSection: React.FC = () => {
           <div className="lg:col-span-7">
             {/* Editorial Header */}
             <div className="mb-6 sm:mb-8 space-y-2">
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.18]">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-graphite tracking-tight leading-[1.15]">
                 Preguntas frecuentes.
               </h2>
-              <p className="text-sm sm:text-base text-graphite/70 font-normal leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg text-graphite/75 font-normal leading-relaxed max-w-xl">
                 Respuestas claras y directas a lo que todos nos preguntamos antes de comprar.
               </p>
             </div>
@@ -52,7 +52,7 @@ export const FAQSection: React.FC = () => {
             <Accordion items={faqItems} isDarkTheme={false} />
 
             {/* Bottom Help Contact Link */}
-            <div className="mt-8 p-4 rounded-2xl bg-white/70 border border-graphite/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-graphite/70">
+            <div className="mt-8 p-4 rounded-2xl bg-white/70 border border-graphite/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm text-graphite/70">
               <div className="flex items-center gap-2">
                 <HelpCircle className="w-4 h-4 text-accent shrink-0" />
                 <span>¿Tienes otra pregunta sobre tu pedido o el funcionamiento?</span>

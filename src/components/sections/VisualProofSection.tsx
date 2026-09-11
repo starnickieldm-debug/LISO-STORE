@@ -171,12 +171,12 @@ export const VisualProofSection: React.FC = () => {
         <Reveal direction="up" duration={600}>
           <div className="text-center w-full max-w-none mx-auto mb-6 sm:mb-8 px-2">
             {/* Section Headline */}
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.35rem] xl:text-[2.75rem] font-bold text-bone tracking-tight leading-tight lg:whitespace-nowrap">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-bone tracking-tight leading-tight lg:whitespace-nowrap">
               Mírala en acción.
             </h2>
 
             {/* EXACT Subheadline */}
-            <p className="font-sans text-xs sm:text-sm md:text-base lg:text-[15px] xl:text-[16.5px] text-bone/70 max-w-none leading-relaxed mt-2 sm:mt-2.5 lg:whitespace-nowrap">
+            <p className="font-sans text-sm sm:text-base lg:text-lg text-bone/75 max-w-none leading-relaxed mt-2 sm:mt-2.5 lg:whitespace-nowrap">
               De arrugada a impecable. En segundos.
             </p>
           </div>

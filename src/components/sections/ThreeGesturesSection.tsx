@@ -131,10 +131,10 @@ export const ThreeGesturesSection: React.FC = () => {
             PARTE 1: CÓMO SE USA — 3 GESTOS RÁPIDOS
             ========================================================================= */}
         <div className="max-w-3xl mb-6 sm:mb-8 lg:mb-10">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.18]">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-graphite tracking-tight leading-[1.15]">
             Dejar tu ropa impecable es así de simple.
           </h2>
-          <p className="font-sans text-sm sm:text-base lg:text-lg text-graphite/75 leading-relaxed mt-2 sm:mt-2.5">
+          <p className="font-sans text-base sm:text-lg lg:text-xl text-graphite/75 leading-relaxed mt-2.5 sm:mt-3">
             No necesitas una sesión de planchado. Solo arreglar lo que te vas a poner hoy.
           </p>
         </div>
@@ -168,14 +168,14 @@ export const ThreeGesturesSection: React.FC = () => {
 
               {/* Minimal, Punchy Caption */}
               <div className="mt-4 sm:mt-5 flex items-start gap-3">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-graphite text-white font-sans text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm group-hover:bg-accent transition-colors duration-300">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-graphite text-white font-sans text-xs sm:text-sm font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-sm group-hover:bg-accent transition-colors duration-300">
                   {item.num}
                 </div>
-                <div className="space-y-0.5 flex-1 min-w-0">
-                  <h3 className="font-display text-base sm:text-lg lg:text-xl font-bold text-graphite tracking-tight group-hover:text-accent transition-colors">
+                <div className="space-y-1 flex-1 min-w-0">
+                  <h3 className="font-display text-lg sm:text-xl lg:text-2xl font-bold text-graphite tracking-tight group-hover:text-accent transition-colors">
                     {item.label}
                   </h3>
-                  <p className="text-xs sm:text-sm text-graphite/70 leading-snug font-medium">
+                  <p className="text-sm sm:text-base text-graphite/75 leading-relaxed font-normal">
                     {item.subtext}
                   </p>
                 </div>
@@ -234,14 +234,14 @@ export const ThreeGesturesSection: React.FC = () => {
                 </div>
 
                 <div className="mt-3 flex items-start gap-2">
-                  <div className="w-5 h-5 rounded-full bg-graphite text-white font-sans text-[10.5px] font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <div className="w-5 h-5 rounded-full bg-graphite text-white font-sans text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                     {item.num}
                   </div>
                   <div className="space-y-0.5 flex-1 min-w-0">
-                    <h3 className="font-display text-[15px] font-bold text-graphite leading-snug">
+                    <h3 className="font-display text-base font-bold text-graphite leading-snug">
                       {item.label}
                     </h3>
-                    <p className="text-xs text-graphite/70 leading-snug font-medium">
+                    <p className="text-xs sm:text-sm text-graphite/75 leading-relaxed font-normal">
                       {item.subtext}
                     </p>
                   </div>
@@ -268,7 +268,7 @@ export const ThreeGesturesSection: React.FC = () => {
 
         {/* LÍNEA RESUMEN SUTIL Y SECUNDARIA */}
         <div className="mt-5 sm:mt-7 flex justify-center">
-          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-graphite/[0.04] border border-graphite/10 text-graphite/70 text-xs sm:text-[13px] font-sans font-medium text-center">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-graphite/[0.04] border border-graphite/10 text-graphite/75 text-xs sm:text-sm font-sans font-medium text-center">
             <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent stroke-[2.2] shrink-0" />
             <span>Entre 2 y 3 minutos por prenda. Sin tabla ni accesorios extra.</span>
           </div>

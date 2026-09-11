@@ -79,18 +79,18 @@ export const FinalCTASection: React.FC = () => {
             </p>
 
             {/* Reassurance points */}
-            <ul className="space-y-3 text-xs sm:text-sm font-sans pt-2">
-              <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-accent stroke-[3] mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold text-graphite">Garantía legal y soporte directo</p>
+            <ul className="space-y-3.5 font-sans pt-2">
+              <li className="flex items-start gap-3">
+                <Check className="w-4 h-4 text-accent stroke-[3] mt-1 flex-shrink-0" />
+                <div className="space-y-0.5">
+                  <p className="font-bold text-sm sm:text-base text-graphite">Garantía legal y soporte directo</p>
                   <p className="text-graphite/70 text-xs sm:text-sm">30 días de cobertura y canal de atención directa en Colombia.</p>
                 </div>
               </li>
-              <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-accent stroke-[3] mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold text-graphite">{currentMarket.shippingLabel}</p>
+              <li className="flex items-start gap-3">
+                <Check className="w-4 h-4 text-accent stroke-[3] mt-1 flex-shrink-0" />
+                <div className="space-y-0.5">
+                  <p className="font-bold text-sm sm:text-base text-graphite">{currentMarket.shippingLabel}</p>
                   <p className="text-graphite/70 text-xs sm:text-sm">Con seguimiento para que sepas dónde está tu pedido en todo momento.</p>
                 </div>
               </li>

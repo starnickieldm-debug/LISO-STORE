@@ -138,11 +138,11 @@ export const OfferSection: React.FC = () => {
               </div>
 
               {/* What's Included */}
-              <div className="space-y-2">
-                <span className="text-xs font-sans uppercase tracking-wider text-graphite/70 font-semibold block">
+              <div className="space-y-2.5">
+                <span className="text-xs sm:text-sm font-sans uppercase tracking-wider text-graphite/75 font-bold block">
                   ¿QUÉ RECIBES EN LA CAJA?
                 </span>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm font-sans text-graphite/90">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm md:text-[15px] font-sans text-graphite/90">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
                     <span>Plancha vaporizadora LISO (1200 W)</span>
@@ -169,10 +169,10 @@ export const OfferSection: React.FC = () => {
               {/* Selector de Cantidad */}
               <div className="space-y-2 pt-1">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-sans uppercase tracking-wider text-graphite/70 font-semibold">
+                  <span className="text-xs sm:text-sm font-sans uppercase tracking-wider text-graphite/75 font-bold">
                     CANTIDAD
                   </span>
-                  <span className="text-[11px] font-sans text-accent font-medium shrink-0">
+                  <span className="text-xs font-sans text-accent font-medium shrink-0">
                     {quantity > 1 ? `${quantity} unidades seleccionadas` : '1 unidad'}
                   </span>
                 </div>
