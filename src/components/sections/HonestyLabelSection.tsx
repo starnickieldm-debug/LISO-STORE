@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { honestyLabelData, brandConfig } from '../../config/siteContent';
-import { SectionHeader } from '../ui/SectionHeader';
 import { Check, X } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 
@@ -10,7 +9,7 @@ export const HonestyLabelSection: React.FC = () => {
   return (
     <section 
       id="etiqueta" 
-      className="py-12 sm:py-16 lg:py-20 bg-bone border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
+      className="py-8 sm:py-12 lg:py-16 bg-bone border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#FAF8F5', color: '#262320' }}
     >
       {/* Background Texture: Subtle Architecture Grid (Horizontal Landscape) */}
@@ -28,14 +27,6 @@ export const HonestyLabelSection: React.FC = () => {
       </div>
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-        
-        {/* Section Header */}
-        <SectionHeader
-          title="Te contamos la verdad sobre LISO."
-          subtitle="Lo que hace increíblemente bien, y lo que simplemente no está hecha para hacer."
-          align="center"
-          className="mb-8 sm:mb-10"
-        />
 
         {/* Nutritional-Style Technical Matrix (Native Full-Width Layout) */}
         <Reveal direction="up" duration={700}>
@@ -70,40 +61,49 @@ export const HonestyLabelSection: React.FC = () => {
                 ========================================================================= */}
             <div className="hidden md:grid grid-cols-12 gap-8 lg:gap-10 xl:gap-12 pb-10 border-b border-graphite/10 items-stretch">
               
-              {/* COLUMNA 1 (4 COLS): Panel de Inspección Técnica de Producto */}
-              <div className="col-span-12 lg:col-span-4 bg-white border border-graphite/10 rounded-2xl p-6 flex flex-col justify-between relative shadow-xs group">
-                {/* Header Tag */}
-                <div className="w-full flex items-center justify-between text-[10px] font-sans uppercase tracking-wider text-graphite/60 font-semibold border-b border-graphite/10 pb-2.5">
-                  <span>DISPOSITIVO ANALIZADO</span>
-                  <span className="text-accent font-bold px-2 py-0.5 rounded bg-accent/10 border border-accent/20">
-                    SERIE 01
-                  </span>
+              {/* COLUMNA 1 (4 COLS): Escenario Flotante Heroico de Producto (Sin caja ni badge cerrado) */}
+              <div className="col-span-12 lg:col-span-4 flex flex-col items-center justify-between relative group py-2">
+                {/* Floating Inspection Pill */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-graphite/[0.04] border border-graphite/10 text-graphite/75 text-[10px] font-sans font-bold uppercase tracking-widest shadow-2xs backdrop-blur-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                  <span>DISPOSITIVO ANALIZADO · SERIE 01</span>
                 </div>
 
-                {/* Product Photo Stage with subtle radial aura */}
-                <div className="relative w-full aspect-[3/4] max-w-[240px] mx-auto flex items-center justify-center my-4">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(180,36,124,0.06)_0%,transparent_70%)] blur-xl pointer-events-none" />
+                {/* Floating Product Stage with Atmospheric Steam Glow & Multi-Layer Elevation */}
+                <div className="relative w-full max-w-[320px] xl:max-w-[340px] aspect-[3/4] my-4 flex items-center justify-center">
+                  {/* Multi-layer atmospheric ambient steam glow */}
+                  <div 
+                    className="absolute inset-0 -m-4 bg-[radial-gradient(circle_at_center,rgba(180,36,124,0.16)_0%,rgba(245,175,120,0.10)_45%,transparent_72%)] blur-2xl pointer-events-none scale-110" 
+                    aria-hidden="true"
+                  />
+                  {/* Ambient levitation floor shadow */}
+                  <div 
+                    className="absolute bottom-4 left-1/2 -translate-x-1/2 w-48 h-8 bg-graphite/15 rounded-full blur-xl pointer-events-none group-hover:scale-90 group-hover:opacity-70 transition-all duration-500" 
+                    aria-hidden="true"
+                  />
+
+                  {/* Free-floating Steamer Cutout with multi-layer drop shadows and hover float */}
                   <img 
                     src="/images/liso-pure-cutout.webp" 
                     alt="Plancha a vapor LISO - Vista técnica completa" 
-                    className="w-full h-full object-contain relative z-10 group-hover:scale-104 transition-transform duration-500 ease-mech-s drop-shadow-md"
+                    className="w-full h-full object-contain relative z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3 group-hover:scale-[1.03] filter drop-shadow-[0_22px_32px_rgba(0,0,0,0.18)] drop-shadow-[0_6px_14px_rgba(180,36,124,0.22)]"
                     loading="lazy"
                   />
                 </div>
 
-                {/* Technical Verification Badges */}
-                <div className="w-full space-y-2.5 pt-3.5 border-t border-graphite/10 font-sans text-xs">
-                  <div className="flex items-center justify-between">
-                    <span className="text-graphite/65">Potencia nominal</span>
-                    <span className="font-sans font-bold text-graphite">1200 W directa</span>
+                {/* Floating Discrete Spec Pills (Translucent & Minimalist) */}
+                <div className="w-full max-w-[320px] xl:max-w-[340px] grid grid-cols-3 gap-2 font-sans">
+                  <div className="bg-white/80 backdrop-blur-sm border border-graphite/10 rounded-xl p-2.5 text-center shadow-2xs hover:border-graphite/25 transition-colors">
+                    <span className="block text-[9px] uppercase tracking-wider text-graphite/60 font-medium">Potencia</span>
+                    <span className="block text-xs font-bold text-graphite mt-0.5">1200 W</span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-graphite/65">Placa térmica</span>
-                    <span className="font-sans font-bold text-graphite">150 °C digital</span>
+                  <div className="bg-white/80 backdrop-blur-sm border border-graphite/10 rounded-xl p-2.5 text-center shadow-2xs hover:border-graphite/25 transition-colors">
+                    <span className="block text-[9px] uppercase tracking-wider text-graphite/60 font-medium">Placa</span>
+                    <span className="block text-xs font-bold text-graphite mt-0.5">150 °C</span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-graphite/65">Depósito calibrado</span>
-                    <span className="font-sans font-bold text-graphite">100 ml (2–3 prendas)</span>
+                  <div className="bg-white/80 backdrop-blur-sm border border-graphite/10 rounded-xl p-2.5 text-center shadow-2xs hover:border-graphite/25 transition-colors">
+                    <span className="block text-[9px] uppercase tracking-wider text-graphite/60 font-medium">Depósito</span>
+                    <span className="block text-xs font-bold text-graphite mt-0.5">100 ml</span>
                   </div>
                 </div>
               </div>
@@ -193,10 +193,14 @@ export const HonestyLabelSection: React.FC = () => {
 
                 {/* Large Product Cutout */}
                 <div className="relative w-full h-52 sm:h-56 flex items-center justify-center z-10">
+                  <div 
+                    className="absolute bottom-2 left-1/2 -translate-x-1/2 w-44 h-7 bg-graphite/15 rounded-full blur-lg pointer-events-none" 
+                    aria-hidden="true" 
+                  />
                   <img 
                     src="/images/liso-pure-cutout.webp" 
                     alt="Plancha a vapor portátil LISO - Inspección técnica" 
-                    className="w-full h-full object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.16)] transform scale-105" 
+                    className="w-full h-full object-contain filter drop-shadow-[0_18px_28px_rgba(0,0,0,0.18)] drop-shadow-[0_4px_12px_rgba(180,36,124,0.20)] transform scale-105" 
                     loading="lazy" 
                   />
                 </div>
