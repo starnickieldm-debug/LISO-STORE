@@ -117,11 +117,11 @@ export const ComparisonSection: React.FC = () => {
 
               {/* Col 2: LISO Floating Cutout + Title */}
               <div className="flex flex-col items-center justify-end text-center gap-1.5 sm:gap-2 py-1 group">
-                <div className="h-14 sm:h-16 w-16 sm:w-20 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <div className="h-20 sm:h-22 lg:h-24 w-24 sm:w-28 lg:w-32 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="/images/liso-pure-cutout.webp" 
                     alt="Plancha de vapor portátil LISO" 
-                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_6px_14px_rgba(180,36,124,0.18)]"
+                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_6px_16px_rgba(180,36,124,0.20)]"
                   />
                 </div>
                 <div className="text-center">
@@ -136,11 +136,11 @@ export const ComparisonSection: React.FC = () => {
 
               {/* Col 3: Plancha tradicional Floating Cutout + Title */}
               <div className="flex flex-col items-center justify-end text-center gap-1.5 sm:gap-2 py-1 group">
-                <div className="h-14 sm:h-16 w-16 sm:w-20 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <div className="h-20 sm:h-22 lg:h-24 w-24 sm:w-28 lg:w-32 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="/images/comp-iron-board-cutout.webp" 
                     alt="Plancha tradicional con tabla de planchar" 
-                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
+                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.10)]"
                   />
                 </div>
                 <div className="text-center">
@@ -155,11 +155,11 @@ export const ComparisonSection: React.FC = () => {
 
               {/* Col 4: Vaporizador común Floating Cutout + Title */}
               <div className="flex flex-col items-center justify-end text-center gap-1.5 sm:gap-2 py-1 group">
-                <div className="h-14 sm:h-16 w-16 sm:w-20 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                <div className="h-20 sm:h-22 lg:h-24 w-24 sm:w-28 lg:w-32 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="/images/comp-common-steamer-cutout.webp" 
                     alt="Vaporizador vertical común de plástico" 
-                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.08)]"
+                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.10)]"
                   />
                 </div>
                 <div className="text-center">
@@ -279,11 +279,11 @@ export const ComparisonSection: React.FC = () => {
               <span className="text-[9px] bg-accent text-white font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-1.5 shadow-xs">
                 RECOMENDADO
               </span>
-              <div className="w-16 h-16 flex items-center justify-center">
+              <div className="w-20 h-20 flex items-center justify-center">
                 <img 
                   src="/images/liso-pure-cutout.webp" 
                   alt="LISO" 
-                  className="w-full h-full object-contain filter drop-shadow-[0_6px_12px_rgba(180,36,124,0.18)]"
+                  className="w-full h-full object-contain filter drop-shadow-[0_6px_14px_rgba(180,36,124,0.18)]"
                 />
               </div>
               <span className="font-display font-bold text-sm text-graphite mt-1">
@@ -297,7 +297,7 @@ export const ComparisonSection: React.FC = () => {
               <span className="text-[9px] text-graphite/50 font-sans font-bold uppercase tracking-wider mb-1.5 py-0.5">
                 {compareTarget === 'traditional' ? 'TRADICIONAL' : 'GENÉRICO'}
               </span>
-              <div className="w-16 h-16 flex items-center justify-center">
+              <div className="w-20 h-20 flex items-center justify-center">
                 <img 
                   src={compareTarget === 'traditional' ? '/images/comp-iron-board-cutout.webp' : '/images/comp-common-steamer-cutout.webp'} 
                   alt={compareTarget === 'traditional' ? 'Plancha tradicional' : 'Vaporizador común'} 
