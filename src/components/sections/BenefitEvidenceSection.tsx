@@ -127,7 +127,7 @@ export const BenefitEvidenceSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#F0ECE3]/50 via-transparent to-[#F0ECE3]/60 pointer-events-none" />
       </div>
 
-      <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1600px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 relative z-10">
         
         {/* Section Header: Direct, clean and free of redundant pills */}
         <div className="max-w-3xl mb-8 sm:mb-10 lg:mb-12 space-y-2.5">

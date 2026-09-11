@@ -57,7 +57,7 @@ export const Navbar: React.FC = () => {
           : 'rgba(33, 31, 29, 0.92)'
       }}
     >
-      <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between">
+      <div className="max-w-[1600px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 flex items-center justify-between">
         
         {/* Brand Logo / Typography in Playfair Display Italic */}
         <div className="flex items-center space-x-3">

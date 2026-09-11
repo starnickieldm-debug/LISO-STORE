@@ -106,7 +106,7 @@ export const ThreeGesturesSection: React.FC = () => {
       className="py-10 sm:py-14 lg:py-16 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#FAF8F5' }}
     >
-      <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1600px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 relative z-10">
         
         {/* =========================================================================
             ASYMMETRIC EDITORIAL HEADER (Reference Formula: Problem + 3 Frictions + Solution)

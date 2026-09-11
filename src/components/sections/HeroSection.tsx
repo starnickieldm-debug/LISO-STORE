@@ -123,15 +123,15 @@ export const HeroSection: React.FC = () => {
           />
         </div>
 
-        <div className="max-w-[1440px] xl:max-w-[1460px] w-full mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 relative z-30 my-auto">
+        <div className="max-w-[1600px] 2xl:max-w-[1680px] w-full mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 relative z-30 my-auto">
         
         {/* =========================================================================
             DESKTOP HERO COMPOSITION (>= 1024px)
             ========================================================================= */}
-        <div className="hidden lg:grid grid-cols-12 gap-12 xl:gap-16 items-center">
+        <div className="hidden lg:grid grid-cols-12 gap-10 xl:gap-14 items-center">
           
           {/* LEFT COLUMN: Controlled width commercial content with strict hierarchy */}
-          <div className="col-span-7 xl:col-span-6 max-w-xl xl:max-w-[580px] pt-2">
+          <div className="col-span-7 xl:col-span-6 max-w-xl xl:max-w-[620px] 2xl:max-w-[660px] pt-2">
             
             {/* 1. Prueba Social (Top Header) */}
             <div 

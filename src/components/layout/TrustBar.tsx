@@ -41,7 +41,7 @@ export const TrustBar: React.FC = () => {
         <div className="absolute inset-0 bg-black/15 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-[1480px] mx-auto px-3 sm:px-8 lg:px-12 flex items-center justify-center text-center h-[26px] sm:h-[28px]">
+      <div className="relative z-10 max-w-[1600px] 2xl:max-w-[1680px] mx-auto px-3 sm:px-8 lg:px-10 xl:px-12 flex items-center justify-center text-center h-[26px] sm:h-[28px]">
         {/* Desktop View (>= 640px): All 3 points displayed inline on a single line */}
         <p className="hidden sm:flex items-center justify-center gap-x-3.5 sm:gap-x-4 tracking-wider uppercase whitespace-nowrap text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
           <span>Envío gratis a toda Colombia</span>

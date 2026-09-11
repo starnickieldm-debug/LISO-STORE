@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
       className="bg-night-950 text-bone/70 text-sm border-t border-white/10 pt-12 pb-28 md:py-14"
       style={{ backgroundColor: '#211F1D' }}
     >
-      <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div className="max-w-[1600px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12">
         
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10 pb-10 md:pb-12 border-b border-white/10">

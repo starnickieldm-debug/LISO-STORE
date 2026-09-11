@@ -28,7 +28,7 @@ export const BoxContentsSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/50 via-transparent to-[#FAF8F5]/60 pointer-events-none" />
       </div>
 
-      <div className="max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1600px] 2xl:max-w-[1680px] mx-auto px-4 sm:px-8 lg:px-10 xl:px-12 relative z-10">
         
         {/* Section Header */}
         <SectionHeader
