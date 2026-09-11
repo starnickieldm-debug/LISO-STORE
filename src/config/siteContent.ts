@@ -387,7 +387,7 @@ export const faqItems: FAQItem[] = [
   {
     id: "faq-12",
     question: "¿Qué garantía tengo en Colombia?",
-    answer: "Cuentas con 30 días de garantía por defectos de fábrica y soporte directo por WhatsApp. Si tu producto presenta algún fallo, te respondemos de inmediato con atención humana en Colombia.",
+    answer: "Cuentas con 30 días de garantía legal y soporte directo por correo electrónico y radicación en línea. Si tu producto presenta algún fallo, te respondemos con atención directa y humana en Colombia.",
     verified: true
   }
 ];

@@ -8,7 +8,7 @@ export const DataStrip: React.FC = () => {
   const specItems = [
     { value: productSpecs.power, label: "POTENCIA CONTINUA", isAccent: true },
     { value: productSpecs.maxTemperature, label: "PANTALLA DIGITAL", isAccent: false },
-    { value: `${productSpecs.tankCapacity} ≈ ${productSpecs.garmentsPerTank}`, label: "POR CARGA", isAccent: false },
+    { value: `${productSpecs.tankCapacity} ≈ ${productSpecs.garmentsPerTank}`, label: "AUTONOMÍA", isAccent: false },
     { value: productSpecs.heatUpTime, label: "CALENTAMIENTO RÁPIDO", isAccent: true },
     { value: "0° — 45° — 90°", label: "PLACA GIRATORIA", isAccent: false },
     { value: "Aluminio Inyectado", label: "CÁMARA TÉRMICA", isAccent: false },

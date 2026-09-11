@@ -216,7 +216,7 @@ export const OfferSection: React.FC = () => {
                         {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
                       </span>
                       <span className="text-[10.5px] font-sans text-bone/50 truncate">
-                        {quantity > 1 ? `Colores: ${summaryString}` : 'Lista para despacho inmediato'}
+                        {quantity > 1 ? `Colores: ${summaryString}` : 'Lista para despacho'}
                       </span>
                     </div>
 
@@ -239,7 +239,7 @@ export const OfferSection: React.FC = () => {
                       {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
                     </span>
                     <span className="text-accent font-medium text-[11px] shrink-0">
-                      {quantity > 1 ? `Colores: ${summaryString}` : '✓ Despacho inmediato'}
+                      {quantity > 1 ? `Colores: ${summaryString}` : '✓ Disponible para despacho'}
                     </span>
                   </div>
 

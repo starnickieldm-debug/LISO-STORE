@@ -148,7 +148,7 @@ export const HeroSection: React.FC = () => {
                 ))}
               </div>
               <span className="font-semibold text-graphite">
-                4.9 ★★★★★ (1,200+ clientes satisfechos en Colombia)
+                4.9 ★★★★★ (+1.200 valoraciones verificadas del producto)
               </span>
             </div>
 
@@ -321,7 +321,7 @@ export const HeroSection: React.FC = () => {
               ))}
             </div>
             <span className="font-semibold text-graphite text-[11.5px] xs:text-xs">
-              4.9 ★★★★★ (1,200+ clientes satisfechos en Colombia)
+              4.9 ★★★★★ (+1.200 valoraciones verificadas del producto)
             </span>
           </div>
 

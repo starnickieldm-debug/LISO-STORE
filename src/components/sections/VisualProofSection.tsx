@@ -170,9 +170,9 @@ export const VisualProofSection: React.FC = () => {
         {/* Section Header: Clean, No eyebrow pill, Wide layout */}
         <Reveal direction="up" duration={600}>
           <div className="text-center w-full max-w-none mx-auto mb-6 sm:mb-8 px-2">
-            {/* EXACT Headline */}
+            {/* Section Headline */}
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.35rem] xl:text-[2.75rem] font-bold text-bone tracking-tight leading-tight lg:whitespace-nowrap">
-              Ahora mira por qué.
+              Mírala en acción.
             </h2>
 
             {/* EXACT Subheadline */}

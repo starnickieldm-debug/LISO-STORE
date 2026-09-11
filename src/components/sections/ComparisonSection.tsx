@@ -370,7 +370,7 @@ export const ComparisonSection: React.FC = () => {
         <Reveal direction="up" delay={100} duration={600}>
           <div className="mt-6 sm:mt-8 text-center max-w-2xl mx-auto py-3 px-4 sm:py-3.5 sm:px-6 rounded-2xl bg-white/80 border border-graphite/10 shadow-xs backdrop-blur-xs">
             <p className="text-xs sm:text-[13.5px] font-display font-medium text-graphite leading-snug">
-              Para una pila de ropa, usa una plancha. Para una prenda que necesitas lista en cinco minutos, usa <strong className="text-accent font-semibold">LISO</strong>.
+              Para una pila de ropa, usa una plancha. Para una prenda que necesitas lista en 3 minutos, usa <strong className="text-accent font-semibold">LISO</strong>.
             </p>
             <p className="text-[11px] sm:text-xs font-sans text-graphite/60 mt-0.5">
               LISO está hecha exactamente para esos momentos.
