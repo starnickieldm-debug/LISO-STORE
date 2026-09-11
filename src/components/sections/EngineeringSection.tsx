@@ -504,83 +504,120 @@ export const EngineeringSection: React.FC = () => {
         </div>
 
         {/* =========================================================================
-            MOBILE COMPONENT INSPECTOR (< 1024px) — Touch-First Interactive Stage
-            (No horizontal swipe: Explicit tap-to-inspect on badges to generate curiosity)
+            1. SLEEK FLOATING CAPSULE COMPONENT SWITCHER (Desktop & Mobile)
             ========================================================================= */}
-        <div className="block lg:hidden pb-8">
-          {/* Interactive Tap Prompt (Generates curiosity and invites tapping) */}
-          <div className="flex items-center justify-between px-1 mb-2">
-            <span className="text-[10px] font-sans font-bold tracking-widest text-accent uppercase flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-accent animate-ping inline-block" />
-              <span>DISECCIÓN TÉCNICA</span>
-            </span>
-            <span className="text-[11px] font-sans text-bone/70 font-semibold flex items-center gap-1">
-              <span>Toca un componente</span>
-              <span className="text-accent animate-bounce">↓</span>
-            </span>
-          </div>
+        <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 lg:mb-12 px-1 -mx-1">
+          {pieces.map((piece, idx) => {
+            const isActive = idx === activeIndex;
+            return (
+              <button
+                key={piece.id}
+                ref={(el) => (indexButtonsRef.current[idx] = el)}
+                type="button"
+                onClick={() => selectPiece(idx)}
+                onKeyDown={(e) => handleKeyNav(e, idx)}
+                className={`flex-shrink-0 px-4 xl:px-5 py-2.5 rounded-full font-sans text-xs sm:text-[13px] font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+                  isActive 
+                    ? 'bg-accent text-white shadow-[0_0_24px_rgba(180,36,124,0.55)] scale-105 ring-1 ring-accent/60' 
+                    : 'bg-white/[0.04] border border-white/12 text-bone/70 hover:text-white hover:bg-white/[0.08] hover:border-white/25 active:scale-95'
+                }`}
+                aria-label={`Ver pieza ${piece.num}: ${piece.name}`}
+                aria-pressed={isActive}
+              >
+                <span className={`w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold ${
+                  isActive ? 'bg-white text-accent' : 'bg-white/10 text-bone/60'
+                }`}>
+                  {piece.num}
+                </span>
+                <span>{piece.name}</span>
+              </button>
+            );
+          })}
+        </div>
 
-          {/* 1. Horizontal Component Pills Bar with enhanced tap affordance */}
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2.5 mb-3 px-1 -mx-1">
+        {/* =========================================================================
+            2. MOBILE COMPONENT INSPECTOR (< 1024px) — Touch-First Floating Experience
+            ========================================================================= */}
+        <div className="block lg:hidden pb-10">
+          {/* Floating Product Cutout with Hotspots on Mobile */}
+          <div className="relative w-full max-w-[340px] mx-auto aspect-square flex items-center justify-center mb-6 select-none">
+            {/* Ambient Radial Steam Glow */}
+            <div 
+              className="absolute inset-0 pointer-events-none flex items-center justify-center -m-4"
+              aria-hidden="true"
+            >
+              <div className="w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(180,36,124,0.22)_0%,rgba(255,195,130,0.10)_40%,transparent_70%)] blur-2xl animate-pulse" />
+              <div className="absolute w-[240px] h-[240px] rounded-full border border-dashed border-white/10 pointer-events-none" />
+            </div>
+
+            <img 
+              src="/images/liso-cutout.webp" 
+              alt="Plancha de vapor LISO inspección técnica" 
+              className="w-full h-full object-contain filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.85)]"
+              loading="lazy"
+            />
+
+            {/* Active Hotspot Beacon on Mobile */}
+            <div 
+              className={`pointer-events-none absolute w-24 h-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/50 shadow-[0_0_25px_rgba(180,36,124,0.4)] transition-all duration-300`}
+              style={{
+                left: `${activePiece.hotspot.x}%`,
+                top: `${activePiece.hotspot.y}%`
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Mobile Hotspot Buttons */}
             {pieces.map((p, idx) => {
               const isActive = idx === activeIndex;
-              const shortNames = [
-                'PLACA 90°',
-                'CÁMARA VAPOR',
-                'PANTALLA LED',
-                'CABLE 1200W',
-                'MANGO SEGURO',
-                'CLAVIJA 110V'
-              ];
               return (
                 <button
                   key={p.id}
                   type="button"
                   onClick={() => selectPiece(idx)}
-                  className={`flex-shrink-0 px-3.5 py-2 rounded-xl font-sans text-[11px] font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer active:scale-95 flex items-center gap-1.5 ${
-                    isActive 
-                      ? 'bg-accent text-white shadow-[0_0_18px_rgba(180,36,124,0.45)] ring-1 ring-accent scale-[1.03]' 
-                      : 'bg-white/[0.06] border border-white/15 text-bone/70 hover:text-white hover:bg-white/10 active:bg-white/15'
+                  style={{ left: `${p.hotspot.x}%`, top: `${p.hotspot.y}%` }}
+                  className={`absolute -translate-x-1/2 -translate-y-1/2 z-20 w-[28px] h-[28px] rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? 'bg-night-950 border-2 border-accent shadow-[0_0_18px_rgba(180,36,124,0.8)] scale-110 ring-2 ring-accent/40'
+                      : 'bg-night-950/90 border border-white/40 active:scale-95'
                   }`}
-                  aria-pressed={isActive}
+                  aria-label={`Hotspot ${p.num}: ${p.name}`}
                 >
-                  <span className={`w-4 h-4 rounded-full text-[9.5px] flex items-center justify-center font-bold ${
-                    isActive ? 'bg-white text-accent' : 'bg-white/15 text-bone/70'
+                  <span className={`font-sans text-[10px] font-bold ${
+                    isActive ? 'text-accent' : 'text-bone/85'
                   }`}>
                     {p.num}
                   </span>
-                  <span>{shortNames[idx]}</span>
                 </button>
               );
             })}
           </div>
 
-          {/* 2. Unified Mobile Inspection Card */}
+          {/* Unified Glassmorphic Mobile Inspection Card */}
           <div 
             key={activePiece.id} 
-            className="bg-night-900/95 border border-white/15 rounded-3xl p-5 shadow-2xl space-y-4 animate-fadeIn"
+            className="bg-white/[0.04] border border-white/12 rounded-3xl p-5 sm:p-6 shadow-2xl backdrop-blur-md space-y-4 animate-fadeIn"
           >
-            {/* Header: Category + Counter + Component Name + Phrase */}
+            {/* Header */}
             <div className="pb-3 border-b border-white/10 space-y-1">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-sans uppercase tracking-widest text-accent font-bold">
+                <span className="text-[11px] font-sans uppercase tracking-widest text-accent font-bold">
                   {activePiece.category}
                 </span>
                 <span className="font-sans text-xs font-bold text-bone/50 tracking-wider">
                   PIEZA {activePiece.num} / 06
                 </span>
               </div>
-              <h3 className="font-display text-lg sm:text-xl font-bold text-bone tracking-wide uppercase">
+              <h3 className="font-display text-xl font-bold text-bone tracking-wide uppercase">
                 {activePiece.name}
               </h3>
               <p className="text-xs sm:text-sm font-sans text-bone/80 leading-relaxed pt-1">
-
                 {activePiece.phrase}
               </p>
             </div>
 
             {/* Micro-Proof Interactive Stage */}
-            <div className="min-h-[250px] flex flex-col justify-center">
+            <div className="min-h-[240px] flex flex-col justify-center">
               {renderMicroProof()}
             </div>
 
@@ -589,7 +626,7 @@ export const EngineeringSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => selectPiece((activeIndex - 1 + pieces.length) % pieces.length)}
-                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
+                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/70 hover:text-white active:scale-95 py-1 px-3 rounded-lg bg-white/5 border border-white/10 transition-all cursor-pointer"
                 aria-label="Pieza anterior"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
@@ -602,7 +639,7 @@ export const EngineeringSection: React.FC = () => {
                     key={i}
                     type="button"
                     onClick={() => selectPiece(i)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                       i === activeIndex ? 'w-5 bg-accent' : 'w-1.5 bg-white/20'
                     }`}
                     aria-label={`Ir a pieza ${i + 1}`}
@@ -613,7 +650,7 @@ export const EngineeringSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => selectPiece((activeIndex + 1) % pieces.length)}
-                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/60 hover:text-white active:scale-95 py-1 px-2.5 rounded bg-white/5 border border-white/10 transition-all"
+                className="inline-flex items-center gap-1 text-xs font-sans font-medium text-bone/70 hover:text-white active:scale-95 py-1 px-3 rounded-lg bg-white/5 border border-white/10 transition-all cursor-pointer"
                 aria-label="Pieza siguiente"
               >
                 <span>Siguiente</span>
@@ -624,114 +661,48 @@ export const EngineeringSection: React.FC = () => {
         </div>
 
         {/* =========================================================================
-            DESKTOP MAIN STAGE GRID (>= 1024px) — Symmetrical 3-Card Interactive Lab
+            3. DESKTOP OPEN PANORAMIC STAGE (>= 1024px) — Propuesta 2 (Laboratorio Desencajonado)
+            Left (7 cols): Heroic Floating Steamer with Steam Aura & Interactive Hotspots
+            Right (5 cols): Glassmorphic Inspection HUD & Live Micro-Proof
             ========================================================================= */}
         <div 
-          className="hidden lg:grid grid-cols-12 gap-6 xl:gap-8 items-stretch pb-16"
+          className="hidden lg:grid grid-cols-12 gap-8 xl:gap-14 items-center pb-16 relative z-10"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           style={prefersReduced ? undefined : {
             opacity: inView ? 1 : 0,
-            transform: inView ? 'scale(1)' : 'scale(0.98)',
+            transform: inView ? 'scale(1)' : 'scale(0.99)',
             transition: 'opacity 650ms cubic-bezier(0.16, 1, 0.3, 1), transform 650ms cubic-bezier(0.16, 1, 0.3, 1)'
           }}
         >
-          
-          {/* 1. LEFT CARD: ÍNDICE ANATÓMICO INTERACTIVO */}
-          <div className="lg:col-span-3 bg-night-900/85 border border-white/15 rounded-3xl p-6 xl:p-7 flex flex-col justify-between shadow-2xl backdrop-blur-md">
-            <div>
-              {/* Card Header */}
-              <div className="pb-3 mb-3 border-b border-white/10">
-                <span className="text-[10px] font-sans uppercase tracking-widest text-accent font-bold block mb-0.5">
-                  ANATOMÍA TÉCNICA
-                </span>
-                <h3 className="font-display text-lg font-bold text-bone">
-                  Índice de Piezas
-                </h3>
-              </div>
-
-              {/* 6 Anatomical Buttons */}
-              <div className="space-y-1">
-                {pieces.map((piece, idx) => {
-                  const isActive = idx === activeIndex;
-
-                  return (
-                    <button
-                      key={piece.id}
-                      ref={(el) => (indexButtonsRef.current[idx] = el)}
-                      type="button"
-                      onClick={() => selectPiece(idx)}
-                      onKeyDown={(e) => handleKeyNav(e, idx)}
-                      className={`w-full py-3 px-3 rounded-xl text-left flex items-center justify-between group transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent cursor-pointer ${
-                        isActive 
-                          ? 'bg-accent/15 border border-accent/40 shadow-sm' 
-                          : 'bg-white/[0.02] border border-transparent hover:border-white/10 hover:bg-white/[0.04]'
-                      }`}
-                      aria-label={`Ver pieza ${piece.num}: ${piece.name}`}
-                    >
-                      <div className="flex items-center gap-3 min-w-0">
-                        <span className={`w-6 h-6 rounded-full font-sans text-xs font-bold flex items-center justify-center shrink-0 transition-colors ${
-                          isActive 
-                            ? 'bg-accent text-white' 
-                            : 'bg-white/10 text-bone/60 group-hover:text-bone group-hover:bg-white/15'
-                        }`}>
-                          {piece.num}
-                        </span>
-                        <div className="min-w-0">
-                          <span className={`font-sans text-[11px] xl:text-xs tracking-wider uppercase font-semibold block truncate transition-colors ${
-                            isActive ? 'text-white' : 'text-bone/70 group-hover:text-bone'
-                          }`}>
-                            {piece.name}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center pl-2 shrink-0">
-                        <span className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
-                          isActive ? 'bg-accent shadow-[0_0_8px_rgba(180,36,124,0.8)] scale-125' : 'bg-transparent'
-                        }`} />
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Bottom OEM Note */}
-            <div className="mt-6 pt-3.5 border-t border-white/10">
-              <p className="text-[10.5px] font-sans uppercase tracking-wider text-bone/50 leading-relaxed font-medium">
-                Aleación de aluminio inyectado y polímero aislante de alta resistencia.
-              </p>
-            </div>
-          </div>
-
-          {/* 2. CENTER STAGE: THE FLOATING APPARATUS (liso-cutout.webp Floating on Background with Aura & Hotspots) */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative min-h-[480px] select-none">
+          {/* LEFT: HEROIC FLOATING APPARATUS (Unboxed, Majestic, Floating on atmospheric aura) */}
+          <div className="lg:col-span-7 flex flex-col items-center justify-center relative min-h-[540px] xl:min-h-[580px] select-none py-4">
             
-            {/* Background Warm Steam Glow (Floating Depth Aura) */}
+            {/* Multi-layered atmospheric ambient steam aura */}
             <div 
-              className="absolute inset-0 pointer-events-none flex items-center justify-center"
+              className="absolute inset-0 pointer-events-none flex items-center justify-center -m-10"
               aria-hidden="true"
             >
-              <div className="w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(180,36,124,0.22)_0%,rgba(255,195,130,0.10)_40%,transparent_70%)] blur-3xl animate-pulse" />
-              <div className="absolute w-[300px] h-[300px] rounded-full border border-dashed border-white/10 pointer-events-none" />
+              <div className="w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(180,36,124,0.22)_0%,rgba(255,195,130,0.12)_40%,transparent_70%)] blur-3xl animate-pulse" />
+              <div className="absolute w-[420px] h-[420px] rounded-full border border-dashed border-white/10 pointer-events-none" />
+              <div className="absolute w-[520px] h-[520px] rounded-full border border-white/5 pointer-events-none" />
             </div>
 
-            <div className="relative w-full aspect-square max-w-[460px] flex items-center justify-center select-none">
-              {/* Floating Cutout Apparatus */}
+            {/* Steamer Cutout Stage */}
+            <div className="relative w-full aspect-square max-w-[500px] xl:max-w-[560px] flex items-center justify-center select-none">
               <img 
                 src="/images/liso-cutout.webp" 
                 alt="Plancha de vapor LISO disección anatómica en perspectiva técnica" 
                 loading="eager"
                 fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, 500px"
-                className="w-full h-full object-contain select-none pointer-events-none drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)] filter"
+                sizes="(max-width: 768px) 100vw, 560px"
+                className="w-full h-full object-contain select-none pointer-events-none drop-shadow-[0_28px_40px_rgba(0,0,0,0.9)] filter transform transition-transform duration-500"
               />
 
-              {/* Ambient Active Pulse Ring */}
+              {/* Ambient Active Pulse Ring on Active Hotspot */}
               <div 
-                className={`pointer-events-none absolute w-28 h-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/40 shadow-[0_0_30px_rgba(180,36,124,0.35)] ${
-                  prefersReduced ? 'duration-0' : 'transition-all duration-200 ease-mech-s'
+                className={`pointer-events-none absolute w-32 h-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/50 shadow-[0_0_35px_rgba(180,36,124,0.4)] ${
+                  prefersReduced ? 'duration-0' : 'transition-all duration-300 ease-mech-s'
                 }`}
                 style={{
                   left: `${activePiece.hotspot.x}%`,
@@ -740,7 +711,7 @@ export const EngineeringSection: React.FC = () => {
                 aria-hidden="true"
               />
 
-              {/* SVG Animated Dashed Leader Line */}
+              {/* Dynamic SVG Leader Line pointing to the Right HUD */}
               <svg 
                 className="absolute inset-0 w-full h-full pointer-events-none z-15 overflow-visible"
                 aria-hidden="true"
@@ -748,35 +719,35 @@ export const EngineeringSection: React.FC = () => {
                 <line 
                   x1={`${activePiece.hotspot.x}%`} 
                   y1={`${activePiece.hotspot.y}%`} 
-                  x2={`${leaderTargetX}%`} 
-                  y2={`${leaderTargetY}%`} 
+                  x2="100%" 
+                  y2={`${activePiece.hotspot.y}%`} 
                   stroke="#B4247C" 
                   strokeWidth="1.5" 
-                  strokeDasharray="3 3"
-                  className={prefersReduced ? 'duration-0' : 'transition-all duration-200 ease-mech-s'}
+                  strokeDasharray="4 4"
+                  className={prefersReduced ? 'duration-0' : 'transition-all duration-300 ease-mech-s'}
                 />
                 <circle 
-                  cx={`${leaderTargetX}%`} 
-                  cy={`${leaderTargetY}%`} 
-                  r="2.5" 
+                  cx="100%" 
+                  cy={`${activePiece.hotspot.y}%`} 
+                  r="3" 
                   fill="#B4247C" 
-                  className={prefersReduced ? 'duration-0' : 'transition-all duration-200 ease-mech-s'}
+                  className={prefersReduced ? 'duration-0' : 'transition-all duration-300 ease-mech-s'}
                 />
               </svg>
 
-              {/* Initial Hint */}
+              {/* Initial Interaction Hint */}
               <div 
                 className={`absolute top-2 inset-x-0 flex justify-center pointer-events-none z-30 transition-opacity duration-300 ${
                   hasInteracted ? 'opacity-0' : 'opacity-100'
                 }`}
                 aria-hidden="true"
               >
-                <span className="font-sans text-[10px] tracking-widest text-bone/70 uppercase bg-night-900/90 px-3 py-1 border border-white/15 shadow-sm font-semibold rounded-full backdrop-blur-sm">
-                  TOCA UN COMPONENTE
+                <span className="font-sans text-[11px] tracking-widest text-bone/80 uppercase bg-night-900/90 px-3.5 py-1.5 border border-white/20 shadow-lg font-semibold rounded-full backdrop-blur-md">
+                  TOCA UN COMPONENTE DE LA PLANCHA
                 </span>
               </div>
 
-              {/* 6 Hotspot Buttons */}
+              {/* 6 Interactive Hotspot Buttons */}
               {pieces.map((p, idx) => {
                 const isActive = idx === activeIndex;
 
@@ -788,16 +759,16 @@ export const EngineeringSection: React.FC = () => {
                     onClick={() => selectPiece(idx)}
                     onKeyDown={(e) => handleKeyNav(e, idx)}
                     style={{ left: `${p.hotspot.x}%`, top: `${p.hotspot.y}%` }}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 z-20 w-[30px] h-[30px] rounded-full flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bone cursor-pointer after:absolute after:-inset-2.5 after:content-[''] ${
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 z-20 w-[34px] h-[34px] rounded-full flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bone cursor-pointer after:absolute after:-inset-2.5 after:content-[''] ${
                       isActive
-                        ? 'bg-night-950 border-2 border-accent shadow-[0_0_18px_rgba(180,36,124,0.7)] scale-110 ring-2 ring-accent/30'
-                        : 'bg-night-950/90 border border-white/40 hover:border-bone hover:scale-105 active:scale-95'
+                        ? 'bg-night-950 border-2 border-accent shadow-[0_0_22px_rgba(180,36,124,0.8)] scale-115 ring-2 ring-accent/40'
+                        : 'bg-night-950/90 border border-white/40 hover:border-bone hover:scale-110 active:scale-95'
                     }`}
                     aria-label={`Hotspot ${p.num}: ${p.name}`}
                     aria-selected={isActive}
                     role="tab"
                   >
-                    <span className={`font-sans text-[11px] font-bold ${
+                    <span className={`font-sans text-xs font-bold ${
                       isActive ? 'text-accent' : 'text-bone/85 hover:text-white'
                     }`}>
                       {p.num}
@@ -810,88 +781,99 @@ export const EngineeringSection: React.FC = () => {
                 );
               })}
 
-              {/* Corner technical markers */}
-              <div className="absolute bottom-2 left-2 font-sans text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
-                DISECCIÓN 01–06
-              </div>
-              <div className="absolute bottom-2 right-2 font-sans text-[9px] text-bone/40 uppercase tracking-widest pointer-events-none font-medium">
-                HOTSPOT {activePiece.num}
+              {/* Bottom Technical Tag */}
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 font-sans text-xs text-bone/50 tracking-wider uppercase font-medium">
+                VISTA ANATÓMICA EXPLOTADA · SERIE 01
               </div>
             </div>
 
           </div>
 
-          {/* 3. RIGHT CARD: PANEL DE INSPECCIÓN Y MICRO-PRUEBA EN VIVO */}
-          <div className="lg:col-span-4 bg-night-900/85 border border-white/15 rounded-3xl p-6 sm:p-7 shadow-2xl backdrop-blur-md flex flex-col justify-between">
+          {/* RIGHT: OPEN GLASSMORPHIC INSPECTION & INTERACTIVE HUD (Unboxed, sleek, breathable) */}
+          <div className="lg:col-span-5 bg-white/[0.03] border border-white/12 rounded-3xl p-7 xl:p-8 shadow-2xl backdrop-blur-md flex flex-col justify-between space-y-6">
             
-            {/* Top: Category & Piece Title */}
-            <div className="space-y-1.5 pb-4 border-b border-white/10 transition-all duration-200 ease-mech-s">
+            {/* Top: Category Tag & Piece Title */}
+            <div className="space-y-2 pb-4 border-b border-white/10">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-sans uppercase tracking-widest text-accent font-bold">
+                <span className="text-[11px] font-sans uppercase tracking-widest text-accent font-bold">
                   {activePiece.category}
                 </span>
                 <span className="font-sans text-xs font-bold text-bone/50 tracking-wider">
                   PIEZA {activePiece.num} / 06
                 </span>
               </div>
-              <h3 className="font-display text-lg sm:text-xl font-bold text-bone tracking-wide uppercase">
+              <h3 className="font-display text-2xl xl:text-3xl font-bold text-bone tracking-wide uppercase">
                 {activePiece.name}
               </h3>
-            </div>
-
-            {/* Middle: Humanist phrase VERBATIM */}
-            <div className="py-4 border-b border-white/10 min-h-[74px] flex items-center">
-              <p className="text-sm sm:text-[14.5px] font-sans font-normal text-bone/90 leading-relaxed">
+              <p className="text-sm sm:text-base text-bone/85 font-sans leading-relaxed pt-1">
                 {activePiece.phrase}
               </p>
             </div>
 
-            {/* Bottom: Dedicated Live Micro-proof Slot */}
-            <div className="py-4 flex-grow flex flex-col justify-center min-h-[260px] sm:min-h-[280px]">
+            {/* Middle: Dedicated Live Micro-proof Slot */}
+            <div className="py-2 flex-grow flex flex-col justify-center min-h-[260px]">
               {renderMicroProof()}
             </div>
 
-            {/* Bottom Stepper Indicator of the Rail */}
-            <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-sans text-bone/50 font-medium">
+            {/* Bottom Stepper Controls */}
+            <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+              <button
+                type="button"
+                onClick={() => selectPiece((activeIndex - 1 + pieces.length) % pieces.length)}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-bone/70 hover:text-white active:scale-95 py-1.5 px-3 rounded-xl bg-white/5 border border-white/10 hover:border-white/25 transition-all cursor-pointer"
+                aria-label="Pieza anterior"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Anterior</span>
+              </button>
+
               <div className="flex items-center gap-1.5">
                 {pieces.map((_, i) => (
                   <button
                     key={i}
                     type="button"
                     onClick={() => selectPiece(i)}
-                    className={`h-1.5 rounded-full transition-all duration-200 ${
+                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                       i === activeIndex ? 'w-6 bg-accent' : 'w-1.5 bg-white/20 hover:bg-white/40'
                     }`}
                     aria-label={`Ir a pieza ${i + 1}`}
                   />
                 ))}
               </div>
-              <span className="font-sans text-[11px]">PIEZA {activePiece.num} DE 06</span>
+
+              <button
+                type="button"
+                onClick={() => selectPiece((activeIndex + 1) % pieces.length)}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-bone/70 hover:text-white active:scale-95 py-1.5 px-3 rounded-xl bg-white/5 border border-white/10 hover:border-white/25 transition-all cursor-pointer"
+                aria-label="Pieza siguiente"
+              >
+                <span>Siguiente</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
 
           </div>
-
         </div>
 
         {/* =========================================================================
-            BOTTOM 4 ESSENTIAL SPECS CARDS (Rounded Liquid+ Style)
+            BOTTOM 4 ESSENTIAL SPECS CARDS (Glassmorphic Panoramic Strip)
             ========================================================================= */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-sans">
-          <div className="p-4 bg-night-900/90 border border-white/15 rounded-2xl hover:border-white/25 transition-colors">
-            <span className="text-bone/50 block uppercase text-[10px] font-sans font-semibold tracking-wider">Potencia Sostenida</span>
-            <span className="text-lg font-bold text-bone mt-1 block font-sans">{productSpecs.power}</span>
+          <div className="p-4 sm:p-5 bg-white/[0.03] border border-white/10 rounded-2xl hover:border-white/25 transition-all backdrop-blur-xs">
+            <span className="text-bone/50 block uppercase text-[11px] sm:text-xs font-sans font-semibold tracking-wider">Potencia Sostenida</span>
+            <span className="text-lg sm:text-xl font-bold text-bone mt-1 block font-sans">{productSpecs.power}</span>
           </div>
-          <div className="p-4 bg-night-900/90 border border-white/15 rounded-2xl hover:border-white/25 transition-colors">
-            <span className="text-bone/50 block uppercase text-[10px] font-sans font-semibold tracking-wider">Temperatura Máxima</span>
-            <span className="text-lg font-bold text-bone mt-1 block font-sans">{productSpecs.maxTemperature}</span>
+          <div className="p-4 sm:p-5 bg-white/[0.03] border border-white/10 rounded-2xl hover:border-white/25 transition-all backdrop-blur-xs">
+            <span className="text-bone/50 block uppercase text-[11px] sm:text-xs font-sans font-semibold tracking-wider">Temperatura Máxima</span>
+            <span className="text-lg sm:text-xl font-bold text-bone mt-1 block font-sans">{productSpecs.maxTemperature}</span>
           </div>
-          <div className="p-4 bg-night-900/90 border border-white/15 rounded-2xl hover:border-white/25 transition-colors">
-            <span className="text-bone/50 block uppercase text-[10px] font-sans font-semibold tracking-wider">Depósito Calibrado</span>
-            <span className="text-lg font-bold text-bone mt-1 block font-sans">{productSpecs.tankCapacity} (~5 min)</span>
+          <div className="p-4 sm:p-5 bg-white/[0.03] border border-white/10 rounded-2xl hover:border-white/25 transition-all backdrop-blur-xs">
+            <span className="text-bone/50 block uppercase text-[11px] sm:text-xs font-sans font-semibold tracking-wider">Depósito Calibrado</span>
+            <span className="text-lg sm:text-xl font-bold text-bone mt-1 block font-sans">{productSpecs.tankCapacity} (~5 min)</span>
           </div>
-          <div className="p-4 bg-night-900/90 border border-white/15 rounded-2xl hover:border-white/25 transition-colors">
-            <span className="text-bone/50 block uppercase text-[10px] font-sans font-semibold tracking-wider">Cámara Térmica</span>
-            <span className="text-lg font-bold text-bone mt-1 block font-sans">{productSpecs.innerTankMaterial}</span>
+          <div className="p-4 sm:p-5 bg-white/[0.03] border border-white/10 rounded-2xl hover:border-white/25 transition-all backdrop-blur-xs">
+            <span className="text-bone/50 block uppercase text-[11px] sm:text-xs font-sans font-semibold tracking-wider">Cámara Térmica</span>
+            <span className="text-lg sm:text-xl font-bold text-bone mt-1 block font-sans">{productSpecs.innerTankMaterial}</span>
           </div>
         </div>
 
