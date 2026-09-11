@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useInView } from '../../hooks/useInView';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { Sparkles, Thermometer, Zap, Droplets } from 'lucide-react';
-import { BeforeAfterSlider } from '../ui/BeforeAfterSlider';
+import { Sparkles } from 'lucide-react';
 
 const fastSteps = [
   {
@@ -135,6 +134,9 @@ export const ThreeGesturesSection: React.FC = () => {
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-bold text-graphite tracking-tight leading-[1.18]">
             Dejar tu ropa impecable es así de simple.
           </h2>
+          <p className="font-sans text-sm sm:text-base lg:text-lg text-graphite/75 leading-relaxed mt-2 sm:mt-2.5">
+            No necesitas una sesión de planchado. Solo arreglar lo que te vas a poner hoy.
+          </p>
         </div>
 
         {/* DESKTOP PROCESS GRID (>= 768px) — 3 Fast Cards */}
@@ -274,101 +276,6 @@ export const ThreeGesturesSection: React.FC = () => {
 
         {/* Anchor target for backwards compatibility with any #beneficios links */}
         <div id="beneficios" className="scroll-mt-24" aria-hidden="true" />
-
-        {/* =========================================================================
-            PARTE 2: RESULTADO VISIBLE (HERO ANTES/DESPUÉS) + 3 CARACTERÍSTICAS
-            Inmediatamente después, integrado en la misma narrativa
-            ========================================================================= */}
-        <div className="mt-8 sm:mt-10 lg:mt-12 max-w-[1120px] mx-auto">
-          
-          <div className="mb-3.5 sm:mb-5">
-            <h3 className="font-display text-2xl sm:text-3xl lg:text-[2.2rem] font-bold text-graphite tracking-tight leading-[1.18]">
-              No necesitas una sesión de planchado.
-            </h3>
-          </div>
-
-          {/* BLOQUE HERO VISUAL: ANTES / DESPUÉS (Tamaño compacto y calibrado) */}
-          <div className="bg-white rounded-2xl sm:rounded-3xl lg:rounded-[28px] p-4 sm:p-6 lg:p-7 shadow-premium hover:shadow-premium-hover relative group transition-all duration-300">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
-              
-              {/* Columna Izquierda: Copy corto, directo y centrado */}
-              <div className="lg:col-span-5 space-y-2 sm:space-y-3 flex flex-col justify-center py-1 sm:py-2">
-                <h4 className="font-display text-xl sm:text-2xl lg:text-[1.85rem] font-bold text-graphite leading-[1.2] tracking-tight">
-                  Enciende en 15 segundos y alisa directo en el gancho.
-                </h4>
-
-                <p className="text-xs sm:text-sm lg:text-[15px] text-graphite/70 leading-relaxed font-normal">
-                  Calor cerámico a 150 °C para dejar tus prendas listas sin armar la tabla.
-                </p>
-
-                <p className="text-[10.5px] sm:text-[11px] font-sans text-graphite/45 italic pt-0.5">
-                  ← Desliza el separador para comparar el acabado →
-                </p>
-              </div>
-
-              {/* Columna Derecha: Slider Antes/Después Panorámico Compacto */}
-              <div className="lg:col-span-7">
-                <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-premium-image bg-night-950">
-                  <BeforeAfterSlider 
-                    beforeImage="/images/before-wrinkled-shirt.jpg"
-                    afterImage="/images/after-smooth-shirt.jpg"
-                    aspectRatio="aspect-[4/3] sm:aspect-[4/3] lg:aspect-[16/11]"
-                  />
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* 3 BENEFICIOS TÉCNICOS ULTRA COMPACTOS Y ESCANEABLES */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-3.5 sm:mt-4">
-            {/* 150 °C · Calor cerámico */}
-            <div className="bg-white/85 border border-graphite/10 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 lg:p-4 flex items-center gap-3 shadow-xs hover:border-accent/40 transition-colors">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
-                <Thermometer className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
-              </div>
-              <div className="min-w-0">
-                <span className="font-display text-base sm:text-lg lg:text-xl font-bold text-graphite block leading-tight tracking-tight">
-                  150 °C
-                </span>
-                <span className="text-[11px] sm:text-xs text-graphite/70 font-sans font-medium block mt-0.5">
-                  Calor cerámico
-                </span>
-              </div>
-            </div>
-
-            {/* 15 segundos · Lista para salir */}
-            <div className="bg-white/85 border border-graphite/10 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 lg:p-4 flex items-center gap-3 shadow-xs hover:border-accent/40 transition-colors">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
-                <Zap className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
-              </div>
-              <div className="min-w-0">
-                <span className="font-display text-base sm:text-lg lg:text-xl font-bold text-graphite block leading-tight tracking-tight">
-                  15 segundos
-                </span>
-                <span className="text-[11px] sm:text-xs text-graphite/70 font-sans font-medium block mt-0.5">
-                  Lista para salir
-                </span>
-              </div>
-            </div>
-
-            {/* ANTIGOTEO · Sin manchas de agua */}
-            <div className="bg-white/85 border border-graphite/10 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 lg:p-4 flex items-center gap-3 shadow-xs hover:border-accent/40 transition-colors">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 border border-accent/25 text-accent flex items-center justify-center shrink-0">
-                <Droplets className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
-              </div>
-              <div className="min-w-0">
-                <span className="font-display text-base sm:text-lg lg:text-xl font-bold text-graphite block leading-tight tracking-tight uppercase">
-                  ANTIGOTEO
-                </span>
-                <span className="text-[11px] sm:text-xs text-graphite/70 font-sans font-medium block mt-0.5">
-                  Sin manchas de agua
-                </span>
-              </div>
-            </div>
-          </div>
-
-        </div>
 
       </div>
     </section>
