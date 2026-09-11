@@ -16,6 +16,7 @@ import { ComparisonSection } from './components/sections/ComparisonSection';
 import { LifestyleScenesSection } from './components/sections/LifestyleScenesSection';
 import { BoxContentsSection } from './components/sections/BoxContentsSection';
 import { SocialProofSection } from './components/sections/SocialProofSection';
+import { VisualProofSection } from './components/sections/VisualProofSection';
 import { OfferSection } from './components/sections/OfferSection';
 import { FAQSection } from './components/sections/FAQSection';
 import { FinalCTASection } from './components/sections/FinalCTASection';
@@ -75,6 +76,7 @@ const HomePage: React.FC = () => (
     <OfferSection />
     <HonestyLabelSection />
     <SocialProofSection />
+    <VisualProofSection />
     <ComparisonSection />
     <MovingTickerBar items={lifestyleTickerItems} theme="light" speedSeconds={34} />
     <LifestyleScenesSection />
