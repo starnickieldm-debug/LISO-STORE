@@ -78,24 +78,24 @@ export const ComparisonSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/50 via-transparent to-[#FAF8F5]/60 pointer-events-none" />
       </div>
 
-      <div className="max-w-[1280px] w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 relative z-10">
+      <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 relative z-10">
         
         {/* =========================================================================
             ASYMMETRICAL 2-COLUMN HEADER (Liquid+ DTC Reference Logic)
             Left: Brand vs. The Rest Title + Tag | Right: Editorial Thesis Paragraph
             ========================================================================= */}
         <Reveal direction="up" duration={650}>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-10">
-            <div className="max-w-2xl">
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.85rem] font-bold text-graphite tracking-tight leading-[1.12]">
-                LISO<sup className="text-accent text-lg sm:text-xl font-sans">®</sup>{' '}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 mb-10 sm:mb-12 lg:mb-16">
+            <div className="max-w-3xl">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.2rem] font-bold text-graphite tracking-tight leading-[1.08]">
+                LISO<sup className="text-accent text-2xl sm:text-3xl font-sans">®</sup>{' '}
                 <span className="italic font-normal font-display text-accent">vs.</span>{' '}
                 el resto
               </h2>
             </div>
 
-            <div className="max-w-lg lg:text-right">
-              <p className="text-sm sm:text-[15px] font-sans text-graphite/75 leading-relaxed">
+            <div className="max-w-xl lg:text-right">
+              <p className="text-base sm:text-lg lg:text-xl font-sans text-graphite/75 leading-relaxed">
                 El punto exacto entre dos extremos. La plancha pesada es para tandas grandes de sábanas; los vaporizadores baratos escupen agua y calientan poco. <strong className="font-semibold text-graphite">LISO®</strong> está hecha para dejarte impecable en 3 minutos.
               </p>
             </div>
@@ -108,65 +108,65 @@ export const ComparisonSection: React.FC = () => {
             LISO column highlighted in soft solid brand wash, direct column-anchored CTA
             ========================================================================= */}
         <Reveal direction="up" duration={700} className="hidden md:block">
-          <div className="space-y-3 sm:space-y-3.5">
+          <div className="space-y-3.5 sm:space-y-4">
             
             {/* 1. Header Row (Col 1: Metric Spacer, Col 2: LISO Hero, Col 3: Plancha, Col 4: Vaporizador) */}
-            <div className="grid grid-cols-[1.1fr_1.35fr_1.2fr_1.2fr] gap-3 sm:gap-3.5 items-center pb-2">
+            <div className="grid grid-cols-[1.05fr_1.35fr_1.2fr_1.2fr] gap-3 sm:gap-4 lg:gap-5 items-center pb-3">
               {/* Col 1 Empty Spacer */}
               <div aria-hidden="true" />
 
               {/* Col 2: LISO Floating Cutout + Title (No box container) */}
-              <div className="flex items-center justify-center gap-3.5 py-1 group">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <div className="flex items-center justify-center gap-3.5 sm:gap-4 py-1 group">
+                <div className="w-18 h-18 sm:w-22 sm:h-22 lg:w-26 lg:h-26 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="/images/liso-pure-cutout.webp" 
                     alt="Plancha de vapor portátil LISO" 
-                    className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(180,36,124,0.18)]"
+                    className="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(180,36,124,0.22)]"
                   />
                 </div>
                 <div className="text-left">
-                  <span className="font-display font-bold text-lg sm:text-xl text-graphite block tracking-tight leading-tight">
-                    {brandConfig.name}<sup className="text-accent text-xs font-sans">®</sup>
+                  <span className="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-graphite block tracking-tight leading-tight">
+                    {brandConfig.name}<sup className="text-accent text-sm font-sans">®</sup>
                   </span>
-                  <span className="text-[11px] sm:text-xs font-sans text-accent font-bold tracking-wider uppercase block mt-0.5">
+                  <span className="text-xs sm:text-sm font-sans text-accent font-bold tracking-wider uppercase block mt-1">
                     Plancha Portátil
                   </span>
                 </div>
               </div>
 
               {/* Col 3: Plancha tradicional Floating Cutout + Title (No box container) */}
-              <div className="flex items-center justify-center gap-3.5 py-1 group">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <div className="flex items-center justify-center gap-3.5 sm:gap-4 py-1 group">
+                <div className="w-18 h-18 sm:w-22 sm:h-22 lg:w-26 lg:h-26 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="/images/comp-iron-board-cutout.webp" 
                     alt="Plancha tradicional con tabla de planchar" 
-                    className="w-full h-full object-contain filter drop-shadow-[0_6px_12px_rgba(0,0,0,0.08)]"
+                    className="w-full h-full object-contain filter drop-shadow-[0_6px_14px_rgba(0,0,0,0.08)]"
                   />
                 </div>
                 <div className="text-left">
-                  <span className="font-sans font-bold text-sm sm:text-base text-graphite block leading-tight">
+                  <span className="font-sans font-bold text-base sm:text-lg lg:text-xl text-graphite block leading-tight">
                     Plancha tradicional
                   </span>
-                  <span className="text-[11px] sm:text-xs font-sans text-graphite/55 block mt-0.5">
+                  <span className="text-xs sm:text-[13px] font-sans text-graphite/55 block mt-1">
                     Con tabla de planchar
                   </span>
                 </div>
               </div>
 
               {/* Col 4: Vaporizador común Floating Cutout + Title (No box container) */}
-              <div className="flex items-center justify-center gap-3.5 py-1 group">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <div className="flex items-center justify-center gap-3.5 sm:gap-4 py-1 group">
+                <div className="w-18 h-18 sm:w-22 sm:h-22 lg:w-26 lg:h-26 shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src="/images/comp-common-steamer-cutout.webp" 
                     alt="Vaporizador vertical común de plástico" 
-                    className="w-full h-full object-contain filter drop-shadow-[0_6px_12px_rgba(0,0,0,0.08)]"
+                    className="w-full h-full object-contain filter drop-shadow-[0_6px_14px_rgba(0,0,0,0.08)]"
                   />
                 </div>
                 <div className="text-left">
-                  <span className="font-sans font-bold text-sm sm:text-base text-graphite block leading-tight">
+                  <span className="font-sans font-bold text-base sm:text-lg lg:text-xl text-graphite block leading-tight">
                     Vaporizador común
                   </span>
-                  <span className="text-[11px] sm:text-xs font-sans text-graphite/55 block mt-0.5">
+                  <span className="text-xs sm:text-[13px] font-sans text-graphite/55 block mt-1">
                     Vertical de plástico
                   </span>
                 </div>
@@ -177,32 +177,32 @@ export const ComparisonSection: React.FC = () => {
             {liquidComparisonRows.map((row) => (
               <div 
                 key={row.feature} 
-                className="grid grid-cols-[1.1fr_1.35fr_1.2fr_1.2fr] gap-3 sm:gap-3.5 items-stretch"
+                className="grid grid-cols-[1.05fr_1.35fr_1.2fr_1.2fr] gap-3 sm:gap-4 lg:gap-5 items-stretch"
               >
                 {/* Col 1: Criterio */}
-                <div className="rounded-2xl bg-white/95 border border-graphite/10 p-3.5 sm:p-4 px-4 sm:px-5 flex items-center justify-start shadow-xs">
-                  <span className="font-sans font-bold text-graphite text-xs sm:text-[13.5px] leading-snug">
+                <div className="rounded-2xl lg:rounded-[22px] bg-white/95 border border-graphite/12 min-h-[64px] lg:min-h-[74px] p-4 lg:p-5 px-5 lg:px-7 flex items-center justify-start shadow-xs">
+                  <span className="font-sans font-bold text-graphite text-sm sm:text-base lg:text-[17px] leading-snug">
                     {row.feature}
                   </span>
                 </div>
 
                 {/* Col 2: LISO (Hero Columna Ganadora - Tinte Sólido de Marca) */}
-                <div className="rounded-2xl bg-[#F6EAF1] border-2 border-accent/35 p-3.5 sm:p-4 px-3 sm:px-4 flex items-center justify-center text-center shadow-xs transition-all hover:border-accent/60 hover:scale-[1.01]">
-                  <span className="font-sans font-bold text-graphite text-xs sm:text-[14px] leading-snug">
+                <div className="rounded-2xl lg:rounded-[22px] bg-[#F7EBF3] border-2 border-accent/40 min-h-[64px] lg:min-h-[74px] p-4 lg:p-5 px-4 lg:px-6 flex items-center justify-center text-center shadow-xs transition-all hover:border-accent hover:scale-[1.01]">
+                  <span className="font-sans font-bold text-graphite text-sm sm:text-base lg:text-[17px] leading-snug">
                     {row.liso}
                   </span>
                 </div>
 
                 {/* Col 3: Plancha tradicional */}
-                <div className="rounded-2xl bg-white/90 border border-graphite/10 p-3.5 sm:p-4 px-3 sm:px-4 flex items-center justify-center text-center shadow-xs transition-colors hover:bg-white">
-                  <span className="font-sans font-semibold text-graphite/80 text-xs sm:text-[13.5px] leading-snug">
+                <div className="rounded-2xl lg:rounded-[22px] bg-white/90 border border-graphite/12 min-h-[64px] lg:min-h-[74px] p-4 lg:p-5 px-4 lg:px-6 flex items-center justify-center text-center shadow-xs transition-colors hover:bg-white hover:border-graphite/25">
+                  <span className="font-sans font-semibold text-graphite/80 text-xs sm:text-sm lg:text-[15px] leading-snug">
                     {renderCellValue(row.traditional)}
                   </span>
                 </div>
 
                 {/* Col 4: Vaporizador común */}
-                <div className="rounded-2xl bg-white/90 border border-graphite/10 p-3.5 sm:p-4 px-3 sm:px-4 flex items-center justify-center text-center shadow-xs transition-colors hover:bg-white">
-                  <span className="font-sans font-semibold text-graphite/80 text-xs sm:text-[13.5px] leading-snug">
+                <div className="rounded-2xl lg:rounded-[22px] bg-white/90 border border-graphite/12 min-h-[64px] lg:min-h-[74px] p-4 lg:p-5 px-4 lg:px-6 flex items-center justify-center text-center shadow-xs transition-colors hover:bg-white hover:border-graphite/25">
+                  <span className="font-sans font-semibold text-graphite/80 text-xs sm:text-sm lg:text-[15px] leading-snug">
                     {renderCellValue(row.steamer)}
                   </span>
                 </div>
@@ -210,13 +210,13 @@ export const ComparisonSection: React.FC = () => {
             ))}
 
             {/* 3. CTA Button directly anchored beneath LISO column (Liquid+ Formula) */}
-            <div className="grid grid-cols-[1.1fr_1.35fr_1.2fr_1.2fr] gap-3 sm:gap-3.5 pt-2 items-center">
+            <div className="grid grid-cols-[1.05fr_1.35fr_1.2fr_1.2fr] gap-3 sm:gap-4 lg:gap-5 pt-3 items-center">
               <div aria-hidden="true" />
               <div>
                 <CTAButton 
                   href="#oferta" 
                   size="large" 
-                  className="w-full py-3.5 sm:py-4 shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/35 text-xs sm:text-[13px] font-bold tracking-wide"
+                  className="w-full py-4 sm:py-5 shadow-xl shadow-accent/25 hover:shadow-2xl hover:shadow-accent/35 text-sm sm:text-base lg:text-lg font-bold tracking-wide rounded-2xl"
                 >
                   Pide la tuya – {currentMarket.formattedPrice}
                 </CTAButton>
@@ -226,7 +226,7 @@ export const ComparisonSection: React.FC = () => {
             </div>
 
             {/* 4. Table Footnote Row */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-sans text-graphite/55 px-1">
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-sans text-graphite/55 px-1">
               <span>*Comparativa basada en especificaciones estándar de mercado para Colombia</span>
               <span className="italic text-graphite/45">{brandConfig.labClaimNote}</span>
             </div>
