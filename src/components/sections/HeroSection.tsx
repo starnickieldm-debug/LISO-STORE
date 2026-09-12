@@ -3,7 +3,7 @@ import { useMarket } from '../../context/MarketContext';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { CTAButton } from '../ui/CTAButton';
 import { DataStrip } from '../ui/DataStrip';
-import { Star, Sparkles, ShieldCheck, Truck, Lock } from 'lucide-react';
+import { Star, Sparkles, ShieldCheck, Truck, Lock, Luggage } from 'lucide-react';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
 
 export const HeroSection: React.FC = () => {
@@ -200,12 +200,12 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              Alisa directamente en el gancho y olvídate de la tabla. Lista en solo 15 segundos.
+              Alisa directamente en el gancho y olvídate de la tabla. Tamaño ultra compacto: perfecta para tener a mano en casa o llevarla en la maleta a cualquier viaje.
             </p>
 
             {/* 4. Streamlined High-Impact Conversion Block (Open, Clean, Friction-Free) */}
             <div 
-              className="mt-5 lg:mt-6 space-y-3.5 max-w-lg"
+              className="mt-5 lg:mt-6 space-y-3 max-w-lg"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
@@ -213,15 +213,28 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              {/* Pricing & Free Shipping Incentive */}
-              <div className="flex items-center gap-3">
-                <span className="text-3xl sm:text-[2.25rem] font-display font-bold text-graphite tracking-tight leading-none">
-                  {currentMarket.formattedPrice}
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-accent/10 border border-accent/25 text-accent text-[11px] font-sans font-bold uppercase tracking-wider rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                  Envío gratis incluido
-                </span>
+              {/* Pricing & Free Shipping Incentive with Compare-At Price Anchor */}
+              <div className="space-y-1">
+                {currentMarket.formattedCompareAtPrice && (
+                  <div className="flex items-center gap-2 text-xs font-sans text-graphite/55 tracking-wider">
+                    <span>Antes: </span>
+                    <span className="line-through decoration-graphite/40 font-medium">
+                      {currentMarket.formattedCompareAtPrice}
+                    </span>
+                    <span className="px-1.5 py-0.5 bg-accent/10 border border-accent/30 text-accent font-bold text-[10px] rounded">
+                      AHORRA 24%
+                    </span>
+                  </div>
+                )}
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl sm:text-[2.25rem] font-display font-bold text-graphite tracking-tight leading-none">
+                    {currentMarket.formattedPrice}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-accent/10 border border-accent/25 text-accent text-[11px] font-sans font-bold uppercase tracking-wider rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                    Envío gratis incluido
+                  </span>
+                </div>
               </div>
 
               {/* Primary High-Conversion CTA Button */}
@@ -240,6 +253,11 @@ export const HeroSection: React.FC = () => {
                 <span className="inline-flex items-center gap-1.5 font-semibold text-graphite">
                   <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
                   <span>Garantía de 30 días</span>
+                </span>
+                <span className="text-graphite/30">•</span>
+                <span className="inline-flex items-center gap-1.5 font-medium text-graphite/85">
+                  <Luggage className="w-4 h-4 text-accent shrink-0" />
+                  <span>Ideal para viajes</span>
                 </span>
                 <span className="text-graphite/30">•</span>
                 <span className="inline-flex items-center gap-1.5 font-medium text-graphite/85">
@@ -355,21 +373,34 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* 4. Micro-bajada: Concise objection-killing value proposition */}
-          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[325px] mx-auto mb-3">
-            Alisa directamente en el gancho y olvídate de la tabla. Lista en solo 15 segundos.
+          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[340px] mx-auto mb-3">
+            Alisa directamente en el gancho y olvídate de la tabla. Tamaño ultra compacto: perfecta para tener a mano en casa o llevarla en la maleta a cualquier viaje.
           </p>
 
           {/* 5. Streamlined Conversion Section (Thumb-Zone Optimized) */}
-          <div className="pt-1 space-y-2.5">
-            {/* Price & Shipping badge */}
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="text-[1.85rem] xs:text-[2rem] font-display font-bold text-graphite tracking-tight leading-none">
-                {currentMarket.formattedPrice}
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-accent/10 border border-accent/25 text-accent text-[10.5px] font-sans font-bold uppercase tracking-wider rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                {currentMarket.shippingLabel}
-              </span>
+          <div className="pt-1 space-y-2">
+            {/* Price & Shipping badge with Compare-At Price Anchor */}
+            <div className="space-y-0.5">
+              {currentMarket.formattedCompareAtPrice && (
+                <div className="flex items-center justify-center gap-2 text-[11px] font-sans text-graphite/55 tracking-wider">
+                  <span>Antes: </span>
+                  <span className="line-through decoration-graphite/40 font-medium">
+                    {currentMarket.formattedCompareAtPrice}
+                  </span>
+                  <span className="px-1.5 py-0.2 bg-accent/10 border border-accent/30 text-accent font-bold text-[9.5px] rounded">
+                    AHORRA 24%
+                  </span>
+                </div>
+              )}
+              <div className="flex items-center justify-center gap-2.5">
+                <span className="text-[1.85rem] xs:text-[2rem] font-display font-bold text-graphite tracking-tight leading-none">
+                  {currentMarket.formattedPrice}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-accent/10 border border-accent/25 text-accent text-[10.5px] font-sans font-bold uppercase tracking-wider rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                  {currentMarket.shippingLabel}
+                </span>
+              </div>
             </div>
 
             {/* Primary Buy CTA */}
@@ -382,10 +413,15 @@ export const HeroSection: React.FC = () => {
             </CTAButton>
 
             {/* 3. Reorganización de Garantía y Confianza (Mobile) */}
-            <div className="flex flex-wrap items-center justify-center gap-2 text-[11px] text-graphite/75 font-sans pt-1 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-2 text-[10.5px] xs:text-[11px] text-graphite/75 font-sans pt-1 text-center">
               <span className="inline-flex items-center gap-1 font-semibold text-graphite">
                 <ShieldCheck className="w-3.5 h-3.5 text-accent shrink-0" />
                 <span>Garantía de 30 días</span>
+              </span>
+              <span className="text-graphite/30">•</span>
+              <span className="inline-flex items-center gap-1 font-medium text-graphite/85">
+                <Luggage className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Para viajes</span>
               </span>
               <span className="text-graphite/30">•</span>
               <span className="inline-flex items-center gap-1 font-medium text-graphite/85">

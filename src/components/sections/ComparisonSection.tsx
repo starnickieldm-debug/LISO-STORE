@@ -38,7 +38,7 @@ export const liquidComparisonRows: LiquidComparisonRow[] = [
   },
   {
     feature: "Espacio y portabilidad",
-    liso: "Compacta, cabe en maleta o cajón",
+    liso: "Ultra compacta: cabe en maleta de mano o viajes (cero bulto)",
     traditional: "Ocupa espacio de clóset",
     steamer: "Cuerpo voluminoso",
   },
@@ -90,7 +90,7 @@ export const ComparisonSection: React.FC = () => {
               <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.2rem] font-bold text-graphite tracking-tight leading-[1.08]">
                 LISO<sup className="text-accent text-2xl sm:text-3xl font-sans">®</sup>{' '}
                 <span className="italic font-normal font-display text-accent">vs.</span>{' '}
-                el resto
+                otras planchas
               </h2>
             </div>
 

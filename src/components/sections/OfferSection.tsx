@@ -74,7 +74,7 @@ export const OfferSection: React.FC = () => {
         {/* Mobile Product Header (Centered above gallery on mobile) */}
         <div className="block md:hidden text-center mb-6">
           <span className="text-xs font-sans font-bold tracking-widest uppercase text-accent block mb-1.5">
-            KIT COMPLETO
+            KIT COMPLETO · CASA Y VIAJES
           </span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-graphite tracking-tight leading-tight">
             Plancha de vapor portátil LISO
@@ -97,7 +97,7 @@ export const OfferSection: React.FC = () => {
               {/* Product Title & Model (Desktop Only, High-Impact Scale) */}
               <div className="hidden md:block">
                 <span className="text-xs sm:text-sm font-sans font-bold tracking-widest uppercase text-accent block mb-1.5">
-                  KIT COMPLETO
+                  KIT COMPLETO · CASA Y VIAJES
                 </span>
                 <h2 className="font-display text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-graphite tracking-tight leading-[1.12]">
                   Plancha de vapor portátil LISO
@@ -157,7 +157,7 @@ export const OfferSection: React.FC = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                    <span>Bolsa de transporte y protección</span>
+                    <span>Bolsa de viaje y transporte (cabe en cualquier maleta)</span>
                   </li>
                   <li className="flex items-center gap-2 sm:col-span-2">
                     <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />

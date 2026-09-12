@@ -270,7 +270,7 @@ export const ThreeGesturesSection: React.FC = () => {
         <div className="mt-5 sm:mt-7 flex justify-center">
           <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-graphite/[0.04] border border-graphite/10 text-graphite/75 text-xs sm:text-sm font-sans font-medium text-center">
             <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent stroke-[2.2] shrink-0" />
-            <span>Entre 2 y 3 minutos por prenda. Sin tabla ni accesorios extra.</span>
+            <span>Entre 2 y 3 minutos por prenda. Sin tabla: ultra práctica para tu rutina y perfecta para empacar en viajes.</span>
           </div>
         </div>
 
