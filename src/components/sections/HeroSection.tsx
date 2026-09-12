@@ -200,7 +200,7 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              Alisa directo en el gancho y sin tabla. Compacta para tu casa o tu maleta de viaje.
+              Alisa directo en el gancho o en tu cama. Perfecta para usar en casa o llevarla de viaje.
             </p>
 
             {/* 4. Streamlined High-Impact Conversion Block (Open, Clean, Friction-Free) */}
@@ -374,7 +374,7 @@ export const HeroSection: React.FC = () => {
 
           {/* 4. Micro-bajada: Concise objection-killing value proposition */}
           <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[320px] mx-auto mb-3">
-            Alisa directo en el gancho y sin tabla. Compacta para tu casa o tu maleta de viaje.
+            Alisa directo en el gancho o en tu cama. Perfecta para usar en casa o llevarla de viaje.
           </p>
 
           {/* 5. Streamlined Conversion Section (Thumb-Zone Optimized) */}
