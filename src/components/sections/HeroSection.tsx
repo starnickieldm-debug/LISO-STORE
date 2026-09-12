@@ -180,7 +180,7 @@ export const HeroSection: React.FC = () => {
             >
               <span className="relative inline-block px-2.5 py-1">
                 <span className="relative z-10 font-sans text-sm sm:text-[15px] lg:text-base font-semibold text-graphite tracking-tight">
-                  Para salir impecable cuando vas de afán
+                  Sal impecable, incluso cuando vas de afán
                 </span>
                 {/* Trazo de resaltador estético con identidad de marca (plum/berry wash) */}
                 <span 
@@ -364,7 +364,7 @@ export const HeroSection: React.FC = () => {
           <div className="my-2 flex justify-center">
             <span className="relative inline-block px-2.5 py-0.5 text-center">
               <span className="relative z-10 font-sans text-[12.5px] xs:text-[13px] font-semibold text-graphite tracking-tight">
-                Para salir impecable cuando vas de afán
+                Sal impecable, incluso cuando vas de afán
               </span>
               <span 
                 className="absolute inset-x-0 inset-y-0.5 bg-gradient-to-r from-accent/25 via-accent/20 to-accent/14 rounded-[3px] -rotate-[0.4deg] -skew-x-2 -z-0 pointer-events-none shadow-[inset_0_0_0_1px_rgba(180,36,124,0.12)]"
