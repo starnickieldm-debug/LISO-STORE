@@ -49,10 +49,10 @@ export const FinalCTASection: React.FC = () => {
           <Reveal direction="left" duration={750} className="lg:col-span-6">
             <div className="rounded-3xl sm:rounded-[32px] overflow-hidden group bg-white shadow-premium-image hover:shadow-premium-hover transition-all duration-500">
               <picture className="w-full h-full">
-                <source srcSet="/images/final-cta-steamer.webp" type="image/webp" />
+                <source srcSet="/images/final-cta-lifestyle.webp" type="image/webp" />
                 <img 
-                  src="/images/final-cta-steamer.jpg" 
-                  alt="Vaporizando un saco directamente en el gancho con la plancha LISO"
+                  src="/images/final-cta-lifestyle.jpg" 
+                  alt="Mujer con traje impecable lista para su día tras usar la plancha de vapor LISO"
                   className="w-full h-full object-cover object-center aspect-square group-hover:scale-102 transition-transform duration-500 ease-mech-s"
                   loading="lazy"
                 />
