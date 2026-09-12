@@ -130,11 +130,11 @@ export const ThreeGesturesSection: React.FC = () => {
         {/* =========================================================================
             PARTE 1: CÓMO SE USA — 3 GESTOS RÁPIDOS
             ========================================================================= */}
-        <div className="max-w-3xl mb-6 sm:mb-8 lg:mb-10">
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-graphite tracking-tight leading-[1.15]">
-            Dejar tu ropa impecable es así de simple.
+        <div className="max-w-5xl lg:max-w-none mb-6 sm:mb-8 lg:mb-10">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] xl:text-[3rem] font-bold text-graphite tracking-tight leading-tight whitespace-normal md:whitespace-nowrap">
+            Que tu ropa se vea impecable es así de fácil
           </h2>
-          <p className="font-sans text-base sm:text-lg lg:text-xl text-graphite/75 leading-relaxed mt-2.5 sm:mt-3">
+          <p className="font-sans text-base sm:text-lg lg:text-xl text-graphite/75 leading-relaxed mt-2.5 sm:mt-3 max-w-3xl">
             No necesitas una sesión de planchado. Solo arreglar lo que te vas a poner hoy.
           </p>
         </div>
