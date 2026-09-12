@@ -142,7 +142,7 @@ export const VisualProofSection: React.FC = () => {
     <section
       id="demostracion-visual"
       ref={sectionRef}
-      className="py-10 sm:py-12 lg:py-16 bg-night-950 text-bone relative overflow-hidden select-none border-b border-white/10"
+      className="py-10 sm:py-12 lg:py-16 bg-night-950 text-bone relative overflow-hidden select-none border-b border-white/10 scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#1F1D1B' }}
     >
       {/* Background Texture: Architectural Grid */}

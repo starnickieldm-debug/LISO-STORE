@@ -3,7 +3,7 @@ import { useMarket } from '../../context/MarketContext';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { CTAButton } from '../ui/CTAButton';
 import { DataStrip } from '../ui/DataStrip';
-import { Star, Sparkles, ShieldCheck, Truck, Lock, Luggage } from 'lucide-react';
+import { Star, Sparkles, ShieldCheck, Truck, Lock, Luggage, ArrowDown } from 'lucide-react';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
 
 export const HeroSection: React.FC = () => {
@@ -170,7 +170,7 @@ export const HeroSection: React.FC = () => {
 
             {/* 2. Subtítulo Resaltado Estilo Marcador / Highlighter */}
             <div 
-              className="mt-3.5 sm:mt-4 mb-2.5 sm:mb-3"
+              className="mt-3.5 sm:mt-4 mb-2.5 sm:mb-3 flex flex-wrap items-center gap-2.5 sm:gap-3"
               style={!prefersReduced ? {
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? 'translate3d(0, 0, 0)' : 'translate3d(0, 12px, 0)',
@@ -188,6 +188,17 @@ export const HeroSection: React.FC = () => {
                   aria-hidden="true" 
                 />
               </span>
+
+              {/* Enlace en color magenta: ¿No me crees? Mira ↓ */}
+              <a 
+                href="#demostracion-visual" 
+                className="inline-flex items-center gap-1.5 text-accent hover:text-accent-hover font-sans text-xs sm:text-[13.5px] lg:text-sm font-bold tracking-tight transition-all duration-200 hover:translate-y-0.5 group cursor-pointer"
+              >
+                <span className="underline underline-offset-4 decoration-accent/40 group-hover:decoration-accent">
+                  ¿No me crees? Mira
+                </span>
+                <ArrowDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5] text-accent transition-transform group-hover:translate-y-1" />
+              </a>
             </div>
 
             {/* 3. Subheadline: Direct, objection-killing, low-density */}
@@ -361,7 +372,7 @@ export const HeroSection: React.FC = () => {
           </h1>
 
           {/* Subtítulo resaltado estilo marcador / highlighter (Mobile) */}
-          <div className="my-2 flex justify-center">
+          <div className="my-2 flex flex-wrap items-center justify-center gap-2">
             <span className="relative inline-block px-2.5 py-0.5 text-center">
               <span className="relative z-10 font-sans text-[12.5px] xs:text-[13px] font-semibold text-graphite tracking-tight">
                 Sal impecable, incluso cuando vas de afán
@@ -371,6 +382,17 @@ export const HeroSection: React.FC = () => {
                 aria-hidden="true" 
               />
             </span>
+
+            {/* Enlace en color magenta: ¿No me crees? Mira ↓ */}
+            <a 
+              href="#demostracion-visual" 
+              className="inline-flex items-center gap-1 text-accent font-sans text-[11.5px] xs:text-xs font-bold tracking-tight active:translate-y-0.5 transition-transform cursor-pointer"
+            >
+              <span className="underline underline-offset-4 decoration-accent/40">
+                ¿No me crees? Mira
+              </span>
+              <ArrowDown className="w-3.5 h-3.5 stroke-[2.5] text-accent shrink-0" />
+            </a>
           </div>
 
           {/* 4. Micro-bajada: Concise objection-killing value proposition */}
