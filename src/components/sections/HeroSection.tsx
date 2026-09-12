@@ -200,7 +200,8 @@ export const HeroSection: React.FC = () => {
                 willChange: loaded ? 'auto' : 'opacity, transform'
               } : undefined}
             >
-              Plancha directo en el gancho o en tu cama. Perfecta para usar en casa o llevarla de viaje.
+              <span className="block">Plancha directo en el gancho o en tu cama.</span>
+              <span className="block">Perfecta para usar en casa o llevarla de viaje.</span>
             </p>
 
             {/* 4. Streamlined High-Impact Conversion Block (Open, Clean, Friction-Free) */}
@@ -373,8 +374,9 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* 4. Micro-bajada: Concise objection-killing value proposition */}
-          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-snug max-w-[320px] mx-auto mb-3">
-            Plancha directo en el gancho o en tu cama. Perfecta para usar en casa o llevarla de viaje.
+          <p className="text-center text-[12.5px] xs:text-[13px] text-graphite/75 leading-relaxed max-w-[340px] mx-auto mb-3">
+            <span className="block">Plancha directo en el gancho o en tu cama.</span>
+            <span className="block">Perfecta para usar en casa o llevarla de viaje.</span>
           </p>
 
           {/* 5. Streamlined Conversion Section (Thumb-Zone Optimized) */}
