@@ -35,7 +35,7 @@ export const OfferSection: React.FC = () => {
 
   // Precios dinámicos calculados según la cantidad seleccionada
   const unitPrice = currentMarket.price;
-  const unitCompareAtPrice = currentMarket.compareAtPrice || 250000;
+  const unitCompareAtPrice = currentMarket.compareAtPrice || 300000;
   const totalPrice = unitPrice * quantity;
   const totalCompareAtPrice = unitCompareAtPrice * quantity;
   const totalSavings = totalCompareAtPrice - totalPrice;
@@ -45,7 +45,7 @@ export const OfferSection: React.FC = () => {
   const formattedSavings = `$${totalSavings.toLocaleString('es-CO')}`;
   const discountPercent = unitCompareAtPrice
     ? Math.round(((unitCompareAtPrice - unitPrice) / unitCompareAtPrice) * 100)
-    : 20;
+    : 33;
 
   // Resumen dinámico de colores seleccionados
   const colorCounts = unitColors.reduce<Record<string, number>>((acc, color) => {

@@ -344,7 +344,7 @@
 * **Etiqueta superior:** `OFERTA OFICIAL COLOMBIA · KIT COMPLETO`
 * **Nombre de producto:** Plancha de vapor portátil LISO
 * **Precio:**
-  * **Antes (referencial):** `$289.900`
+  * **Antes (referencial):** `$300.000`
   * **Ahora:** `$199.900 COP`
   * **Envío:** `ENVÍO GRATIS COLOMBIA` (Despacho directo de fábrica · 15–20 días hábiles)
 
