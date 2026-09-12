@@ -164,7 +164,7 @@ export const HeroSection: React.FC = () => {
             >
               <span className="block">Tu ropa impecable</span>
               <span className="block italic font-display font-medium text-accent mt-1 sm:mt-1.5">
-                antes de salir.
+                en segundos.
               </span>
             </h1>
 
@@ -348,7 +348,7 @@ export const HeroSection: React.FC = () => {
           <h1 className="text-center font-display text-[1.95rem] xs:text-[2.15rem] font-bold text-graphite tracking-tight leading-[1.18] my-2">
             <span className="block">Tu ropa impecable</span>
             <span className="relative inline-block px-2.5 py-0.5 mx-0.5 text-accent italic font-medium mt-0.5">
-              <span className="relative z-10">antes de salir</span>
+              <span className="relative z-10">en segundos</span>
               <svg 
                 className="absolute inset-0 w-full h-full text-accent/35 -rotate-1 pointer-events-none" 
                 viewBox="0 0 120 40" 
