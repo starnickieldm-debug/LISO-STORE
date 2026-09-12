@@ -13,7 +13,7 @@ export const brandConfig: BrandConfig = {
   tagline: "Impecable en segundos.",
   creativeConcept: "No necesitas una sesión de planchado. Solo necesitas arreglar la ropa que te vas a poner.",
   targetTransformation: "Arregla directamente en el gancho la ropa que te vas a poner hoy, lista en minutos.",
-  pricePlaceholder: "$189.900",
+  pricePlaceholder: "$199.900",
   shippingPlaceholder: "Envío gratis a toda Colombia",
   guaranteeLegalPlaceholder: "Garantía de 30 días",
   countryPlaceholder: "Colombia",
@@ -326,7 +326,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     id: "faq-2",
-    question: "¿Por qué cuesta $189.900 si hay vaporizadores de $60.000?",
+    question: "¿Por qué cuesta $199.900 si hay vaporizadores de $60.000?",
     answer: "Los vaporizadores económicos de $60.000 tienen resistencias plásticas de 600 W que solo hierven agua, escupen gotas calientes y no alisan arrugas de verdad. LISO entrega 1200 W reales con placa cerámica a 150 °C, bomba presurizada 100% antigoteo y pantalla digital con materiales de alta durabilidad.",
     verified: true
   },

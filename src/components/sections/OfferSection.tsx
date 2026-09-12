@@ -43,6 +43,9 @@ export const OfferSection: React.FC = () => {
   const formattedTotalPrice = `$${totalPrice.toLocaleString('es-CO')}`;
   const formattedTotalCompareAt = `$${totalCompareAtPrice.toLocaleString('es-CO')}`;
   const formattedSavings = `$${totalSavings.toLocaleString('es-CO')}`;
+  const discountPercent = unitCompareAtPrice
+    ? Math.round(((unitCompareAtPrice - unitPrice) / unitCompareAtPrice) * 100)
+    : 20;
 
   // Resumen dinámico de colores seleccionados
   const colorCounts = unitColors.reduce<Record<string, number>>((acc, color) => {
@@ -113,7 +116,7 @@ export const OfferSection: React.FC = () => {
                       {quantity > 1 ? formattedTotalCompareAt : currentMarket.formattedCompareAtPrice}
                     </span>
                     <span className="px-1.5 py-0.5 bg-accent/10 border border-accent/30 text-accent font-bold text-[10px] rounded">
-                      AHORRA {quantity > 1 ? formattedSavings : '24%'}
+                      AHORRA {quantity > 1 ? formattedSavings : `${discountPercent}%`}
                     </span>
                   </div>
                 )}

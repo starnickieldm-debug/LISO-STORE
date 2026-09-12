@@ -18,8 +18,8 @@ export const LEGAL_SELLER = {
 
 export const LEGAL_COMMERCIAL = {
   productName: 'Plancha de vapor portátil LISO',
-  priceCOP: '$189.900 COP',
-  priceRaw: 189900,
+  priceCOP: '$199.900 COP',
+  priceRaw: 199900,
   shippingEstimate: '15–20 días hábiles estimados',
   shippingCoverage: 'Cobertura nacional en toda Colombia',
   shippingCost: 'Envío gratuito incluido en el precio',

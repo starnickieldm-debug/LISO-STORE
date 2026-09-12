@@ -13,6 +13,10 @@ export const HeroSection: React.FC = () => {
   const [loaded, setLoaded] = useState(false);
   const [topBarsHeight, setTopBarsHeight] = useState(100);
 
+  const discountPercent = currentMarket.compareAtPrice
+    ? Math.round(((currentMarket.compareAtPrice - currentMarket.price) / currentMarket.compareAtPrice) * 100)
+    : 20;
+
   useEffect(() => {
     const raf = requestAnimationFrame(() => setLoaded(true));
     return () => cancelAnimationFrame(raf);
@@ -233,7 +237,7 @@ export const HeroSection: React.FC = () => {
                       {currentMarket.formattedCompareAtPrice}
                     </span>
                     <span className="px-1.5 py-0.5 bg-accent/10 border border-accent/30 text-accent font-bold text-[10px] rounded">
-                      AHORRA 24%
+                      AHORRA {discountPercent}%
                     </span>
                   </div>
                 )}
@@ -410,7 +414,7 @@ export const HeroSection: React.FC = () => {
                     {currentMarket.formattedCompareAtPrice}
                   </span>
                   <span className="px-1.5 py-0.2 bg-accent/10 border border-accent/30 text-accent font-bold text-[9.5px] rounded">
-                    AHORRA 24%
+                    AHORRA {discountPercent}%
                   </span>
                 </div>
               )}

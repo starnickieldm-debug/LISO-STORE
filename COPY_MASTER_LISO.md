@@ -2,7 +2,7 @@
 
 > **Mercado:** Colombia 🇨🇴  
 > **Producto:** Plancha de vapor portátil LISO (1200 W)  
-> **Precio oficial:** $189.900 COP (Envío gratis a nivel nacional)  
+> **Precio oficial:** $199.900 COP (Envío gratis a nivel nacional)  
 > **Identidad de Marca:** Minimalista, editorial, *dark luxury*, transparente y directa.
 
 ---
@@ -49,7 +49,7 @@
   * Comparativa
   * FAQ
 * **Botón de acción rápida (CTA):**
-  * Escritorio: `Pedir LISO — $189.900`
+  * Escritorio: `Pedir LISO — $199.900`
   * Móvil: `Pedir LISO`
 
 ---
@@ -63,9 +63,9 @@
 * **Párrafo Secundario (Propuesta de valor y contexto):**
   > ¿Tienes un plan y la ropa arrugada? La conectas y calienta en pocos segundos. Alisa directamente en el gancho, sin sacar la tabla, gracias a su **placa giratoria** y temperatura real en pantalla.
 * **Tarjeta de Conversión (Glass Card):**
-  * **Precio:** `$189.900`
+  * **Precio:** `$199.900`
   * **Etiqueta de envío:** `ENVÍO GRATIS COLOMBIA`
-  * **Botón principal (CTA):** `Pedir LISO — $189.900`
+  * **Botón principal (CTA):** `Pedir LISO — $199.900`
   * **Acción secundaria (enlace de navegación):** `Ver cómo funciona ↓`
   * **Puntos de confianza:**
     * ✓ Envío gratis a toda Colombia
@@ -279,7 +279,7 @@
 
 * **Conclusión:**
   > Para una pila de ropa, usa una plancha. Para una prenda que necesitas lista en cinco minutos, usa LISO. LISO está hecha exactamente para esos momentos.
-* **Botón CTA:** `Pedir LISO — $189.900`
+* **Botón CTA:** `Pedir LISO — $199.900`
 
 ---
 
@@ -345,7 +345,7 @@
 * **Nombre de producto:** Plancha de vapor portátil LISO
 * **Precio:**
   * **Antes (referencial):** `$289.900`
-  * **Ahora:** `$189.900 COP`
+  * **Ahora:** `$199.900 COP`
   * **Envío:** `ENVÍO GRATIS COLOMBIA` (Despacho directo de fábrica · 15–20 días hábiles)
 
 ### Selector de Color (Dinámico):
@@ -369,7 +369,7 @@
   > Garantía amparada por la Ley 1480 de 2011 · Costos de envío por garantía asumidos en su totalidad por LISO.
 
 ### Botón de Compra Principal (CTA):
-* `Pedir LISO en [Color seleccionado] — $189.900`
+* `Pedir LISO en [Color seleccionado] — $199.900`
 
 ### Aviso Previo al Pago (Consentimiento Legal):
 > Al completar tu pedido aceptas nuestros [Términos y Condiciones] y [Política de Privacidad]. Tu compra cuenta con [garantía legal (30 días calendario)], [derecho de retracto (5 días hábiles)] y [reversión del pago].
@@ -449,7 +449,7 @@
 * **Puntos de respaldo:**
   * **Garantía legal y soporte directo en Colombia:** Respaldo de 30 días y canal de atención directa si necesitas cualquier ayuda.
   * **Envío gratis a toda Colombia:** Despacho con guía de rastreo para que sepas en todo momento el avance de tu entrega.
-* **Botón CTA:** `Pedir LISO — $189.900`
+* **Botón CTA:** `Pedir LISO — $199.900`
 
 ---
 
@@ -457,7 +457,7 @@
 
 *(Se despliega automáticamente en celulares tras superar los primeros 450px de scroll)*
 
-* **Precio visible:** `$189.900`
+* **Precio visible:** `$199.900`
 * **Beneficio clave:** `Envío gratis a toda Colombia`
 * **Botón táctil:** `PEDIR LISO` (conduce a la sección de oferta)
 
@@ -499,7 +499,7 @@
 
 ## 17. Resumen de Páginas Legales (Colombia)
 
-1. **`/terminos-y-condiciones`**: Marco contractual de compraventa electrónica. Precio final $189.900 COP, medios de pago en línea, despachos en Colombia (15 a 20 días hábiles estimados), perfeccionamiento del pedido y sometimiento a la jurisdicción colombiana.
+1. **`/terminos-y-condiciones`**: Marco contractual de compraventa electrónica. Precio final $199.900 COP, medios de pago en línea, despachos en Colombia (15 a 20 días hábiles estimados), perfeccionamiento del pedido y sometimiento a la jurisdicción colombiana.
 2. **`/politica-de-privacidad`**: Política de Tratamiento de Datos Personales bajo la Ley 1581 de 2012. Finalidades (despacho, facturación, soporte postventa), derechos de los titulares (conocer, actualizar, rectificar y revocar autorización) y tiempos de respuesta legal (10–15 días hábiles).
 3. **`/garantia`**: Garantía legal de treinta (30) días calendario contados desde la entrega física por defectos de fábrica o funcionamiento a 110 V. Diagnóstico de 3 a 5 días hábiles, cobertura total de fletes por LISO en casos procedentes, causales de exoneración legal (mal uso, golpes, líquidos corrosivos).
 4. **`/retracto-y-devoluciones`**: Derecho de retracto bajo el Art. 47 de la Ley 1480 de 2011. Término de 5 días hábiles siguientes a la entrega, producto sin uso y en empaque original. Devolución del dinero en un plazo máximo de 15 días calendario.
