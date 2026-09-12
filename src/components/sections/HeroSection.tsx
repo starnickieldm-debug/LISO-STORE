@@ -164,7 +164,7 @@ export const HeroSection: React.FC = () => {
             >
               <span className="block">Tu ropa impecable</span>
               <span className="block italic font-display font-medium text-accent mt-1 sm:mt-1.5">
-                justo cuando la necesitas.
+                antes de salir.
               </span>
             </h1>
 
@@ -180,7 +180,7 @@ export const HeroSection: React.FC = () => {
             >
               <span className="relative inline-block px-2.5 py-1">
                 <span className="relative z-10 font-sans text-sm sm:text-[15px] lg:text-base font-semibold text-graphite tracking-tight">
-                  Porque verte bien no debería tomar tanto tiempo
+                  Para salir impecable cuando vas de afán
                 </span>
                 {/* Trazo de resaltador estético con identidad de marca (plum/berry wash) */}
                 <span 
@@ -348,7 +348,7 @@ export const HeroSection: React.FC = () => {
           <h1 className="text-center font-display text-[1.95rem] xs:text-[2.15rem] font-bold text-graphite tracking-tight leading-[1.18] my-2">
             <span className="block">Tu ropa impecable</span>
             <span className="relative inline-block px-2.5 py-0.5 mx-0.5 text-accent italic font-medium mt-0.5">
-              <span className="relative z-10">justo cuando la necesitas</span>
+              <span className="relative z-10">antes de salir</span>
               <svg 
                 className="absolute inset-0 w-full h-full text-accent/35 -rotate-1 pointer-events-none" 
                 viewBox="0 0 120 40" 
@@ -364,7 +364,7 @@ export const HeroSection: React.FC = () => {
           <div className="my-2 flex justify-center">
             <span className="relative inline-block px-2.5 py-0.5 text-center">
               <span className="relative z-10 font-sans text-[12.5px] xs:text-[13px] font-semibold text-graphite tracking-tight">
-                Porque verte bien no debería tomar tanto tiempo
+                Para salir impecable cuando vas de afán
               </span>
               <span 
                 className="absolute inset-x-0 inset-y-0.5 bg-gradient-to-r from-accent/25 via-accent/20 to-accent/14 rounded-[3px] -rotate-[0.4deg] -skew-x-2 -z-0 pointer-events-none shadow-[inset_0_0_0_1px_rgba(180,36,124,0.12)]"

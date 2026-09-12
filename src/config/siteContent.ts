@@ -10,7 +10,7 @@ import {
 
 export const brandConfig: BrandConfig = {
   name: "LISO",
-  tagline: "Impecable justo cuando la necesitas.",
+  tagline: "Impecable antes de salir.",
   creativeConcept: "No necesitas una sesión de planchado. Solo necesitas arreglar la ropa que te vas a poner.",
   targetTransformation: "Arregla directamente en el gancho la ropa que te vas a poner hoy, lista en minutos.",
   pricePlaceholder: "$189.900",
@@ -225,7 +225,7 @@ export const comparisonRows: ComparisonRow[] = [
     steamerHighlight: "Arrugas leves",
     cheapSteamer: "Vapor débil, se recalienta rápido",
     steamerVerdict: "bad",
-    lisoHighlight: "Impecable justo cuando la necesitas",
+    lisoHighlight: "Impecable antes de salir",
     liso: "La prenda de hoy lista en 2 a 3 minutos",
     lisoVerdict: "good"
   }
