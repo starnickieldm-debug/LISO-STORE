@@ -66,17 +66,17 @@ export const OfferSection: React.FC = () => {
   return (
     <section 
       id="oferta" 
-      className="py-8 sm:py-12 lg:py-16 bg-white text-graphite border-y border-graphite/10 relative overflow-visible scroll-mt-16 sm:scroll-mt-20"
+      className="py-6 sm:py-10 lg:py-14 bg-white text-graphite border-y border-graphite/10 relative overflow-visible scroll-mt-16 sm:scroll-mt-20"
       style={{ backgroundColor: '#FFFFFF' }}
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         
         {/* Mobile Product Header (Centered above gallery on mobile) */}
-        <div className="block md:hidden text-center mb-6">
-          <span className="text-xs font-sans font-bold tracking-widest uppercase text-accent block mb-1.5">
+        <div className="block md:hidden text-center mb-3.5">
+          <span className="text-[11px] font-sans font-bold tracking-widest uppercase text-accent block mb-1">
             KIT COMPLETO · CASA Y VIAJES
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-graphite tracking-tight leading-tight">
+          <h2 className="font-display text-2xl xs:text-3xl font-bold text-graphite tracking-tight leading-tight">
             Plancha de vapor portátil LISO
           </h2>
         </div>
@@ -87,12 +87,12 @@ export const OfferSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start relative">
           
           {/* LEFT COLUMN: Sticky Full-Viewport Product Gallery (Static during right-column scroll) */}
-          <div className="md:col-span-6 lg:col-span-6 xl:col-span-7 md:sticky md:top-24 h-[55vh] md:h-[calc(100dvh-6.5rem)] md:min-h-[500px] flex flex-col">
+          <div className="md:col-span-6 lg:col-span-6 xl:col-span-7 md:sticky md:top-24 h-[42vh] xs:h-[46vh] sm:h-[50vh] md:h-[calc(100dvh-6.5rem)] md:min-h-[500px] flex flex-col">
             <ProductGallery selectedColor={selectedColor} className="h-full flex-1" />
           </div>
 
           {/* RIGHT COLUMN: Scrolling Details & Buy Actions */}
-          <div className="md:col-span-6 lg:col-span-6 xl:col-span-5 space-y-6 lg:space-y-7">
+          <div className="md:col-span-6 lg:col-span-6 xl:col-span-5 space-y-5 lg:space-y-6">
               
               {/* Product Title & Model (Desktop Only, High-Impact Scale) */}
               <div className="hidden md:block">
@@ -105,7 +105,7 @@ export const OfferSection: React.FC = () => {
               </div>
 
               {/* Price Presentation: Antes / Ahora */}
-              <div className="py-3 border-y border-graphite/10 space-y-1">
+              <div className="py-2.5 sm:py-3 border-y border-graphite/10 space-y-1">
                 {currentMarket.formattedCompareAtPrice && (
                   <div className="flex items-center gap-2 text-xs font-sans text-graphite/50 tracking-wider">
                     <span>Antes: </span>
@@ -122,7 +122,7 @@ export const OfferSection: React.FC = () => {
                     <span className="text-sm font-sans text-graphite/60 font-medium">
                       {quantity > 1 ? `Total (${quantity} unds):` : 'Ahora:'}
                     </span>
-                    <span className="text-4xl sm:text-5xl font-display font-bold text-graphite tracking-tight">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-graphite tracking-tight">
                       {quantity > 1 ? formattedTotalPrice : currentMarket.formattedPrice}
                     </span>
                     {quantity > 1 && (
@@ -134,153 +134,6 @@ export const OfferSection: React.FC = () => {
                   <span className="text-xs font-sans uppercase tracking-wider text-accent font-semibold">
                     Precio final · {currentMarket.shippingLabel}
                   </span>
-                </div>
-              </div>
-
-              {/* What's Included */}
-              <div className="space-y-2.5">
-                <span className="text-xs sm:text-sm font-sans uppercase tracking-wider text-graphite/75 font-bold block">
-                  ¿QUÉ RECIBES EN LA CAJA?
-                </span>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm md:text-[15px] font-sans text-graphite/90">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                    <span>Plancha vaporizadora LISO (1200 W)</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                    <span>Base de apoyo resistente al calor</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                    <span>Vaso dosificador de 100 ml</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                    <span>Bolsa de viaje y transporte (cabe en cualquier maleta)</span>
-                  </li>
-                  <li className="flex items-center gap-2 sm:col-span-2">
-                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
-                    <span>Manual de uso y guía rápida</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* 3 Pilares de Ingeniería y Rendimiento LISO® (Opción C) */}
-              <div className="p-3.5 bg-[#FAF8F5] border border-graphite/12 rounded-2xl space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] sm:text-xs font-sans uppercase tracking-wider text-accent font-bold flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    INGENIERÍA Y RENDIMIENTO LISO®
-                  </span>
-                  <span className="text-[10px] font-sans uppercase tracking-wider text-graphite/50 font-semibold">
-                    110 V COLOMBIA
-                  </span>
-                </div>
-                <div className="grid grid-cols-3 gap-2 text-left">
-                  <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
-                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">1200 W</span>
-                    <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Potencia Directa</span>
-                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">Sin baterías débiles</span>
-                  </div>
-                  <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
-                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">90°</span>
-                    <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Giro Patentado</span>
-                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">Gancho o tabla en 1 clic</span>
-                  </div>
-                  <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
-                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">3 seg</span>
-                    <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Vapor Flash</span>
-                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">150 °C aluminio cerámico</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Selector de Cantidad */}
-              <div className="space-y-2 pt-1">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs sm:text-sm font-sans uppercase tracking-wider text-graphite/75 font-bold">
-                    CANTIDAD
-                  </span>
-                  <span className="text-xs font-sans text-accent font-medium shrink-0">
-                    {quantity > 1 ? `${quantity} unidades seleccionadas` : '1 unidad'}
-                  </span>
-                </div>
-
-                <div className="p-3 bg-[#FAF8F5] border border-graphite/12 rounded-xl space-y-2.5 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-3">
-                  {/* Top Row on Mobile: Stepper Controls (Left) + Subtotal (Right) | Left & Middle on Desktop */}
-                  <div className="flex items-center justify-between sm:justify-start gap-3 min-w-0 sm:flex-1">
-                    {/* Stepper Controls */}
-                    <div className="flex items-center border border-graphite/20 bg-white rounded-lg overflow-hidden shadow-xs shrink-0">
-                      <button
-                        type="button"
-                        onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-                        disabled={quantity <= 1 || isCheckingOut}
-                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-graphite hover:bg-graphite/5 active:bg-graphite/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-                        aria-label="Disminuir cantidad"
-                      >
-                        <Minus className="w-4 h-4" />
-                      </button>
-
-                      <span className="w-10 sm:w-12 text-center font-display font-bold text-base sm:text-lg text-graphite select-none">
-                        {quantity}
-                      </span>
-
-                      <button
-                        type="button"
-                        onClick={() => setQuantity(prev => Math.min(10, prev + 1))}
-                        disabled={quantity >= 10 || isCheckingOut}
-                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-graphite hover:bg-graphite/5 active:bg-graphite/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-                        aria-label="Aumentar cantidad"
-                      >
-                        <Plus className="w-4 h-4" />
-                      </button>
-                    </div>
-
-                    {/* Product & Dispatch Label on Tablet/Desktop */}
-                    <div className="hidden sm:flex flex-col min-w-0 flex-1 px-1">
-                      <span className="text-xs sm:text-sm font-sans font-bold text-graphite truncate">
-                        {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
-                      </span>
-                      <span className="text-[10.5px] font-sans text-graphite/50 truncate">
-                        {quantity > 1 ? `Colores: ${summaryString}` : 'Lista para despacho'}
-                      </span>
-                    </div>
-
-                    {/* Subtotal on Mobile (aligned right with stepper on top row) */}
-                    <div className="sm:hidden text-right shrink-0">
-                      {quantity > 1 && (
-                        <span className="block text-[11px] font-sans text-graphite/50 line-through leading-tight">
-                          {formattedTotalCompareAt}
-                        </span>
-                      )}
-                      <span className="text-sm xs:text-base font-display font-bold text-graphite leading-tight">
-                        {formattedTotalPrice}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Mobile Sub-Row: Product & Dispatch status */}
-                  <div className="sm:hidden flex items-center justify-between text-[11.5px] font-sans border-t border-graphite/10 pt-2 text-graphite/60 gap-2">
-                    <span className="font-semibold text-graphite truncate min-w-0">
-                      {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
-                    </span>
-                    <span className="text-accent font-medium text-[11px] shrink-0">
-                      {quantity > 1 ? `Colores: ${summaryString}` : '✓ Disponible para despacho'}
-                    </span>
-                  </div>
-
-                  {/* Subtotal on Tablet/Desktop (Right column) */}
-                  <div className="hidden sm:block text-right pl-2 shrink-0">
-                    {quantity > 1 && (
-                      <span className="block text-[11px] font-sans text-graphite/50 line-through">
-                        {formattedTotalCompareAt}
-                      </span>
-                    )}
-                    <span className="text-sm sm:text-base font-display font-bold text-graphite">
-                      {formattedTotalPrice}
-                    </span>
-                  </div>
                 </div>
               </div>
 
@@ -446,6 +299,248 @@ export const OfferSection: React.FC = () => {
                 </div>
               )}
 
+              {/* Selector de Cantidad */}
+              <div className="space-y-2 pt-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs sm:text-sm font-sans uppercase tracking-wider text-graphite/75 font-bold">
+                    CANTIDAD
+                  </span>
+                  <span className="text-xs font-sans text-accent font-medium shrink-0">
+                    {quantity > 1 ? `${quantity} unidades seleccionadas` : '1 unidad'}
+                  </span>
+                </div>
+
+                <div className="p-3 bg-[#FAF8F5] border border-graphite/12 rounded-xl space-y-2.5 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-3">
+                  {/* Top Row on Mobile: Stepper Controls (Left) + Subtotal (Right) | Left & Middle on Desktop */}
+                  <div className="flex items-center justify-between sm:justify-start gap-3 min-w-0 sm:flex-1">
+                    {/* Stepper Controls */}
+                    <div className="flex items-center border border-graphite/20 bg-white rounded-lg overflow-hidden shadow-xs shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
+                        disabled={quantity <= 1 || isCheckingOut}
+                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-graphite hover:bg-graphite/5 active:bg-graphite/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                        aria-label="Disminuir cantidad"
+                      >
+                        <Minus className="w-4 h-4" />
+                      </button>
+
+                      <span className="w-10 sm:w-12 text-center font-display font-bold text-base sm:text-lg text-graphite select-none">
+                        {quantity}
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() => setQuantity(prev => Math.min(10, prev + 1))}
+                        disabled={quantity >= 10 || isCheckingOut}
+                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-graphite hover:bg-graphite/5 active:bg-graphite/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                        aria-label="Aumentar cantidad"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    {/* Product & Dispatch Label on Tablet/Desktop */}
+                    <div className="hidden sm:flex flex-col min-w-0 flex-1 px-1">
+                      <span className="text-xs sm:text-sm font-sans font-bold text-graphite truncate">
+                        {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
+                      </span>
+                      <span className="text-[10.5px] font-sans text-graphite/50 truncate">
+                        {quantity > 1 ? `Colores: ${summaryString}` : 'Lista para despacho'}
+                      </span>
+                    </div>
+
+                    {/* Subtotal on Mobile (aligned right with stepper on top row) */}
+                    <div className="sm:hidden text-right shrink-0">
+                      {quantity > 1 && (
+                        <span className="block text-[11px] font-sans text-graphite/50 line-through leading-tight">
+                          {formattedTotalCompareAt}
+                        </span>
+                      )}
+                      <span className="text-sm xs:text-base font-display font-bold text-graphite leading-tight">
+                        {formattedTotalPrice}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Mobile Sub-Row: Product & Dispatch status */}
+                  <div className="sm:hidden flex items-center justify-between text-[11.5px] font-sans border-t border-graphite/10 pt-2 text-graphite/60 gap-2">
+                    <span className="font-semibold text-graphite truncate min-w-0">
+                      {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
+                    </span>
+                    <span className="text-accent font-medium text-[11px] shrink-0">
+                      {quantity > 1 ? `Colores: ${summaryString}` : '✓ Disponible para despacho'}
+                    </span>
+                  </div>
+
+                  {/* Subtotal on Tablet/Desktop (Right column) */}
+                  <div className="hidden sm:block text-right pl-2 shrink-0">
+                    {quantity > 1 && (
+                      <span className="block text-[11px] font-sans text-graphite/50 line-through">
+                        {formattedTotalCompareAt}
+                      </span>
+                    )}
+                    <span className="text-sm sm:text-base font-display font-bold text-graphite">
+                      {formattedTotalPrice}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Big Conversion CTA Button & Reassurance Strip (Directly Below Selectors!) */}
+              <div className="pt-2 space-y-3">
+                <CTAButton
+                  size="large"
+                  fullWidth
+                  disabled={isCheckingOut}
+                  onClick={() => initiateCheckout(unitColors, quantity, 'CO')}
+                  className="rounded-xl shadow-xl shadow-accent/25 hover:shadow-2xl hover:shadow-accent/35 py-4 text-base font-bold tracking-wide transition-all"
+                >
+                  {isCheckingOut ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Preparando pedido seguro...</span>
+                    </span>
+                  ) : (
+                    ctaButtonText
+                  )}
+                </CTAButton>
+
+                {checkoutError && (
+                  <div className="mt-3 p-3 bg-red-50 border border-red-200 text-red-700 text-xs font-sans flex items-start justify-between gap-2 animate-fadeIn rounded-lg">
+                    <span>{checkoutError}</span>
+                    <button
+                      type="button"
+                      onClick={clearError}
+                      className="text-red-500 hover:text-red-800 font-bold ml-2 text-sm leading-none cursor-pointer"
+                      aria-label="Cerrar mensaje"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                )}
+
+                {/* Immediate Trust Mini-Strip directly under CTA */}
+                <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs text-graphite/75 font-sans pt-0.5 text-center">
+                  <span className="inline-flex items-center gap-1 font-semibold text-graphite">
+                    <Truck className="w-3.5 h-3.5 text-accent shrink-0" />
+                    <span>Envío gratis incluido</span>
+                  </span>
+                  <span className="text-graphite/30">•</span>
+                  <span className="inline-flex items-center gap-1 font-semibold text-graphite">
+                    <ShieldCheck className="w-3.5 h-3.5 text-accent shrink-0" />
+                    <span>Garantía de 30 días</span>
+                  </span>
+                  <span className="text-graphite/30">•</span>
+                  <span className="inline-flex items-center gap-1 font-semibold text-graphite">
+                    <Lock className="w-3.5 h-3.5 text-accent shrink-0" />
+                    <span>Pago 100% protegido</span>
+                  </span>
+                </div>
+
+                {/* Pre-checkout Legal Notice */}
+                <p className="text-[10.5px] sm:text-[11px] font-sans text-graphite/55 leading-normal text-center max-w-md mx-auto">
+                  Al continuar aceptas nuestros{' '}
+                  <Link to="/terminos-y-condiciones" className="underline hover:text-graphite text-graphite/75">Términos</Link>
+                  {' y '}
+                  <Link to="/politica-de-privacidad" className="underline hover:text-graphite text-graphite/75">Privacidad</Link>.
+                  {' '}Compra protegida con{' '}
+                  <Link to="/garantia" className="underline hover:text-graphite text-graphite/75">garantía legal de 30 días</Link>.
+                </p>
+
+                {/* Payment Methods Reassurance Strip */}
+                <div className="p-3 bg-[#FAF8F5] border border-graphite/12 rounded-xl space-y-1.5 text-left">
+                  <div className="flex items-center justify-between text-[11px] font-sans text-graphite/70">
+                    <span className="font-semibold uppercase tracking-wider text-[10px] sm:text-[10.5px] text-graphite/90 flex items-center gap-1.5">
+                      <CreditCard className="w-3.5 h-3.5 text-accent" />
+                      Medios de pago en Colombia
+                    </span>
+                    <span className="text-emerald-600 font-medium text-[10px] sm:text-[10.5px] flex items-center gap-1">
+                      <Lock className="w-3 h-3" /> Conexión SSL 256-bit
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-0.5">
+                    <span className="px-2 py-0.5 rounded bg-white text-[10.5px] font-bold text-graphite border border-graphite/15 shadow-xs">
+                      PSE
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-white text-[10.5px] font-semibold text-graphite/90 border border-graphite/15 shadow-xs">
+                      Tarjetas Débito / Crédito
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-white text-[10.5px] font-bold text-graphite border border-graphite/15 shadow-xs">
+                      Nequi
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-white text-[10.5px] font-bold text-graphite border border-graphite/15 shadow-xs">
+                      Daviplata
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-accent/10 text-[10.5px] font-bold text-accent border border-accent/30 shadow-xs">
+                      Addi
+                    </span>
+                  </div>
+                  <p className="text-[10px] font-sans text-graphite/50 leading-relaxed">
+                    Pagos procesados directamente a través de la pasarela oficial y protegida de Shopify. Sin comisiones extra ni cobros ocultos.
+                  </p>
+                </div>
+              </div>
+
+              {/* What's Included */}
+              <div className="space-y-2.5 pt-3 border-t border-graphite/10">
+                <span className="text-xs sm:text-sm font-sans uppercase tracking-wider text-graphite/75 font-bold block">
+                  ¿QUÉ RECIBES EN LA CAJA?
+                </span>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm md:text-[15px] font-sans text-graphite/90">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                    <span>Plancha vaporizadora LISO (1200 W)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                    <span>Base de apoyo resistente al calor</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                    <span>Vaso dosificador de 100 ml</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                    <span>Bolsa de viaje y transporte (cabe en cualquier maleta)</span>
+                  </li>
+                  <li className="flex items-center gap-2 sm:col-span-2">
+                    <Check className="w-3.5 h-3.5 text-accent stroke-[3] flex-shrink-0" />
+                    <span>Manual de uso y guía rápida</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* 3 Pilares de Ingeniería y Rendimiento LISO® */}
+              <div className="p-3.5 bg-[#FAF8F5] border border-graphite/12 rounded-2xl space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] sm:text-xs font-sans uppercase tracking-wider text-accent font-bold flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    INGENIERÍA Y RENDIMIENTO LISO®
+                  </span>
+                  <span className="text-[10px] font-sans uppercase tracking-wider text-graphite/50 font-semibold">
+                    110 V COLOMBIA
+                  </span>
+                </div>
+                <div className="grid grid-cols-3 gap-2 text-left">
+                  <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
+                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">1200 W</span>
+                    <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Potencia Directa</span>
+                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">Sin baterías débiles</span>
+                  </div>
+                  <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
+                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">90°</span>
+                    <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Giro Patentado</span>
+                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">Gancho o tabla en 1 clic</span>
+                  </div>
+                  <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
+                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">3 seg</span>
+                    <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Vapor Flash</span>
+                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">150 °C aluminio cerámico</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Enchufe Compatible para Colombia */}
               <div className="space-y-2 pt-1">
                 <div className="p-3 bg-[#FAF8F5] border border-graphite/12 flex items-center justify-between gap-3 sm:gap-4 rounded-xl">
@@ -485,83 +580,6 @@ export const OfferSection: React.FC = () => {
                   </p>
                   <p className="text-[10px] font-sans text-graphite/50 italic">
                     Garantía amparada por la Ley 1480 de 2011 · Costos de envío por garantía asumidos en su totalidad por LISO.
-                  </p>
-                </div>
-              </div>
-
-              {/* Big Conversion CTA Button */}
-              <div className="pt-2">
-                <CTAButton
-                  size="large"
-                  fullWidth
-                  disabled={isCheckingOut}
-                  onClick={() => initiateCheckout(unitColors, quantity, 'CO')}
-                  className="rounded-xl shadow-lg shadow-accent/20"
-                >
-                  {isCheckingOut ? (
-                    <span className="flex items-center gap-2">
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      <span>Preparando pedido...</span>
-                    </span>
-                  ) : (
-                    ctaButtonText
-                  )}
-                </CTAButton>
-
-                {checkoutError && (
-                  <div className="mt-3 p-3 bg-red-50 border border-red-200 text-red-700 text-xs font-sans flex items-start justify-between gap-2 animate-fadeIn rounded-lg">
-                    <span>{checkoutError}</span>
-                    <button
-                      type="button"
-                      onClick={clearError}
-                      className="text-red-500 hover:text-red-800 font-bold ml-2 text-sm leading-none cursor-pointer"
-                      aria-label="Cerrar mensaje"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                )}
-
-                {/* Pre-checkout Legal Notice */}
-                <p className="mt-3 text-[11px] font-sans text-graphite/60 leading-normal text-center max-w-lg mx-auto">
-                  Al completar tu pedido aceptas nuestros{' '}
-                  <Link to="/terminos-y-condiciones" className="underline hover:text-graphite text-graphite/80">Términos</Link>
-                  {' y '}
-                  <Link to="/politica-de-privacidad" className="underline hover:text-graphite text-graphite/80">Privacidad</Link>.
-                  {' '}Compra protegida con{' '}
-                  <Link to="/garantia" className="underline hover:text-graphite text-graphite/80">garantía legal</Link>.
-                </p>
-
-                {/* Payment Methods Reassurance Strip */}
-                <div className="mt-4 p-3.5 bg-[#FAF8F5] border border-graphite/12 rounded-xl space-y-2 text-left">
-                  <div className="flex items-center justify-between text-[11px] font-sans text-graphite/70">
-                    <span className="font-semibold uppercase tracking-wider text-[10.5px] text-graphite/90 flex items-center gap-1.5">
-                      <CreditCard className="w-3.5 h-3.5 text-accent" />
-                      Medios de pago en Colombia
-                    </span>
-                    <span className="text-emerald-600 font-medium text-[10.5px] flex items-center gap-1">
-                      <Lock className="w-3 h-3" /> Conexión SSL 256-bit
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-0.5">
-                    <span className="px-2.5 py-1 rounded bg-white text-[11px] font-bold text-graphite border border-graphite/15 shadow-xs">
-                      PSE
-                    </span>
-                    <span className="px-2.5 py-1 rounded bg-white text-[11px] font-semibold text-graphite/90 border border-graphite/15 shadow-xs">
-                      Tarjetas Débito / Crédito
-                    </span>
-                    <span className="px-2.5 py-1 rounded bg-white text-[11px] font-bold text-graphite border border-graphite/15 shadow-xs">
-                      Nequi
-                    </span>
-                    <span className="px-2.5 py-1 rounded bg-white text-[11px] font-bold text-graphite border border-graphite/15 shadow-xs">
-                      Daviplata
-                    </span>
-                    <span className="px-2.5 py-1 rounded bg-accent/10 text-[11px] font-bold text-accent border border-accent/30 shadow-xs">
-                      Addi
-                    </span>
-                  </div>
-                  <p className="text-[10px] font-sans text-graphite/50 leading-relaxed">
-                    Pagos procesados directamente a través de la pasarela oficial y protegida de Shopify. Sin comisiones extra ni cobros ocultos.
                   </p>
                 </div>
               </div>
