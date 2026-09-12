@@ -121,9 +121,9 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
   };
 
   return (
-    <div className={`h-full w-full flex flex-col justify-between gap-3 ${className}`}>
+    <div className={`w-full flex flex-col gap-2.5 sm:gap-3 md:h-full md:justify-between ${className}`}>
       {/* 1. Main Stage Visual + Vertical Thumbnail Rail (sm+) */}
-      <div className="flex-1 min-h-0 w-full flex flex-col sm:flex-row gap-3">
+      <div className="w-full flex flex-col sm:flex-row gap-2.5 sm:gap-3 sm:flex-1 sm:min-h-0">
         {/* Vertical Thumbnails Rail (Liquid+ reference layout) */}
         <div className="hidden sm:flex flex-col gap-2 shrink-0 overflow-y-auto no-scrollbar py-0.5 w-14 sm:w-16 xl:w-20 select-none">
           {images.map((img, idx) => {
@@ -155,9 +155,9 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
           })}
         </div>
 
-        {/* Main Stage Visual (Expands dynamically to occupy all available vertical screen height) */}
+        {/* Main Stage Visual (Expands dynamically to occupy all available vertical screen height on desktop, crisp frame on mobile) */}
         <div 
-          className="flex-1 min-h-[300px] sm:min-h-0 relative w-full h-full overflow-hidden rounded-2xl border border-graphite/15 bg-[#FAF8F5] shadow-lg group select-none"
+          className="relative w-full h-[270px] xs:h-[300px] sm:h-full sm:flex-1 overflow-hidden rounded-2xl border border-graphite/15 bg-[#FAF8F5] shadow-lg group select-none"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}

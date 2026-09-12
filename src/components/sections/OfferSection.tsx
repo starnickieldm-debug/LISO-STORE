@@ -84,15 +84,15 @@ export const OfferSection: React.FC = () => {
         {/* =========================================================================
             PDP NATIVE CONTAINER — Sticky High-Impact Visual + Scrolling Buy Flow
             ========================================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start relative">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-start relative">
           
           {/* LEFT COLUMN: Sticky Full-Viewport Product Gallery (Static during right-column scroll) */}
-          <div className="md:col-span-6 lg:col-span-6 xl:col-span-7 md:sticky md:top-24 h-[42vh] xs:h-[46vh] sm:h-[50vh] md:h-[calc(100dvh-6.5rem)] md:min-h-[500px] flex flex-col">
+          <div className="md:col-span-6 lg:col-span-6 xl:col-span-7 md:sticky md:top-24 md:h-[calc(100dvh-6.5rem)] md:min-h-[500px] flex flex-col">
             <ProductGallery selectedColor={selectedColor} className="h-full flex-1" />
           </div>
 
           {/* RIGHT COLUMN: Scrolling Details & Buy Actions */}
-          <div className="md:col-span-6 lg:col-span-6 xl:col-span-5 space-y-5 lg:space-y-6">
+          <div className="md:col-span-6 lg:col-span-6 xl:col-span-5 flex flex-col gap-3.5 sm:gap-5 lg:gap-6">
               
               {/* Product Title & Model (Desktop Only, High-Impact Scale) */}
               <div className="hidden md:block">
