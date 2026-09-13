@@ -61,41 +61,59 @@ export const VisualProofSection: React.FC = () => {
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // Autoplay all clips simultaneously in silent loop
+  // Virtualized playback: Only play clips visible in the carousel viewport
   useEffect(() => {
     if (prefersReduced) return;
 
-    const playAll = () => {
-      demoClips.forEach(clip => {
-        const v = videoRefs.current[clip.id];
-        if (v) {
-          v.defaultMuted = true;
-          v.muted = true;
-          if (v.paused) {
-            v.play().catch(() => {});
-          }
-        }
-      });
-    };
-
-    if (inView) {
-      playAll();
-    } else {
+    const container = scrollContainerRef.current;
+    if (!container || !inView) {
       Object.values(videoRefs.current).forEach(v => {
-        if (v && !v.paused) {
-          v.pause();
-        }
+        if (v && !v.paused) v.pause();
       });
+      return;
     }
 
+    const cards = container.querySelectorAll<HTMLElement>('[data-demo-card="true"]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const cardId = entry.target.getAttribute('data-clip-id');
+          if (!cardId) return;
+          const v = videoRefs.current[cardId];
+          if (!v) return;
+
+          if (entry.isIntersecting) {
+            v.defaultMuted = true;
+            v.muted = true;
+            if (v.paused) {
+              v.play().catch(() => {});
+            }
+          } else {
+            if (!v.paused) {
+              v.pause();
+            }
+          }
+        });
+      },
+      {
+        root: container,
+        threshold: 0.35
+      }
+    );
+
+    cards.forEach(card => observer.observe(card));
+
     const handleVisibility = () => {
-      if (!document.hidden && inView) {
-        playAll();
+      if (document.hidden) {
+        Object.values(videoRefs.current).forEach(v => {
+          if (v && !v.paused) v.pause();
+        });
       }
     };
 
     document.addEventListener('visibilitychange', handleVisibility);
     return () => {
+      observer.disconnect();
       document.removeEventListener('visibilitychange', handleVisibility);
     };
   }, [inView, prefersReduced]);
@@ -220,18 +238,20 @@ export const VisualProofSection: React.FC = () => {
             style={{ 
               WebkitOverflowScrolling: 'touch',
               scrollbarWidth: 'none',
-              msOverflowStyle: 'none'
+              msOverflowStyle: 'none',
+              contain: 'paint'
             }}
           >
             {demoClips.map((clip) => (
               <div 
                 key={clip.id}
                 data-demo-card="true"
+                data-clip-id={clip.id}
                 className="group/card flex-none w-[70vw] sm:w-[230px] lg:w-[255px] xl:w-[275px] aspect-[9/16] rounded-2xl lg:rounded-3xl overflow-hidden bg-black/60 border border-white/15 hover:border-accent/40 shadow-xl relative snap-center select-none transition-all duration-300"
                 role="region"
                 aria-label={clip.alt}
               >
-                {/* 100% Clean Video: Zero overlays, zero badges, zero labels, continuous silent loop */}
+                {/* 100% Clean Video: WebP poster + Viewport-driven Playback */}
                 <video
                   ref={(el) => {
                     if (el) {
@@ -241,30 +261,13 @@ export const VisualProofSection: React.FC = () => {
                     }
                   }}
                   src={clip.videoSrc}
-                  autoPlay
+                  poster={clip.posterSrc}
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   disablePictureInPicture
                   className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-[1.02]"
-                  onLoadedData={(e) => {
-                    const v = e.currentTarget;
-                    v.defaultMuted = true;
-                    v.muted = true;
-                    if (v.paused) {
-                      v.play().catch(() => {});
-                    }
-                  }}
-                  onCanPlay={(e) => {
-                    const v = e.currentTarget;
-                    if (v.paused) {
-                      v.play().catch(() => {});
-                    }
-                  }}
-                  onEnded={(e) => {
-                    e.currentTarget.play().catch(() => {});
-                  }}
                 />
               </div>
             ))}

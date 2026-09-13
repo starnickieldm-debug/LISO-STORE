@@ -209,26 +209,12 @@ export const SocialProofSection: React.FC = () => {
     }
   }, [activeAudioId]);
 
-  // Autoplay all videos simultaneously in silent loop
+  // Virtualized playback: Only play videos visible in the carousel viewport
   useEffect(() => {
     if (prefersReduced) return;
 
-    const playAll = () => {
-      ugcItems.forEach(item => {
-        const video = videoRefs.current[item.id];
-        if (video) {
-          video.defaultMuted = true;
-          video.muted = activeAudioId !== item.id;
-          if (video.paused) {
-            video.play().catch(() => {});
-          }
-        }
-      });
-    };
-
-    if (inView && activeTab === 'videos') {
-      playAll();
-    } else {
+    const container = videoScrollContainerRef.current;
+    if (!container || !inView || activeTab !== 'videos') {
       Object.values(videoRefs.current).forEach(video => {
         if (video && !video.paused) {
           video.pause();
@@ -237,16 +223,54 @@ export const SocialProofSection: React.FC = () => {
       if (activeAudioId) {
         setActiveAudioId(null);
       }
+      return;
     }
 
+    const cards = container.querySelectorAll<HTMLElement>('[data-ugc-card="true"]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const cardId = entry.target.getAttribute('data-ugc-id');
+          if (!cardId) return;
+          const video = videoRefs.current[cardId];
+          if (!video) return;
+
+          if (entry.isIntersecting) {
+            video.defaultMuted = true;
+            video.muted = activeAudioId !== cardId;
+            if (video.paused) {
+              video.play().catch(() => {});
+            }
+          } else {
+            if (!video.paused) {
+              video.pause();
+            }
+            if (activeAudioId === cardId) {
+              video.muted = true;
+              setActiveAudioId(null);
+            }
+          }
+        });
+      },
+      {
+        root: container,
+        threshold: 0.35
+      }
+    );
+
+    cards.forEach(card => observer.observe(card));
+
     const handleVisibility = () => {
-      if (!document.hidden && inView && activeTab === 'videos') {
-        playAll();
+      if (document.hidden) {
+        Object.values(videoRefs.current).forEach(video => {
+          if (video && !video.paused) video.pause();
+        });
       }
     };
 
     document.addEventListener('visibilitychange', handleVisibility);
     return () => {
+      observer.disconnect();
       document.removeEventListener('visibilitychange', handleVisibility);
     };
   }, [inView, prefersReduced, activeAudioId, activeTab]);
@@ -504,7 +528,8 @@ export const SocialProofSection: React.FC = () => {
               style={{ 
                 WebkitOverflowScrolling: 'touch',
                 scrollbarWidth: 'none',
-                msOverflowStyle: 'none'
+                msOverflowStyle: 'none',
+                contain: 'paint'
               }}
             >
               {ugcItems.map((item) => {
@@ -514,6 +539,7 @@ export const SocialProofSection: React.FC = () => {
                   <div 
                     key={item.id}
                     data-ugc-card="true"
+                    data-ugc-id={item.id}
                     className="group/card flex-none w-[70vw] sm:w-[230px] lg:w-[255px] xl:w-[275px] aspect-[9/16] rounded-2xl lg:rounded-3xl overflow-hidden bg-black/60 border border-white/15 hover:border-accent/40 shadow-xl relative snap-center select-none transition-all duration-300"
                     role="region"
                     aria-label={item.alt}
@@ -527,30 +553,13 @@ export const SocialProofSection: React.FC = () => {
                         }
                       }}
                       src={item.videoSrc}
-                      autoPlay
+                      poster={item.posterSrc}
                       loop
                       muted={activeAudioId !== item.id}
                       playsInline
-                      preload="auto"
+                      preload="metadata"
                       disablePictureInPicture
                       className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-[1.02]"
-                      onLoadedData={(e) => {
-                        const v = e.currentTarget;
-                        v.defaultMuted = true;
-                        v.muted = activeAudioId !== item.id;
-                        if (v.paused) {
-                          v.play().catch(() => {});
-                        }
-                      }}
-                      onCanPlay={(e) => {
-                        const v = e.currentTarget;
-                        if (v.paused) {
-                          v.play().catch(() => {});
-                        }
-                      }}
-                      onEnded={(e) => {
-                        e.currentTarget.play().catch(() => {});
-                      }}
                     />
 
                     {/* Audio Toggle Button in top-right */}
@@ -621,7 +630,8 @@ export const SocialProofSection: React.FC = () => {
               style={{ 
                 WebkitOverflowScrolling: 'touch',
                 scrollbarWidth: 'none',
-                msOverflowStyle: 'none'
+                msOverflowStyle: 'none',
+                contain: 'paint'
               }}
             >
               {writtenReviews.map((rev) => (

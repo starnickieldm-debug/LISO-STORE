@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { MarketProvider } from './context/MarketContext';
 import { TrustBar } from './components/layout/TrustBar';
@@ -18,13 +18,14 @@ import { OfferSection } from './components/sections/OfferSection';
 import { FAQSection } from './components/sections/FAQSection';
 import { FinalCTASection } from './components/sections/FinalCTASection';
 
-import { TerminosCondicionesPage } from './pages/TerminosCondicionesPage';
-import { PoliticaPrivacidadPage } from './pages/PoliticaPrivacidadPage';
-import { GarantiaPage } from './pages/GarantiaPage';
-import { RetractoDevolucionesPage } from './pages/RetractoDevolucionesPage';
-import { ReversionPagoPage } from './pages/ReversionPagoPage';
-import { EnviosPage } from './pages/EnviosPage';
-import { PQRPage } from './pages/PQRPage';
+// Lazy load legal policy subpages to keep the main landing bundle ultralight
+const TerminosCondicionesPage = lazy(() => import('./pages/TerminosCondicionesPage').then(m => ({ default: m.TerminosCondicionesPage })));
+const PoliticaPrivacidadPage = lazy(() => import('./pages/PoliticaPrivacidadPage').then(m => ({ default: m.PoliticaPrivacidadPage })));
+const GarantiaPage = lazy(() => import('./pages/GarantiaPage').then(m => ({ default: m.GarantiaPage })));
+const RetractoDevolucionesPage = lazy(() => import('./pages/RetractoDevolucionesPage').then(m => ({ default: m.RetractoDevolucionesPage })));
+const ReversionPagoPage = lazy(() => import('./pages/ReversionPagoPage').then(m => ({ default: m.ReversionPagoPage })));
+const EnviosPage = lazy(() => import('./pages/EnviosPage').then(m => ({ default: m.EnviosPage })));
+const PQRPage = lazy(() => import('./pages/PQRPage').then(m => ({ default: m.PQRPage })));
 
 const HomePage: React.FC = () => (
   <main className="flex-grow">
@@ -66,21 +67,22 @@ export function App() {
         style={{ backgroundColor: '#F5F1EA', color: '#262320' }}
       >
         <ScrollProgress />
-        <div className="paper-grain-overlay" aria-hidden="true" />
         <TrustBar />
         <Navbar />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/terminos-y-condiciones" element={<TerminosCondicionesPage />} />
-          <Route path="/politica-de-privacidad" element={<PoliticaPrivacidadPage />} />
-          <Route path="/garantia" element={<GarantiaPage />} />
-          <Route path="/retracto-y-devoluciones" element={<RetractoDevolucionesPage />} />
-          <Route path="/reversion-del-pago" element={<ReversionPagoPage />} />
-          <Route path="/envios" element={<EnviosPage />} />
-          <Route path="/pqr" element={<PQRPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/terminos-y-condiciones" element={<TerminosCondicionesPage />} />
+            <Route path="/politica-de-privacidad" element={<PoliticaPrivacidadPage />} />
+            <Route path="/garantia" element={<GarantiaPage />} />
+            <Route path="/retracto-y-devoluciones" element={<RetractoDevolucionesPage />} />
+            <Route path="/reversion-del-pago" element={<ReversionPagoPage />} />
+            <Route path="/envios" element={<EnviosPage />} />
+            <Route path="/pqr" element={<PQRPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
 
         <Footer />
         <StickyBuyBar />
