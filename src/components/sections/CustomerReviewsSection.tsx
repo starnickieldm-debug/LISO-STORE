@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Star, ShieldCheck, ChevronLeft, ChevronRight, Quote, CheckCircle2, Sparkles } from 'lucide-react';
+import { Star, ShieldCheck, ChevronLeft, ChevronRight, Quote, CheckCircle2 } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { useMarket } from '../../context/MarketContext';
 import { CTAButton } from '../ui/CTAButton';
@@ -160,10 +160,6 @@ export const CustomerReviewsSection: React.FC = () => {
         {/* Section Header */}
         <Reveal direction="up" duration={600}>
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 border border-accent/30 text-accent text-xs font-sans font-bold uppercase tracking-widest mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
-              Compradores Verificados
-            </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-bone tracking-tight leading-tight">
               Experiencias reales de quienes ya la usan a diario
             </h2>
