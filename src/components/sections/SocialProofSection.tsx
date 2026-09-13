@@ -409,15 +409,12 @@ export const SocialProofSection: React.FC = () => {
 
       <div className="w-full max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header: Wide 1-line layout on desktop */}
+        {/* Section Header: Clean 1-line headline */}
         <Reveal direction="up" duration={600}>
           <div className="text-center w-full max-w-none mx-auto mb-6 sm:mb-8 px-2">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-bone tracking-tight leading-tight lg:whitespace-nowrap">
               ¿Ya viste por qué todos hablan de LISO?
             </h2>
-            <p className="font-sans text-sm sm:text-base lg:text-lg text-bone/75 max-w-none leading-relaxed mt-2 sm:mt-2.5 lg:whitespace-nowrap">
-              Mira cómo este producto se está convirtiendo en el favorito de quienes quieren prendas impecables sin complicarse.
-            </p>
           </div>
         </Reveal>
 
@@ -580,29 +577,6 @@ export const SocialProofSection: React.FC = () => {
                 );
               })}
             </div>
-
-            {/* Pagination dot indicators for videos */}
-            <div className="flex items-center justify-center gap-1 sm:gap-1.5 mt-5 sm:mt-6" role="tablist" aria-label="Navegación de videos">
-              {ugcItems.map((item, index) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => scrollVideosToIndex(index)}
-                  className="p-2 sm:p-2.5 -my-1 focus:outline-none cursor-pointer group/dot flex items-center justify-center transition-transform active:scale-90"
-                  aria-label={`Ir al video ${index + 1}`}
-                  role="tab"
-                  aria-selected={activeVideoIndex === index}
-                >
-                  <span
-                    className={`h-1.5 rounded-full transition-all duration-300 block ${
-                      activeVideoIndex === index 
-                        ? 'w-7 sm:w-8 bg-accent shadow-[0_0_10px_rgba(180,36,124,0.7)]' 
-                        : 'w-2 bg-white/25 group-hover/dot:bg-white/60'
-                    }`}
-                  />
-                </button>
-              ))}
-            </div>
           </div>
         )}
 
@@ -713,29 +687,6 @@ export const SocialProofSection: React.FC = () => {
                 </div>
               ))}
             </div>
-
-            {/* Pagination dot indicators for written reviews */}
-            <div className="flex items-center justify-center gap-1 sm:gap-1.5 mt-5 sm:mt-6" role="tablist" aria-label="Navegación de opiniones">
-              {writtenReviews.map((rev, index) => (
-                <button
-                  key={rev.id}
-                  type="button"
-                  onClick={() => scrollReviewsToIndex(index)}
-                  className="p-2 sm:p-2.5 -my-1 focus:outline-none cursor-pointer group/dot flex items-center justify-center transition-transform active:scale-90"
-                  aria-label={`Ir a opinión ${index + 1}`}
-                  role="tab"
-                  aria-selected={activeReviewIndex === index}
-                >
-                  <span
-                    className={`h-1.5 rounded-full transition-all duration-300 block ${
-                      activeReviewIndex === index 
-                        ? 'w-7 sm:w-8 bg-accent shadow-[0_0_10px_rgba(180,36,124,0.7)]' 
-                        : 'w-2 bg-white/25 group-hover/dot:bg-white/60'
-                    }`}
-                  />
-                </button>
-              ))}
-            </div>
           </div>
         )}
 
@@ -799,10 +750,7 @@ export const SocialProofSection: React.FC = () => {
         </Reveal>
 
         {/* Section Bottom CTA Connector */}
-        <div className="mt-10 sm:mt-12 text-center">
-          <p className="text-xs sm:text-sm font-sans text-bone/70 mb-3.5">
-            Únete a quienes ya disfrutan de ropa impecable en segundos sin sacar la mesa de planchar.
-          </p>
+        <div className="mt-8 sm:mt-10 text-center">
           <CTAButton
             href="#oferta"
             size="default"
