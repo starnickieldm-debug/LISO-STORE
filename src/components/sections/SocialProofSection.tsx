@@ -259,34 +259,59 @@ export const SocialProofSection: React.FC = () => {
     setCanScrollLeftVideos(el.scrollLeft > 15);
     setCanScrollRightVideos(el.scrollLeft < el.scrollWidth - el.clientWidth - 15);
 
-    const firstCard = el.querySelector('[data-ugc-card="true"]') as HTMLElement | null;
-    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 280;
-    const idx = Math.round(el.scrollLeft / cardWidth);
-    setActiveVideoIndex(Math.min(Math.max(idx, 0), ugcItems.length - 1));
-  }, []);
+    const cards = el.querySelectorAll<HTMLElement>('[data-ugc-card="true"]');
+    if (!cards.length) return;
 
-  const scrollVideosByDirection = (direction: 'left' | 'right') => {
-    const el = videoScrollContainerRef.current;
-    if (!el) return;
-    const firstCard = el.querySelector('[data-ugc-card="true"]') as HTMLElement | null;
-    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 280;
-    const scrollDistance = cardWidth * 2;
-    el.scrollBy({
-      left: direction === 'left' ? -scrollDistance : scrollDistance,
-      behavior: 'smooth'
+    // Edge snap tracking
+    if (el.scrollLeft <= 15) {
+      setActiveVideoIndex(0);
+      return;
+    }
+    if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 20) {
+      setActiveVideoIndex(cards.length - 1);
+      return;
+    }
+
+    const containerCenter = el.scrollLeft + el.clientWidth / 2;
+    let closestIndex = 0;
+    let minDiff = Infinity;
+
+    cards.forEach((card, idx) => {
+      const cardCenter = card.offsetLeft - el.offsetLeft + card.clientWidth / 2;
+      const diff = Math.abs(containerCenter - cardCenter);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIndex = idx;
+      }
     });
-  };
+
+    setActiveVideoIndex(closestIndex);
+  }, []);
 
   const scrollVideosToIndex = (index: number) => {
     const el = videoScrollContainerRef.current;
     if (!el) return;
-    const firstCard = el.querySelector('[data-ugc-card="true"]') as HTMLElement | null;
-    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 280;
-    el.scrollTo({
-      left: index * cardWidth,
-      behavior: 'smooth'
-    });
-    setActiveVideoIndex(index);
+    const cards = el.querySelectorAll<HTMLElement>('[data-ugc-card="true"]');
+    const targetItem = cards[index];
+    if (targetItem) {
+      const targetLeft = targetItem.offsetLeft - el.offsetLeft - (el.clientWidth - targetItem.clientWidth) / 2;
+      el.scrollTo({
+        left: Math.max(0, Math.min(el.scrollWidth - el.clientWidth, targetLeft)),
+        behavior: 'smooth'
+      });
+      setActiveVideoIndex(index);
+    }
+  };
+
+  const scrollVideosByDirection = (direction: 'left' | 'right') => {
+    const el = videoScrollContainerRef.current;
+    if (!el) return;
+    const cards = el.querySelectorAll<HTMLElement>('[data-ugc-card="true"]');
+    if (!cards.length) return;
+    const targetIdx = direction === 'left'
+      ? Math.max(0, activeVideoIndex - 1)
+      : Math.min(cards.length - 1, activeVideoIndex + 1);
+    scrollVideosToIndex(targetIdx);
   };
 
   // Written reviews scroll tracking
@@ -297,33 +322,59 @@ export const SocialProofSection: React.FC = () => {
     setCanScrollLeftReviews(el.scrollLeft > 15);
     setCanScrollRightReviews(el.scrollLeft < el.scrollWidth - el.clientWidth - 15);
 
-    const firstCard = el.querySelector('[data-review-card="true"]') as HTMLElement | null;
-    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 340;
-    const idx = Math.round(el.scrollLeft / cardWidth);
-    setActiveReviewIndex(Math.min(Math.max(idx, 0), writtenReviews.length - 1));
-  }, []);
+    const cards = el.querySelectorAll<HTMLElement>('[data-review-card="true"]');
+    if (!cards.length) return;
 
-  const scrollReviewsByDirection = (direction: 'left' | 'right') => {
-    const el = reviewsScrollContainerRef.current;
-    if (!el) return;
-    const firstCard = el.querySelector('[data-review-card="true"]') as HTMLElement | null;
-    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 340;
-    el.scrollBy({
-      left: direction === 'left' ? -cardWidth : cardWidth,
-      behavior: 'smooth'
+    // Edge snap tracking
+    if (el.scrollLeft <= 15) {
+      setActiveReviewIndex(0);
+      return;
+    }
+    if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 20) {
+      setActiveReviewIndex(cards.length - 1);
+      return;
+    }
+
+    const containerCenter = el.scrollLeft + el.clientWidth / 2;
+    let closestIndex = 0;
+    let minDiff = Infinity;
+
+    cards.forEach((card, idx) => {
+      const cardCenter = card.offsetLeft - el.offsetLeft + card.clientWidth / 2;
+      const diff = Math.abs(containerCenter - cardCenter);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIndex = idx;
+      }
     });
-  };
+
+    setActiveReviewIndex(closestIndex);
+  }, []);
 
   const scrollReviewsToIndex = (index: number) => {
     const el = reviewsScrollContainerRef.current;
     if (!el) return;
-    const firstCard = el.querySelector('[data-review-card="true"]') as HTMLElement | null;
-    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 340;
-    el.scrollTo({
-      left: index * cardWidth,
-      behavior: 'smooth'
-    });
-    setActiveReviewIndex(index);
+    const cards = el.querySelectorAll<HTMLElement>('[data-review-card="true"]');
+    const targetItem = cards[index];
+    if (targetItem) {
+      const targetLeft = targetItem.offsetLeft - el.offsetLeft - (el.clientWidth - targetItem.clientWidth) / 2;
+      el.scrollTo({
+        left: Math.max(0, Math.min(el.scrollWidth - el.clientWidth, targetLeft)),
+        behavior: 'smooth'
+      });
+      setActiveReviewIndex(index);
+    }
+  };
+
+  const scrollReviewsByDirection = (direction: 'left' | 'right') => {
+    const el = reviewsScrollContainerRef.current;
+    if (!el) return;
+    const cards = el.querySelectorAll<HTMLElement>('[data-review-card="true"]');
+    if (!cards.length) return;
+    const targetIdx = direction === 'left'
+      ? Math.max(0, activeReviewIndex - 1)
+      : Math.min(cards.length - 1, activeReviewIndex + 1);
+    scrollReviewsToIndex(targetIdx);
   };
 
   return (
@@ -531,19 +582,25 @@ export const SocialProofSection: React.FC = () => {
             </div>
 
             {/* Pagination dot indicators for videos */}
-            <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-5 sm:mt-6" aria-hidden="true">
+            <div className="flex items-center justify-center gap-1 sm:gap-1.5 mt-5 sm:mt-6" role="tablist" aria-label="Navegación de videos">
               {ugcItems.map((item, index) => (
                 <button
                   key={item.id}
                   type="button"
                   onClick={() => scrollVideosToIndex(index)}
-                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    activeVideoIndex === index 
-                      ? 'w-6 bg-accent shadow-[0_0_8px_rgba(180,36,124,0.6)]' 
-                      : 'w-1.5 bg-white/20 hover:bg-white/40'
-                  }`}
+                  className="p-2 sm:p-2.5 -my-1 focus:outline-none cursor-pointer group/dot flex items-center justify-center transition-transform active:scale-90"
                   aria-label={`Ir al video ${index + 1}`}
-                />
+                  role="tab"
+                  aria-selected={activeVideoIndex === index}
+                >
+                  <span
+                    className={`h-1.5 rounded-full transition-all duration-300 block ${
+                      activeVideoIndex === index 
+                        ? 'w-7 sm:w-8 bg-accent shadow-[0_0_10px_rgba(180,36,124,0.7)]' 
+                        : 'w-2 bg-white/25 group-hover/dot:bg-white/60'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -599,7 +656,7 @@ export const SocialProofSection: React.FC = () => {
                   data-review-card="true"
                   className="flex-none w-[82vw] sm:w-[320px] lg:w-[360px] rounded-2xl lg:rounded-3xl overflow-hidden bg-white/[0.04] hover:bg-white/[0.07] border border-white/15 hover:border-white/30 shadow-2xl relative snap-center select-none transition-all duration-300 flex flex-col justify-between"
                 >
-                  {/* Top Image: Visual Photo of the Product / Experience (Image 1 Style) */}
+                  {/* Top Image: Clean Visual Photo of the Product / Experience without any text overlays */}
                   <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-black/50 border-b border-white/10">
                     <img
                       src={rev.imageSrc}
@@ -607,24 +664,21 @@ export const SocialProofSection: React.FC = () => {
                       className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                    
-                    {/* Floating Benefit Tag */}
-                    <div className="absolute bottom-2.5 left-3 z-10">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-[10.5px] font-sans font-medium text-bone">
-                        {rev.highlightBenefit}
-                      </span>
-                    </div>
                   </div>
 
                   {/* Card Content */}
                   <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                     <div>
-                      {/* Rating Stars */}
-                      <div className="flex items-center gap-1 text-amber-400 mb-2.5">
-                        {[...Array(rev.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                        ))}
+                      {/* Rating Stars & Integrated Date */}
+                      <div className="flex items-center justify-between gap-2 mb-2.5">
+                        <div className="flex items-center gap-1 text-amber-400">
+                          {[...Array(rev.rating)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                          ))}
+                        </div>
+                        <span className="text-[11px] font-sans text-bone/55 tracking-tight">
+                          {rev.date}
+                        </span>
                       </div>
 
                       {/* Bold Headline */}
@@ -661,19 +715,25 @@ export const SocialProofSection: React.FC = () => {
             </div>
 
             {/* Pagination dot indicators for written reviews */}
-            <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-5 sm:mt-6" aria-hidden="true">
+            <div className="flex items-center justify-center gap-1 sm:gap-1.5 mt-5 sm:mt-6" role="tablist" aria-label="Navegación de opiniones">
               {writtenReviews.map((rev, index) => (
                 <button
                   key={rev.id}
                   type="button"
                   onClick={() => scrollReviewsToIndex(index)}
-                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    activeReviewIndex === index 
-                      ? 'w-6 bg-accent shadow-[0_0_8px_rgba(180,36,124,0.6)]' 
-                      : 'w-1.5 bg-white/20 hover:bg-white/40'
-                  }`}
+                  className="p-2 sm:p-2.5 -my-1 focus:outline-none cursor-pointer group/dot flex items-center justify-center transition-transform active:scale-90"
                   aria-label={`Ir a opinión ${index + 1}`}
-                />
+                  role="tab"
+                  aria-selected={activeReviewIndex === index}
+                >
+                  <span
+                    className={`h-1.5 rounded-full transition-all duration-300 block ${
+                      activeReviewIndex === index 
+                        ? 'w-7 sm:w-8 bg-accent shadow-[0_0_10px_rgba(180,36,124,0.7)]' 
+                        : 'w-2 bg-white/25 group-hover/dot:bg-white/60'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
