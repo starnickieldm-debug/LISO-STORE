@@ -371,71 +371,9 @@ export const SocialProofSection: React.FC = () => {
         </Reveal>
 
         {/* =========================================================================
-            SCORECARD DE SATISFACCIÓN (Función e Información de la Imagen 3)
+            SELECTOR SEGMENTADO EN CÁPSULA (Estilo Liquid+ Tabs - Inmediato)
             ========================================================================= */}
-        <Reveal direction="up" duration={700}>
-          <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 sm:p-7 mb-8 backdrop-blur-sm max-w-4xl mx-auto shadow-2xl">
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
-              
-              {/* Left: Star Rating Hero */}
-              <div className="sm:col-span-4 text-center sm:text-left sm:border-r border-white/10 sm:pr-6">
-                <div className="flex items-center justify-center sm:justify-start gap-2 mb-1.5">
-                  <span className="font-display text-4xl sm:text-5xl font-bold text-bone tracking-tight leading-none">
-                    4.9
-                  </span>
-                  <div className="flex flex-col">
-                    <div className="flex items-center gap-0.5 text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <span className="text-[11px] font-sans text-bone/60 mt-0.5">
-                      Calificación promedio
-                    </span>
-                  </div>
-                </div>
-                <p className="text-xs font-sans text-bone/70 flex items-center justify-center sm:justify-start gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>100% compras reales verificadas</span>
-                </p>
-              </div>
-
-              {/* Right: Key Performance Signals */}
-              <div className="sm:col-span-8 grid grid-cols-1 xs:grid-cols-3 gap-3.5 text-center xs:text-left">
-                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                  <span className="block font-display text-2xl font-bold text-accent">
-                    98%
-                  </span>
-                  <span className="text-xs text-bone/75 font-sans leading-tight mt-0.5 block">
-                    Prendas listas en menos de 3 minutos
-                  </span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                  <span className="block font-display text-2xl font-bold text-accent">
-                    99%
-                  </span>
-                  <span className="text-xs text-bone/75 font-sans leading-tight mt-0.5 block">
-                    Destaca el cabezal giratorio a 90°
-                  </span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                  <span className="block font-display text-2xl font-bold text-accent">
-                    96%
-                  </span>
-                  <span className="text-xs text-bone/75 font-sans leading-tight mt-0.5 block">
-                    La lleva fija en su maleta de viaje
-                  </span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </Reveal>
-
-        {/* =========================================================================
-            SELECTOR SEGMENTADO EN CÁPSULA (Estilo Liquid+ Tabs - Imágenes 1 y 2)
-            ========================================================================= */}
-        <div className="flex items-center justify-center mb-8 sm:mb-10">
+        <div className="flex items-center justify-center mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-1.5 sm:gap-2 p-1.5 bg-white/[0.05] border border-white/15 rounded-full backdrop-blur-md shadow-inner">
             
             {/* Pestaña: Videos de Uso */}
@@ -451,7 +389,7 @@ export const SocialProofSection: React.FC = () => {
               }`}
             >
               <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span>Videos de uso ({ugcItems.length})</span>
+              <span>Videos de uso</span>
             </button>
 
             {/* Pestaña: Opiniones Escritas */}
@@ -471,7 +409,7 @@ export const SocialProofSection: React.FC = () => {
               }`}
             >
               <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-              <span>Opiniones escritas ({writtenReviews.length})</span>
+              <span>Opiniones escritas</span>
             </button>
 
           </div>
@@ -740,6 +678,65 @@ export const SocialProofSection: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* =========================================================================
+            PANEL PANORÁMICO COMPACTO DE CONFIANZA Y RENDIMIENTO (Scorecard Rediseñado)
+            ========================================================================= */}
+        <Reveal direction="up" duration={600}>
+          <div className="mt-8 sm:mt-10 mb-8 max-w-4xl mx-auto bg-white/[0.03] border border-white/10 rounded-2xl p-3.5 sm:p-4 backdrop-blur-sm shadow-xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/10 items-center text-center">
+              
+              {/* Item 1: Calificación 4.9 */}
+              <div className="flex flex-col items-center justify-center p-1.5">
+                <div className="flex items-center gap-1.5 mb-1">
+                  <span className="font-display text-2xl sm:text-3xl font-bold text-bone leading-none">
+                    4.9
+                  </span>
+                  <div className="flex items-center text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                </div>
+                <span className="text-[11px] font-sans text-bone/70 flex items-center gap-1 leading-tight">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span>Compras verificadas</span>
+                </span>
+              </div>
+
+              {/* Item 2: 98% */}
+              <div className="flex flex-col items-center justify-center p-1.5 pt-3 md:pt-1.5">
+                <span className="font-display text-xl sm:text-2xl font-bold text-accent leading-none mb-1">
+                  98%
+                </span>
+                <span className="text-[11px] sm:text-xs text-bone/75 font-sans leading-tight">
+                  Prendas listas en 3 min
+                </span>
+              </div>
+
+              {/* Item 3: 99% */}
+              <div className="flex flex-col items-center justify-center p-1.5 pt-3 md:pt-1.5">
+                <span className="font-display text-xl sm:text-2xl font-bold text-accent leading-none mb-1">
+                  99%
+                </span>
+                <span className="text-[11px] sm:text-xs text-bone/75 font-sans leading-tight">
+                  Destaca cabezal 90°
+                </span>
+              </div>
+
+              {/* Item 4: 96% */}
+              <div className="flex flex-col items-center justify-center p-1.5 pt-3 md:pt-1.5">
+                <span className="font-display text-xl sm:text-2xl font-bold text-accent leading-none mb-1">
+                  96%
+                </span>
+                <span className="text-[11px] sm:text-xs text-bone/75 font-sans leading-tight">
+                  Fija en maleta de viaje
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </Reveal>
 
         {/* Section Bottom CTA Connector */}
         <div className="mt-10 sm:mt-12 text-center">
