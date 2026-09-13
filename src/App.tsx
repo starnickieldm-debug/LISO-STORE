@@ -14,6 +14,7 @@ import { ThreeGesturesSection } from './components/sections/ThreeGesturesSection
 import { SocialProofSection } from './components/sections/SocialProofSection';
 import { ComparisonSection } from './components/sections/ComparisonSection';
 import { HonestyLabelSection } from './components/sections/HonestyLabelSection';
+import { CustomerReviewsSection } from './components/sections/CustomerReviewsSection';
 import { OfferSection } from './components/sections/OfferSection';
 import { FAQSection } from './components/sections/FAQSection';
 import { FinalCTASection } from './components/sections/FinalCTASection';
@@ -45,6 +46,9 @@ const HomePage: React.FC = () => (
 
     {/* 06. Etiqueta de Honestidad: Lo que hace de forma excelente vs. para lo que no está diseñada */}
     <HonestyLabelSection />
+
+    {/* 06.5 Reseñas reales de compradores verificados */}
+    <CustomerReviewsSection />
 
     {/* 07. PDP Oficial / Selector de color, cantidad, kit completo y Checkout Shopify */}
     <OfferSection />

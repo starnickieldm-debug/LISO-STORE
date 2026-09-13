@@ -37,6 +37,7 @@ export const Navbar: React.FC = () => {
     { label: "Cómo funciona", href: "/#como-funciona" },
     { label: "Comparativa", href: "/#comparativa" },
     { label: "Honestidad", href: "/#etiqueta" },
+    { label: "Opiniones", href: "/#opiniones" },
     { label: "FAQ", href: "/#faq" }
   ];
 
