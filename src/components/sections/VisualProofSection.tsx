@@ -234,12 +234,11 @@ export const VisualProofSection: React.FC = () => {
           <div 
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex gap-3.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar scroll-smooth px-3 sm:px-6 py-2"
+            className="flex gap-3.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3 sm:px-6 py-2 touch-pan-x"
             style={{ 
               WebkitOverflowScrolling: 'touch',
               scrollbarWidth: 'none',
-              msOverflowStyle: 'none',
-              contain: 'paint'
+              msOverflowStyle: 'none'
             }}
           >
             {demoClips.map((clip) => (

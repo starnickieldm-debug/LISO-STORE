@@ -125,7 +125,7 @@ export const OfferSection: React.FC = () => {
                     <span className="text-sm font-sans text-graphite/60 font-medium">
                       {quantity > 1 ? `Total (${quantity} unds):` : 'Ahora:'}
                     </span>
-                    <span className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-graphite tracking-tight">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold text-graphite tracking-tight">
                       {quantity > 1 ? formattedTotalPrice : currentMarket.formattedPrice}
                     </span>
                     {quantity > 1 && (
@@ -360,7 +360,7 @@ export const OfferSection: React.FC = () => {
                           {formattedTotalCompareAt}
                         </span>
                       )}
-                      <span className="text-sm xs:text-base font-display font-bold text-graphite leading-tight">
+                      <span className="text-sm xs:text-base font-sans font-bold text-graphite leading-tight">
                         {formattedTotalPrice}
                       </span>
                     </div>
@@ -383,7 +383,7 @@ export const OfferSection: React.FC = () => {
                         {formattedTotalCompareAt}
                       </span>
                     )}
-                    <span className="text-sm sm:text-base font-display font-bold text-graphite">
+                    <span className="text-sm sm:text-base font-sans font-bold text-graphite">
                       {formattedTotalPrice}
                     </span>
                   </div>
@@ -527,17 +527,17 @@ export const OfferSection: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-left">
                   <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
-                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">1200 W</span>
+                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-sans">1200 W</span>
                     <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Potencia Directa</span>
                     <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">Sin baterías débiles</span>
                   </div>
                   <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
-                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">90°</span>
+                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-sans">90°</span>
                     <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Giro Patentado</span>
                     <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">Gancho o tabla en 1 clic</span>
                   </div>
                   <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
-                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-display">3 seg</span>
+                    <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-sans">3 seg</span>
                     <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Vapor Flash</span>
                     <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">150 °C aluminio cerámico</span>
                   </div>

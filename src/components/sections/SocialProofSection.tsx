@@ -275,6 +275,28 @@ export const SocialProofSection: React.FC = () => {
     };
   }, [inView, prefersReduced, activeAudioId, activeTab]);
 
+  // Update bounds dynamically on tab switch or resize
+  useEffect(() => {
+    const updateScrollBounds = () => {
+      if (activeTab === 'videos' && videoScrollContainerRef.current) {
+        const el = videoScrollContainerRef.current;
+        setCanScrollLeftVideos(el.scrollLeft > 15);
+        setCanScrollRightVideos(el.scrollLeft < el.scrollWidth - el.clientWidth - 15);
+      } else if (activeTab === 'reviews' && reviewsScrollContainerRef.current) {
+        const el = reviewsScrollContainerRef.current;
+        setCanScrollLeftReviews(el.scrollLeft > 15);
+        setCanScrollRightReviews(el.scrollLeft < el.scrollWidth - el.clientWidth - 15);
+      }
+    };
+
+    const timeout = setTimeout(updateScrollBounds, 60);
+    window.addEventListener('resize', updateScrollBounds);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('resize', updateScrollBounds);
+    };
+  }, [activeTab]);
+
   // Video scroll tracking
   const handleVideoScroll = useCallback(() => {
     const el = videoScrollContainerRef.current;
@@ -283,59 +305,22 @@ export const SocialProofSection: React.FC = () => {
     setCanScrollLeftVideos(el.scrollLeft > 15);
     setCanScrollRightVideos(el.scrollLeft < el.scrollWidth - el.clientWidth - 15);
 
-    const cards = el.querySelectorAll<HTMLElement>('[data-ugc-card="true"]');
-    if (!cards.length) return;
-
-    // Edge snap tracking
-    if (el.scrollLeft <= 15) {
-      setActiveVideoIndex(0);
-      return;
-    }
-    if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 20) {
-      setActiveVideoIndex(cards.length - 1);
-      return;
-    }
-
-    const containerCenter = el.scrollLeft + el.clientWidth / 2;
-    let closestIndex = 0;
-    let minDiff = Infinity;
-
-    cards.forEach((card, idx) => {
-      const cardCenter = card.offsetLeft - el.offsetLeft + card.clientWidth / 2;
-      const diff = Math.abs(containerCenter - cardCenter);
-      if (diff < minDiff) {
-        minDiff = diff;
-        closestIndex = idx;
-      }
-    });
-
-    setActiveVideoIndex(closestIndex);
+    const firstCard = el.querySelector<HTMLElement>('[data-ugc-card="true"]');
+    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 280;
+    const idx = Math.round(el.scrollLeft / cardWidth);
+    setActiveVideoIndex(Math.min(Math.max(idx, 0), ugcItems.length - 1));
   }, []);
-
-  const scrollVideosToIndex = (index: number) => {
-    const el = videoScrollContainerRef.current;
-    if (!el) return;
-    const cards = el.querySelectorAll<HTMLElement>('[data-ugc-card="true"]');
-    const targetItem = cards[index];
-    if (targetItem) {
-      const targetLeft = targetItem.offsetLeft - el.offsetLeft - (el.clientWidth - targetItem.clientWidth) / 2;
-      el.scrollTo({
-        left: Math.max(0, Math.min(el.scrollWidth - el.clientWidth, targetLeft)),
-        behavior: 'smooth'
-      });
-      setActiveVideoIndex(index);
-    }
-  };
 
   const scrollVideosByDirection = (direction: 'left' | 'right') => {
     const el = videoScrollContainerRef.current;
     if (!el) return;
-    const cards = el.querySelectorAll<HTMLElement>('[data-ugc-card="true"]');
-    if (!cards.length) return;
-    const targetIdx = direction === 'left'
-      ? Math.max(0, activeVideoIndex - 1)
-      : Math.min(cards.length - 1, activeVideoIndex + 1);
-    scrollVideosToIndex(targetIdx);
+    const firstCard = el.querySelector<HTMLElement>('[data-ugc-card="true"]');
+    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 280;
+    const scrollDistance = window.innerWidth < 768 ? cardWidth : cardWidth * 1.5;
+    el.scrollBy({
+      left: direction === 'left' ? -scrollDistance : scrollDistance,
+      behavior: 'smooth'
+    });
   };
 
   // Written reviews scroll tracking
@@ -346,59 +331,22 @@ export const SocialProofSection: React.FC = () => {
     setCanScrollLeftReviews(el.scrollLeft > 15);
     setCanScrollRightReviews(el.scrollLeft < el.scrollWidth - el.clientWidth - 15);
 
-    const cards = el.querySelectorAll<HTMLElement>('[data-review-card="true"]');
-    if (!cards.length) return;
-
-    // Edge snap tracking
-    if (el.scrollLeft <= 15) {
-      setActiveReviewIndex(0);
-      return;
-    }
-    if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 20) {
-      setActiveReviewIndex(cards.length - 1);
-      return;
-    }
-
-    const containerCenter = el.scrollLeft + el.clientWidth / 2;
-    let closestIndex = 0;
-    let minDiff = Infinity;
-
-    cards.forEach((card, idx) => {
-      const cardCenter = card.offsetLeft - el.offsetLeft + card.clientWidth / 2;
-      const diff = Math.abs(containerCenter - cardCenter);
-      if (diff < minDiff) {
-        minDiff = diff;
-        closestIndex = idx;
-      }
-    });
-
-    setActiveReviewIndex(closestIndex);
+    const firstCard = el.querySelector<HTMLElement>('[data-review-card="true"]');
+    const cardWidth = firstCard ? firstCard.offsetWidth + 20 : 340;
+    const idx = Math.round(el.scrollLeft / cardWidth);
+    setActiveReviewIndex(Math.min(Math.max(idx, 0), writtenReviews.length - 1));
   }, []);
-
-  const scrollReviewsToIndex = (index: number) => {
-    const el = reviewsScrollContainerRef.current;
-    if (!el) return;
-    const cards = el.querySelectorAll<HTMLElement>('[data-review-card="true"]');
-    const targetItem = cards[index];
-    if (targetItem) {
-      const targetLeft = targetItem.offsetLeft - el.offsetLeft - (el.clientWidth - targetItem.clientWidth) / 2;
-      el.scrollTo({
-        left: Math.max(0, Math.min(el.scrollWidth - el.clientWidth, targetLeft)),
-        behavior: 'smooth'
-      });
-      setActiveReviewIndex(index);
-    }
-  };
 
   const scrollReviewsByDirection = (direction: 'left' | 'right') => {
     const el = reviewsScrollContainerRef.current;
     if (!el) return;
-    const cards = el.querySelectorAll<HTMLElement>('[data-review-card="true"]');
-    if (!cards.length) return;
-    const targetIdx = direction === 'left'
-      ? Math.max(0, activeReviewIndex - 1)
-      : Math.min(cards.length - 1, activeReviewIndex + 1);
-    scrollReviewsToIndex(targetIdx);
+    const firstCard = el.querySelector<HTMLElement>('[data-review-card="true"]');
+    const cardWidth = firstCard ? firstCard.offsetWidth + 20 : 340;
+    const scrollDistance = window.innerWidth < 768 ? cardWidth : cardWidth * 1.5;
+    el.scrollBy({
+      left: direction === 'left' ? -scrollDistance : scrollDistance,
+      behavior: 'smooth'
+    });
   };
 
   return (
@@ -492,27 +440,27 @@ export const SocialProofSection: React.FC = () => {
             ========================================================= */}
         {activeTab === 'videos' && (
           <div className="relative group/carousel animate-fadeIn">
-            {/* Left Arrow (desktop/tablet) */}
+            {/* Left Arrow (visible on mobile and desktop) */}
             {canScrollLeftVideos && (
               <button
                 type="button"
                 onClick={() => scrollVideosByDirection('left')}
                 aria-label="Ver videos anteriores"
-                className="hidden sm:flex absolute left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
+                className="flex absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
               >
-                <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
               </button>
             )}
 
-            {/* Right Arrow (desktop/tablet) */}
+            {/* Right Arrow (visible on mobile and desktop) */}
             {canScrollRightVideos && (
               <button
                 type="button"
                 onClick={() => scrollVideosByDirection('right')}
                 aria-label="Ver siguientes videos"
-                className="hidden sm:flex absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
+                className="flex absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
               >
-                <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
               </button>
             )}
 
@@ -524,12 +472,11 @@ export const SocialProofSection: React.FC = () => {
             <div 
               ref={videoScrollContainerRef}
               onScroll={handleVideoScroll}
-              className="flex gap-3.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar scroll-smooth px-3 sm:px-6 py-2"
+              className="flex gap-3.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3 sm:px-6 py-2 touch-pan-x"
               style={{ 
                 WebkitOverflowScrolling: 'touch',
                 scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-                contain: 'paint'
+                msOverflowStyle: 'none'
               }}
             >
               {ugcItems.map((item) => {
@@ -594,27 +541,27 @@ export const SocialProofSection: React.FC = () => {
             ========================================================= */}
         {activeTab === 'reviews' && (
           <div className="relative group/reviews animate-fadeIn">
-            {/* Left Arrow (desktop/tablet) */}
+            {/* Left Arrow (visible on mobile and desktop) */}
             {canScrollLeftReviews && (
               <button
                 type="button"
                 onClick={() => scrollReviewsByDirection('left')}
                 aria-label="Ver opiniones anteriores"
-                className="hidden sm:flex absolute left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
+                className="flex absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
               >
-                <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
               </button>
             )}
 
-            {/* Right Arrow (desktop/tablet) */}
+            {/* Right Arrow (visible on mobile and desktop) */}
             {canScrollRightReviews && (
               <button
                 type="button"
                 onClick={() => scrollReviewsByDirection('right')}
                 aria-label="Ver siguientes opiniones"
-                className="hidden sm:flex absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
+                className="flex absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
               >
-                <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
               </button>
             )}
 
@@ -626,12 +573,11 @@ export const SocialProofSection: React.FC = () => {
             <div 
               ref={reviewsScrollContainerRef}
               onScroll={handleReviewsScroll}
-              className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar scroll-smooth px-3 sm:px-6 py-2"
+              className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3 sm:px-6 py-2 touch-pan-x"
               style={{ 
                 WebkitOverflowScrolling: 'touch',
                 scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-                contain: 'paint'
+                msOverflowStyle: 'none'
               }}
             >
               {writtenReviews.map((rev) => (
@@ -710,7 +656,7 @@ export const SocialProofSection: React.FC = () => {
               {/* Item 1: Calificación 4.9 */}
               <div className="flex flex-col items-center justify-center p-1.5">
                 <div className="flex items-center gap-1.5 mb-1">
-                  <span className="font-display text-2xl sm:text-3xl font-bold text-bone leading-none">
+                  <span className="font-sans text-2xl sm:text-3xl font-bold text-bone leading-none">
                     4.9
                   </span>
                   <div className="flex items-center text-amber-400">
@@ -727,7 +673,7 @@ export const SocialProofSection: React.FC = () => {
 
               {/* Item 2: 98% */}
               <div className="flex flex-col items-center justify-center p-1.5 pt-3 md:pt-1.5">
-                <span className="font-display text-xl sm:text-2xl font-bold text-accent leading-none mb-1">
+                <span className="font-sans text-xl sm:text-2xl font-bold text-accent leading-none mb-1">
                   98%
                 </span>
                 <span className="text-[11px] sm:text-xs text-bone/75 font-sans leading-tight">
@@ -737,7 +683,7 @@ export const SocialProofSection: React.FC = () => {
 
               {/* Item 3: 99% */}
               <div className="flex flex-col items-center justify-center p-1.5 pt-3 md:pt-1.5">
-                <span className="font-display text-xl sm:text-2xl font-bold text-accent leading-none mb-1">
+                <span className="font-sans text-xl sm:text-2xl font-bold text-accent leading-none mb-1">
                   99%
                 </span>
                 <span className="text-[11px] sm:text-xs text-bone/75 font-sans leading-tight">
@@ -747,7 +693,7 @@ export const SocialProofSection: React.FC = () => {
 
               {/* Item 4: 96% */}
               <div className="flex flex-col items-center justify-center p-1.5 pt-3 md:pt-1.5">
-                <span className="font-display text-xl sm:text-2xl font-bold text-accent leading-none mb-1">
+                <span className="font-sans text-xl sm:text-2xl font-bold text-accent leading-none mb-1">
                   96%
                 </span>
                 <span className="text-[11px] sm:text-xs text-bone/75 font-sans leading-tight">

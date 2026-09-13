@@ -179,7 +179,18 @@
 
 /* ==========================================================================
    TYPOGRAPHY SYSTEM: Playfair Display (Editorial) + Instrument Sans (UI, Body & Technical)
+   All numbers across the site use Instrument Sans
    ========================================================================== */
+
+/* Universal numeric glyph override: Forces all numbers (0-9), $, %, +, and ° in Playfair Display to use Instrument Sans */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/instrumentsans/v4/pximypc9vsFDm051Uf6KVwgkfoSxQ0GsQv8ToedPibnr-yp2JGEJOH9npSTF-Qf1.ttf') format('truetype');
+  unicode-range: U+0030-0039, U+0024, U+0025, U+002B, U+00B0;
+}
 
 /* 1. High-Impact Editorial Display Clamps & Weights (Playfair Display Variable: weight 400-900) */
 .font-display {

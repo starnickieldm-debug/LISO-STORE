@@ -36,7 +36,7 @@ export const StickyBuyBar: React.FC = () => {
       <div className="max-w-md mx-auto px-3.5 py-1.5 min-h-[58px] flex items-center justify-between gap-3">
         {/* Price & Guarantee Microcopy */}
         <div className="flex flex-col justify-center min-w-0">
-          <span className="text-base font-display font-bold tracking-tight text-bone leading-tight">
+          <span className="text-base font-sans font-bold tracking-tight text-bone leading-tight">
             {currentMarket.formattedPrice}
           </span>
           <span className="text-[11px] font-sans text-bone/70 truncate leading-none mt-0.5">

@@ -242,7 +242,7 @@ export const HeroSection: React.FC = () => {
                   </div>
                 )}
                 <div className="flex items-center gap-3">
-                  <span className="text-3xl sm:text-[2.25rem] font-display font-bold text-graphite tracking-tight leading-none">
+                  <span className="text-3xl sm:text-[2.25rem] font-sans font-bold text-graphite tracking-tight leading-none">
                     {currentMarket.formattedPrice}
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-accent/10 border border-accent/25 text-accent text-[11px] font-sans font-bold uppercase tracking-wider rounded-full">
@@ -419,7 +419,7 @@ export const HeroSection: React.FC = () => {
                 </div>
               )}
               <div className="flex items-center justify-center gap-2.5">
-                <span className="text-[1.85rem] xs:text-[2rem] font-display font-bold text-graphite tracking-tight leading-none">
+                <span className="text-[1.85rem] xs:text-[2rem] font-sans font-bold text-graphite tracking-tight leading-none">
                   {currentMarket.formattedPrice}
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-accent/10 border border-accent/25 text-accent text-[10.5px] font-sans font-bold uppercase tracking-wider rounded-full">
