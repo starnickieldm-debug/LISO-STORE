@@ -159,11 +159,11 @@ export const CustomerReviewsSection: React.FC = () => {
         
         {/* Section Header */}
         <Reveal direction="up" duration={600}>
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-bone tracking-tight leading-tight">
+          <div className="text-center w-full max-w-none mx-auto mb-8 sm:mb-10 lg:mb-12 px-2">
+            <h2 className="font-display text-2xl xs:text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl font-bold text-bone tracking-tight leading-tight lg:whitespace-nowrap">
               Experiencias reales de quienes ya la usan a diario
             </h2>
-            <p className="font-sans text-sm sm:text-base text-bone/70 leading-relaxed mt-3">
+            <p className="font-sans text-sm sm:text-base lg:text-lg text-bone/75 leading-relaxed mt-2.5 sm:mt-3 lg:whitespace-nowrap">
               Opiniones verificadas de personas que dejaron de pelear con la plancha pesada y eligieron tener su ropa lista en minutos.
             </p>
           </div>
