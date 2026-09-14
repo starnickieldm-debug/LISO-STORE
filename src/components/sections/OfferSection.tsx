@@ -474,9 +474,6 @@ export const OfferSection: React.FC = () => {
                     <span className="px-2 py-0.5 rounded bg-white text-[10.5px] font-bold text-graphite border border-graphite/15 shadow-xs">
                       Daviplata
                     </span>
-                    <span className="px-2 py-0.5 rounded bg-accent/10 text-[10.5px] font-bold text-accent border border-accent/30 shadow-xs">
-                      Addi
-                    </span>
                   </div>
                   <p className="text-[10px] font-sans text-graphite/50 leading-relaxed">
                     Pagos procesados directamente a través de la pasarela oficial y protegida de Shopify. Sin comisiones extra ni cobros ocultos.
