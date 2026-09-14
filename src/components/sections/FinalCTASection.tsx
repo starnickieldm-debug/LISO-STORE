@@ -9,6 +9,7 @@ export const FinalCTASection: React.FC = () => {
   const { currentMarket } = useMarket();
   return (
     <section 
+      id="garantia-cta"
       className="py-12 sm:py-16 lg:py-20 bg-bone text-graphite border-b border-graphite/10 relative overflow-hidden"
       style={{ backgroundColor: '#F5F1EA' }}
     >
