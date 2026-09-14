@@ -5,7 +5,8 @@ import {
   ComparisonRow,
   LifestyleScene,
   BoxItem,
-  FAQItem
+  FAQItem,
+  PostPurchaseStep
 } from '../types/content';
 
 export const brandConfig: BrandConfig = {
@@ -319,6 +320,30 @@ export const boxItems: BoxItem[] = [
   }
 ];
 
+export const postPurchaseProtocol: PostPurchaseStep[] = [
+  {
+    stepNumber: 1,
+    title: "Confirmación Inmediata con Tu Número de Orden",
+    badge: "Al instante (Pantalla + Correo/SMS)",
+    description: "Al completar tu pago, ves en pantalla tu número de pedido oficial (ej. #1001) y recibes un correo y SMS automático de Shopify con el desglose de tu compra y tu enlace privado a la página de estado del pedido en tiempo real.",
+    timing: "Inmediato tras el pago"
+  },
+  {
+    stepNumber: 2,
+    title: "Alistamiento e Inspección Técnica en Bodega",
+    badge: "24–48 horas hábiles",
+    description: "Nuestro equipo logístico inspecciona la calidad de tu plancha, asegura el empaque de protección con todos los accesorios incluidos y genera la etiqueta oficial con la empresa transportadora encargada de tu ruta.",
+    timing: "Día 1 a 2"
+  },
+  {
+    stepNumber: 3,
+    title: "Notificación de Despacho y Guía de Rastreo en Vivo",
+    badge: "Segundo aviso automático con guía",
+    description: "Apenas la transportadora recibe tu paquete, Shopify actualiza tu pedido a 'Enviado' y te notifica automáticamente con tu número de guía oficial y enlace directo para rastrear cada movimiento hasta tu puerta (15–20 días hábiles) con 30 días de garantía legal.",
+    timing: "Rastreo continuo hasta tu puerta"
+  }
+];
+
 export const faqItems: FAQItem[] = [
   {
     id: "faq-1",
@@ -330,6 +355,18 @@ export const faqItems: FAQItem[] = [
     id: "faq-2",
     question: "¿Por qué cuesta $199.900 si hay vaporizadores de $60.000?",
     answer: "Los vaporizadores económicos de $60.000 tienen resistencias plásticas de 600 W que solo hierven agua, escupen gotas calientes y no alisan arrugas de verdad. LISO entrega 1200 W reales con placa cerámica a 150 °C, bomba presurizada 100% antigoteo y pantalla digital con materiales de alta durabilidad.",
+    verified: true
+  },
+  {
+    id: "faq-seguridad-estafa",
+    question: "¿Cómo sé que mi compra es segura y que mi plancha realmente llegará a mi casa?",
+    answer: "Tu compra cuenta con tres capas de seguridad y respaldo real: 1) Pagos blindados: Se procesan a través de la infraestructura oficial de Shopify y pasarelas bancarias certificadas en Colombia (PSE, Tarjetas de crédito/débito, Nequi, Daviplata, Addi). Tu dinero nunca va a cuentas personales anónimas. 2) Trazabilidad garantizada: Recibes de inmediato tu confirmación con número de orden oficial y un segundo correo con tu número de guía de transportadora para seguir el paquete en vivo. 3) Comercio formal en Colombia: LISO está registrada a nombre de Blanca Astrid Melo Castañeda (NIT 52056602-4, Ibagué), sujeta a la vigilancia de la Superintendencia de Industria y Comercio (SIC), con amparo de la Ley 1480 de 2011 y derecho a reversión de pago según el Decreto 587 de 2016.",
+    verified: true
+  },
+  {
+    id: "faq-contra-entrega",
+    question: "¿Tienen opción de pago contra entrega?",
+    answer: "Actualmente no manejamos pago contra entrega. LISO despacha directamente desde fábrica sin bodegajes redundantes para eliminar costos de intermediarios y sostener el precio preferencial de $199.900 con envío gratis a toda Colombia. Para tu total tranquilidad, los pagos electrónicos por adelantado están amparados por el sistema bancario y la legislación colombiana (Ley 1480 de 2011 y Decreto 587 de 2016 de reversión ante entidades bancarias), además de contar con 30 días de garantía legal directa y atención formal vía radicación PQR.",
     verified: true
   },
   {

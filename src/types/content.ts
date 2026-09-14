@@ -87,3 +87,12 @@ export interface FAQItem {
   answer: string;
   verified: boolean;
 }
+
+export interface PostPurchaseStep {
+  stepNumber: number;
+  title: string;
+  badge: string;
+  description: string;
+  timing: string;
+}
+

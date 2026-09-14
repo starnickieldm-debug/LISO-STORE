@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { brandConfig, productSpecs } from '../../config/siteContent';
+import { brandConfig, productSpecs, postPurchaseProtocol } from '../../config/siteContent';
 import { useMarket } from '../../context/MarketContext';
 import { CTAButton } from '../ui/CTAButton';
 import { RotatingGuaranteeStamp } from '../ui/RotatingGuaranteeStamp';
-import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2, Minus, Plus, CreditCard, Sparkles } from 'lucide-react';
+import { Check, ShieldCheck, Truck, Lock, RotateCcw, ChevronDown, Loader2, Minus, Plus, CreditCard, Sparkles, Building2, PackageCheck } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { useShopifyCheckout } from '../../hooks/useShopifyCheckout';
 import { LEGAL_SELLER } from '../../config/legalInfo';
@@ -451,7 +451,7 @@ export const OfferSection: React.FC = () => {
                 </p>
 
                 {/* Payment Methods Reassurance Strip */}
-                <div className="p-3 bg-[#FAF8F5] border border-graphite/12 rounded-xl space-y-1.5 text-left">
+                <div className="p-3 bg-[#FAF8F5] border border-graphite/12 rounded-xl space-y-2 text-left">
                   <div className="flex items-center justify-between text-[11px] font-sans text-graphite/70">
                     <span className="font-semibold uppercase tracking-wider text-[10px] sm:text-[10.5px] text-graphite/90 flex items-center gap-1.5">
                       <CreditCard className="w-3.5 h-3.5 text-accent" />
@@ -481,6 +481,60 @@ export const OfferSection: React.FC = () => {
                   <p className="text-[10px] font-sans text-graphite/50 leading-relaxed">
                     Pagos procesados directamente a través de la pasarela oficial y protegida de Shopify. Sin comisiones extra ni cobros ocultos.
                   </p>
+
+                  {/* Respaldo Legal de Comercio Formal en Colombia */}
+                  <div className="pt-2 border-t border-graphite/10 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[10px] font-sans text-graphite/60">
+                    <div className="flex items-center gap-1.5">
+                      <Building2 className="w-3 h-3 text-accent shrink-0" />
+                      <span>Comercio formal: <strong className="text-graphite/85 font-semibold">{LEGAL_SELLER.name}</strong> · NIT {LEGAL_SELLER.nit}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-graphite/50 shrink-0">
+                      <span>Vigilado por la SIC</span>
+                      <span>•</span>
+                      <Link to="/reversion-del-pago" className="hover:text-accent underline text-graphite/70">
+                        Reversión Dec. 587/2016
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Protocolo Poscompra Transparente (3 Pasos Reales Shopify + Teemdrop) */}
+                <div className="p-3.5 sm:p-4 bg-[#FAF8F5] border border-graphite/12 rounded-2xl space-y-2.5 text-left">
+                  <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-1">
+                    <span className="text-[11px] sm:text-xs font-sans uppercase tracking-wider text-graphite font-bold flex items-center gap-1.5">
+                      <PackageCheck className="w-3.5 h-3.5 text-accent" />
+                      ¿QUÉ PASA TRAS REALIZAR TU PEDIDO?
+                    </span>
+                    <span className="text-[10px] font-sans font-semibold text-accent bg-accent/10 px-2 py-0.5 rounded-full border border-accent/20 w-fit">
+                      2 avisos con seguimiento
+                    </span>
+                  </div>
+
+                  <div className="space-y-2">
+                    {postPurchaseProtocol.map((step) => (
+                      <div
+                        key={step.stepNumber}
+                        className="p-2.5 bg-white rounded-xl border border-graphite/10 flex items-start gap-2.5 sm:gap-3 shadow-2xs"
+                      >
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-accent/10 border border-accent/25 text-accent font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                          {step.stepNumber}
+                        </div>
+                        <div className="min-w-0 flex-1 space-y-0.5">
+                          <div className="flex flex-wrap items-center justify-between gap-1">
+                            <span className="text-xs font-sans font-bold text-graphite">
+                              {step.title}
+                            </span>
+                            <span className="text-[10px] font-sans text-accent font-semibold">
+                              {step.badge}
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-graphite/70 leading-relaxed">
+                            {step.description}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -637,10 +691,10 @@ export const OfferSection: React.FC = () => {
                       {/* Envíos */}
                       <div className="space-y-1">
                         <h4 className="font-semibold uppercase tracking-wider text-[11px] text-accent">
-                          Envíos Nacionales
+                          Envíos Nacionales y Notificaciones Oficiales
                         </h4>
                         <p>
-                          Envío gratis a toda Colombia. Despachamos tu pedido directamente desde fábrica con entrega estimada de 15 a 20 días hábiles. Te proporcionamos número de guía y seguimiento en línea continuo hasta la entrega en tu domicilio.
+                          Envío gratis a toda Colombia. Despachamos tu pedido directamente desde fábrica con entrega estimada de 15 a 20 días hábiles. Cuentas con doble notificación automática: confirmación instantánea con tu número de pedido (#) y un segundo correo con tu número de guía oficial de transportadora para seguimiento en línea continuo hasta tu domicilio (vía web y app Shop).
                         </p>
                         <p className="text-graphite/60 text-[11px]">
                           Los tiempos son estimados y dependen de la cobertura y trayectos de las empresas transportadoras en cada municipio.
