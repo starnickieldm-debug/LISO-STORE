@@ -140,73 +140,160 @@ export const OfferSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Selector de Color: Individual o Por Unidad si cantidad > 1 */}
-              {quantity === 1 ? (
-                /* Modo 1 Unidad: Selector clásico de 2 columnas */
-                <div className="space-y-2 pt-1">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-sans uppercase tracking-wider text-graphite/70 font-semibold truncate">
-                      ELIGE TU COLOR: <span className="text-graphite font-bold">{selectedColor}</span>
+              {/* Selector de Color (1 Unidad) */}
+              <div className="space-y-2 pt-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-sans uppercase tracking-wider text-graphite/70 font-semibold truncate">
+                    ELIGE TU COLOR: <span className="text-graphite font-bold">{selectedColor}</span>
+                  </span>
+                  <span className="text-[11px] font-sans text-accent font-medium shrink-0">
+                    110 V · Colombia
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {colorOptions.map((color) => {
+                    const isSelected = selectedColor.toLowerCase() === color.toLowerCase();
+                    const config = COLOR_CONFIG[color.toLowerCase()] || {
+                      swatchBg: '#3A3D45',
+                      border: 'border-graphite/30',
+                      label: color,
+                    };
+
+                    return (
+                      <button
+                        key={color}
+                        type="button"
+                        onClick={() => setSelectedColor(color)}
+                        className={`relative p-2.5 sm:p-3 flex items-center justify-between gap-1.5 transition-all duration-200 cursor-pointer border text-left rounded-xl overflow-hidden ${
+                          isSelected
+                            ? 'bg-accent/5 border-accent shadow-xs ring-1 ring-accent'
+                            : 'bg-[#FAF8F5] border-graphite/15 hover:border-graphite/30 hover:bg-graphite/[0.02]'
+                        }`}
+                        aria-pressed={isSelected}
+                      >
+                        <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
+                          <span
+                            className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border shadow-inner shrink-0 flex items-center justify-center ${config.border}`}
+                            style={{ backgroundColor: config.swatchBg }}
+                          >
+                            {isSelected && (
+                              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-sm" />
+                            )}
+                          </span>
+                          <div className="flex flex-col min-w-0 flex-1">
+                            <span className={`text-xs sm:text-sm font-sans font-bold truncate ${isSelected ? 'text-graphite' : 'text-graphite/80'}`}>
+                              {color}
+                            </span>
+                            <span className="text-[10px] sm:text-[10.5px] font-sans text-graphite/50 truncate">
+                              <span className="sm:hidden">Disponible</span>
+                              <span className="hidden sm:inline">Disponibilidad inmediata</span>
+                            </span>
+                          </div>
+                        </div>
+
+                        {isSelected && (
+                          <div className="w-4 h-4 rounded-full bg-accent text-white flex items-center justify-center shrink-0">
+                            <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]" />
+                          </div>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Selector de Cantidad */}
+              <div className="space-y-2 pt-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs sm:text-sm font-sans uppercase tracking-wider text-graphite/75 font-bold">
+                    CANTIDAD
+                  </span>
+                  <span className="text-xs font-sans text-accent font-medium shrink-0">
+                    {quantity > 1 ? `${quantity} unidades seleccionadas` : '1 unidad'}
+                  </span>
+                </div>
+
+                <div className="p-3 bg-[#FAF8F5] border border-graphite/12 rounded-xl space-y-2.5 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-3">
+                  {/* Top Row on Mobile: Stepper Controls (Left) + Subtotal (Right) | Left & Middle on Desktop */}
+                  <div className="flex items-center justify-between sm:justify-start gap-3 min-w-0 sm:flex-1">
+                    {/* Stepper Controls */}
+                    <div className="flex items-center border border-graphite/20 bg-white rounded-lg overflow-hidden shadow-xs shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
+                        disabled={quantity <= 1 || isCheckingOut}
+                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-graphite hover:bg-graphite/5 active:bg-graphite/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                        aria-label="Disminuir cantidad"
+                      >
+                        <Minus className="w-4 h-4" />
+                      </button>
+
+                      <span className="w-10 sm:w-12 text-center font-sans font-bold text-base sm:text-lg text-graphite select-none">
+                        {quantity}
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() => setQuantity(prev => Math.min(10, prev + 1))}
+                        disabled={quantity >= 10 || isCheckingOut}
+                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-graphite hover:bg-graphite/5 active:bg-graphite/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                        aria-label="Aumentar cantidad"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    {/* Product & Dispatch Label on Tablet/Desktop */}
+                    <div className="hidden sm:flex flex-col min-w-0 flex-1 px-1">
+                      <span className="text-xs sm:text-sm font-sans font-bold text-graphite truncate">
+                        {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
+                      </span>
+                      <span className="text-[10.5px] font-sans text-graphite/50 truncate">
+                        {quantity > 1 ? `Colores: ${summaryString}` : 'Lista para despacho'}
+                      </span>
+                    </div>
+
+                    {/* Subtotal on Mobile (aligned right with stepper on top row) */}
+                    <div className="sm:hidden text-right shrink-0">
+                      {quantity > 1 && (
+                        <span className="block text-[11px] font-sans text-graphite/50 line-through leading-tight">
+                          {formattedTotalCompareAt}
+                        </span>
+                      )}
+                      <span className="text-sm xs:text-base font-sans font-bold text-graphite leading-tight">
+                        {formattedTotalPrice}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Mobile Sub-Row: Product & Dispatch status */}
+                  <div className="sm:hidden flex items-center justify-between text-[11.5px] font-sans border-t border-graphite/10 pt-2 text-graphite/60 gap-2">
+                    <span className="font-semibold text-graphite truncate min-w-0">
+                      {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
                     </span>
-                    <span className="text-[11px] font-sans text-accent font-medium shrink-0">
-                      110 V · Colombia
+                    <span className="text-accent font-medium text-[11px] shrink-0">
+                      {quantity > 1 ? `Colores: ${summaryString}` : '✓ Disponible para despacho'}
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2">
-                    {colorOptions.map((color) => {
-                      const isSelected = selectedColor.toLowerCase() === color.toLowerCase();
-                      const config = COLOR_CONFIG[color.toLowerCase()] || {
-                        swatchBg: '#3A3D45',
-                        border: 'border-graphite/30',
-                        label: color,
-                      };
-
-                      return (
-                        <button
-                          key={color}
-                          type="button"
-                          onClick={() => setSelectedColor(color)}
-                          className={`relative p-2.5 sm:p-3 flex items-center justify-between gap-1.5 transition-all duration-200 cursor-pointer border text-left rounded-xl overflow-hidden ${
-                            isSelected
-                              ? 'bg-accent/5 border-accent shadow-xs ring-1 ring-accent'
-                              : 'bg-[#FAF8F5] border-graphite/15 hover:border-graphite/30 hover:bg-graphite/[0.02]'
-                          }`}
-                          aria-pressed={isSelected}
-                        >
-                          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
-                            <span
-                              className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border shadow-inner shrink-0 flex items-center justify-center ${config.border}`}
-                              style={{ backgroundColor: config.swatchBg }}
-                            >
-                              {isSelected && (
-                                <span className="w-1.5 h-1.5 rounded-full bg-white shadow-sm" />
-                              )}
-                            </span>
-                            <div className="flex flex-col min-w-0 flex-1">
-                              <span className={`text-xs sm:text-sm font-sans font-bold truncate ${isSelected ? 'text-graphite' : 'text-graphite/80'}`}>
-                                {color}
-                              </span>
-                              <span className="text-[10px] sm:text-[10.5px] font-sans text-graphite/50 truncate">
-                                <span className="sm:hidden">Disponible</span>
-                                <span className="hidden sm:inline">Disponibilidad inmediata</span>
-                              </span>
-                            </div>
-                          </div>
-
-                          {isSelected && (
-                            <div className="w-4 h-4 rounded-full bg-accent text-white flex items-center justify-center shrink-0">
-                              <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]" />
-                            </div>
-                          )}
-                        </button>
-                      );
-                    })}
+                  {/* Subtotal on Tablet/Desktop (Right column) */}
+                  <div className="hidden sm:block text-right pl-2 shrink-0">
+                    {quantity > 1 && (
+                      <span className="block text-[11px] font-sans text-graphite/50 line-through">
+                        {formattedTotalCompareAt}
+                      </span>
+                    )}
+                    <span className="text-sm sm:text-base font-sans font-bold text-graphite">
+                      {formattedTotalPrice}
+                    </span>
                   </div>
                 </div>
-              ) : (
-                /* Modo Multi-Unidad: Selector personalizado por cada unidad */
-                <div className="space-y-2.5 pt-1">
+              </div>
+
+              {/* Modo Multi-Unidad: Configuración avanzada por unidad revelada ÚNICAMENTE si cantidad > 1 */}
+              {quantity > 1 && (
+                <div className="space-y-2.5 pt-1 animate-fadeIn">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-sans uppercase tracking-wider text-graphite/70 font-semibold">
@@ -302,94 +389,6 @@ export const OfferSection: React.FC = () => {
                 </div>
               )}
 
-              {/* Selector de Cantidad */}
-              <div className="space-y-2 pt-1">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs sm:text-sm font-sans uppercase tracking-wider text-graphite/75 font-bold">
-                    CANTIDAD
-                  </span>
-                  <span className="text-xs font-sans text-accent font-medium shrink-0">
-                    {quantity > 1 ? `${quantity} unidades seleccionadas` : '1 unidad'}
-                  </span>
-                </div>
-
-                <div className="p-3 bg-[#FAF8F5] border border-graphite/12 rounded-xl space-y-2.5 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-3">
-                  {/* Top Row on Mobile: Stepper Controls (Left) + Subtotal (Right) | Left & Middle on Desktop */}
-                  <div className="flex items-center justify-between sm:justify-start gap-3 min-w-0 sm:flex-1">
-                    {/* Stepper Controls */}
-                    <div className="flex items-center border border-graphite/20 bg-white rounded-lg overflow-hidden shadow-xs shrink-0">
-                      <button
-                        type="button"
-                        onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-                        disabled={quantity <= 1 || isCheckingOut}
-                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-graphite hover:bg-graphite/5 active:bg-graphite/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-                        aria-label="Disminuir cantidad"
-                      >
-                        <Minus className="w-4 h-4" />
-                      </button>
-
-                      <span className="w-10 sm:w-12 text-center font-display font-bold text-base sm:text-lg text-graphite select-none">
-                        {quantity}
-                      </span>
-
-                      <button
-                        type="button"
-                        onClick={() => setQuantity(prev => Math.min(10, prev + 1))}
-                        disabled={quantity >= 10 || isCheckingOut}
-                        className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-graphite hover:bg-graphite/5 active:bg-graphite/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-                        aria-label="Aumentar cantidad"
-                      >
-                        <Plus className="w-4 h-4" />
-                      </button>
-                    </div>
-
-                    {/* Product & Dispatch Label on Tablet/Desktop */}
-                    <div className="hidden sm:flex flex-col min-w-0 flex-1 px-1">
-                      <span className="text-xs sm:text-sm font-sans font-bold text-graphite truncate">
-                        {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
-                      </span>
-                      <span className="text-[10.5px] font-sans text-graphite/50 truncate">
-                        {quantity > 1 ? `Colores: ${summaryString}` : 'Lista para despacho'}
-                      </span>
-                    </div>
-
-                    {/* Subtotal on Mobile (aligned right with stepper on top row) */}
-                    <div className="sm:hidden text-right shrink-0">
-                      {quantity > 1 && (
-                        <span className="block text-[11px] font-sans text-graphite/50 line-through leading-tight">
-                          {formattedTotalCompareAt}
-                        </span>
-                      )}
-                      <span className="text-sm xs:text-base font-sans font-bold text-graphite leading-tight">
-                        {formattedTotalPrice}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Mobile Sub-Row: Product & Dispatch status */}
-                  <div className="sm:hidden flex items-center justify-between text-[11.5px] font-sans border-t border-graphite/10 pt-2 text-graphite/60 gap-2">
-                    <span className="font-semibold text-graphite truncate min-w-0">
-                      {quantity === 1 ? `1 plancha LISO (${selectedColor})` : `${quantity} planchas LISO`}
-                    </span>
-                    <span className="text-accent font-medium text-[11px] shrink-0">
-                      {quantity > 1 ? `Colores: ${summaryString}` : '✓ Disponible para despacho'}
-                    </span>
-                  </div>
-
-                  {/* Subtotal on Tablet/Desktop (Right column) */}
-                  <div className="hidden sm:block text-right pl-2 shrink-0">
-                    {quantity > 1 && (
-                      <span className="block text-[11px] font-sans text-graphite/50 line-through">
-                        {formattedTotalCompareAt}
-                      </span>
-                    )}
-                    <span className="text-sm sm:text-base font-sans font-bold text-graphite">
-                      {formattedTotalPrice}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
               {/* Big Conversion CTA Button & Reassurance Strip (Directly Below Selectors!) */}
               <div className="pt-2 space-y-3">
                 <CTAButton
@@ -427,7 +426,7 @@ export const OfferSection: React.FC = () => {
                 <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs text-graphite/75 font-sans pt-0.5 text-center">
                   <span className="inline-flex items-center gap-1 font-semibold text-graphite">
                     <Truck className="w-3.5 h-3.5 text-accent shrink-0" />
-                    <span>Envío gratis incluido</span>
+                    <span>Envío gratis · Entrega estimada: 15–20 días hábiles con guía</span>
                   </span>
                   <span className="text-graphite/30">•</span>
                   <span className="inline-flex items-center gap-1 font-semibold text-graphite">
@@ -539,7 +538,7 @@ export const OfferSection: React.FC = () => {
                   <div className="p-2 sm:p-2.5 bg-white rounded-xl border border-graphite/10 shadow-2xs space-y-0.5">
                     <span className="text-base sm:text-lg font-bold text-graphite block leading-tight font-sans">3 seg</span>
                     <span className="text-[11px] sm:text-xs font-bold text-graphite block leading-tight">Vapor Flash</span>
-                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">150 °C aluminio cerámico</span>
+                    <span className="text-[10px] text-graphite/60 leading-tight block hidden xs:block">150 °C placa cerámica</span>
                   </div>
                 </div>
               </div>

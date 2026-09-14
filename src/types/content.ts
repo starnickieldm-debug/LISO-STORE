@@ -20,6 +20,8 @@ export interface ProductSpecs {
   maxTemperature: string;
   heatUpTime: string;
   heatUpTimeNote: string;
+  steamFlashTime?: string;
+  steamFlashLabel?: string;
   steamLevels: string;
   dryIronMode: boolean;
   swivelPlate: boolean;

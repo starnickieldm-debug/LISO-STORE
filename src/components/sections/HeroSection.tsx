@@ -247,7 +247,7 @@ export const HeroSection: React.FC = () => {
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-accent/10 border border-accent/25 text-accent text-[11px] font-sans font-bold uppercase tracking-wider rounded-full">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                    Envío gratis incluido
+                    Envío gratis a toda Colombia
                   </span>
                 </div>
               </div>
@@ -271,13 +271,13 @@ export const HeroSection: React.FC = () => {
                 </span>
                 <span className="text-graphite/30">•</span>
                 <span className="inline-flex items-center gap-1.5 font-medium text-graphite/85">
-                  <Luggage className="w-4 h-4 text-accent shrink-0" />
-                  <span>Ideal para viajes</span>
+                  <Truck className="w-4 h-4 text-accent shrink-0" />
+                  <span>Entrega estimada: 15–20 días hábiles con guía</span>
                 </span>
                 <span className="text-graphite/30">•</span>
                 <span className="inline-flex items-center gap-1.5 font-medium text-graphite/85">
-                  <Truck className="w-4 h-4 text-accent shrink-0" />
-                  <span>Envío gratis</span>
+                  <Luggage className="w-4 h-4 text-accent shrink-0" />
+                  <span>Ideal para viajes</span>
                 </span>
                 <span className="text-graphite/30">•</span>
                 <span className="inline-flex items-center gap-1.5 font-medium text-graphite/85">
@@ -446,13 +446,13 @@ export const HeroSection: React.FC = () => {
               </span>
               <span className="text-graphite/30">•</span>
               <span className="inline-flex items-center gap-1 font-medium text-graphite/85">
-                <Luggage className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Para viajes</span>
+                <Truck className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Entrega estimada: 15–20 días hábiles</span>
               </span>
               <span className="text-graphite/30">•</span>
               <span className="inline-flex items-center gap-1 font-medium text-graphite/85">
-                <Truck className="w-3.5 h-3.5 text-accent shrink-0" />
-                <span>Envío gratis</span>
+                <Luggage className="w-3.5 h-3.5 text-accent shrink-0" />
+                <span>Para viajes</span>
               </span>
               <span className="text-graphite/30">•</span>
               <span className="inline-flex items-center gap-1 font-medium text-graphite/85">
