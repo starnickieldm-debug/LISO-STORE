@@ -33,8 +33,8 @@ interface WrittenReview {
   productVariant: string;
   headline: string;
   text: string;
-  imageSrc: string;
-  imageAlt: string;
+  imageSrc?: string;
+  imageAlt?: string;
   highlightBenefit: string;
 }
 
@@ -580,36 +580,61 @@ export const SocialProofSection: React.FC = () => {
                 msOverflowStyle: 'none'
               }}
             >
-              {writtenReviews.map((rev) => (
-                <div
-                  key={rev.id}
-                  data-review-card="true"
-                  className="flex-none w-[82vw] sm:w-[320px] lg:w-[360px] rounded-2xl lg:rounded-3xl overflow-hidden bg-white/[0.04] hover:bg-white/[0.07] border border-white/15 hover:border-white/30 shadow-2xl relative snap-center select-none transition-all duration-300 flex flex-col justify-between"
-                >
-                  {/* Top Image: Clean Visual Photo of the Product / Experience without any text overlays */}
-                  <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-black/50 border-b border-white/10">
-                    <img
-                      src={rev.imageSrc}
-                      alt={rev.imageAlt}
-                      className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
+              {writtenReviews.map((rev) => {
+                const initials = rev.name
+                  .split(' ')
+                  .filter(Boolean)
+                  .map((n) => n[0])
+                  .join('');
 
-                  {/* Card Content */}
-                  <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                return (
+                  <div
+                    key={rev.id}
+                    data-review-card="true"
+                    className="flex-none w-[85vw] sm:w-[350px] lg:w-[380px] p-5 sm:p-6 rounded-2xl lg:rounded-3xl bg-white/[0.04] hover:bg-white/[0.07] border border-white/15 hover:border-white/30 shadow-2xl relative snap-center select-none transition-all duration-300 flex flex-col justify-between"
+                  >
                     <div>
-                      {/* Rating Stars & Integrated Date */}
-                      <div className="flex items-center justify-between gap-2 mb-2.5">
-                        <div className="flex items-center gap-1 text-amber-400">
-                          {[...Array(rev.rating)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                          ))}
+                      {/* Top Header: Avatar + Buyer Name + Verified Badge on left, Stars + Date on right */}
+                      <div className="flex items-start justify-between gap-3 mb-3.5">
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div 
+                            className="w-10 h-10 rounded-full bg-gradient-to-br from-white/20 via-white/10 to-white/5 border border-white/20 flex items-center justify-center font-display font-bold text-bone text-sm shadow-inner shrink-0"
+                            aria-hidden="true"
+                          >
+                            {initials}
+                          </div>
+                          <div className="min-w-0">
+                            <div className="font-sans font-bold text-sm sm:text-base text-bone truncate">
+                              {rev.name}
+                            </div>
+                            <div className="inline-flex items-center gap-1 text-[11px] font-sans font-medium text-emerald-400 mt-0.5">
+                              <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                              <span>{rev.location}</span>
+                            </div>
+                          </div>
                         </div>
-                        <span className="text-[11px] font-sans text-bone/55 tracking-tight">
-                          {rev.date}
-                        </span>
+
+                        <div className="flex flex-col items-end gap-1 shrink-0">
+                          <div className="flex items-center gap-0.5 text-amber-400" aria-label={`Calificación: ${rev.rating} de 5 estrellas`}>
+                            {[...Array(rev.rating)].map((_, i) => (
+                              <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                            ))}
+                          </div>
+                          <span className="text-[11px] font-sans text-bone/50 tracking-tight">
+                            {rev.date}
+                          </span>
+                        </div>
                       </div>
+
+                      {/* Benefit Tag */}
+                      {rev.highlightBenefit && (
+                        <div className="mb-3">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300 text-[11px] font-medium tracking-wide">
+                            <span className="text-[10px]">★</span>
+                            <span>{rev.highlightBenefit}</span>
+                          </span>
+                        </div>
+                      )}
 
                       {/* Bold Headline */}
                       <h3 className="font-display font-bold text-base sm:text-lg text-bone leading-snug tracking-tight mb-2">
@@ -617,31 +642,19 @@ export const SocialProofSection: React.FC = () => {
                       </h3>
 
                       {/* Review Paragraph */}
-                      <p className="font-sans text-xs sm:text-[13px] text-bone/80 leading-relaxed line-clamp-6">
+                      <p className="font-sans text-xs sm:text-[13px] text-bone/80 leading-relaxed">
                         {rev.text}
                       </p>
                     </div>
 
-                    {/* Author & Verification Footer */}
-                    <div className="mt-4 pt-3.5 border-t border-white/10 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="font-sans font-bold text-xs sm:text-sm text-bone">
-                          {rev.name}
-                        </span>
-                        <span className="inline-flex items-center gap-1 text-[11px] font-sans font-medium text-emerald-400">
-                          <CheckCircle2 className="w-3 h-3 shrink-0" />
-                          {rev.location}
-                        </span>
-                      </div>
-
-                      <span className="text-[10px] text-bone/50 font-sans text-right">
-                        {rev.productVariant}
-                      </span>
+                    {/* Author & Variant Footer */}
+                    <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between text-[11px] font-sans">
+                      <span className="text-bone/45">Variante adquirida:</span>
+                      <span className="text-bone/80 font-medium">{rev.productVariant}</span>
                     </div>
                   </div>
-
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
