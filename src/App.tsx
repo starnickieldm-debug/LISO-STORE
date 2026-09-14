@@ -41,14 +41,14 @@ const HomePage: React.FC = () => (
     {/* 04. Prueba social masiva: 9 videos UGC de uso cotidiano con audio */}
     <SocialProofSection />
 
-    {/* 05. Comparativa racional de valor: LISO frente a plancha tradicional y vaporizadores */}
+    {/* 05. PDP Oficial / Selector de color, cantidad, kit completo y Checkout Shopify */}
+    <OfferSection />
+
+    {/* 06. Comparativa racional de valor: LISO frente a plancha tradicional y vaporizadores */}
     <ComparisonSection />
 
-    {/* 06. Etiqueta de Honestidad: Lo que hace de forma excelente vs. para lo que no está diseñada */}
+    {/* 07. Etiqueta de Honestidad: Lo que hace de forma excelente vs. para lo que no está diseñada */}
     <HonestyLabelSection />
-
-    {/* 07. PDP Oficial / Selector de color, cantidad, kit completo y Checkout Shopify */}
-    <OfferSection />
 
     {/* 09. Resolución de objeciones operativas y dudas finales */}
     <FAQSection />
