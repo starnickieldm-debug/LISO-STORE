@@ -472,11 +472,12 @@ export const SocialProofSection: React.FC = () => {
             <div 
               ref={videoScrollContainerRef}
               onScroll={handleVideoScroll}
-              className="flex gap-2.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3.5 sm:px-6 py-2 touch-pan-x"
+              className="flex gap-2.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3.5 sm:px-6 py-2 [touch-action:pan-y_pan-x]"
               style={{ 
                 WebkitOverflowScrolling: 'touch',
                 scrollbarWidth: 'none',
-                msOverflowStyle: 'none'
+                msOverflowStyle: 'none',
+                touchAction: 'pan-y pan-x'
               }}
             >
               {ugcItems.map((item) => {
@@ -488,6 +489,7 @@ export const SocialProofSection: React.FC = () => {
                     data-ugc-card="true"
                     data-ugc-id={item.id}
                     className="group/card flex-none w-[calc(50vw-22px)] sm:w-[220px] lg:w-[245px] xl:w-[265px] aspect-[9/16] rounded-2xl lg:rounded-3xl overflow-hidden bg-black/60 border border-white/15 hover:border-accent/40 shadow-xl relative snap-start sm:snap-center select-none transition-all duration-300"
+                    style={{ touchAction: 'pan-y pan-x' }}
                     role="region"
                     aria-label={item.alt}
                   >
@@ -506,7 +508,7 @@ export const SocialProofSection: React.FC = () => {
                       playsInline
                       preload="metadata"
                       disablePictureInPicture
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-[1.02]"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-[1.02] pointer-events-none"
                     />
 
                     {/* Audio Toggle Button in bottom-right (Liquid+ style) */}
@@ -573,11 +575,12 @@ export const SocialProofSection: React.FC = () => {
             <div 
               ref={reviewsScrollContainerRef}
               onScroll={handleReviewsScroll}
-              className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3 sm:px-6 py-2 touch-pan-x"
+              className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3 sm:px-6 py-2 [touch-action:pan-y_pan-x]"
               style={{ 
                 WebkitOverflowScrolling: 'touch',
                 scrollbarWidth: 'none',
-                msOverflowStyle: 'none'
+                msOverflowStyle: 'none',
+                touchAction: 'pan-y pan-x'
               }}
             >
               {writtenReviews.map((rev) => {
