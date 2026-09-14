@@ -234,7 +234,7 @@ export const VisualProofSection: React.FC = () => {
           <div 
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex gap-3.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3 sm:px-6 py-2 touch-pan-x"
+            className="flex gap-2.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3 sm:px-6 py-2 touch-pan-x"
             style={{ 
               WebkitOverflowScrolling: 'touch',
               scrollbarWidth: 'none',
@@ -246,7 +246,7 @@ export const VisualProofSection: React.FC = () => {
                 key={clip.id}
                 data-demo-card="true"
                 data-clip-id={clip.id}
-                className="group/card flex-none w-[70vw] sm:w-[230px] lg:w-[255px] xl:w-[275px] aspect-[9/16] rounded-2xl lg:rounded-3xl overflow-hidden bg-black/60 border border-white/15 hover:border-accent/40 shadow-xl relative snap-center select-none transition-all duration-300"
+                className="group/card flex-none w-[calc(50vw-22px)] sm:w-[220px] lg:w-[245px] xl:w-[265px] aspect-[9/16] rounded-2xl lg:rounded-3xl overflow-hidden bg-black/60 border border-white/15 hover:border-accent/40 shadow-xl relative snap-start sm:snap-center select-none transition-all duration-300"
                 role="region"
                 aria-label={clip.alt}
               >

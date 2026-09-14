@@ -440,27 +440,27 @@ export const SocialProofSection: React.FC = () => {
             ========================================================= */}
         {activeTab === 'videos' && (
           <div className="relative group/carousel animate-fadeIn">
-            {/* Left Arrow (visible on mobile and desktop) */}
+            {/* Left Arrow (visible on desktop/tablet) */}
             {canScrollLeftVideos && (
               <button
                 type="button"
                 onClick={() => scrollVideosByDirection('left')}
                 aria-label="Ver videos anteriores"
-                className="flex absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
+                className="hidden sm:flex absolute left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-11 lg:w-12 h-11 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
               >
-                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
               </button>
             )}
 
-            {/* Right Arrow (visible on mobile and desktop) */}
+            {/* Right Arrow (visible on desktop/tablet) */}
             {canScrollRightVideos && (
               <button
                 type="button"
                 onClick={() => scrollVideosByDirection('right')}
                 aria-label="Ver siguientes videos"
-                className="flex absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
+                className="hidden sm:flex absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-11 lg:w-12 h-11 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
               >
-                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
               </button>
             )}
 
@@ -472,7 +472,7 @@ export const SocialProofSection: React.FC = () => {
             <div 
               ref={videoScrollContainerRef}
               onScroll={handleVideoScroll}
-              className="flex gap-3.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3 sm:px-6 py-2 touch-pan-x"
+              className="flex gap-2.5 sm:gap-4 lg:gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-none no-scrollbar px-3.5 sm:px-6 py-2 touch-pan-x"
               style={{ 
                 WebkitOverflowScrolling: 'touch',
                 scrollbarWidth: 'none',
@@ -487,7 +487,7 @@ export const SocialProofSection: React.FC = () => {
                     key={item.id}
                     data-ugc-card="true"
                     data-ugc-id={item.id}
-                    className="group/card flex-none w-[70vw] sm:w-[230px] lg:w-[255px] xl:w-[275px] aspect-[9/16] rounded-2xl lg:rounded-3xl overflow-hidden bg-black/60 border border-white/15 hover:border-accent/40 shadow-xl relative snap-center select-none transition-all duration-300"
+                    className="group/card flex-none w-[calc(50vw-22px)] sm:w-[220px] lg:w-[245px] xl:w-[265px] aspect-[9/16] rounded-2xl lg:rounded-3xl overflow-hidden bg-black/60 border border-white/15 hover:border-accent/40 shadow-xl relative snap-start sm:snap-center select-none transition-all duration-300"
                     role="region"
                     aria-label={item.alt}
                   >
@@ -509,12 +509,12 @@ export const SocialProofSection: React.FC = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-[1.02]"
                     />
 
-                    {/* Audio Toggle Button in top-right */}
-                    <div className="absolute top-3 right-3 z-30 pointer-events-auto">
+                    {/* Audio Toggle Button in bottom-right (Liquid+ style) */}
+                    <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 z-30 pointer-events-auto">
                       <button
                         type="button"
                         onClick={(e) => toggleAudio(item.id, e)}
-                        className={`p-2 sm:p-2.5 rounded-full backdrop-blur-md transition-all duration-200 border flex items-center justify-center ${
+                        className={`p-1.5 sm:p-2.5 rounded-full backdrop-blur-md transition-all duration-200 border flex items-center justify-center ${
                           isAudioActive 
                             ? 'bg-accent text-white border-accent shadow-[0_0_16px_rgba(180,36,124,0.7)] scale-105 ring-2 ring-white/30' 
                             : 'bg-black/60 text-bone/85 border-white/25 hover:bg-black/90 hover:text-white hover:border-white/50'
@@ -523,9 +523,9 @@ export const SocialProofSection: React.FC = () => {
                         title={isAudioActive ? 'Silenciar audio' : 'Activar sonido'}
                       >
                         {isAudioActive ? (
-                          <Volume2 className="w-4 h-4" />
+                          <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                         ) : (
-                          <VolumeX className="w-4 h-4 opacity-75" />
+                          <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-75" />
                         )}
                       </button>
                     </div>
@@ -541,27 +541,27 @@ export const SocialProofSection: React.FC = () => {
             ========================================================= */}
         {activeTab === 'reviews' && (
           <div className="relative group/reviews animate-fadeIn">
-            {/* Left Arrow (visible on mobile and desktop) */}
+            {/* Left Arrow (visible on desktop/tablet) */}
             {canScrollLeftReviews && (
               <button
                 type="button"
                 onClick={() => scrollReviewsByDirection('left')}
                 aria-label="Ver opiniones anteriores"
-                className="flex absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
+                className="hidden sm:flex absolute left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-11 lg:w-12 h-11 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
               >
-                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
               </button>
             )}
 
-            {/* Right Arrow (visible on mobile and desktop) */}
+            {/* Right Arrow (visible on desktop/tablet) */}
             {canScrollRightReviews && (
               <button
                 type="button"
                 onClick={() => scrollReviewsByDirection('right')}
                 aria-label="Ver siguientes opiniones"
-                className="flex absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
+                className="hidden sm:flex absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-11 lg:w-12 h-11 lg:h-12 rounded-full bg-black/80 hover:bg-black border border-white/25 text-white shadow-2xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 backdrop-blur-md cursor-pointer"
               >
-                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
               </button>
             )}
 
