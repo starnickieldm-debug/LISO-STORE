@@ -88,13 +88,13 @@ export const priceTransparencyConfig: PriceTransparencyData = {
     },
     {
       id: "ref-3",
-      storeName: "COMERCIO DE REFERENCIA 3",
+      storeName: "AliExpress",
       screenshotPlaceholder: "[REFERENCE_STORE_SCREENSHOT_3]",
-      screenshotUrl: "",
+      screenshotUrl: "/images/referencia-aliexpress.png",
       pricePlaceholder: "[REFERENCE_PRICE_3]",
-      publishedPrice: "$XXX.XXX",
-      referenceUrl: "[REFERENCE_URL_3]",
-      ctaLabel: "Ver publicación de referencia"
+      publishedPrice: "$190.142",
+      referenceUrl: "https://es.aliexpress.com/item/1005012599300369.html?spm=a2g0o.imagesearchproductlist.main.1.3e30tOkStOkSPp&algo_pvid=9fd0f1a1-3cc0-436d-b365-4c560b7aafce&algo_exp_id=9fd0f1a1-3cc0-436d-b365-4c560b7aafce&pdp_ext_f=%7B%22order%22%3A%22115%22%2C%22fromPage%22%3A%22search%22%7D&pdp_npi=6%40dis%21COP%21428635.02%21190142.00%21%21%21902.53%21400.36%21%402103117b17896711403503632e0d0b%2112000058779419936%21sea%21CO%210%21ABX%211%210%21n_tag%3A-29910%3Bd%3A4ae5f3dc%3Bm03_new_user%3A-29895%3BpisId%3A5000000217421364&curPageLogUid=HNgVFSz300yI&utparam-url=scene%3Aimage_search%7Cquery_from%3Apc_web_image_search%7Cx_object_id%3A1005012599300369%7C_p_origin_prod%3A",
+      ctaLabel: "Ver publicación en AliExpress"
     }
   ],
 
