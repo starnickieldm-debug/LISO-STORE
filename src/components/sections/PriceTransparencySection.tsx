@@ -6,7 +6,6 @@ import { ExternalLink, Clock, ShieldCheck, Info, ArrowUpRight, CheckCircle2 } fr
 export const PriceTransparencySection: React.FC = () => {
   const {
     sectionId,
-    eyebrow,
     title,
     subtitle,
     referenceStores,
@@ -37,9 +36,6 @@ export const PriceTransparencySection: React.FC = () => {
             ========================================================================= */}
         <Reveal direction="up" duration={600}>
           <div className="max-w-3xl mb-8 sm:mb-12">
-            <span className="text-xs sm:text-sm font-sans font-bold tracking-widest uppercase text-accent block mb-2">
-              {eyebrow}
-            </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-graphite tracking-tight leading-[1.12]">
               {title}
             </h2>
