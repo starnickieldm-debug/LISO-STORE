@@ -48,11 +48,11 @@ const HomePage: React.FC = () => (
     {/* 06. Comparativa racional de valor: LISO frente a plancha tradicional y vaporizadores */}
     <ComparisonSection />
 
-    {/* 06b. Transparencia de precios: Compara antes de comprar y verificación de modelo */}
-    <PriceTransparencySection />
-
     {/* 07. Etiqueta de Honestidad: Lo que hace de forma excelente vs. para lo que no está diseñada */}
     <HonestyLabelSection />
+
+    {/* 08. Transparencia de precios: Compara antes de comprar y verificación de mercado */}
+    <PriceTransparencySection />
 
     {/* 09. Resolución de objeciones operativas y dudas finales */}
     <FAQSection />
