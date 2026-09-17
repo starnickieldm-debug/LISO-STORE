@@ -78,13 +78,13 @@ export const priceTransparencyConfig: PriceTransparencyData = {
     },
     {
       id: "ref-2",
-      storeName: "COMERCIO DE REFERENCIA 2",
+      storeName: "Mercado Libre Colombia",
       screenshotPlaceholder: "[REFERENCE_STORE_SCREENSHOT_2]",
-      screenshotUrl: "",
+      screenshotUrl: "/images/referencia-mercadolibre.png",
       pricePlaceholder: "[REFERENCE_PRICE_2]",
-      publishedPrice: "$XXX.XXX",
-      referenceUrl: "[REFERENCE_URL_2]",
-      ctaLabel: "Ver publicación de referencia"
+      publishedPrice: "$231.600",
+      referenceUrl: "https://www.mercadolibre.com.co/vaporizador-de-ropa-2-en-1-ultra-rapido-1200w/up/MCOU3936323982",
+      ctaLabel: "Ver publicación en Mercado Libre"
     },
     {
       id: "ref-3",
