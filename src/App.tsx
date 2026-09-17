@@ -13,6 +13,7 @@ import { VisualProofSection } from './components/sections/VisualProofSection';
 import { ThreeGesturesSection } from './components/sections/ThreeGesturesSection';
 import { SocialProofSection } from './components/sections/SocialProofSection';
 import { ComparisonSection } from './components/sections/ComparisonSection';
+import { PriceTransparencySection } from './components/sections/PriceTransparencySection';
 import { HonestyLabelSection } from './components/sections/HonestyLabelSection';
 import { OfferSection } from './components/sections/OfferSection';
 import { FAQSection } from './components/sections/FAQSection';
@@ -46,6 +47,9 @@ const HomePage: React.FC = () => (
 
     {/* 06. Comparativa racional de valor: LISO frente a plancha tradicional y vaporizadores */}
     <ComparisonSection />
+
+    {/* 06b. Transparencia de precios: Compara antes de comprar y verificación de modelo */}
+    <PriceTransparencySection />
 
     {/* 07. Etiqueta de Honestidad: Lo que hace de forma excelente vs. para lo que no está diseñada */}
     <HonestyLabelSection />
