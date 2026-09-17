@@ -15,7 +15,7 @@ export const HeroSection: React.FC = () => {
 
   const discountPercent = currentMarket.compareAtPrice
     ? Math.round(((currentMarket.compareAtPrice - currentMarket.price) / currentMarket.compareAtPrice) * 100)
-    : 33;
+    : 47;
 
   useEffect(() => {
     const raf = requestAnimationFrame(() => setLoaded(true));

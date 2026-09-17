@@ -45,7 +45,7 @@ export const OfferSection: React.FC = () => {
   const formattedSavings = `$${totalSavings.toLocaleString('es-CO')}`;
   const discountPercent = unitCompareAtPrice
     ? Math.round(((unitCompareAtPrice - unitPrice) / unitCompareAtPrice) * 100)
-    : 33;
+    : 47;
 
   // Resumen dinámico de colores seleccionados
   const colorCounts = unitColors.reduce<Record<string, number>>((acc, color) => {

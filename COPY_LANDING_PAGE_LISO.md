@@ -2,7 +2,7 @@
 
 > **Versión Oficial:** Septiembre de 2026  
 > **Producto:** Plancha de vapor portátil LISO (1200 W · Cabezal giratorio 90° · Placa cerámica 150 °C)  
-> **Oferta:** $199.900 COP (Antes: $300.000 COP · 33% OFF) · Envío gratis a toda Colombia  
+> **Oferta:** $159.900 COP (Antes: $300.000 COP · 47% OFF) · Envío gratis a toda Colombia  
 > **Tiempo de Entrega:** 15 a 20 días hábiles con guía de rastreo  
 > **Garantía:** 30 días calendario amparada por la Ley 1480 de 2011  
 > **Titularidad Legal:** Blanca Astrid Melo Castañeda · NIT/RUT: 52056602-4 · Ibagué, Colombia  
@@ -41,8 +41,8 @@
 
 ### Bloque de Precio y Ahorro
 - **Precio Anterior:** Antes: ~~$300.000 COP~~
-- **Badge de Descuento:** `AHORRA $100.100 (33% OFF)`
-- **Precio Actual:** **$199.900 COP**
+- **Badge de Descuento:** `AHORRA $140.100 (47% OFF)`
+- **Precio Actual:** **$159.900 COP**
 - **Condición de Envío:** `Precio final · Envío gratis a toda Colombia incluido`
 
 ### Micro-Pilares de Desempeño
@@ -51,7 +51,7 @@
 - **90°:** Cabezal giratorio para pasar de gancho a solapas en 1 clic.
 
 ### Botón de Conversión (CTA Principal)
-`Pedir LISO ahora — $199.900 COP`
+`Pedir LISO ahora — $159.900 COP`
 
 ### Micro-Badges de Tranquilidad (Debajo del CTA)
 - `🚚 Envío gratis · Entrega estimada: 15–20 días hábiles con guía`
@@ -163,7 +163,7 @@
 - **96%:** La lleva fija en su maleta de viaje o bolso de mano.
 
 ### Botón de Sección
-`Pide la tuya — $199.900 COP`
+`Pide la tuya — $159.900 COP`
 
 ---
 
@@ -175,7 +175,7 @@
 
 ### Precios Dinámicos
 - **Antes:** ~~$300.000 COP~~
-- **Ahora:** **$199.900 COP** (Ahorra $100.100 · 33% OFF)
+- **Ahora:** **$159.900 COP** (Ahorra $140.100 · 47% OFF)
 - **Condición:** Precio final · Envío gratis incluido a toda Colombia
 
 ### Selector de Color y Voltaje
@@ -188,7 +188,7 @@
 - Modo combinación de colores disponible si se eligen 2 o más unidades
 
 ### Botón de Pago Principal (CTA)
-`Pedir LISO en [Color] — $199.900 COP`
+`Pedir LISO en [Color] — $159.900 COP`
 
 ### Microcopy Legal Pre-Checkout
 *Al continuar aceptas nuestros Términos y Privacidad. Compra protegida con garantía legal de 30 días.*
@@ -257,7 +257,7 @@
 | **Caso de uso ideal** | Tandas gigantes de ropa semanal (domingos) | Arrugas muy leves sin exigencia | **La ropa del día a día lista en 2–3 minutos** |
 
 ### Botón de Sección
-`Pide la tuya – $199.900 COP`
+`Pide la tuya – $159.900 COP`
 
 ---
 
@@ -290,14 +290,14 @@
 1. **¿Reemplaza mi plancha tradicional grande?**  
    *No pretendemos reemplazarla para el domingo de lavandería cuando tienes 30 prendas amontonadas. LISO está pensada para el día a día: para la ropa que te vas a poner hoy antes de salir, directamente en el gancho y en 3 minutos sin armar la tabla.*
 
-2. **¿Por qué cuesta $199.900 si hay vaporizadores de $60.000?**  
+2. **¿Por qué cuesta $159.900 si hay vaporizadores de $60.000?**  
    *Los vaporizadores económicos de $60.000 tienen resistencias plásticas de 600 W que solo hierven agua, escupen gotas calientes y no alisan arrugas de verdad. LISO entrega 1200 W reales con placa cerámica a 150 °C, bomba presurizada 100% antigoteo y pantalla digital con materiales de alta durabilidad.*
 
 3. **¿Cómo sé que mi compra es segura y que mi plancha realmente llegará a mi casa?**  
    *Tu compra cuenta con tres capas de seguridad y respaldo real: 1) Pagos blindados: Se procesan a través de la infraestructura oficial de Shopify y pasarelas bancarias certificadas en Colombia (PSE, Tarjetas de crédito/débito, Nequi, Daviplata). Tu dinero nunca va a cuentas personales anónimas. 2) Trazabilidad garantizada: Recibes de inmediato tu confirmación con número de orden oficial y un segundo correo con tu número de guía de transportadora para seguir el paquete en vivo. 3) Comercio formal en Colombia: LISO está registrada a nombre de Blanca Astrid Melo Castañeda (NIT 52056602-4, Ibagué), sujeta a la vigilancia de la Superintendencia de Industria y Comercio (SIC), con amparo de la Ley 1480 de 2011 y derecho a reversión de pago según el Decreto 587 de 2016.*
 
 4. **¿Tienen opción de pago contra entrega?**  
-   *Actualmente no manejamos pago contra entrega. LISO despacha directamente desde fábrica sin bodegajes redundantes para eliminar costos de intermediarios y sostener el precio preferencial de $199.900 con envío gratis a toda Colombia. Para tu total tranquilidad, los pagos electrónicos por adelantado están amparados por el sistema bancario y la legislación colombiana (Ley 1480 de 2011 y Decreto 587 de 2016 de reversión ante entidades bancarias), además de contar con 30 días de garantía legal directa y atención formal vía radicación PQR.*
+   *Actualmente no manejamos pago contra entrega. LISO despacha directamente desde fábrica sin bodegajes redundantes para eliminar costos de intermediarios y sostener el precio preferencial de $159.900 con envío gratis a toda Colombia. Para tu total tranquilidad, los pagos electrónicos por adelantado están amparados por el sistema bancario y la legislación colombiana (Ley 1480 de 2011 y Decreto 587 de 2016 de reversión ante entidades bancarias), además de contar con 30 días de garantía legal directa y atención formal vía radicación PQR.*
 
 5. **¿Gotea o moja la ropa al usarla?**  
    *No gotea ni moja tus prendas. Su bomba electrónica presurizada y la cámara térmica a 150 °C convierten el agua en vapor seco continuo, evitando salpicaduras y manchas de agua antes de salir.*
@@ -349,14 +349,14 @@
 - `💳 Pagos 100% seguros (PSE, Tarjetas, Nequi, Daviplata)`
 
 ### Botón de Conversión de Cierre
-`Pide tu LISO ahora — $199.900 COP`
+`Pide tu LISO ahora — $159.900 COP`
 
 ---
 
 ## SECCIÓN 10: BARRA FIJA MÓVIL (STICKY BUY BAR) Y FOOTER
 
 ### Barra Fija Inferior en Móvil
-- **Precio:** `$199.900`
+- **Precio:** `$159.900`
 - **Etiqueta:** `Envío gratis · 15–20 días hábiles`
 - **Botón de Compra:** `PEDIR LISO` (Desplaza inmediatamente a `#oferta`)
 
