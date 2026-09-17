@@ -59,7 +59,7 @@ export const priceTransparencyConfig: PriceTransparencyData = {
   product: {
     modelLabel: "Modelo",
     modelCode: "SUHO ASG 00009-A8",
-    alternativeVariantsNote: "Configuración preparada también para la serie A5",
+    alternativeVariantsNote: "Comercializado también bajo ref. YD-001 / serie A5 / A8 según distribuidor",
     imagePlaceholder: "[PRODUCT_IMAGE_PLACEHOLDER]",
     imageUrl: "", // Si se añade imagen propia, colocar ruta aquí (ej. '/images/product-model.webp')
     specSummary: "Plancha de vapor portátil giratoria 90° con suela cerámica (1200 W)"
@@ -68,13 +68,13 @@ export const priceTransparencyConfig: PriceTransparencyData = {
   referenceStores: [
     {
       id: "ref-1",
-      storeName: "COMERCIO DE REFERENCIA 1",
+      storeName: "Homecenter Colombia",
       screenshotPlaceholder: "[REFERENCE_STORE_SCREENSHOT_1]",
-      screenshotUrl: "",
+      screenshotUrl: "/images/referencia-homecenter.png",
       pricePlaceholder: "[REFERENCE_PRICE_1]",
-      publishedPrice: "$239.000",
-      referenceUrl: "[REFERENCE_URL_1]",
-      ctaLabel: "Ver publicación de referencia"
+      publishedPrice: "$239.900",
+      referenceUrl: "https://www.homecenter.com.co/homecenter-co/product/3096000/plancha-a-vapor-btobtyd-1200w-2-en-1-de-viaje-cabezal-giratorio-90-grados-b0gjdwz4ds/3096000/?kid=shopp_goosho_1430598&shop=1&gad_source=4&gad_campaignid=22296499605&gbraid=0AAAAADt6wnqW_QS91a2HP4xd859L5j6qG&gclid=CjwKCAjwn67VBhBnEiwAXUIN1e9-meFZ29sd5xkFnjXQS2Z2YpisBFpA-Az15B2NXWqqv8vISXQ2ChoCFNoQAvD_BwE",
+      ctaLabel: "Ver publicación en Homecenter"
     },
     {
       id: "ref-2",

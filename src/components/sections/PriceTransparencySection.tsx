@@ -127,16 +127,39 @@ export const PriceTransparencySection: React.FC = () => {
                       </div>
 
                       {/* Contenedor de Captura / Placeholder Screenshot */}
-                      <div className="aspect-[16/10] w-full rounded-xl overflow-hidden border border-dashed border-graphite/20 bg-[#FAF8F5] flex flex-col items-center justify-center p-3 text-center relative group">
+                      <div className="aspect-[16/10] w-full rounded-xl overflow-hidden border border-graphite/15 bg-white flex flex-col items-center justify-center p-1 text-center relative group">
                         {store.screenshotUrl ? (
-                          <img
-                            src={store.screenshotUrl}
-                            alt={`Captura de ${store.storeName}`}
-                            className="w-full h-full object-cover rounded-lg"
-                            loading="lazy"
-                          />
+                          isRealUrl ? (
+                            <a
+                              href={store.referenceUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full h-full block relative overflow-hidden group/img cursor-pointer"
+                              title={`Abrir publicación en ${store.storeName}`}
+                            >
+                              <img
+                                src={store.screenshotUrl}
+                                alt={`Captura de ${store.storeName}`}
+                                className="w-full h-full object-contain rounded-lg group-hover/img:scale-102 transition-transform duration-300"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-graphite/0 group-hover/img:bg-graphite/15 transition-colors flex items-center justify-center pointer-events-none">
+                                <span className="opacity-0 group-hover/img:opacity-100 transition-opacity bg-night-950/85 text-white text-[11px] font-sans px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                                  <span>Ver en {store.storeName}</span>
+                                  <ExternalLink className="w-3 h-3" />
+                                </span>
+                              </div>
+                            </a>
+                          ) : (
+                            <img
+                              src={store.screenshotUrl}
+                              alt={`Captura de ${store.storeName}`}
+                              className="w-full h-full object-contain rounded-lg"
+                              loading="lazy"
+                            />
+                          )
                         ) : (
-                          <div className="space-y-1">
+                          <div className="space-y-1 p-3">
                             <span className="font-mono text-[11px] font-semibold text-graphite/60 block bg-white/80 px-2 py-1 rounded border border-graphite/10">
                               {store.screenshotPlaceholder}
                             </span>
@@ -165,10 +188,10 @@ export const PriceTransparencySection: React.FC = () => {
                           href={store.referenceUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full py-2.5 px-3 rounded-lg bg-graphite/5 hover:bg-graphite/10 text-graphite font-medium text-xs tracking-wide flex items-center justify-center gap-1.5 transition-colors"
+                          className="w-full py-2.5 px-3 rounded-lg bg-accent hover:bg-accent-hover text-white font-semibold text-xs tracking-wide flex items-center justify-center gap-1.5 transition-colors shadow-sm"
                         >
                           <span>{store.ctaLabel}</span>
-                          <ExternalLink className="w-3.5 h-3.5 text-graphite/60" />
+                          <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       ) : (
                         <div
@@ -294,16 +317,30 @@ export const PriceTransparencySection: React.FC = () => {
               </p>
             </div>
 
-            {/* Botones de inspección rápida de placeholders */}
+            {/* Botones de inspección rápida de referencias */}
             <div className="flex flex-wrap items-center gap-2">
-              {referenceStores.map((store, i) => (
-                <span
-                  key={store.id}
-                  className="font-mono text-[11px] px-2.5 py-1 rounded bg-graphite/5 border border-graphite/10 text-graphite/70"
-                >
-                  Ref {i + 1}: {store.pricePlaceholder || store.publishedPrice}
-                </span>
-              ))}
+              {referenceStores.map((store, i) => {
+                const isReal = store.referenceUrl.startsWith('http');
+                return isReal ? (
+                  <a
+                    key={store.id}
+                    href={store.referenceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-sans text-xs px-3 py-1.5 rounded-lg bg-accent/10 hover:bg-accent/20 border border-accent/30 text-accent font-semibold transition-colors"
+                  >
+                    <span>{store.storeName} ({store.publishedPrice})</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                ) : (
+                  <span
+                    key={store.id}
+                    className="font-mono text-[11px] px-2.5 py-1 rounded bg-graphite/5 border border-graphite/10 text-graphite/70"
+                  >
+                    Ref {i + 1}: {store.pricePlaceholder || store.publishedPrice}
+                  </span>
+                );
+              })}
             </div>
           </div>
         </Reveal>
