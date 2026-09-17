@@ -1,7 +1,7 @@
 import React from 'react';
 import { priceTransparencyConfig } from '../../config/priceTransparency';
 import { Reveal } from '../ui/Reveal';
-import { ExternalLink, Clock, ShieldCheck, Tag, Info, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, Clock, ShieldCheck, Info, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export const PriceTransparencySection: React.FC = () => {
   const {
@@ -9,7 +9,6 @@ export const PriceTransparencySection: React.FC = () => {
     eyebrow,
     title,
     subtitle,
-    product,
     referenceStores,
     ourOffer,
     operationalContext,
@@ -51,61 +50,7 @@ export const PriceTransparencySection: React.FC = () => {
         </Reveal>
 
         {/* =========================================================================
-            2. IDENTIFICACIÓN CLARA DEL PRODUCTO / MODELO
-            ========================================================================= */}
-        <Reveal direction="up" duration={650}>
-          <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-[#FAF8F5] border border-graphite/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="flex items-start sm:items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0 text-accent">
-                <Tag className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-mono uppercase tracking-wider text-graphite/60 font-semibold">
-                    {product.modelLabel}:
-                  </span>
-                  <span className="font-mono text-sm sm:text-base font-bold text-graphite bg-white px-2.5 py-0.5 rounded-md border border-graphite/10 shadow-subtle">
-                    {product.modelCode}
-                  </span>
-                  {product.alternativeVariantsNote && (
-                    <span className="text-[11px] font-sans text-graphite/50 bg-graphite/5 px-2 py-0.5 rounded">
-                      {product.alternativeVariantsNote}
-                    </span>
-                  )}
-                </div>
-                <p className="text-xs sm:text-sm font-sans text-graphite/70 mt-1">
-                  {product.specSummary}
-                </p>
-              </div>
-            </div>
-
-            {/* Placeholder / Contenedor para imagen propia del producto */}
-            <div className="flex items-center gap-2.5 self-start md:self-auto">
-              <div className="h-14 sm:h-16 px-4 rounded-xl border border-dashed border-graphite/25 bg-white flex items-center justify-center text-center shadow-subtle">
-                {product.imageUrl ? (
-                  <img
-                    src={product.imageUrl}
-                    alt={product.modelCode}
-                    className="h-full w-auto object-contain rounded-lg"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="flex flex-col items-center justify-center">
-                    <span className="font-mono text-[11px] font-bold text-graphite/60 tracking-wider">
-                      {product.imagePlaceholder}
-                    </span>
-                    <span className="text-[10px] text-graphite/40 font-sans">
-                      Fotografía del modelo
-                    </span>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* =========================================================================
-            3. COMPARATIVA VISUAL DE PRECIOS: COMERCIOS DE REFERENCIA
+            2. COMPARATIVA VISUAL DE PRECIOS: COMERCIOS DE REFERENCIA
             ========================================================================= */}
         <div className="space-y-6 sm:space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
