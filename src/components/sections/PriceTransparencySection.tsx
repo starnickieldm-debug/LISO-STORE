@@ -162,25 +162,41 @@ export const PriceTransparencySection: React.FC = () => {
               />
 
               <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div className="space-y-1.5">
+                <div className="space-y-1.5 max-w-md">
                   <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-accent/20 border border-accent/35 text-accent-light text-xs font-sans font-semibold uppercase tracking-wider">
                     <CheckCircle2 className="w-3.5 h-3.5 text-accent" />
                     <span>{ourOffer.label}</span>
                   </div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-bone">
+                  <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-bone">
                     Plancha de vapor LISO
                   </h3>
-                  <p className="text-xs sm:text-sm font-sans text-bone/70 max-w-xl">
+                  <p className="text-xs sm:text-sm font-sans text-bone/70 leading-relaxed">
                     {ourOffer.differenceNote}
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-baseline md:items-end gap-3 sm:gap-5 border-t md:border-t-0 border-white/10 pt-3 md:pt-0">
+                {/* Imagen con fondo transparente de la plancha LISO */}
+                <div className="shrink-0 flex items-center justify-center my-1 md:my-0">
+                  <div className="relative group">
+                    <div 
+                      className="absolute inset-0 bg-accent/20 rounded-full blur-xl scale-90 pointer-events-none" 
+                      aria-hidden="true" 
+                    />
+                    <img
+                      src="/images/liso-pure-cutout.webp"
+                      alt="Plancha de vapor portátil LISO"
+                      className="h-28 sm:h-32 lg:h-36 w-auto object-contain relative z-10 filter drop-shadow-[0_12px_28px_rgba(0,0,0,0.7)] drop-shadow-[0_0_16px_rgba(180,36,124,0.35)] hover:scale-105 transition-transform duration-500 ease-mech-s"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-baseline md:items-end gap-3 sm:gap-5 border-t md:border-t-0 border-white/10 pt-4 md:pt-0">
                   <div className="space-y-0.5">
                     <span className="text-xs font-sans text-bone/60 block">
                       Precio directo:
                     </span>
-                    <span className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold text-bone tracking-tight">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold text-bone tracking-tight leading-none">
                       {ourOffer.price}
                     </span>
                   </div>
